@@ -7,7 +7,7 @@
  */
 namespace config;
 
-//require_once __DIR__ . '/excel_reader2.php';
+
 require_once __DIR__ . '/util/file.php';
 
 class  ConfigManager{
@@ -28,62 +28,56 @@ class  ConfigManager{
         return self::$_instance;
     }
 
-    /*
-    public function Load_Exp_Excel($file){
-        $data = new Spreadsheet_Excel_Reader($file);
-        if($data==null || $data->colcount()!=3)
-        {
-            die();
-        }
-        for($i=0;$i<$data->rowcount();$i++){
-            if($i<3){
-                continue;
-            }
-            $exp=array(
-                "id"   => '',
-                "grade"   => '',
-                "exp" => '',
-             );
-            $j=0;
-            foreach($exp as $key=>$value){
-                $exp[$key]=$data->val($i,$j);
-                $j+=1;
-            }
-            $config_player_exp[$exp['id']]=$exp;
-        }
-        var_dump($this->config_player_exp);
-    }
-*/
-    public function Load_exp_config($file_path)
-    {
-        if (file_exists($file_path)) {
-            if ($fp = fopen($file_path, "r")) {
-                while(!feof($fp)){
-                    $line = fgets($fp);
-                    $data= explode('\t',$line);
-                    var_dump($data);
-                }
-            }else{
-                echo "文件不能打开";
-            }
-        }else{
-            echo "没有这个文件";
-        }
+    public function foo(&$v, $k, $kname) {
+
+        $v = array_combine($kname, array_slice($v, 0));
     }
 
+    public function Load_Exp_Config($file_path)
+    {
+        $cur=0;
+        $name=array('id','grade','exp');
+        if (file_exists($file_path)) {
+            if ($fp = fopen($file_path, "r")) {
+                while(!feof($fp)) {
+
+                    $line = fgets($fp);
+                    if ($cur < 3) {
+                        $cur++;
+                        continue;
+                    }
+                    $cur++;
+                    $data = explode(',', $line);
+                    $this->config_player_exp[$data[0]]=$data;
+
+                }
+
+                array_walk($this->config_player_exp, array($this,"foo"), $name);
+                var_dump($this->config_player_exp);
+            }else{
+                echo "open failded1\n";
+            }
+        }else{
+            echo "open failded2\n";
+        }
+    }
 
 
     public function Load_All_Config(){
-        $path="./Config/res/";
-        $this->Load_Exp_Excel($path."role_exp.txt");
+        $path= __DIR__."/Config/res/";
+        $this->Load_Exp_Config($path."role_exp.txt");
     }
 
     public function Get_Record_By_ID($type,$id){
         switch ($type)
         {
             case 'exp':
-                return  $this->config_player_exp['id'];
-
+                if(array_key_exists($id,$this->config_player_exp)){
+                    return  $this->config_player_exp['id'];
+                }
+                break;
+            default:
+                return null;
         }
     }
 }
