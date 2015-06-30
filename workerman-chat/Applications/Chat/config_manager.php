@@ -7,8 +7,8 @@
  */
 namespace config;
 
-require_once __DIR__ . '/excel_reader2.php';
-
+//require_once __DIR__ . '/excel_reader2.php';
+require_once __DIR__ . '/util/file.php';
 
 class  ConfigManager{
     private static $_instance;
@@ -28,6 +28,7 @@ class  ConfigManager{
         return self::$_instance;
     }
 
+    /*
     public function Load_Exp_Excel($file){
         $data = new Spreadsheet_Excel_Reader($file);
         if($data==null || $data->colcount()!=3)
@@ -52,10 +53,29 @@ class  ConfigManager{
         }
         var_dump($this->config_player_exp);
     }
+*/
+    public function Load_exp_config($file_path)
+    {
+        if (file_exists($file_path)) {
+            if ($fp = fopen($file_path, "r")) {
+                while(!feof($fp)){
+                    $line = fgets($fp);
+                    $data= explode('\t',$line);
+                    var_dump($data);
+                }
+            }else{
+                echo "文件不能打开";
+            }
+        }else{
+            echo "没有这个文件";
+        }
+    }
+
+
 
     public function Load_All_Config(){
         $path="./Config/res/";
-        $this->Load_Exp_Excel($path."role_exp.xls");
+        $this->Load_Exp_Excel($path."role_exp.txt");
     }
 
     public function Get_Record_By_ID($type,$id){
