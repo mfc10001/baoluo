@@ -1,0 +1,359 @@
+2015-06-27 14:26:31 Workerman[start.php] start in DEBUG mode
+2015-06-27 14:30:56 Workerman[start.php] Stopping ...
+2015-06-27 14:30:56 Workerman[start.php] has been stopped
+2015-06-27 15:19:22 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:21:50 client_id:15	client_ip:192.168.50.1
+exception 'Exception' with message '$_SESSION['room_id'] not set. client_ip:192.168.50.1' in /home/ll/myproc/workerman-chat/Applications/Chat/Event.php:80
+Stack trace:
+#0 /home/ll/myproc/workerman-chat/GatewayWorker/BusinessWorker.php(146): Event::onMessage(15, '{"type":"say","...')
+#1 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#2 /home/ll/myproc/workerman-chat/Workerman/Connection/TcpConnection.php(464): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #42)
+#4 /home/ll/myproc/workerman-chat/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
+#5 /home/ll/myproc/workerman-chat/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
+#6 /home/ll/myproc/workerman-chat/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
+#7 /home/ll/myproc/workerman-chat/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
+#8 /home/ll/myproc/workerman-chat/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
+#9 /home/ll/myproc/workerman-chat/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
+#10 /home/ll/myproc/workerman-chat/start.php(37): Workerman\Worker::runAll()
+#11 {main}
+2015-06-27 15:22:00 client_id:16	client_ip:192.168.50.1
+exception 'Exception' with message '$_SESSION['room_id'] not set. client_ip:192.168.50.1' in /home/ll/myproc/workerman-chat/Applications/Chat/Event.php:80
+Stack trace:
+#0 /home/ll/myproc/workerman-chat/GatewayWorker/BusinessWorker.php(146): Event::onMessage(16, '{"type":"say","...')
+#1 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#2 /home/ll/myproc/workerman-chat/Workerman/Connection/TcpConnection.php(464): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #41)
+#4 /home/ll/myproc/workerman-chat/Workerman/Events/Select.php(257): call_user_func_array(Array, Array)
+#5 /home/ll/myproc/workerman-chat/Workerman/Worker.php(1290): Workerman\Events\Select->loop()
+#6 /home/ll/myproc/workerman-chat/GatewayWorker/BusinessWorker.php(86): Workerman\Worker->run()
+#7 /home/ll/myproc/workerman-chat/Workerman/Worker.php(779): GatewayWorker\BusinessWorker->run()
+#8 /home/ll/myproc/workerman-chat/Workerman/Worker.php(748): Workerman\Worker::forkOneWorker(Object(GatewayWorker\BusinessWorker))
+#9 /home/ll/myproc/workerman-chat/Workerman/Worker.php(328): Workerman\Worker::forkWorkers()
+#10 /home/ll/myproc/workerman-chat/start.php(37): Workerman\Worker::runAll()
+#11 {main}
+2015-06-27 15:22:43 Workerman[start.php] Stopping ...
+2015-06-27 15:22:43 Workerman[start.php] has been stopped
+2015-06-27 15:22:44 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:23:48 Workerman[start.php] Stopping ...
+2015-06-27 15:23:48 Workerman[start.php] has been stopped
+2015-06-27 15:23:48 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:25:25 Workerman[start.php] Stopping ...
+2015-06-27 15:25:25 Workerman[start.php] has been stopped
+2015-06-27 15:25:26 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:34:29 Workerman[start.php] Stopping ...
+2015-06-27 15:34:29 Workerman[start.php] has been stopped
+2015-06-27 15:43:53 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:48:14 Workerman[start.php] Stopping ...
+2015-06-27 15:48:14 Workerman[start.php] has been stopped
+2015-06-27 15:48:16 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:48:26 WORKER EXIT UNEXPECTED E_ERROR Using $this when not in object context in /home/ll/myproc/workerman-chat/Applications/Chat/Event.php on line 84
+2015-06-27 15:48:26 worker[ChatBusinessWorker:6693] exit with status 65280
+2015-06-27 15:48:29 WORKER EXIT UNEXPECTED E_ERROR Using $this when not in object context in /home/ll/myproc/workerman-chat/Applications/Chat/Event.php on line 84
+2015-06-27 15:48:29 worker[ChatBusinessWorker:6696] exit with status 65280
+2015-06-27 15:49:45 Workerman[start.php] Stopping ...
+2015-06-27 15:49:45 Workerman[start.php] has been stopped
+2015-06-27 15:49:45 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:52:50 Workerman[start.php] Stopping ...
+2015-06-27 15:52:50 Workerman[start.php] has been stopped
+2015-06-27 15:52:51 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:53:25 Workerman[start.php] Stopping ...
+2015-06-27 15:53:25 Workerman[start.php] has been stopped
+2015-06-27 15:53:25 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:54:16 Workerman[start.php] Stopping ...
+2015-06-27 15:54:16 Workerman[start.php] has been stopped
+2015-06-27 15:54:17 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:55:08 Workerman[start.php] Stopping ...
+2015-06-27 15:55:08 Workerman[start.php] has been stopped
+2015-06-27 15:55:09 Workerman[start.php] start in DEBUG mode
+2015-06-27 15:55:40 Workerman[start.php] Stopping ...
+2015-06-27 15:55:40 Workerman[start.php] has been stopped
+2015-06-27 17:48:59 Workerman[start.php] start in DEBUG mode
+2015-06-27 17:52:36 Workerman[start.php] Stopping ...
+2015-06-27 17:52:36 Workerman[start.php] has been stopped
+2015-06-27 17:54:34 Workerman[start.php] start in DEBUG mode
+2015-06-27 18:15:16 Workerman[start.php] Stopping ...
+2015-06-27 18:15:17 Workerman[start.php] has been stopped
+2015-06-27 18:15:25 Workerman[start.php] start in DEBUG mode
+2015-06-29 09:32:28 Workerman[start.php] start in DEBUG mode
+2015-06-29 09:56:46 Workerman[start.php] Stopping ...
+2015-06-29 09:56:47 worker[WebServer:2940] exit with status 9
+2015-06-29 09:56:47 worker[ChatBusinessWorker:2931] exit with status 9
+2015-06-29 09:56:47 worker[ChatBusinessWorker:2932] exit with status 9
+2015-06-29 09:56:47 worker[ChatBusinessWorker:2933] exit with status 9
+2015-06-29 09:56:47 worker[ChatBusinessWorker:2934] exit with status 9
+2015-06-29 09:56:47 worker[ChatGateway:2935] exit with status 9
+2015-06-29 09:56:47 worker[ChatGateway:2936] exit with status 9
+2015-06-29 09:56:47 worker[ChatGateway:2937] exit with status 9
+2015-06-29 09:56:47 worker[ChatGateway:2938] exit with status 9
+2015-06-29 09:56:47 worker[WebServer:2939] exit with status 9
+2015-06-29 09:56:47 Workerman[start.php] has been stopped
+2015-06-29 09:57:10 Workerman[start.php] start in DEBUG mode
+2015-06-29 10:15:06 Workerman[start.php] Stopping ...
+2015-06-29 10:15:07 worker[WebServer:3966] exit with status 9
+2015-06-29 10:15:07 worker[ChatBusinessWorker:3957] exit with status 9
+2015-06-29 10:15:07 worker[ChatBusinessWorker:3958] exit with status 9
+2015-06-29 10:15:07 worker[ChatBusinessWorker:3959] exit with status 9
+2015-06-29 10:15:07 worker[ChatBusinessWorker:3960] exit with status 9
+2015-06-29 10:15:07 worker[ChatGateway:3961] exit with status 9
+2015-06-29 10:15:07 worker[ChatGateway:3962] exit with status 9
+2015-06-29 10:15:07 worker[ChatGateway:3963] exit with status 9
+2015-06-29 10:15:07 worker[ChatGateway:3964] exit with status 9
+2015-06-29 10:15:07 worker[WebServer:3965] exit with status 9
+2015-06-29 10:15:08 Workerman[start.php] has been stopped
+2015-06-29 10:52:53 Workerman[start.php] start in DEBUG mode
+2015-06-29 10:52:54 Workerman[start.php] Stopping ...
+2015-06-29 10:52:54 Workerman[start.php] has been stopped
+2015-06-29 12:00:14 Workerman[start.php] start in DEBUG mode
+2015-06-29 12:00:20 Workerman[start.php] Stopping ...
+2015-06-29 12:00:20 Workerman[start.php] has been stopped
+2015-06-29 12:09:36 Workerman[start.php] start in DEBUG mode
+2015-06-29 12:09:56 WORKER EXIT UNEXPECTED E_ERROR Class 'GamePlayer' not found in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 12:09:56 worker[ChatBusinessWorker:6322] exit with status 65280
+2015-06-29 12:10:06 WORKER EXIT UNEXPECTED E_ERROR Class 'GamePlayer' not found in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 12:10:06 worker[ChatBusinessWorker:6332] exit with status 65280
+2015-06-29 12:11:34 Workerman[start.php] Stopping ...
+2015-06-29 12:11:34 Workerman[start.php] has been stopped
+2015-06-29 14:11:22 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:12:49 Workerman[start.php] Stopping ...
+2015-06-29 14:12:49 Workerman[start.php] has been stopped
+2015-06-29 14:12:50 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:19:06 Workerman[start.php] Stopping ...
+2015-06-29 14:19:06 Workerman[start.php] has been stopped
+2015-06-29 14:19:07 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:21:14 Workerman[start.php] Stopping ...
+2015-06-29 14:21:14 Workerman[start.php] has been stopped
+2015-06-29 14:21:15 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:23:18 Workerman[start.php] Stopping ...
+2015-06-29 14:23:18 Workerman[start.php] has been stopped
+2015-06-29 14:23:19 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:26:08 Workerman[start.php] Stopping ...
+2015-06-29 14:26:08 Workerman[start.php] has been stopped
+2015-06-29 14:26:09 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:28:15 Workerman[start.php] Stopping ...
+2015-06-29 14:28:15 Workerman[start.php] has been stopped
+2015-06-29 14:28:16 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:29:37 Workerman[start.php] Stopping ...
+2015-06-29 14:29:37 Workerman[start.php] has been stopped
+2015-06-29 14:29:38 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:36:38 Workerman[start.php] Stopping ...
+2015-06-29 14:36:38 Workerman[start.php] has been stopped
+2015-06-29 14:36:38 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:38:31 Workerman[start.php] Stopping ...
+2015-06-29 14:38:31 Workerman[start.php] has been stopped
+2015-06-29 14:38:32 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:38:36 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required '..\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 14:38:36 worker[ChatBusinessWorker:5045] exit with status 65280
+2015-06-29 14:38:52 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required '..\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 14:38:52 worker[ChatBusinessWorker:5047] exit with status 65280
+2015-06-29 14:42:42 Workerman[start.php] Stopping ...
+2015-06-29 14:42:42 Workerman[start.php] has been stopped
+2015-06-29 14:42:42 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:42:47 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required 'WEB_ROOTApplications\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 14:42:47 worker[ChatBusinessWorker:5162] exit with status 65280
+2015-06-29 14:43:02 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required 'WEB_ROOTApplications\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 14:43:02 worker[ChatBusinessWorker:5159] exit with status 65280
+2015-06-29 14:54:25 Workerman[start.php] Stopping ...
+2015-06-29 14:54:25 Workerman[start.php] has been stopped
+2015-06-29 14:54:51 Workerman[start.php] start in DEBUG mode
+2015-06-29 14:54:54 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required 'WEB_ROOT.\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 14:54:54 worker[ChatBusinessWorker:5428] exit with status 65280
+2015-06-29 15:21:18 Workerman[start.php] Stopping ...
+2015-06-29 15:21:18 Workerman[start.php] has been stopped
+2015-06-29 15:21:19 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:21:23 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required 'WEB_ROOT.\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 15:21:23 worker[ChatBusinessWorker:6036] exit with status 65280
+2015-06-29 15:21:39 WORKER EXIT UNEXPECTED E_COMPILE_ERROR require(): Failed opening required 'WEB_ROOT.\GameCore\GamePlayer.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 52
+2015-06-29 15:21:39 worker[ChatBusinessWorker:6047] exit with status 65280
+2015-06-29 15:22:31 Workerman[start.php] Stopping ...
+2015-06-29 15:22:31 Workerman[start.php] has been stopped
+2015-06-29 15:22:31 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:23:51 Workerman[start.php] Stopping ...
+2015-06-29 15:23:51 Workerman[start.php] has been stopped
+2015-06-29 15:23:52 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:29:57 Workerman[start.php] Stopping ...
+2015-06-29 15:29:57 Workerman[start.php] has been stopped
+2015-06-29 15:29:58 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:32:46 Workerman[start.php] Stopping ...
+2015-06-29 15:32:46 Workerman[start.php] has been stopped
+2015-06-29 15:32:46 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:35:38 Workerman[start.php] Stopping ...
+2015-06-29 15:35:38 Workerman[start.php] has been stopped
+2015-06-29 15:35:39 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:35:45 WORKER EXIT UNEXPECTED E_ERROR Class 'GameDefine\PlayerAttribute' not found in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:35:45 worker[ChatBusinessWorker:6418] exit with status 65280
+2015-06-29 15:35:59 WORKER EXIT UNEXPECTED E_ERROR Class 'GameDefine\PlayerAttribute' not found in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:35:59 worker[ChatBusinessWorker:6419] exit with status 65280
+2015-06-29 15:37:32 Workerman[start.php] Stopping ...
+2015-06-29 15:37:32 Workerman[start.php] has been stopped
+2015-06-29 15:37:33 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:38:15 Workerman[start.php] Stopping ...
+2015-06-29 15:38:15 Workerman[start.php] has been stopped
+2015-06-29 15:38:16 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:38:22 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 58
+2015-06-29 15:38:22 worker[ChatBusinessWorker:6505] exit with status 65280
+2015-06-29 15:38:36 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 58
+2015-06-29 15:38:36 worker[ChatBusinessWorker:6504] exit with status 65280
+2015-06-29 15:41:12 Workerman[start.php] Stopping ...
+2015-06-29 15:41:12 Workerman[start.php] has been stopped
+2015-06-29 15:41:14 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:41:17 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 58
+2015-06-29 15:41:17 worker[ChatBusinessWorker:6584] exit with status 65280
+2015-06-29 15:43:02 Workerman[start.php] Stopping ...
+2015-06-29 15:43:02 Workerman[start.php] has been stopped
+2015-06-29 15:43:03 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:43:11 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 58
+2015-06-29 15:43:11 worker[ChatBusinessWorker:6633] exit with status 65280
+2015-06-29 15:44:23 Workerman[start.php] Stopping ...
+2015-06-29 15:44:23 Workerman[start.php] has been stopped
+2015-06-29 15:44:23 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:44:30 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 58
+2015-06-29 15:44:30 worker[ChatBusinessWorker:6675] exit with status 65280
+2015-06-29 15:45:14 Workerman[start.php] Stopping ...
+2015-06-29 15:45:14 Workerman[start.php] has been stopped
+2015-06-29 15:45:14 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:45:18 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:45:18 worker[ChatBusinessWorker:6708] exit with status 65280
+2015-06-29 15:46:55 Workerman[start.php] Stopping ...
+2015-06-29 15:46:55 Workerman[start.php] has been stopped
+2015-06-29 15:46:56 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:47:00 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:47:00 worker[ChatBusinessWorker:6753] exit with status 65280
+2015-06-29 15:47:15 Workerman[start.php] Stopping ...
+2015-06-29 15:47:15 Workerman[start.php] has been stopped
+2015-06-29 15:47:15 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:47:19 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:47:19 worker[ChatBusinessWorker:6776] exit with status 65280
+2015-06-29 15:47:55 Workerman[start.php] Stopping ...
+2015-06-29 15:47:55 Workerman[start.php] has been stopped
+2015-06-29 15:47:55 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:47:59 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:47:59 worker[ChatBusinessWorker:6799] exit with status 65280
+2015-06-29 15:50:36 Workerman[start.php] Stopping ...
+2015-06-29 15:50:36 Workerman[start.php] has been stopped
+2015-06-29 15:50:36 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:50:40 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:50:40 worker[ChatBusinessWorker:6863] exit with status 65280
+2015-06-29 15:52:07 Workerman[start.php] Stopping ...
+2015-06-29 15:52:07 Workerman[start.php] has been stopped
+2015-06-29 15:52:08 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:52:10 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:52:10 worker[ChatBusinessWorker:6907] exit with status 65280
+2015-06-29 15:52:54 Workerman[start.php] Stopping ...
+2015-06-29 15:52:54 Workerman[start.php] has been stopped
+2015-06-29 15:52:55 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:52:57 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 48
+2015-06-29 15:52:57 worker[ChatBusinessWorker:6936] exit with status 65280
+2015-06-29 15:54:06 Workerman[start.php] Stopping ...
+2015-06-29 15:54:06 Workerman[start.php] has been stopped
+2015-06-29 15:54:07 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:54:12 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 50
+2015-06-29 15:54:12 worker[ChatBusinessWorker:6975] exit with status 65280
+2015-06-29 15:54:58 Workerman[start.php] Stopping ...
+2015-06-29 15:54:58 Workerman[start.php] has been stopped
+2015-06-29 15:54:58 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:55:04 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 50
+2015-06-29 15:55:04 worker[ChatBusinessWorker:7011] exit with status 65280
+2015-06-29 15:56:35 Workerman[start.php] Stopping ...
+2015-06-29 15:56:35 Workerman[start.php] has been stopped
+2015-06-29 15:56:35 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:56:39 WORKER EXIT UNEXPECTED E_ERROR Access to undeclared static property: GameCore\GamePlayer::$id in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 50
+2015-06-29 15:56:39 worker[ChatBusinessWorker:7058] exit with status 65280
+2015-06-29 15:57:56 Workerman[start.php] Stopping ...
+2015-06-29 15:57:56 Workerman[start.php] has been stopped
+2015-06-29 15:57:56 Workerman[start.php] start in DEBUG mode
+2015-06-29 15:57:59 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 50
+2015-06-29 15:57:59 worker[ChatBusinessWorker:7097] exit with status 65280
+2015-06-29 15:59:58 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function GameCore\init() in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 51
+2015-06-29 15:59:58 worker[ChatBusinessWorker:7094] exit with status 65280
+2015-06-29 15:59:59 Workerman[start.php] Stopping ...
+2015-06-29 15:59:59 Workerman[start.php] has been stopped
+2015-06-29 15:59:59 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:00:02 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function GameCore\init() in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 51
+2015-06-29 16:00:02 worker[ChatBusinessWorker:7148] exit with status 65280
+2015-06-29 16:00:43 Workerman[start.php] Stopping ...
+2015-06-29 16:00:43 Workerman[start.php] has been stopped
+2015-06-29 16:00:43 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:00:50 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function GameCore\init() in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 57
+2015-06-29 16:00:50 worker[ChatBusinessWorker:7172] exit with status 65280
+2015-06-29 16:01:24 Workerman[start.php] Stopping ...
+2015-06-29 16:01:24 Workerman[start.php] has been stopped
+2015-06-29 16:01:25 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:01:28 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/GameCore/GamePlayer.php on line 28
+2015-06-29 16:01:28 worker[ChatBusinessWorker:7199] exit with status 65280
+2015-06-29 16:02:04 Workerman[start.php] Stopping ...
+2015-06-29 16:02:04 Workerman[start.php] has been stopped
+2015-06-29 16:02:05 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:02:11 WORKER EXIT UNEXPECTED E_RECOVERABLE_ERROR Object of class GameCore\GamePlayer could not be converted to string in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 54
+2015-06-29 16:02:11 worker[ChatBusinessWorker:7228] exit with status 65280
+2015-06-29 16:02:37 Workerman[start.php] Stopping ...
+2015-06-29 16:02:37 Workerman[start.php] has been stopped
+2015-06-29 16:02:38 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:03:17 Workerman[start.php] Stopping ...
+2015-06-29 16:03:17 Workerman[start.php] has been stopped
+2015-06-29 16:03:18 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:03:22 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 54
+2015-06-29 16:03:22 worker[ChatBusinessWorker:7278] exit with status 65280
+2015-06-29 16:03:39 Workerman[start.php] Stopping ...
+2015-06-29 16:03:39 Workerman[start.php] has been stopped
+2015-06-29 16:03:39 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:03:43 WORKER EXIT UNEXPECTED E_ERROR Cannot access empty property in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 54
+2015-06-29 16:03:43 worker[ChatBusinessWorker:7300] exit with status 65280
+2015-06-29 16:04:11 Workerman[start.php] Stopping ...
+2015-06-29 16:04:11 Workerman[start.php] has been stopped
+2015-06-29 16:04:11 Workerman[start.php] start in DEBUG mode
+2015-06-29 16:04:28 Workerman[start.php] Stopping ...
+2015-06-29 16:04:28 Workerman[start.php] has been stopped
+2015-06-29 17:16:58 Workerman[start.php] start in DEBUG mode
+2015-06-29 17:19:27 Workerman[start.php] Stopping ...
+2015-06-29 17:19:27 Workerman[start.php] has been stopped
+2015-06-30 09:36:36 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:36:38 Workerman[start.php] Stopping ...
+2015-06-30 09:36:38 Workerman[start.php] has been stopped
+2015-06-30 09:37:07 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:37:12 Workerman[start.php] Stopping ...
+2015-06-30 09:37:12 Workerman[start.php] has been stopped
+2015-06-30 09:51:04 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:53:05 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function get_db_conn() in /home/ll/myproc/baoluo/workerman-chat/Applications/Chat/Event.php on line 62
+2015-06-30 09:53:05 worker[ChatBusinessWorker:91952] exit with status 65280
+2015-06-30 09:54:42 Workerman[start.php] Stopping ...
+2015-06-30 09:54:42 Workerman[start.php] has been stopped
+2015-06-30 09:54:43 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:55:35 Workerman[start.php] Stopping ...
+2015-06-30 09:55:35 Workerman[start.php] has been stopped
+2015-06-30 09:55:36 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:56:41 Workerman[start.php] Stopping ...
+2015-06-30 09:56:41 Workerman[start.php] has been stopped
+2015-06-30 09:56:43 Workerman[start.php] start in DEBUG mode
+2015-06-30 09:57:19 Workerman[start.php] Stopping ...
+2015-06-30 09:57:19 Workerman[start.php] has been stopped
+2015-06-30 09:57:20 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:00:37 Workerman[start.php] Stopping ...
+2015-06-30 10:00:37 Workerman[start.php] has been stopped
+2015-06-30 10:00:40 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:00:46 Workerman[start.php] Stopping ...
+2015-06-30 10:00:46 Workerman[start.php] has been stopped
+2015-06-30 10:00:48 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:02:15 Workerman[start.php] Stopping ...
+2015-06-30 10:02:15 Workerman[start.php] has been stopped
+2015-06-30 10:02:16 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:06:16 Workerman[start.php] Stopping ...
+2015-06-30 10:06:16 Workerman[start.php] has been stopped
+2015-06-30 10:25:48 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:27:07 Workerman[start.php] Stopping ...
+2015-06-30 10:27:07 Workerman[start.php] has been stopped
+2015-06-30 10:27:08 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:36:48 Workerman[start.php] Stopping ...
+2015-06-30 10:36:48 Workerman[start.php] has been stopped
+2015-06-30 10:36:49 Workerman[start.php] start in DEBUG mode
+2015-06-30 10:36:52 Workerman[start.php] Stopping ...
+2015-06-30 10:36:52 Workerman[start.php] has been stopped
+2015-06-30 12:33:56 Workerman[start.php] start in DEBUG mode
+2015-06-30 12:34:05 Workerman[start.php] Stopping ...
+2015-06-30 12:34:05 Workerman[start.php] has been stopped
+2015-06-30 12:34:18 Workerman[start.php] start in DEBUG mode
+2015-06-30 13:25:13 Workerman[start.php] Stopping ...
+2015-06-30 13:25:13 Workerman[start.php] has been stopped
+2015-06-30 14:05:37 Workerman[start.php] start in DEBUG mode
+2015-06-30 14:09:40 Workerman[start.php] Stopping ...
+2015-06-30 14:09:40 Workerman[start.php] has been stopped
