@@ -25,11 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config_manager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config_manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Applications/Chat/config_manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29850745" vertical-offset="0" max-vertical-offset="1290">
-              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state vertical-scroll-proportion="-38.125" vertical-offset="0" max-vertical-offset="1290">
+              <caret line="66" column="31" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Event.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Applications/Chat/Event.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.6119404" vertical-offset="1215" max-vertical-offset="5415">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -190,7 +200,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="802" height="574" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -563,14 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Applications/Chat/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29850745" vertical-offset="45" max-vertical-offset="5415">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Applications/Chat/start_businessworker.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14457831" vertical-offset="0" max-vertical-offset="555">
@@ -579,10 +581,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Applications/Chat/util/file.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8955224" vertical-offset="360" max-vertical-offset="4545">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Applications/Chat/config_manager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29850745" vertical-offset="0" max-vertical-offset="1290">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state vertical-scroll-proportion="-38.125" vertical-offset="0" max-vertical-offset="1290">
+          <caret line="66" column="31" selection-start-line="66" selection-start-column="25" selection-end-line="66" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Applications/Chat/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6119404" vertical-offset="1215" max-vertical-offset="5415">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="12" />
           <folding />
         </state>
       </provider>
