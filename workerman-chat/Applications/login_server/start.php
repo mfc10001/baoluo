@@ -12,17 +12,17 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 use Workerman\Worker;
-use \conn;
+
 // 自动加载类
 require_once __DIR__ . '/../../Workerman/Autoloader.php';
-require_once __DIR__ . '/Clients/StatisticClient.php';
+require_once __DIR__ . '/../login_server/mysql_conn.php';
 
 // 开启的端口
-$worker = new Worker('JsonNL://0.0.0.0:2015');
+$worker = new Worker('tcp://0.0.0.0:2016');
 // 启动多少服务进程
-$worker->count = 16;
+$worker->count = 1;
 // worker名称，php start.php status 时展示使用
-$worker->name = 'JsonRpc';
+$worker->name = 'login';
 
 $db=DbManager::getInstance();
 $db->init_db_conn();
@@ -30,7 +30,6 @@ $db->init_db_conn();
 
 $worker->onMessage = function($connection, $data)
 {
-    $statistic_address = 'udp://127.0.0.1:55656';
     // 判断数据是否正确
     if(empty($data['class']) || empty($data['method']) || !isset($data['param_array']))
     {
@@ -52,16 +51,33 @@ $worker->onMessage = function($connection, $data)
             $result=$db->query($sql);
             if(!$result){
                 $msg=$result.mysql_error();
-                return $connection->send(json_encode(array('code'=>-1, 'msg'=>'error', 'data'=>$msg)));
+                return $connection->send(json_encode(array('code'=>-1, 'data'=>$msg)));
             }
             else{
                 $msg['id']=$result.mysql_insert_id();
-                return $connection->send(json_encode(array('code'=>0, 'msg'=>'success', 'data'=>$msg)));
+                return $connection->send(json_encode(array('code'=>0, 'data'=>$msg)));
             }
             return;
         case 'login':
+            $return = array('code'=>0,  'data'=>'');
+            $account= $message_data['PassportID'];
+            $pwd= $message_data['PassportPwd'];
+            $sql="select PassportPwd from snsuserinfo where PassportID=".$account;
+            $result=$db->query($sql);
+            $row= $db->fetch_row($result);
+            if($row>0){
+                if(strcmp($pwd,$row[0])==0){
+                    $return['code']=0;
+                }
+                else{
+                    $return['code']=1;
+                }
+            }
+            else {
+                $return['code'] = 2;
+            }
+            return $connection->send(json_encode($return));
 
-            return;
         case 'server_list':
             $sql="select * from serverinfo";
             $result=$db->query($sql);
@@ -69,7 +85,7 @@ $worker->onMessage = function($connection, $data)
             while($row=$result.fetch_assoc()){
                 array_push($data,$row);
             }
-            return $connection->send(json_encode(array('code'=>0, 'msg'=>'success', 'data'=>$data)));
+            return $connection->send(json_encode(array('code'=>0,  'data'=>$data)));
 
     }
 

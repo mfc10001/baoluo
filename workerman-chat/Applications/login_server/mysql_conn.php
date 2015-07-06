@@ -447,7 +447,7 @@ class DbManager{
     private $mysql_server_port="3306"; //数据库服务器名称
     private $mysql_username="root"; // 连接数据库用户名
     private $mysql_password="123456"; // 连接数据库密码
-    private $mysql_database="baoluo_jiemi"; // 数据库的名字>
+    private $mysql_database="baoluo_snsuserinfo"; // 数据库的名字>
     private $mysql_num=2;
     private $mysql_count=0;
 

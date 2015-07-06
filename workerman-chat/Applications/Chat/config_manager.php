@@ -51,14 +51,12 @@ class  ConfigManager{
                     $this->config_player_exp[$data[0]]=$data;
 
                 }
-
                 array_walk($this->config_player_exp, array($this,"foo"), $name);
-                var_dump($this->config_player_exp);
             }else{
-                echo "open failded1\n";
+                echo "open Exp failded1\n";
             }
         }else{
-            echo "open failded2\n";
+            echo "open Exp failded2\n";
         }
     }
 
