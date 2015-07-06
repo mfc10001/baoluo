@@ -12,9 +12,9 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace Workerman\Events;
+
 /**
- * libevent
- * @author walkor <walkor@workerman.net>
+ * libevent eventloop
  */
 class Libevent implements EventInterface
 {
@@ -101,7 +101,7 @@ class Libevent implements EventInterface
                 
             default :
                 $fd_key = (int)$fd;
-                $real_flag = $flag == self::EV_READ ? EV_READ | EV_PERSIST : EV_WRITE | EV_PERSIST;
+                $real_flag = $flag === self::EV_READ ? EV_READ | EV_PERSIST : EV_WRITE | EV_PERSIST;
                 
                 $event = event_new();
                 
@@ -178,7 +178,7 @@ class Libevent implements EventInterface
     protected function timerCallback($_null, $_null, $timer_id)
     {
         // 如果是连续的定时任务，再把任务加进去
-        if($this->_eventTimer[$timer_id][3] == self::EV_TIMER)
+        if($this->_eventTimer[$timer_id][3] === self::EV_TIMER)
         {
             event_add($this->_eventTimer[$timer_id][2], $this->_eventTimer[$timer_id][4]);
         }

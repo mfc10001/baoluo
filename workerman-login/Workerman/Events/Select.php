@@ -13,6 +13,9 @@
  */
 namespace Workerman\Events;
 
+/**
+ * select eventloop
+ */
 class Select implements EventInterface
 {
     /**
@@ -72,7 +75,7 @@ class Select implements EventInterface
     public function __construct()
     {
         // 创建一个管道，放入监听读的描述符集合中，避免空轮询
-        $this->channel = stream_socket_pair(STREAM_PF_INET, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
+        $this->channel = stream_socket_pair(STREAM_PF_UNIX, STREAM_SOCK_STREAM, STREAM_IPPROTO_IP);
         if($this->channel)
         {
             stream_set_blocking($this->channel[0], 0);
@@ -102,7 +105,9 @@ class Select implements EventInterface
                 $this->_writeFds[$fd_key] = $fd;
                 break;
             case self::EV_SIGNAL:
-                throw new \Exception("not support EV_SIGNAL on Windows");
+                $fd_key = (int)$fd;
+                $this->_signalEvents[$fd_key][$flag] = array($func, $fd);
+                pcntl_signal($fd, array($this, 'signalHandler'));
                 break;
             case self::EV_TIMER:
             case self::EV_TIMER_ONCE:
@@ -150,6 +155,8 @@ class Select implements EventInterface
                 }
                 return true;
             case self::EV_SIGNAL:
+                unset($this->_signalEvents[$fd_key]);
+                pcntl_signal($fd, SIG_IGN);
                 break;
             case self::EV_TIMER:
             case self::EV_TIMER_ONCE;
@@ -185,7 +192,7 @@ class Select implements EventInterface
                 // 任务数据[func, args, flag, timer_interval]
                 $task_data = $this->_task[$timer_id];
                 // 如果是持续的定时任务，再把任务加到定时队列
-                if($task_data[2] == self::EV_TIMER)
+                if($task_data[2] === self::EV_TIMER)
                 {
                     $next_run_time = $time_now+$task_data[3];
                     $this->_scheduler->insert($timer_id, -$next_run_time);
@@ -231,10 +238,14 @@ class Select implements EventInterface
         $e = null;
         while (1)
         {
+            // 如果有信号，尝试执行信号处理函数
+            pcntl_signal_dispatch();
+            
             $read = $this->_readFds;
             $write = $this->_writeFds;
             // 等待可读或者可写事件
-            stream_select($read, $write, $e, 0, $this->_selectTimeout);
+            @stream_select($read, $write, $e, 0, $this->_selectTimeout);
+            
             // 这些描述符可读，执行对应描述符的读回调函数
             if($read)
             {

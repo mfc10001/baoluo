@@ -16,17 +16,10 @@ use \Workerman\Events\EventInterface;
 use \Exception;
 
 /**
- * 
  * 定时器
  * 
- * <b>example:</b>
- * <pre>
- * <code>
- * Workerman\Lib\Timer::init();
+ * example:
  * Workerman\Lib\Timer::add($time_interval, callback, array($arg1, $arg2..));
- * <code>
- * </pre>
-* @author walkor <walkor@workerman.net>
  */
 class Timer 
 {
@@ -60,7 +53,7 @@ class Timer
         }
         else 
         {
-            echo new Exception("bad timer");
+            pcntl_signal(SIGALRM, array('\Workerman\Lib\Timer', 'signalHandle'), false);
         }
     }
     
@@ -72,6 +65,7 @@ class Timer
     {
         if(!self::$_event)
         {
+            pcntl_alarm(1);
             self::tick();
         }
     }
@@ -97,8 +91,6 @@ class Timer
             return self::$_event->add($time_interval, $persistent ? EventInterface::EV_TIMER : EventInterface::EV_TIMER_ONCE , $func, $args);
         }
         
-        echo new Exception("bad timer");
-        
         if(!is_callable($func))
         {
             echo new Exception("not callable");
@@ -107,7 +99,7 @@ class Timer
         
         if(empty(self::$_tasks))
         {
-            
+            pcntl_alarm(1);
         }
         
         $time_now = time();
@@ -129,6 +121,7 @@ class Timer
     {
         if(empty(self::$_tasks))
         {
+            pcntl_alarm(0);
             return;
         }
         
@@ -179,6 +172,7 @@ class Timer
     public static function delAll()
     {
         self::$_tasks = array();
+        pcntl_alarm(0);
         if(self::$_event)
         {
             self::$_event->clearAllTimer();
