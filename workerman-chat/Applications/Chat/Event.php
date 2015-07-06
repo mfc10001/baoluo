@@ -22,7 +22,7 @@ use \GameCore\GamePlayer;
 //use \GatewayWorker\lib\mysql;
 use \conn;
 use \config;
-
+use \token;
 class Event
 {
 
@@ -58,9 +58,14 @@ class Event
                 return Gateway::sendToCurrentClient(json_encode($new_message));
 
             case 'login':
-                $account= $message_data['account'];
+                $account= $message_data['accountid'];
+                $token= $message_data['token'];
+                if(!TokenManager::getInstance()->ToeknIsValid($account,$token)){
+                    $new_message=array('error'=>'token error');
+                    return Gateway::sendToCurrentClient(json_encode($new_message));
+                }
+                /*
                 $pwd= $message_data['pwd'];
-
                 $db=DbManager::getInstance()->get_db_conn();
                 $sql="select pwd from bl_user where account='".$account."'";
                 $result=$db->query($sql);
@@ -76,7 +81,14 @@ class Event
                 else{
                     $new_message=array('error'=>'failed');
                 }
+                */
+                $new_message=array('error'=>'success');
                 return Gateway::sendToCurrentClient(json_encode($new_message));
+            case 'auth':
+                $token=$message_data['token'];
+                $account=$message_data['accountid'];
+                TokenManager::getInstance()->addToken($account,$token);
+                return  true;
             /*
             case 'login':
             case 're_login':
