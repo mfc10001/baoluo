@@ -12,42 +12,59 @@
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  */
 use Workerman\Worker;
-
+use Workerman\Autoloader;
+use conn\DbManager;
+use conn\TokenManager;
 // 自动加载类
-require_once __DIR__ . '/../../Workerman/Autoloader.php';
-require_once __DIR__ . '/../login_server/mysql_conn.php';
+
+require_once __DIR__ . '/../Workerman/Autoloader.php';
+
+require_once __DIR__ . '/mysql_conn.php';
+require_once __DIR__ . '/token_manager.php';
+
+Autoloader::setRootPath(__DIR__);
+
 
 // 开启的端口
-$worker = new Worker('tcp://0.0.0.0:2016');
+$worker = new Worker('tcp://0.0.0.0:22016');
 // 启动多少服务进程
 $worker->count = 1;
 // worker名称，php start.php status 时展示使用
 $worker->name = 'login';
 
+
 $db=DbManager::getInstance();
 $db->init_db_conn();
+
+$server_data=array();
+$sql="select * from serverinfo";
+$result=$db->query($sql);
+while($row=$result.fetch_assoc()){
+    $server_data[$row['id']]=$row;
+}
+
 
 
 $worker->onMessage = function($connection, $data)
 {
-    // 判断数据是否正确
-    if(empty($data['class']) || empty($data['method']) || !isset($data['param_array']))
-    {
-        // 发送数据给客户端，请求包错误
-       return $connection->send(array('code'=>400, 'msg'=>'bad request', 'data'=>null));
-    }
-
     $message_data = json_decode($data, true);
+    // 判断数据是否正确
     if(!$message_data)
     {
         return ;
     }
-    $db=DbManager::getInstance()->get_db_conn();
+    if(empty($message_data['type']) )
+    {
+        // 发送数据给客户端，请求包错误
+       return $connection->send(array('code'=>400,  'data'=>null));
+    }
 
+    $db=DbManager::getInstance()->get_db_conn();
+    global $server_data;
     switch($message_data['type']){
         case 'register':
 
-            $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES (".$message_data['PassportID'].",".$message_data['PassportPwd'];
+            $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
             if(!$result){
                 $msg=$result.mysql_error();
@@ -62,12 +79,14 @@ $worker->onMessage = function($connection, $data)
             $return = array('code'=>0,  'data'=>'');
             $account= $message_data['PassportID'];
             $pwd= $message_data['PassportPwd'];
-            $sql="select PassportPwd from snsuserinfo where PassportID=".$account;
+            $sql="select PassportPwd,id from snsuserinfo where PassportID=".$account;
             $result=$db->query($sql);
             $row= $db->fetch_row($result);
             if($row>0){
                 if(strcmp($pwd,$row[0])==0){
                     $return['code']=0;
+
+                    TokenManager::getInstance()->addToken($row[1],TokenManager::getInstance()->make_new_token());
                 }
                 else{
                     $return['code']=1;
@@ -76,16 +95,17 @@ $worker->onMessage = function($connection, $data)
             else {
                 $return['code'] = 2;
             }
+
             return $connection->send(json_encode($return));
 
         case 'server_list':
-            $sql="select * from serverinfo";
-            $result=$db->query($sql);
-            $data=array();
-            while($row=$result.fetch_assoc()){
-                array_push($data,$row);
+            return $connection->send(json_encode(array('code'=>0,  'data'=>$server_data)));
+
+        case 'chose_server':
+            $serverid=$message_data['server'];
+            if(count($server_data)>$serverid){
+                send_to_gamesevrer($server_data[$serverid]);
             }
-            return $connection->send(json_encode(array('code'=>0,  'data'=>$data)));
 
     }
 

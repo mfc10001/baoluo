@@ -438,3 +438,6 @@ Stack trace:
 2015-07-06 11:09:00 Workerman[start.php] start in DEBUG mode
 2015-07-06 11:11:51 Workerman[start.php] Stopping ...
 2015-07-06 11:11:51 Workerman[start.php] has been stopped
+2015-07-06 16:34:00 Workerman[start.php] start in DEBUG mode
+2015-07-06 16:34:09 Workerman[start.php] Stopping ...
+2015-07-06 16:34:09 Workerman[start.php] has been stopped

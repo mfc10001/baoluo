@@ -1139,6 +1139,7 @@ class Worker
      */
     public function __construct($socket_name = '', $context_option = array())
     {
+
         // 保存worker实例
         $this->workerId = spl_object_hash($this);
         self::$_workers[$this->workerId] = $this;

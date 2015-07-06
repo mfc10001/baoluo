@@ -447,7 +447,7 @@ class DbManager{
     private $mysql_server_port="3306"; //数据库服务器名称
     private $mysql_username="root"; // 连接数据库用户名
     private $mysql_password="123456"; // 连接数据库密码
-    private $mysql_database="baoluo_snsuserinfo"; // 数据库的名字>
+    private $mysql_database="baoluo_account"; // 数据库的名字>
     private $mysql_num=2;
     private $mysql_count=0;
 
@@ -455,6 +455,8 @@ class DbManager{
         for($num=0;$num<$this->mysql_num;$num++){
             //$DB1 =new DbConnection($mysql_server_name,$mysql_server_port,$mysql_username,$mysql_password,$mysql_database);
             $DB=new mysql($this->mysql_server_name,$this->mysql_username,$this->mysql_password,$this->mysql_database,'pconn','utf8');
+            if($DB==null)
+            {die();}
             array_push($this->DBManager,$DB);
         }
     }
