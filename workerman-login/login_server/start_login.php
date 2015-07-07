@@ -85,7 +85,6 @@ $worker->onMessage = function($connection, $data)
             if($row>0){
                 if(strcmp($pwd,$row[0])==0){
                     $return['code']=0;
-
                     TokenManager::getInstance()->addToken($row[1],TokenManager::getInstance()->make_new_token());
                 }
                 else{
@@ -104,7 +103,9 @@ $worker->onMessage = function($connection, $data)
         case 'chose_server':
             $serverid=$message_data['server'];
             if(count($server_data)>$serverid){
-                send_to_gamesevrer($server_data[$serverid]);
+              //  send_to_gamesevrer($server_data[$serverid]);
+                $info = TokenManager::getInstance()->GetTokenInfo($message_data['id']);
+                ConnManager::getInstance()->send_queue(json_encode($info));
             }
 
     }

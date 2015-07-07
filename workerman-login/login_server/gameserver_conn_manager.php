@@ -16,7 +16,6 @@ class ConnManager
     private function __construct()
     {
         echo 'This is a Constructed method;';
-        $message_queue_key = ftok(__FILE__, 'a');
     }
 
     public function __clone()
@@ -34,27 +33,16 @@ class ConnManager
 
 //
     private $ConnManager= array();
-    public  $message_queue_key=null;
 
 
-
+    private $message_queue_key=null;
+    private $message_queue=null;
     public function create_queue(){
-
-        $message_queue = msg_get_queue($message_queue_key, 0666);
-
-        $message_queue_status = msg_stat_queue($message_queue);
-        print_r($message_queue_status);
-
-//向消息队列中写
-        msg_send($message_queue, 1, "Hello,World!");
-
-        $message_queue_status = msg_stat_queue($message_queue);
-        print_r($message_queue_status);
-
-//从消息队列中读
-        msg_receive($message_queue, 0, $message_type, 1024, $message, true, MSG_IPC_NOWAIT);
-        print_r($message."\r\n");
-
+       // $this->message_queue_key= ftok(/a/, 'a');;
+        $this->message_queue = msg_get_queue($this->message_queue_key, 0666);
+    }
+    public function send_queue($data){
+        msg_send($this->message_queue, 1, json_encode($data));
     }
 
     public  function  init_conn($serverlist){
@@ -71,19 +59,21 @@ class ConnManager
         }
         else{ //子进程处理逻辑
             while(true){
-                while($this->msg_stat_queue.){
-
+                while(  $message_queue_status = msg_stat_queue($this->message_queue)){
+                      if(  $message_queue_status['msg_qnum']>0){
+                          msg_receive($this->message_queue, 0, $msgtype, 1024, $data);
+                          $info= json_decode($data);
+                          send_to_gameserver($info);
+                      }
                 }
-                foreach($this->ConnManager as $key =>$value){
-
-                }
+                usleep( 1000 );
             }
-
         }
     }
 
-
-
+    function send_to_gameserver($data){
+        socket_write($this->ConnManager[$data['sevrerid']],$data['userinfo'])
+    }
 
     function init_gamesevrer($key,$addinfo){
         $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -91,14 +81,6 @@ class ConnManager
         if(!$con){socket_close($socket);exit;}
         $this->ConnManager[$key]=$con;
 
-
-        while($con){
-            $hear=socket_read($socket,1024);
-            echo $hear;
-            $words=fgets(STDIN);
-            socket_write($socket,$words);
-            if($words=="bye\r\n"){break;}
-        }
         /*
         $acpt=socket_accept($socket);
         echo "Acpt!\n";
