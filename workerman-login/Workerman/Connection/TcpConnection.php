@@ -386,6 +386,7 @@ class TcpConnection extends ConnectionInterface
        while(1)
        {
            $buffer = fread($socket, self::READ_BUFFER_SIZE);
+
            if($buffer === '' || $buffer === false)
            {
                break;
@@ -400,10 +401,12 @@ class TcpConnection extends ConnectionInterface
                $this->_recvBuffer = '';
                return ;
            }
-           
+
+           var_dump($this->protocol);
            // 如果设置了协议
            if($this->protocol)
            {
+
                $parser = $this->protocol;
                while($this->_recvBuffer && !$this->_isPaused)
                {
@@ -418,6 +421,7 @@ class TcpConnection extends ConnectionInterface
                    }
                    else
                    {
+
                        // 获得当前包长
                        $this->_currentPackageLength = $parser::input($this->_recvBuffer, $this);
                        // 数据不够，无法获得包长

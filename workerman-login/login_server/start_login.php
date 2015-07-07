@@ -14,14 +14,14 @@
 use Workerman\Worker;
 use Workerman\Autoloader;
 use conn\DbManager;
-use conn\TokenManager;
+use conn\ConnManager;
 // 自动加载类
 
 require_once __DIR__ . '/../Workerman/Autoloader.php';
 
 require_once __DIR__ . '/mysql_conn.php';
 require_once __DIR__ . '/token_manager.php';
-
+require_once __DIR__ . '/gameserver_conn_manager.php';
 Autoloader::setRootPath(__DIR__);
 
 
@@ -36,19 +36,28 @@ $worker->name = 'login';
 $db=DbManager::getInstance();
 $db->init_db_conn();
 
+
+$dbr=DbManager::getInstance()->get_db_conn();
 $server_data=array();
 $sql="select * from serverinfo";
-$result=$db->query($sql);
-while($row=$result.fetch_assoc()){
+$result=$dbr->query($sql);
+while($row=$dbr->fetch_assoc()){
     $server_data[$row['id']]=$row;
 }
 
-
+function compose_buffer($buffer){
+    $buf= json_encode($buffer);
+    return strlen($buf).$buf;
+}
+ConnManager::getInstance()->init_conn($server_data);
 
 $worker->onMessage = function($connection, $data)
 {
+    var_dump($data);
     $message_data = json_decode($data, true);
     // 判断数据是否正确
+
+
     if(!$message_data)
     {
         return ;
@@ -64,17 +73,32 @@ $worker->onMessage = function($connection, $data)
     switch($message_data['type']){
         case 'register':
 
+            if(empty($message_data['PassportID']) or $message_data['PassportPwd'] )
+            {
+                return $connection->send(compose_buffer(array('code'=>3, 'data'=>'')));
+            }
+           // $sql="select count(*) from snsuserinfo where PassportID='".$message_data['PassportID']."";
+            $sql="call create_account('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
+            $result=$db->query($sql);
+            $row= $db->fetch_row($result);
+            if($row>0){
+                return $connection->send(compose_buffer(array('code'=>$row[0], 'data'=>'')));
+            }
+            return $connection->send(compose_buffer(array('code'=>2, 'data'=>'')));
+/*
             $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
             if(!$result){
                 $msg=$result.mysql_error();
-                return $connection->send(json_encode(array('code'=>-1, 'data'=>$msg)));
+
+                return $connection->send(compose_buffer(array('code'=>2, 'data'=>$msg)));
             }
             else{
                 $msg['id']=$result.mysql_insert_id();
-                return $connection->send(json_encode(array('code'=>0, 'data'=>$msg)));
+                return $connection->send(compose_buffer(array('code'=>0, 'data'=>$msg)));
             }
-            return;
+*/
+
         case 'login':
             $return = array('code'=>0,  'data'=>'');
             $account= $message_data['PassportID'];

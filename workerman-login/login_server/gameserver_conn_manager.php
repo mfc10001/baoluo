@@ -6,7 +6,7 @@
  * Time: 2:34 AM
  */
 
-
+namespace conn;
 class ConnManager
 {
     private static $_instance;
