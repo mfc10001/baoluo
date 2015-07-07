@@ -34,7 +34,7 @@ class ConnManager
 //
     private $ConnManager= array();
 
-
+/*
     private $message_queue_key=null;
     private $message_queue=null;
     public function create_queue(){
@@ -44,12 +44,12 @@ class ConnManager
     public function send_queue($data){
         msg_send($this->message_queue, 1, json_encode($data));
     }
-
+*/
     public  function  init_conn($serverlist){
         foreach($serverlist as $key =>$value){
             init_gamesevrer($key,$value);
         }
-
+/*
         $pid=pcntl_fork();
         if($pid==-1){ //进程创建失败
             die('fork child process failure!');
@@ -69,10 +69,11 @@ class ConnManager
                 usleep( 1000 );
             }
         }
+*/
     }
 
     function send_to_gameserver($data){
-        socket_write($this->ConnManager[$data['sevrerid']],$data['userinfo'])
+        socket_write($this->ConnManager[$data['sevrerid']],$data['userinfo']);
     }
 
     function init_gamesevrer($key,$addinfo){

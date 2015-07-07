@@ -94,9 +94,7 @@ $worker->onMessage = function($connection, $data)
             else {
                 $return['code'] = 2;
             }
-
             return $connection->send(json_encode($return));
-
         case 'server_list':
             return $connection->send(json_encode(array('code'=>0,  'data'=>$server_data)));
 
@@ -104,9 +102,16 @@ $worker->onMessage = function($connection, $data)
             $serverid=$message_data['server'];
             if(count($server_data)>$serverid){
               //  send_to_gamesevrer($server_data[$serverid]);
+
                 $info = TokenManager::getInstance()->GetTokenInfo($message_data['id']);
-                ConnManager::getInstance()->send_queue(json_encode($info));
+                $info['type']='auth';
+                ConnManager::getInstance()->send_to_gameserver($info);
             }
+            return true;
+        case 'inner_server':
+            return true;
+        default:
+            return false;
 
     }
 
