@@ -247,6 +247,8 @@ class Websocket implements \Workerman\Protocols\ProtocolInterface
     {
         $len = $masks = $data = $decoded = null;
         $len = ord($buffer[1]) & 127;
+
+
         if ($len === 126) {
             $masks = substr($buffer, 4, 4);
             $data = substr($buffer, 8);
@@ -271,6 +273,7 @@ class Websocket implements \Workerman\Protocols\ProtocolInterface
             $connection->websocketDataBuffer = '';
             return $decoded;
         }
+
     }
     
     /**
