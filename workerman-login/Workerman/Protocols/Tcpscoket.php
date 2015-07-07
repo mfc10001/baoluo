@@ -9,7 +9,7 @@ namespace Workerman\Protocols;
 
 use Workerman\Connection\ConnectionInterface;
 
-class tcp implements \Workerman\Protocols\ProtocolInterface
+class tcpscoket implements \Workerman\Protocols\ProtocolInterface
 {
     const MIN_HEAD_LEN = 6;
 
@@ -17,13 +17,16 @@ class tcp implements \Workerman\Protocols\ProtocolInterface
     {
         // 数据长度
         $recv_len = strlen($buffer);
+        //echo '$recv_len==='.$recv_len.'\n';
         // 长度不够
         if($recv_len < self::MIN_HEAD_LEN)
         {
             return 0;
         }
-        $data_len = ord($buffer[1]) & 127;
-      //  $firstbyte = ord($buffer[0]);
+
+        $a=$buffer[0].$buffer[1];
+        $data_len=ord($a) & 127;
+
         return $data_len+1;
     }
 
@@ -33,7 +36,11 @@ class tcp implements \Workerman\Protocols\ProtocolInterface
     }
     public static function decode($buffer, ConnectionInterface $connection)
     {
-        return $buffer;
+        $a=$buffer[0].$buffer[1];
+        $data_len=ord($a) & 127;
+        $newbuffer= substr($buffer, 4, $data_len);
+
+        return $newbuffer;
         /*
         $len = $masks = $data = $decoded = null;
         $len = ord($buffer[1]) & 127;

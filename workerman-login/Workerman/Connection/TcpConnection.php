@@ -402,14 +402,17 @@ class TcpConnection extends ConnectionInterface
                return ;
            }
 
-           var_dump($this->protocol);
+
            // 如果设置了协议
            if($this->protocol)
            {
 
                $parser = $this->protocol;
+
                while($this->_recvBuffer && !$this->_isPaused)
                {
+
+
                    // 当前包的长度已知
                    if($this->_currentPackageLength)
                    {

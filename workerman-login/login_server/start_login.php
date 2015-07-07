@@ -26,7 +26,7 @@ Autoloader::setRootPath(__DIR__);
 
 
 // 开启的端口
-$worker = new Worker('tcp://0.0.0.0:22016');
+$worker = new Worker('tcpscoket://0.0.0.0:22016');
 // 启动多少服务进程
 $worker->count = 1;
 // worker名称，php start.php status 时展示使用
@@ -53,7 +53,7 @@ ConnManager::getInstance()->init_conn($server_data);
 
 $worker->onMessage = function($connection, $data)
 {
-    var_dump($data);
+
     $message_data = json_decode($data, true);
     // 判断数据是否正确
 
@@ -70,6 +70,8 @@ $worker->onMessage = function($connection, $data)
 
     $db=DbManager::getInstance()->get_db_conn();
     global $server_data;
+
+    var_dump($message_data);
     switch($message_data['type']){
         case 'register':
 
