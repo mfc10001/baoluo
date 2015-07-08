@@ -49,7 +49,7 @@ while($row=$dbr->fetch_assoc()){
 
 function compose_buffer($buffer){
     $buf= json_encode($buffer);
-    return strlen($buf).$buf;
+    return pack('v',strlen($buf)+2).$buf;
 }
 ConnManager::getInstance()->init_conn($server_data);
 
@@ -86,7 +86,7 @@ $worker->onMessage = function($connection, $data)
             if($row>0){
                 return $connection->send(compose_buffer(array('code'=>$row[0], 'data'=>'')));
             }
-            return $connection->send(compose_buffer(array('code'=>2, 'data'=>'')));
+            return $connection->send(compose_buffer(array('code'=>2,'type'=>'', 'data'=>'')));
 /*
             $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
