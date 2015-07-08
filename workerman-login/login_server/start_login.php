@@ -15,6 +15,7 @@ use Workerman\Worker;
 use Workerman\Autoloader;
 use conn\DbManager;
 use conn\ConnManager;
+use config;
 // 自动加载类
 
 require_once __DIR__ . '/../Workerman/Autoloader.php';
@@ -22,10 +23,10 @@ require_once __DIR__ . '/../Workerman/Autoloader.php';
 require_once __DIR__ . '/mysql_conn.php';
 require_once __DIR__ . '/token_manager.php';
 require_once __DIR__ . '/gameserver_conn_manager.php';
-
+require_once __DIR__ . '/Config/protocol.php';
+require_once __DIR__ . '/Config/error.php';
 
 Autoloader::setRootPath(__DIR__);
-
 
 // 开启的端口
 $worker = new Worker('tcpscoket://0.0.0.0:22016');
@@ -38,7 +39,6 @@ $worker->name = 'login';
 $db=DbManager::getInstance();
 $db->init_db_conn();
 
-
 $dbr=DbManager::getInstance()->get_db_conn();
 $server_data=array();
 $sql="select * from serverinfo";
@@ -47,10 +47,6 @@ while($row=$dbr->fetch_assoc()){
     $server_data[$row['id']]=$row;
 }
 
-function compose_buffer($buffer){
-    $buf= json_encode($buffer);
-    return pack('v',strlen($buf)+2).$buf;
-}
 ConnManager::getInstance()->init_conn($server_data);
 
 $worker->onMessage = function($connection, $data)
@@ -66,27 +62,30 @@ $worker->onMessage = function($connection, $data)
     if(empty($message_data['type']) )
     {
         // 发送数据给客户端，请求包错误
-       return $connection->send(array('code'=>400,  'data'=>null));
+       return $connection->send(array('code'=>400,'type'=>'',  'data'=>null));
     }
 
     $db=DbManager::getInstance()->get_db_conn();
     global $server_data;
-
+    $code=ErrCode::ERR_INNER;
     switch($message_data['type']){
         case 'register':
-
             if(empty($message_data['PassportID']) or $message_data['PassportPwd'] )
             {
-                return $connection->send(compose_buffer(array('code'=>3, 'data'=>'')));
+                return $connection->send(compose_buffer(ErrCode::ERR_PARAM,protocol::REGISETER_S));
             }
-           // $sql="select count(*) from snsuserinfo where PassportID='".$message_data['PassportID']."";
             $sql="call create_account('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
             $row= $db->fetch_row($result);
             if($row>0){
-                return $connection->send(compose_buffer(array('code'=>$row[0], 'data'=>'')));
+                if($row[0]==0){
+                    $code=ErrCode::ERR_SUCCESS;
+                }
+                else{
+                    $code=ErrCode::ERR_PWD;
+                }
             }
-            return $connection->send(compose_buffer(array('code'=>2,'type'=>'', 'data'=>'')));
+            return $connection->send(compose_buffer(ErrCode::ERR_INNER,protocol::REGISETER_S));
 /*
             $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
@@ -100,9 +99,7 @@ $worker->onMessage = function($connection, $data)
                 return $connection->send(compose_buffer(array('code'=>0, 'data'=>$msg)));
             }
 */
-
         case 'login':
-            $return = array('code'=>0,  'data'=>'');
             $account= $message_data['PassportID'];
             $pwd= $message_data['PassportPwd'];
             $sql="select PassportPwd,id from snsuserinfo where PassportID=".$account;
@@ -110,19 +107,19 @@ $worker->onMessage = function($connection, $data)
             $row= $db->fetch_row($result);
             if($row>0){
                 if(strcmp($pwd,$row[0])==0){
-                    $return['code']=0;
+                    $code=ErrCode::ERR_SUCCESS;
                     TokenManager::getInstance()->addToken($row[1],TokenManager::getInstance()->make_new_token());
                 }
                 else{
-                    $return['code']=1;
+                    $code=ErrCode::ERR_PWD;
                 }
             }
             else {
-                $return['code'] = 2;
+                $code = ErrCode::ERR_PWD;
             }
-            return $connection->send(json_encode($return));
+            return $connection->send(json_encode($code,protocol::LOGIN_S));
         case 'server_list':
-            return $connection->send(json_encode(array('code'=>0,  'data'=>$server_data)));
+            return $connection->send(json_encode(array(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_S)));
 
         case 'chose_server':
             $serverid=$message_data['server'];
