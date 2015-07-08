@@ -23,6 +23,8 @@ use \GameCore\GamePlayer;
 use \conn;
 use \config;
 use \token;
+require_once __DIR__ . '/Config/protocol.php';
+
 class Event
 {
 
@@ -47,7 +49,7 @@ class Event
         switch($message_data['type'])
         {
             // 客户端回应服务端的心跳
-            case 'pong':
+            case pong:
                 return;
             // 客户端登录 message格式: {type:login, name:xx, room_id:1} ，添加到客户端，广播给所有客户端xx进入聊天室
             case 'echo':
@@ -57,7 +59,7 @@ class Event
                 $new_message['id']=$pp->id;
                 return Gateway::sendToCurrentClient(json_encode($new_message));
 
-            case 'login':
+            case login:
                 $account= $message_data['accountid'];
                 $token= $message_data['token'];
                 if(!TokenManager::getInstance()->ToeknIsValid($account,$token)){
@@ -89,6 +91,8 @@ class Event
                 $account=$message_data['accountid'];
                 TokenManager::getInstance()->addToken($account,$token);
                 return  true;
+            case '':
+
             /*
             case 'login':
             case 're_login':

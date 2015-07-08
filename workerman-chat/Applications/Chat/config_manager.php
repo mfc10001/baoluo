@@ -10,6 +10,8 @@ namespace config;
 
 require_once __DIR__ . '/util/file.php';
 
+
+
 class  ConfigManager{
     private static $_instance;
 
@@ -69,7 +71,7 @@ class  ConfigManager{
     public function Get_Record_By_ID($type,$id){
         switch ($type)
         {
-            case 'exp':
+            case level:
                 if(array_key_exists($id,$this->config_player_exp)){
                     return  $this->config_player_exp['id'];
                 }

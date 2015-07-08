@@ -22,6 +22,8 @@ require_once __DIR__ . '/../Workerman/Autoloader.php';
 require_once __DIR__ . '/mysql_conn.php';
 require_once __DIR__ . '/token_manager.php';
 require_once __DIR__ . '/gameserver_conn_manager.php';
+
+
 Autoloader::setRootPath(__DIR__);
 
 
@@ -57,7 +59,6 @@ $worker->onMessage = function($connection, $data)
     $message_data = json_decode($data, true);
     // 判断数据是否正确
 
-
     if(!$message_data)
     {
         return ;
@@ -71,7 +72,6 @@ $worker->onMessage = function($connection, $data)
     $db=DbManager::getInstance()->get_db_conn();
     global $server_data;
 
-    var_dump($message_data);
     switch($message_data['type']){
         case 'register':
 
