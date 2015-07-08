@@ -391,9 +391,10 @@ class TcpConnection extends ConnectionInterface
            {
                break;
            }
+
            $this->_recvBuffer .= $buffer; 
        }
-       
+
        if($this->_recvBuffer)
        {
            if(!$this->onMessage)
@@ -411,11 +412,10 @@ class TcpConnection extends ConnectionInterface
 
                while($this->_recvBuffer && !$this->_isPaused)
                {
-
-
                    // 当前包的长度已知
                    if($this->_currentPackageLength)
                    {
+
                        // 数据不够一个包
                        if($this->_currentPackageLength > strlen($this->_recvBuffer))
                        {
@@ -428,6 +428,7 @@ class TcpConnection extends ConnectionInterface
                        // 获得当前包长
                        $this->_currentPackageLength = $parser::input($this->_recvBuffer, $this);
                        // 数据不够，无法获得包长
+
                        if($this->_currentPackageLength === 0)
                        {
                            break;
@@ -466,6 +467,7 @@ class TcpConnection extends ConnectionInterface
                    // 重置当前包长为0
                    $this->_currentPackageLength = 0;
                    // 处理数据包
+
                    try
                    {
                        call_user_func($this->onMessage, $this, $parser::decode($one_request_buffer, $this));

@@ -13,8 +13,14 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
 {
     const MIN_HEAD_LEN = 6;
 
+
+
     public static function input($buffer, ConnectionInterface $connection)
     {
+
+
+      //  echo 'str111='.strlen($buffer);
+        //echo 'str222='.pack('v',strlen($buffer));
         // 数据长度
         $recv_len = strlen($buffer);
         //echo '$recv_len==='.$recv_len.'\n';
@@ -26,8 +32,7 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
 
         $a=$buffer[0].$buffer[1];
         $data_len=ord($a) & 127;
-
-        return $data_len+1;
+        return $data_len;
     }
 
     public static function encode($buffer, ConnectionInterface $connection)
@@ -38,8 +43,8 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
     {
         $a=$buffer[0].$buffer[1];
         $data_len=ord($a) & 127;
-        $newbuffer= substr($buffer, 4, $data_len);
 
+        $newbuffer= substr($buffer, 2, $data_len-2);
         return $newbuffer;
         /*
         $len = $masks = $data = $decoded = null;
