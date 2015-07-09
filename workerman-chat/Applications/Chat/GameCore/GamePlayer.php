@@ -13,13 +13,16 @@ use \config\ConfigManager;
     class GamePlayer extends  GameEntry{
 
         public  function  level_up(){
-           $row= ConfigManager::getInstance()->Get_Record_By_ID(level,$this->level);
-            if($this->exp>$row->data['next']){
+            $row= ConfigManager::getInstance()->Get_Record_By_ID(level,$this->level);
+            if(!$row){return;}
+            if($this->exp>=$row->data['next']){
 
+                $this->exp=$this->exp-$row->data['next'];
+                $this->level++;
             }
         }
-        public function add_exp(){
-
+        public function add_exp($num){
+            $this->exp+=$num;
             call_user_func_array(array("GamePlayer","level_up"),array());
         }
 
