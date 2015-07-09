@@ -14,8 +14,11 @@
 use Workerman\Worker;
 use Workerman\Autoloader;
 use conn\DbManager;
+use conn\DB;
 use conn\ConnManager;
-use config;
+use config\protocol;
+use config\ErrCode;
+use token\TokenManager;
 // 自动加载类
 
 require_once __DIR__ . '/../Workerman/Autoloader.php';
@@ -35,18 +38,24 @@ $worker->count = 1;
 // worker名称，php start.php status 时展示使用
 $worker->name = 'login';
 
+DbManager::getInstance()->init_db_conn();
 
-$db=DbManager::getInstance();
-$db->init_db_conn();
-
-$dbr=DbManager::getInstance()->get_db_conn();
+$db=DbManager::getInstance()->get_db_conn();
 $server_data=array();
-$sql="select * from serverinfo";
-$result=$dbr->query($sql);
-while($row=$dbr->fetch_assoc()){
-    $server_data[$row['id']]=$row;
+$sql="select * from serverinfo where GameID=1";
+$result=$db->query($sql);
+while($row=$db->fetch_assoc()){
+    $server_data[$row['ID']]=$row;
 }
 
+$db->free();
+
+function compose_buffer($code,$type,$data=''){
+    $buffer=array('code'=>$code,'type'=>$type,'data'=>$data);
+    $buf= json_encode($buffer);
+    $len=strlen($buf)+2;
+    return pack('v',$len).$buf;
+}
 ConnManager::getInstance()->init_conn($server_data);
 
 $worker->onMessage = function($connection, $data)
@@ -68,24 +77,38 @@ $worker->onMessage = function($connection, $data)
     $db=DbManager::getInstance()->get_db_conn();
     global $server_data;
     $code=ErrCode::ERR_INNER;
-    switch($message_data['type']){
-        case 'register':
-            if(empty($message_data['PassportID']) or $message_data['PassportPwd'] )
+    var_dump($message_data);
+    switch(intval($message_data['type'])){
+        case protocol::REGISETER_CS:
+            if(empty($message_data['PassportID']) or empty($message_data['PassportPwd'] ))
             {
-                return $connection->send(compose_buffer(ErrCode::ERR_PARAM,protocol::REGISETER_S));
+                return $connection->send(compose_buffer(ErrCode::ERR_PARAM,protocol::REGISETER_CS));
             }
-            $sql="call create_account('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
+
+            //$sql="call create_account('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
+            $sql="INSERT into snsuserinfo (PassportID,PassportPwd)  values ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
+            echo $sql;
             $result=$db->query($sql);
-            $row= $db->fetch_row($result);
-            if($row>0){
-                if($row[0]==0){
-                    $code=ErrCode::ERR_SUCCESS;
-                }
-                else{
-                    $code=ErrCode::ERR_PWD;
+            if ($row = $db->fetch_assoc())
+            {
+                if($row){
+                    if(array_key_exists('code',$row)){
+                        if($row['code']==0){
+                            $code=ErrCode::ERR_SUCCESS;
+                        }
+                        else{
+                            $code=ErrCode::ERR_PWD;
+                        }
+                    }
                 }
             }
-            return $connection->send(compose_buffer(ErrCode::ERR_INNER,protocol::REGISETER_S));
+            else{
+                $code=ErrCode::ERR_INNER;
+                $data=mysql_error();
+            }
+            $db->free();
+
+            return $connection->send(compose_buffer($code,protocol::REGISETER_CS,$data));
 /*
             $sql="insert into snsuserinfo (PassportID,PassportPwd) VALUES ('".$message_data['PassportID']."','".$message_data['PassportPwd']."')";
             $result=$db->query($sql);
@@ -99,39 +122,58 @@ $worker->onMessage = function($connection, $data)
                 return $connection->send(compose_buffer(array('code'=>0, 'data'=>$msg)));
             }
 */
-        case 'login':
+        case protocol::LOGIN_CS:
             $account= $message_data['PassportID'];
             $pwd= $message_data['PassportPwd'];
-            $sql="select PassportPwd,id from snsuserinfo where PassportID=".$account;
+            $sql="select PassportPwd,UserId from snsuserinfo where PassportID='".$account."'";
+
             $result=$db->query($sql);
             $row= $db->fetch_row($result);
+            $token='';
+            $userid='';
             if($row>0){
                 if(strcmp($pwd,$row[0])==0){
                     $code=ErrCode::ERR_SUCCESS;
-                    TokenManager::getInstance()->addToken($row[1],TokenManager::getInstance()->make_new_token());
+                    $token=TokenManager::getInstance()->make_new_token();
+                    $userid=$row[1];
+                    TokenManager::getInstance()->addToken($row[1],$token);
                 }
                 else{
                     $code=ErrCode::ERR_PWD;
                 }
             }
             else {
-                $code = ErrCode::ERR_PWD;
+                $code = ErrCode::ERR_INNER;
             }
-            return $connection->send(json_encode($code,protocol::LOGIN_S));
-        case 'server_list':
-            return $connection->send(json_encode(array(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_S)));
+            $db->free();
+            return $connection->send(compose_buffer($code,protocol::LOGIN_CS,array('token'=>$token,'userid'=>$userid)));
+        case protocol::SERVER_LIST_CS:
+            $list=array();
+            foreach($server_data as $key=>$value)
+            {
+                if(array_key_exists('ID',$value) && array_key_exists('ServerName',$value)){
 
-        case 'chose_server':
+                    $data=array('ID'=>$value['ID'],'ServerName'=>$value['ServerName']);
+                    $k=$value['ID'];
+                    var_dump($k);
+                    $list[ $k]=$data;
+                }
+            }
+            return $connection->send(compose_buffer(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_CS,$list));
+
+        case protocol::CHOSE_SERVER_C:
             $serverid=$message_data['server'];
             if(count($server_data)>$serverid){
-              //  send_to_gamesevrer($server_data[$serverid]);
-
                 $info = TokenManager::getInstance()->GetTokenInfo($message_data['id']);
                 $info['type']='auth';
                 ConnManager::getInstance()->send_to_gameserver($info);
+
+                if(array_key_exists('Address',$server_data) or array_key_exists('Port',$server_data) ){
+                    return $connection->send(compose_buffer(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_CS,$server_data[$serverid]));
+                }
             }
             return true;
-        case 'inner_server':
+        case 8:
             return true;
         default:
             return false;

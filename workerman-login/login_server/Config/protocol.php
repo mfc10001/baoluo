@@ -7,13 +7,16 @@
  */
 namespace config;
 class protocol{
-    const  REGISETER_C=1;
+    const  REGISETER_CS=1;
     const  REGISETER_S=2;
-    const LOGIN_C=3;
+    const LOGIN_CS=3;
     const LOGIN_S=4;
 
-    const SERVER_LIST_C=5;
+    const SERVER_LIST_CS=5;
     const SERVER_LIST_S=6;
+
+    const CHOSE_SERVER_C=7;
+
 
 }
 ?>

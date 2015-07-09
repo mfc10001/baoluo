@@ -6,7 +6,7 @@
  * Time: 1:24 AM
  */
 namespace token;
-define("EXPIRE_TIME ",3600);
+
 
 
 class TokenManager {
@@ -29,11 +29,13 @@ class TokenManager {
 
     //
     public $entry_manager=array();
-
+    public $expire_time=3600;
 
     public  function  addToken($account,$token){
         if(!array_key_exists($account,$this->entry_manager)){
-            $this->entry_manager[$account]=array('token'=>$token,'account'=>$account,'valid_time'=>time()+EXPIRE_TIME);
+            $nowtime=time()+$this->expire_time;
+
+            $this->entry_manager[$account]=array('token'=>$token,'account'=>$account,'valid_time'=>$nowtime);
         }
     }
 
@@ -57,7 +59,7 @@ class TokenManager {
     }
 
     public function make_new_token(){
-        $token='';
+        $token='11111';
         return $token;
     }
 };

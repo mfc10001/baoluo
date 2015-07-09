@@ -45,9 +45,20 @@ class ConnManager
         msg_send($this->message_queue, 1, json_encode($data));
     }
 */
-    public  function  init_conn($serverlist){
+    function init_gamesevrer($key,$addinfo){
+        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+
+        $con=socket_connect($socket,$addinfo['Address'],$addinfo['Port']);
+        if(!$con){
+            die();
+        }
+        // if(!$con){socket_close($socket);exit;}
+        $this->ConnManager[$key]=$socket;
+    }
+
+    function  init_conn($serverlist){
         foreach($serverlist as $key =>$value){
-            init_gamesevrer($key,$value);
+            $this->init_gamesevrer($key,$value);
         }
 /*
         $pid=pcntl_fork();
@@ -76,28 +87,7 @@ class ConnManager
         socket_write($this->ConnManager[$data['sevrerid']],$data['userinfo']);
     }
 
-    function init_gamesevrer($key,$addinfo){
-        $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-        $con=socket_connect($socket,'192.168.2.143',11109);
-        if(!$con){socket_close($socket);exit;}
-        $this->ConnManager[$key]=$con;
 
-        /*
-        $acpt=socket_accept($socket);
-        echo "Acpt!\n";
-        while ( $acpt ) {
-            $words=fgets(STDIN);
-            socket_write($acpt,$words);
-            $hear=socket_read($acpt,1024);
-            echo $hear;
-            if("bye\r\n"==$hear){
-                socket_shutdown($acpt);
-                break;
-            }
-            usleep( 1000 );
-        }
-        */
-    }
 }
 
 

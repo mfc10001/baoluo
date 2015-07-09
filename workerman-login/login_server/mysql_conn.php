@@ -10,13 +10,237 @@ namespace conn;
 use GatewayWorker\Lib\DbConnection;
 //use GatewayWorker\Lib\mysql;
 
+/*
+class DB
+{
+    var $mysqli;
+
+    function __construct()
+    {
+        $this->mysqli =  new  mysqli("192.168.18.147", "root", "123456", "message");
+        $this->mysqli->set_charset('utf8');
+        if(!$this->mysqli){
+            die();
+        }
+    }
+
+    //绑定参数
+    function  bindParam($stmt,$paramtype,$paramvalue)
+    {
+        if(is_array($paramvalue))
+        {
+            $size = count($paramvalue);
+            switch($size)
+            {
+                case 1:$stmt->bind_param($paramtype,$paramvalue[0]);
+                    break;
+                case 2: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1]);
+                    break;
+                case 3: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] );
+                    break;
+                case 4: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3]  );
+                    break;
+                case 5: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3],$paramvalue[4] );
+                    break;
+                case 6: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3],$paramvalue[4] ,$paramvalue[5]);
+                    break;
+                case 7: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3],$paramvalue[4] ,$paramvalue[5] ,$paramvalue[6]);
+                    break;
+                case 8: $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3],$paramvalue[4] ,$paramvalue[5] ,$paramvalue[6],$paramvalue[7]);
+                    break;
+                case 9:  $stmt->bind_param($paramtype,$paramvalue[0],$paramvalue[1],$paramvalue[2] ,$paramvalue[3],$paramvalue[4] ,$paramvalue[5] ,$paramvalue[6],$paramvalue[7],$paramvalue[8]);
+                    break;
+            }
+        }
+        else
+        {
+            $stmt->bind_param($paramtype,$paramvalue);
+        }
+    }
+    //目前只支持9个参数以内,更新删除修改
+    function saveOrUpdateOrDelete($sql,$paramtype,$paramvalue)
+    {
+
+        $stmt = $this->mysqli->prepare($sql);
+        if($stmt)
+        {
+            $this->bindParam($stmt,$paramtype,$paramvalue);
+            $flag = $stmt->execute();
+            $stmt->close();
+            $this->closeConn();
+            return $flag;
+        }
+        else
+        {
+            echo '数据库连接出错或者sql出错：请检查sql:     '.$sql;
+            return  0;
+        }
+
+
+    }
+
+    function add($table,$field,$paramtype,$paramvalue)
+    {
+        $sql = "insert into ".$table.'('.$field.') values(';
+        $fs = explode(',',$field);
+        $fscount = count($fs);
+        $i=0;
+        $bindparam = '';
+        while($i<$fscount)
+        {
+            $bindparam =  $bindparam.'?';
+            if($i<$fscount-1)
+            {
+                $bindparam =  $bindparam.',';
+            }
+            $i++;
+        }
+        $sql =  $sql.$bindparam.')';
+        return $this->saveOrUpdateOrDelete($sql,$paramtype,$paramvalue);
+    }
+
+    function update($table,$field,$where,$paramtype,$paramvalue)
+    {
+        $sql = "update  ".$table.' set ';
+        $fs = explode(',','username');
+        $fs = Array('username');
+        $size = count($fs);
+        for($i=0;$i<$size;$i++)
+        {
+            echo count($fs);
+            $sql = $sql.$fs[$i].'=?,';
+        }
+
+        $sql = substr($sql,0,strlen($sql)-1).' where ';
+
+        $whereParam = explode(',',$where);
+        $size = count($whereParam);
+        for($i=0;$i<$size;$i++)
+        {
+
+            $sql = $sql.$whereParam[$i].'=? and ';
+        }
+        $sql =  $sql .' 0=0 ';
+        return $this->saveOrUpdateOrDelete($sql,$paramtype,$paramvalue);
+    }
+
+    function del($table,$where,$paramtype,$paramvalue)
+    {
+        $sql = "delete from   ".$table.' where ';
+        $whereParam = explode(',',$where);
+        $size = count($whereParam);
+        for($i=0;$i<$size;$i++)
+        {
+
+            $sql = $sql.$whereParam[$i].'=? and ';
+        }
+        $sql =  $sql .' 0=0 ';
+        return $this->saveOrUpdateOrDelete($sql,$paramtype,$paramvalue);
+    }
+
+
+
+    function getResult($table,$field,$where,$paramtype,$paramvalue)
+    {
+        $sql = "select  ".$field.' from '.$table.' where ';
+        $whereParam = explode(',',$where);
+        $size = count($whereParam);
+        for($i=0;$i<$size;$i++)
+        {
+
+            $sql = $sql.$whereParam[$i].'=? and ';
+        }
+        $sql =  $sql .' 0=0 ';
+        $stmt = $this->mysqli->prepare($sql);
+        $list = Array();
+        if($stmt)
+        {
+
+            $this->bindParam($stmt,$paramtype,$paramvalue);
+            $stmt->execute();
+            $rs = $stmt->result_metadata();
+            $cloumn = Array();
+            $cloumnName = Array();
+            $i=0;
+            while($field = $rs->fetch_field())
+            {
+                $cloumn[$i] = $field->name;
+                $cloumnName[$i] = $field->name;
+                $i++;
+            }
+            $size = count($cloumn);
+            switch($size)
+            {
+                case 1:
+                    $stmt->bind_result($cloumn[0]);
+                    break;
+                case 2:
+                    $stmt->bind_result($cloumn[0],$cloumn[1]);
+                    break;
+                case 3:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] );
+                    break;
+                case 4:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3]  );
+                    break;
+                case 5:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3],$cloumn[4] );
+                    break;
+                case 6:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3],$cloumn[4] ,$cloumn[5]);
+                    break;
+                case 7:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3],$cloumn[4] ,$cloumn[5] ,$cloumn[6]);
+                    break;
+                case 8:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3],$cloumn[4] ,$cloumn[5] ,$cloumn[6],$cloumn[7]);
+                    break;
+                case 9:
+                    $stmt->bind_result($cloumn[0],$cloumn[1],$cloumn[2] ,$cloumn[3],$cloumn[4] ,$cloumn[5] ,$cloumn[6],$cloumn[7],$cloumn[8]);
+                    break;
+            }
+
+            $j=0;
+            while($stmt->fetch())
+            {
+                $row =Array();
+                $n = 0;
+                while($n<$size)
+                {
+
+                    $row[$cloumnName[$n]]=$cloumn[$n];
+                    $n++;
+                }
+                $list[$j] =$row;
+                $j++;
+            }
+            $stmt->close();
+            $this->closeConn();
+        }
+        else
+        {
+            $list[0]='数据库连接出错或者sql出错：请检查sql:     '.$sql;
+
+        }
+
+        return $list;
+    }
+
+    function closeConn()
+    {
+        $this->mysqli->close();
+    }
+
+
+}
+*/
 
 class mysql {
     private $db_host; //数据库主机
     private $db_user; //数据库用户名
     private $db_pwd; //数据库用户名密码
     private $db_database; //数据库名
-    private $conn; //数据库连接标识;
+    public $conn; //数据库连接标识;
     private $result; //执行query命令的结果资源标识
     private $sql; //sql执行语句
     private $row; //返回的条目数
@@ -122,6 +346,25 @@ class mysql {
             $i++;
         }
     }
+/*
+    public function multi_query($sql){
+
+       return $this->result= $this->conn->mysqli_multi_query($sql);
+    }
+    public function  relase(){
+        while (mysql_next_result($this->conn)){
+            if ($result=mysql_store_result($this->conn))
+            {
+                while ($row=mysql_fetch_row($result))
+                {
+                    continue;
+                }
+            }
+            mysql_free_result($this->conn);
+        }
+    }
+
+*/
 
     /*
     mysql_fetch_row()    array  $row[0],$row[1],$row[2]
@@ -448,7 +691,7 @@ class DbManager{
     private $mysql_username="root"; // 连接数据库用户名
     private $mysql_password="123456"; // 连接数据库密码
     private $mysql_database="baoluo_account"; // 数据库的名字>
-    private $mysql_num=2;
+    private $mysql_num=1;
     private $mysql_count=0;
 
     public  function  init_db_conn(){
@@ -462,7 +705,7 @@ class DbManager{
     }
 
     public  function  get_db_conn(){
-        if($this->mysql_count==$this->mysql_num){
+        if($this->mysql_count==$this->mysql_num-1){
             $this->mysql_count=0;
         }else{
             $this->mysql_count++;

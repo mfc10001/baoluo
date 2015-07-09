@@ -17,13 +17,9 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
 
     public static function input($buffer, ConnectionInterface $connection)
     {
-
-
-      //  echo 'str111='.strlen($buffer);
-        //echo 'str222='.pack('v',strlen($buffer));
         // 数据长度
         $recv_len = strlen($buffer);
-        //echo '$recv_len==='.$recv_len.'\n';
+       // echo '$recv_len==='.$recv_len.'\n';
         // 长度不够
         if($recv_len < self::MIN_HEAD_LEN)
         {
@@ -32,6 +28,8 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
 
         $a=$buffer[0].$buffer[1];
         $data_len=ord($a) & 127;
+
+       // echo '$data_len==='.$data_len.'\n';
         return $data_len;
     }
 
@@ -43,7 +41,6 @@ class tcpscoket implements \Workerman\Protocols\ProtocolInterface
     {
         $a=$buffer[0].$buffer[1];
         $data_len=ord($a) & 127;
-
         $newbuffer= substr($buffer, 2, $data_len-2);
         return $newbuffer;
         /*

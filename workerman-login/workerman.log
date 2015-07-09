@@ -260,3 +260,398 @@
 2015-07-08 10:46:19 Workerman[start.php] Stopping ...
 2015-07-08 10:46:19 Workerman[start.php] has been stopped
 2015-07-08 10:46:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 11:55:47 Workerman[start.php] start in DEBUG mode
+2015-07-08 11:55:49 Workerman[start.php] Stopping ...
+2015-07-08 11:55:49 Workerman[start.php] has been stopped
+2015-07-08 11:56:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:12:04 Workerman[start.php] Stopping ...
+2015-07-08 12:12:04 Workerman[start.php] has been stopped
+2015-07-08 12:12:05 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:13:00 Workerman[start.php] Stopping ...
+2015-07-08 12:13:00 Workerman[start.php] has been stopped
+2015-07-08 12:13:01 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:17:50 Workerman[start.php] Stopping ...
+2015-07-08 12:17:50 Workerman[start.php] has been stopped
+2015-07-08 12:17:50 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:19:06 Workerman[start.php] Stopping ...
+2015-07-08 12:19:06 Workerman[start.php] has been stopped
+2015-07-08 12:19:06 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:20:26 Workerman[start.php] Stopping ...
+2015-07-08 12:20:26 Workerman[start.php] has been stopped
+2015-07-08 12:22:45 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:23:19 Workerman[start.php] Stopping ...
+2015-07-08 12:23:19 Workerman[start.php] has been stopped
+2015-07-08 12:24:44 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:26:50 Workerman[start.php] Stopping ...
+2015-07-08 12:26:50 Workerman[start.php] has been stopped
+2015-07-08 12:27:51 Workerman[start.php] start in DEBUG mode
+2015-07-08 12:28:06 Workerman[start.php] Stopping ...
+2015-07-08 12:28:06 Workerman[start.php] has been stopped
+2015-07-08 12:28:15 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:16:11 Workerman[start.php] Stopping ...
+2015-07-08 14:16:11 Workerman[start.php] has been stopped
+2015-07-08 14:16:12 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:16:13 Workerman[start.php] Stopping ...
+2015-07-08 14:16:13 Workerman[start.php] has been stopped
+2015-07-08 14:21:07 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:21:11 Workerman[start.php] Stopping ...
+2015-07-08 14:21:11 Workerman[start.php] has been stopped
+2015-07-08 14:23:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:24:48 WORKER EXIT UNEXPECTED E_ERROR Class 'protocol' not found in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 72
+2015-07-08 14:24:48 worker[login:2617] exit with status 65280
+2015-07-08 14:26:49 Workerman[start.php] Stopping ...
+2015-07-08 14:26:49 Workerman[start.php] has been stopped
+2015-07-08 14:26:51 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:33:55 WORKER EXIT UNEXPECTED E_ERROR Undefined class constant 'SERVER_LIST_CS' in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 122
+2015-07-08 14:33:55 worker[login:2841] exit with status 65280
+2015-07-08 14:34:07 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function compose_buffer() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 76
+2015-07-08 14:34:07 worker[login:2982] exit with status 65280
+2015-07-08 14:39:37 Workerman[start.php] Stopping ...
+2015-07-08 14:39:37 Workerman[start.php] has been stopped
+2015-07-08 14:39:37 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:39:43 WORKER EXIT UNEXPECTED E_ERROR Undefined class constant 'CHOSE_SERVER_C' in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 125
+2015-07-08 14:39:43 worker[login:3157] exit with status 65280
+2015-07-08 14:40:00 Workerman[start.php] Stopping ...
+2015-07-08 14:40:00 Workerman[start.php] has been stopped
+2015-07-08 14:40:01 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:41:15 Workerman[start.php] Stopping ...
+2015-07-08 14:41:15 Workerman[start.php] has been stopped
+2015-07-08 14:41:16 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:41:57 Workerman[start.php] Stopping ...
+2015-07-08 14:41:57 Workerman[start.php] has been stopped
+2015-07-08 14:44:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:45:09 Workerman[start.php] Stopping ...
+2015-07-08 14:45:09 Workerman[start.php] has been stopped
+2015-07-08 14:45:10 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:45:44 Workerman[start.php] Stopping ...
+2015-07-08 14:45:44 Workerman[start.php] has been stopped
+2015-07-08 14:45:45 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:46:39 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function compose_buffer() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 78
+2015-07-08 14:46:39 worker[login:3328] exit with status 65280
+2015-07-08 14:47:30 Workerman[start.php] Stopping ...
+2015-07-08 14:47:30 Workerman[start.php] has been stopped
+2015-07-08 14:47:31 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:48:15 Workerman[start.php] Stopping ...
+2015-07-08 14:48:15 Workerman[start.php] has been stopped
+2015-07-08 14:48:15 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:49:01 Workerman[start.php] Stopping ...
+2015-07-08 14:49:01 Workerman[start.php] has been stopped
+2015-07-08 14:49:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:49:10 Workerman[start.php] Stopping ...
+2015-07-08 14:49:10 Workerman[start.php] has been stopped
+2015-07-08 14:49:24 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:49:52 Workerman[start.php] Stopping ...
+2015-07-08 14:49:52 Workerman[start.php] has been stopped
+2015-07-08 14:49:52 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:51:38 Workerman[start.php] Stopping ...
+2015-07-08 14:51:38 Workerman[start.php] has been stopped
+2015-07-08 14:51:39 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:52:05 Workerman[start.php] Stopping ...
+2015-07-08 14:52:05 Workerman[start.php] has been stopped
+2015-07-08 14:52:06 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:52:28 Workerman[start.php] Stopping ...
+2015-07-08 14:52:28 Workerman[start.php] has been stopped
+2015-07-08 14:52:28 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:53:20 Workerman[start.php] Stopping ...
+2015-07-08 14:53:20 Workerman[start.php] has been stopped
+2015-07-08 14:53:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 14:55:12 Workerman[start.php] Stopping ...
+2015-07-08 14:55:12 Workerman[start.php] has been stopped
+2015-07-08 14:55:12 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:00:51 Workerman[start.php] Stopping ...
+2015-07-08 15:00:51 Workerman[start.php] has been stopped
+2015-07-08 15:06:48 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:09:03 Workerman[start.php] Stopping ...
+2015-07-08 15:09:03 Workerman[start.php] has been stopped
+2015-07-08 15:09:04 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:09:31 Workerman[start.php] Stopping ...
+2015-07-08 15:09:31 Workerman[start.php] has been stopped
+2015-07-08 15:09:32 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:10:27 Workerman[start.php] Stopping ...
+2015-07-08 15:10:27 Workerman[start.php] has been stopped
+2015-07-08 15:10:27 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:10:47 Workerman[start.php] Stopping ...
+2015-07-08 15:10:47 Workerman[start.php] has been stopped
+2015-07-08 15:10:48 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:11:36 Workerman[start.php] Stopping ...
+2015-07-08 15:11:36 Workerman[start.php] has been stopped
+2015-07-08 15:11:36 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:12:12 Workerman[start.php] Stopping ...
+2015-07-08 15:12:12 Workerman[start.php] has been stopped
+2015-07-08 15:12:13 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:13:11 Workerman[start.php] Stopping ...
+2015-07-08 15:13:11 Workerman[start.php] has been stopped
+2015-07-08 15:13:11 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:14:00 Workerman[start.php] Stopping ...
+2015-07-08 15:14:00 Workerman[start.php] has been stopped
+2015-07-08 15:14:00 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:14:56 Workerman[start.php] Stopping ...
+2015-07-08 15:14:56 Workerman[start.php] has been stopped
+2015-07-08 15:14:56 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:17:01 Workerman[start.php] Stopping ...
+2015-07-08 15:17:01 Workerman[start.php] has been stopped
+2015-07-08 15:17:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:17:28 Workerman[start.php] Stopping ...
+2015-07-08 15:17:28 Workerman[start.php] has been stopped
+2015-07-08 15:17:29 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:18:03 Workerman[start.php] Stopping ...
+2015-07-08 15:18:03 Workerman[start.php] has been stopped
+2015-07-08 15:18:12 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:19:15 Workerman[start.php] Stopping ...
+2015-07-08 15:19:15 Workerman[start.php] has been stopped
+2015-07-08 15:19:15 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:20:56 Workerman[start.php] Stopping ...
+2015-07-08 15:20:56 Workerman[start.php] has been stopped
+2015-07-08 15:20:56 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:25:13 Workerman[start.php] Stopping ...
+2015-07-08 15:25:13 Workerman[start.php] has been stopped
+2015-07-08 15:25:13 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:25:26 Workerman[start.php] Stopping ...
+2015-07-08 15:25:26 Workerman[start.php] has been stopped
+2015-07-08 15:25:26 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:27:23 Workerman[start.php] Stopping ...
+2015-07-08 15:27:23 Workerman[start.php] has been stopped
+2015-07-08 15:27:23 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:29:37 Workerman[start.php] Stopping ...
+2015-07-08 15:29:37 Workerman[start.php] has been stopped
+2015-07-08 15:29:37 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:30:34 Workerman[start.php] Stopping ...
+2015-07-08 15:30:34 Workerman[start.php] has been stopped
+2015-07-08 15:30:35 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:31:28 Workerman[start.php] Stopping ...
+2015-07-08 15:31:28 Workerman[start.php] has been stopped
+2015-07-08 15:31:28 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:33:09 Workerman[start.php] Stopping ...
+2015-07-08 15:33:09 Workerman[start.php] has been stopped
+2015-07-08 15:33:09 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:33:29 WORKER EXIT UNEXPECTED E_RECOVERABLE_ERROR Object of class conn\mysql could not be converted to string in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 78
+2015-07-08 15:33:29 worker[login:4704] exit with status 65280
+2015-07-08 15:33:43 Workerman[start.php] Stopping ...
+2015-07-08 15:33:43 Workerman[start.php] has been stopped
+2015-07-08 15:33:44 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:34:23 Workerman[start.php] Stopping ...
+2015-07-08 15:34:23 Workerman[start.php] has been stopped
+2015-07-08 15:34:24 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:35:38 Workerman[start.php] Stopping ...
+2015-07-08 15:35:38 Workerman[start.php] has been stopped
+2015-07-08 15:35:39 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:38:58 Workerman[start.php] Stopping ...
+2015-07-08 15:38:58 Workerman[start.php] has been stopped
+2015-07-08 15:38:58 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:39:11 Workerman[start.php] Stopping ...
+2015-07-08 15:39:11 Workerman[start.php] has been stopped
+2015-07-08 15:39:11 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:40:41 Workerman[start.php] Stopping ...
+2015-07-08 15:40:41 Workerman[start.php] has been stopped
+2015-07-08 15:40:41 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:42:24 Workerman[start.php] Stopping ...
+2015-07-08 15:42:24 Workerman[start.php] has been stopped
+2015-07-08 15:42:24 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:43:46 Workerman[start.php] Stopping ...
+2015-07-08 15:43:46 Workerman[start.php] has been stopped
+2015-07-08 15:44:48 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:44:53 WORKER EXIT UNEXPECTED E_ERROR Class 'TokenManager' not found in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 122
+2015-07-08 15:44:53 worker[login:5019] exit with status 65280
+2015-07-08 15:45:46 Workerman[start.php] Stopping ...
+2015-07-08 15:45:46 Workerman[start.php] has been stopped
+2015-07-08 15:45:47 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:48:01 Workerman[start.php] Stopping ...
+2015-07-08 15:48:01 Workerman[start.php] has been stopped
+2015-07-08 15:48:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:49:51 Workerman[start.php] Stopping ...
+2015-07-08 15:49:51 Workerman[start.php] has been stopped
+2015-07-08 15:50:14 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:51:28 Workerman[start.php] Stopping ...
+2015-07-08 15:51:28 Workerman[start.php] has been stopped
+2015-07-08 15:51:28 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:52:45 Workerman[start.php] Stopping ...
+2015-07-08 15:52:45 Workerman[start.php] has been stopped
+2015-07-08 15:52:46 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:54:37 Workerman[start.php] Stopping ...
+2015-07-08 15:54:37 Workerman[start.php] has been stopped
+2015-07-08 15:54:37 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:56:14 Workerman[start.php] Stopping ...
+2015-07-08 15:56:14 Workerman[start.php] has been stopped
+2015-07-08 15:56:15 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:58:08 Workerman[start.php] Stopping ...
+2015-07-08 15:58:08 Workerman[start.php] has been stopped
+2015-07-08 15:58:09 Workerman[start.php] start in DEBUG mode
+2015-07-08 15:58:22 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysql_error() on resource in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 119
+2015-07-08 15:58:22 worker[login:5357] exit with status 65280
+2015-07-08 15:59:12 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysql_error() on resource in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 119
+2015-07-08 15:59:12 worker[login:5363] exit with status 65280
+2015-07-08 16:00:01 Workerman[start.php] Stopping ...
+2015-07-08 16:00:01 Workerman[start.php] has been stopped
+2015-07-08 16:00:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:02:30 Workerman[start.php] Stopping ...
+2015-07-08 16:02:30 Workerman[start.php] has been stopped
+2015-07-08 16:02:31 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:02:57 Workerman[start.php] Stopping ...
+2015-07-08 16:02:57 Workerman[start.php] has been stopped
+2015-07-08 16:02:58 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:17:11 Workerman[start.php] Stopping ...
+2015-07-08 16:17:11 Workerman[start.php] has been stopped
+2015-07-08 16:17:11 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:17:49 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function conn\mysql_next_result() in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 127
+2015-07-08 16:17:49 worker[login:5810] exit with status 65280
+2015-07-08 16:25:01 Workerman[start.php] Stopping ...
+2015-07-08 16:25:01 Workerman[start.php] has been stopped
+2015-07-08 16:25:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:25:06 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function conn\mysql_store_result() in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 128
+2015-07-08 16:25:06 worker[login:5984] exit with status 65280
+2015-07-08 16:26:12 Workerman[start.php] Stopping ...
+2015-07-08 16:26:12 Workerman[start.php] has been stopped
+2015-07-08 16:26:13 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:26:18 Workerman[start.php] Stopping ...
+2015-07-08 16:26:20 worker[login:6015] exit with status 9
+2015-07-08 16:26:20 Workerman[start.php] has been stopped
+2015-07-08 16:38:44 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:39:08 Workerman[start.php] Stopping ...
+2015-07-08 16:39:08 Workerman[start.php] has been stopped
+2015-07-08 16:39:09 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:39:12 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysqli_multi_query() on resource in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 128
+2015-07-08 16:39:12 worker[login:6380] exit with status 65280
+2015-07-08 16:40:18 Workerman[start.php] Stopping ...
+2015-07-08 16:40:18 Workerman[start.php] has been stopped
+2015-07-08 16:44:01 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:44:03 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function conn\mysql_next_result() in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 131
+2015-07-08 16:44:03 worker[login:6498] exit with status 65280
+2015-07-08 16:45:58 Workerman[start.php] Stopping ...
+2015-07-08 16:45:58 Workerman[start.php] has been stopped
+2015-07-08 16:45:58 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:48:19 Workerman[start.php] Stopping ...
+2015-07-08 16:48:19 Workerman[start.php] has been stopped
+2015-07-08 16:48:19 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:49:39 Workerman[start.php] Stopping ...
+2015-07-08 16:49:39 Workerman[start.php] has been stopped
+2015-07-08 16:49:56 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:53:25 Workerman[start.php] Stopping ...
+2015-07-08 16:53:25 Workerman[start.php] has been stopped
+2015-07-08 16:53:25 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:53:36 Workerman[start.php] Stopping ...
+2015-07-08 16:53:36 Workerman[start.php] has been stopped
+2015-07-08 16:53:36 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:59:54 Workerman[start.php] Stopping ...
+2015-07-08 16:59:54 Workerman[start.php] has been stopped
+2015-07-08 16:59:55 Workerman[start.php] start in DEBUG mode
+2015-07-08 16:59:57 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysqli_multi_query() on resource in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 128
+2015-07-08 16:59:57 worker[login:6881] exit with status 65280
+2015-07-08 17:00:56 Workerman[start.php] Stopping ...
+2015-07-08 17:00:56 Workerman[start.php] has been stopped
+2015-07-08 17:00:57 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:01:01 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysqli_multi_query() on resource in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 128
+2015-07-08 17:01:01 worker[login:6908] exit with status 65280
+2015-07-08 17:03:01 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function close() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 150
+2015-07-08 17:03:01 worker[login:6910] exit with status 65280
+2015-07-08 17:03:13 WORKER EXIT UNEXPECTED E_ERROR Call to a member function mysqli_multi_query() on resource in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 128
+2015-07-08 17:03:13 worker[login:6959] exit with status 65280
+2015-07-08 17:09:28 Workerman[start.php] Stopping ...
+2015-07-08 17:09:28 Workerman[start.php] has been stopped
+2015-07-08 17:09:28 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:09:32 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function store_result() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 94
+2015-07-08 17:09:32 worker[login:7126] exit with status 65280
+2015-07-08 17:11:59 Workerman[start.php] Stopping ...
+2015-07-08 17:11:59 Workerman[start.php] has been stopped
+2015-07-08 17:11:59 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:12:03 WORKER EXIT UNEXPECTED E_ERROR Cannot access private property conn\mysql::$conn in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 94
+2015-07-08 17:12:03 worker[login:7193] exit with status 65280
+2015-07-08 17:12:28 Workerman[start.php] Stopping ...
+2015-07-08 17:12:28 Workerman[start.php] has been stopped
+2015-07-08 17:12:29 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:12:35 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function next_result() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 110
+2015-07-08 17:12:35 worker[login:7209] exit with status 65280
+2015-07-08 17:12:40 Workerman[start.php] Stopping ...
+2015-07-08 17:12:40 Workerman[start.php] has been stopped
+2015-07-08 17:13:14 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:13:17 WORKER EXIT UNEXPECTED E_ERROR Using $this when not in object context in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 110
+2015-07-08 17:13:17 worker[login:7230] exit with status 65280
+2015-07-08 17:13:41 Workerman[start.php] Stopping ...
+2015-07-08 17:13:41 Workerman[start.php] has been stopped
+2015-07-08 17:13:41 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:20:54 Workerman[start.php] Stopping ...
+2015-07-08 17:20:54 Workerman[start.php] has been stopped
+2015-07-08 17:20:54 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:21:59 Workerman[start.php] Stopping ...
+2015-07-08 17:21:59 Workerman[start.php] has been stopped
+2015-07-08 17:22:00 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:22:12 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function close() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 160
+2015-07-08 17:22:12 worker[login:7466] exit with status 65280
+2015-07-08 17:22:25 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function close() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 160
+2015-07-08 17:22:25 worker[login:7472] exit with status 65280
+2015-07-08 17:23:32 Workerman[start.php] Stopping ...
+2015-07-08 17:23:32 Workerman[start.php] has been stopped
+2015-07-08 17:23:33 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:39:30 Workerman[start.php] Stopping ...
+2015-07-08 17:39:30 Workerman[start.php] has been stopped
+2015-07-08 17:39:31 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:39:44 WORKER EXIT UNEXPECTED E_ERROR Call to a member function prepare() on null in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 77
+2015-07-08 17:39:44 worker[login:7923] exit with status 65280
+2015-07-08 17:41:05 Workerman[start.php] Stopping ...
+2015-07-08 17:41:05 Workerman[start.php] has been stopped
+2015-07-08 17:41:06 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:41:16 WORKER EXIT UNEXPECTED E_ERROR Call to a member function prepare() on null in /home/ll/baoluo/workerman-login/login_server/mysql_conn.php on line 79
+2015-07-08 17:41:16 worker[login:7965] exit with status 65280
+2015-07-08 17:42:02 Workerman[start.php] Stopping ...
+2015-07-08 17:42:02 Workerman[start.php] has been stopped
+2015-07-08 17:42:03 Workerman[start.php] start in DEBUG mode
+2015-07-08 17:42:20 Workerman[start.php] Stopping ...
+2015-07-08 17:42:20 Workerman[start.php] has been stopped
+2015-07-08 18:34:50 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:35:08 WORKER EXIT UNEXPECTED E_ERROR Call to undefined function msql_error() in /home/ll/baoluo/workerman-login/login_server/start_login.php on line 107
+2015-07-08 18:35:08 worker[login:22674] exit with status 65280
+2015-07-08 18:35:26 Workerman[start.php] Stopping ...
+2015-07-08 18:35:26 Workerman[start.php] has been stopped
+2015-07-08 18:35:26 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:38:45 Workerman[start.php] Stopping ...
+2015-07-08 18:38:45 Workerman[start.php] has been stopped
+2015-07-08 18:39:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:39:46 Workerman[start.php] Stopping ...
+2015-07-08 18:39:46 Workerman[start.php] has been stopped
+2015-07-08 18:39:46 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:41:20 Workerman[start.php] Stopping ...
+2015-07-08 18:41:20 Workerman[start.php] has been stopped
+2015-07-08 18:41:20 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:43:14 Workerman[start.php] Stopping ...
+2015-07-08 18:43:14 Workerman[start.php] has been stopped
+2015-07-08 18:43:43 Workerman[start.php] start in DEBUG mode
+2015-07-08 18:44:21 Workerman[start.php] Stopping ...
+2015-07-08 18:44:21 Workerman[start.php] has been stopped
+2015-07-08 18:44:22 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:12:26 Workerman[start.php] Stopping ...
+2015-07-08 19:12:26 Workerman[start.php] has been stopped
+2015-07-08 19:12:39 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:13:10 Workerman[start.php] Stopping ...
+2015-07-08 19:13:10 Workerman[start.php] has been stopped
+2015-07-08 19:13:11 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:13:35 Workerman[start.php] Stopping ...
+2015-07-08 19:13:35 Workerman[start.php] has been stopped
+2015-07-08 19:13:36 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:17:54 Workerman[start.php] Stopping ...
+2015-07-08 19:17:54 Workerman[start.php] has been stopped
+2015-07-08 19:17:55 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:17:59 Workerman[start.php] Stopping ...
+2015-07-08 19:17:59 Workerman[start.php] has been stopped
+2015-07-08 19:18:42 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:18:45 Workerman[start.php] Stopping ...
+2015-07-08 19:18:45 Workerman[start.php] has been stopped
+2015-07-08 19:18:58 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:21:15 Workerman[start.php] Stopping ...
+2015-07-08 19:21:15 Workerman[start.php] has been stopped
+2015-07-08 19:21:16 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:22:02 Workerman[start.php] Stopping ...
+2015-07-08 19:22:02 Workerman[start.php] has been stopped
+2015-07-08 19:22:02 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:22:56 Workerman[start.php] Stopping ...
+2015-07-08 19:22:56 Workerman[start.php] has been stopped
+2015-07-08 19:22:57 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:23:36 Workerman[start.php] Stopping ...
+2015-07-08 19:23:36 Workerman[start.php] has been stopped
+2015-07-08 19:23:37 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:24:57 Workerman[start.php] Stopping ...
+2015-07-08 19:24:57 Workerman[start.php] has been stopped
+2015-07-08 19:24:58 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:25:19 Workerman[start.php] Stopping ...
+2015-07-08 19:25:19 Workerman[start.php] has been stopped
+2015-07-08 19:25:19 Workerman[start.php] start in DEBUG mode
+2015-07-08 19:25:25 Workerman[start.php] Stopping ...
+2015-07-08 19:25:25 Workerman[start.php] has been stopped
