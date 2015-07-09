@@ -162,16 +162,20 @@ $worker->onMessage = function($connection, $data)
             return $connection->send(compose_buffer(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_CS,$list));
 
         case protocol::CHOSE_SERVER_C:
-            $serverid=$message_data['server'];
-            if(count($server_data)>$serverid){
-                $info = TokenManager::getInstance()->GetTokenInfo($message_data['id']);
-                $info['type']='auth';
-                ConnManager::getInstance()->send_to_gameserver($info);
+            $serverid=$message_data['ID'];
 
-                if(array_key_exists('Address',$server_data) or array_key_exists('Port',$server_data) ){
-                    return $connection->send(compose_buffer(ErrCode::ERR_SUCCESS,protocol::SERVER_LIST_CS,$server_data[$serverid]));
-                }
+            $serverinfo=$server_data[$serverid];
+
+            $info = TokenManager::getInstance()->GetTokenInfo($message_data['userid']);
+            $info['type']='auth';
+            ConnManager::getInstance()->send_to_gameserver($info);
+            var_dump($serverinfo);
+            if(array_key_exists('Address',$serverinfo) or array_key_exists('Port',$serverinfo) ){
+                echo '111';
+
+                return $connection->send(compose_buffer(ErrCode::ERR_SUCCESS,protocol::CHOSE_SERVER_C,$server_data[$serverid]));
             }
+
             return true;
         case 8:
             return true;

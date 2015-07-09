@@ -26,7 +26,5 @@ use \config\ConfigManager;
             call_user_func_array(array("GamePlayer","level_up"),array());
         }
 
-
-
     };
 ?>
