@@ -1,3 +1,4 @@
----- initIseOptions Matches (2 in 2 files) ----
-Ise_application.cpp (main):        iseBusiness_->initIseOptions(iseOptions_);
-Ise_application.h (main):    virtual void initIseOptions(IseOptions& options) {}
+---- selfPacketSplitter Matches (3 in 2 files) ----
+Ise_server_tcp.cpp (main):void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes)
+Ise_server_tcp.h (main):void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes);
+Ise_server_tcp.h (main):const PacketSplitter SELFT_PACKET_SPLITTER = &ise::selfPacketSplitter;

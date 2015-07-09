@@ -39,6 +39,8 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
 
 void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context)
 {
+	string msg = "Hello World!\r\n";
+	
 	connection->recv(SELFT_PACKET_SPLITTER);
 }
 
