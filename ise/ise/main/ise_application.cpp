@@ -689,7 +689,7 @@ void IseApplication::initialize()
         iseBusiness_->initIseOptions(iseOptions_);
         processStandardArgs(true);
         checkMultiInstance();
-        if (iseOptions_.getIsDaemon()) initDaemon();
+     //   if (iseOptions_.getIsDaemon()) initDaemon();
         initSignals();
         initNewOperHandler();
         applyIseOptions();

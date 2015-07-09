@@ -4,7 +4,14 @@
 #define _ECHO_SERVER_H_
 
 #include "ise/main/ise.h"
-
+#include "ise/main/ise_options.h"
+#include "ise/main/ise_classes.h"
+#include "ise/main/ise_sys_utils.h"
+#include "ise/main/ise_socket.h"
+#include "ise/main/ise_exceptions.h"
+#include "ise/main/ise_server_tcp.h"
+#include "ise/main/ise_application.h"
+#include "ise/ext/utils/json/json.h"
 using namespace ise;
 
 ///////////////////////////////////////////////////////////////////////////////

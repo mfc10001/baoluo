@@ -75,6 +75,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
     string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
     connection->send(msg.c_str(), msg.length());
+
 }
 
 //-----------------------------------------------------------------------------
@@ -110,5 +111,6 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
 {
     logger().writeStr("onTcpSendComplete");
 
-    connection->recv(LINE_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
+   // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
+       connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }

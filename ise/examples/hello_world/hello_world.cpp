@@ -34,13 +34,12 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
 void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
 {
-    connection->disconnect();
+    //connection->disconnect();
 }
 
 void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context)
 {
 	string msg = "Hello World!\r\n";
-	
-	connection->recv(SELFT_PACKET_SPLITTER);
+
 }
 

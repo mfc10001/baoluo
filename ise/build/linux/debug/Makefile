@@ -209,58 +209,6 @@ hello_world/fast:
 .PHONY : hello_world/fast
 
 #=============================================================================
-# Target rules for targets named chargen_client
-
-# Build rule for target.
-chargen_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 chargen_client
-.PHONY : chargen_client
-
-# fast build rule for target.
-chargen_client/fast:
-	$(MAKE) -f examples/chargen_client/CMakeFiles/chargen_client.dir/build.make examples/chargen_client/CMakeFiles/chargen_client.dir/build
-.PHONY : chargen_client/fast
-
-#=============================================================================
-# Target rules for targets named chargen_server
-
-# Build rule for target.
-chargen_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 chargen_server
-.PHONY : chargen_server
-
-# fast build rule for target.
-chargen_server/fast:
-	$(MAKE) -f examples/chargen_server/CMakeFiles/chargen_server.dir/build.make examples/chargen_server/CMakeFiles/chargen_server.dir/build
-.PHONY : chargen_server/fast
-
-#=============================================================================
-# Target rules for targets named daytime_server
-
-# Build rule for target.
-daytime_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 daytime_server
-.PHONY : daytime_server
-
-# fast build rule for target.
-daytime_server/fast:
-	$(MAKE) -f examples/daytime_server/CMakeFiles/daytime_server.dir/build.make examples/daytime_server/CMakeFiles/daytime_server.dir/build
-.PHONY : daytime_server/fast
-
-#=============================================================================
-# Target rules for targets named discard_server
-
-# Build rule for target.
-discard_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 discard_server
-.PHONY : discard_server
-
-# fast build rule for target.
-discard_server/fast:
-	$(MAKE) -f examples/discard_server/CMakeFiles/discard_server.dir/build.make examples/discard_server/CMakeFiles/discard_server.dir/build
-.PHONY : discard_server/fast
-
-#=============================================================================
 # Target rules for targets named echo_server
 
 # Build rule for target.
@@ -272,110 +220,6 @@ echo_server: cmake_check_build_system
 echo_server/fast:
 	$(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/build
 .PHONY : echo_server/fast
-
-#=============================================================================
-# Target rules for targets named 4in1_server
-
-# Build rule for target.
-4in1_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 4in1_server
-.PHONY : 4in1_server
-
-# fast build rule for target.
-4in1_server/fast:
-	$(MAKE) -f examples/server_modules/CMakeFiles/4in1_server.dir/build.make examples/server_modules/CMakeFiles/4in1_server.dir/build
-.PHONY : 4in1_server/fast
-
-#=============================================================================
-# Target rules for targets named server_module_msgs
-
-# Build rule for target.
-server_module_msgs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_module_msgs
-.PHONY : server_module_msgs
-
-# fast build rule for target.
-server_module_msgs/fast:
-	$(MAKE) -f examples/server_module_msgs/CMakeFiles/server_module_msgs.dir/build.make examples/server_module_msgs/CMakeFiles/server_module_msgs.dir/build
-.PHONY : server_module_msgs/fast
-
-#=============================================================================
-# Target rules for targets named http_server
-
-# Build rule for target.
-http_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 http_server
-.PHONY : http_server
-
-# fast build rule for target.
-http_server/fast:
-	$(MAKE) -f examples/http_server/CMakeFiles/http_server.dir/build.make examples/http_server/CMakeFiles/http_server.dir/build
-.PHONY : http_server/fast
-
-#=============================================================================
-# Target rules for targets named server_inspector
-
-# Build rule for target.
-server_inspector: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 server_inspector
-.PHONY : server_inspector
-
-# fast build rule for target.
-server_inspector/fast:
-	$(MAKE) -f examples/server_inspector/CMakeFiles/server_inspector.dir/build.make examples/server_inspector/CMakeFiles/server_inspector.dir/build
-.PHONY : server_inspector/fast
-
-#=============================================================================
-# Target rules for targets named thread_pool
-
-# Build rule for target.
-thread_pool: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 thread_pool
-.PHONY : thread_pool
-
-# fast build rule for target.
-thread_pool/fast:
-	$(MAKE) -f examples/thread_pool/CMakeFiles/thread_pool.dir/build.make examples/thread_pool/CMakeFiles/thread_pool.dir/build
-.PHONY : thread_pool/fast
-
-#=============================================================================
-# Target rules for targets named udp_server
-
-# Build rule for target.
-udp_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 udp_server
-.PHONY : udp_server
-
-# fast build rule for target.
-udp_server/fast:
-	$(MAKE) -f examples/udp_server/CMakeFiles/udp_server.dir/build.make examples/udp_server/CMakeFiles/udp_server.dir/build
-.PHONY : udp_server/fast
-
-#=============================================================================
-# Target rules for targets named udp_client
-
-# Build rule for target.
-udp_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 udp_client
-.PHONY : udp_client
-
-# fast build rule for target.
-udp_client/fast:
-	$(MAKE) -f examples/udp_client/CMakeFiles/udp_client.dir/build.make examples/udp_client/CMakeFiles/udp_client.dir/build
-.PHONY : udp_client/fast
-
-#=============================================================================
-# Target rules for targets named timer
-
-# Build rule for target.
-timer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 timer
-.PHONY : timer
-
-# fast build rule for target.
-timer/fast:
-	$(MAKE) -f examples/timer/CMakeFiles/timer.dir/build.make examples/timer/CMakeFiles/timer.dir/build
-.PHONY : timer/fast
 
 home/ll/baoluo/ise/ise/main/ise_application.o: home/ll/baoluo/ise/ise/main/ise_application.cpp.o
 .PHONY : home/ll/baoluo/ise/ise/main/ise_application.o
@@ -874,19 +718,7 @@ help:
 	@echo "... ise_utils_cipher"
 	@echo "... ise_utils_xml"
 	@echo "... hello_world"
-	@echo "... chargen_client"
-	@echo "... chargen_server"
-	@echo "... daytime_server"
-	@echo "... discard_server"
 	@echo "... echo_server"
-	@echo "... 4in1_server"
-	@echo "... server_module_msgs"
-	@echo "... http_server"
-	@echo "... server_inspector"
-	@echo "... thread_pool"
-	@echo "... udp_server"
-	@echo "... udp_client"
-	@echo "... timer"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.o"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.i"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.s"

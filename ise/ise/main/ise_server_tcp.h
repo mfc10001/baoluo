@@ -159,7 +159,7 @@ const PacketSplitter NULL_TERMINATED_PACKET_SPLITTER = &ise::nullTerminatedPacke
 const PacketSplitter ANY_PACKET_SPLITTER = &ise::anyPacketSplitter;
 
 //自定义分包
-const PacketSplitter SELFT_PACKET_SPLITTER = &ise::selfPacketSplitter;
+const PacketSplitter SELF_PACKET_SPLITTER = &ise::selfPacketSplitter;
 
 ///////////////////////////////////////////////////////////////////////////////
 // class TcpInspectInfo
