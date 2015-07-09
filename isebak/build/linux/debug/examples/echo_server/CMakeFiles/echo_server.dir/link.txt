@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/echo_server.dir/echo_server.cpp.o  -o ../../bin/echo_server -rdynamic ../../lib/libise.a -lpthread 

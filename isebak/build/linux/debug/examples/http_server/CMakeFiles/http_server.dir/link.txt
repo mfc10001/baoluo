@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/http_server.dir/http_server.cpp.o  -o ../../bin/http_server -rdynamic ../../lib/libise.a -lpthread 

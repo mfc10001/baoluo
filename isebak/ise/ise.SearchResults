@@ -1,0 +1,3 @@
+---- initIseOptions Matches (2 in 2 files) ----
+Ise_application.cpp (main):        iseBusiness_->initIseOptions(iseOptions_);
+Ise_application.h (main):    virtual void initIseOptions(IseOptions& options) {}

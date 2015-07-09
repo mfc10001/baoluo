@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/chargen_client.dir/chargen_client.cpp.o  -o ../../bin/chargen_client -rdynamic ../../lib/libise.a -lpthread 

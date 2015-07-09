@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/hello_world.dir/hello_world.cpp.o  -o ../../bin/hello_world -rdynamic ../../lib/libise.a -lpthread 

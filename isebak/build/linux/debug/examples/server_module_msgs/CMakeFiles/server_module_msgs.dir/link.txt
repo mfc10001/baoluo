@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/server_module_msgs.dir/app_business.cpp.o CMakeFiles/server_module_msgs.dir/svr_mod_1.cpp.o CMakeFiles/server_module_msgs.dir/svr_mod_2.cpp.o  -o ../../bin/server_module_msgs -rdynamic ../../lib/libise.a -lpthread 

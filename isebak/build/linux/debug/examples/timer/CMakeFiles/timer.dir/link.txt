@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/timer.dir/timer.cpp.o  -o ../../bin/timer -rdynamic ../../lib/libise.a -lpthread 
