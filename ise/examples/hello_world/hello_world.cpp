@@ -16,7 +16,7 @@ IseBusiness* createIseBusinessObject()
 void AppBusiness::initIseOptions(IseOptions& options)
 {
     options.setServerType(ST_TCP);
-    options.setTcpServerPort(7272
+    options.setTcpServerPort(7272);
 }
 
 //-----------------------------------------------------------------------------
@@ -24,11 +24,9 @@ void AppBusiness::initIseOptions(IseOptions& options)
 void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 {
 
-	connection->recv(LINE_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvLineTimeout);
-
     string msg = "Hello World!\r\n";
 
-	
+
     connection->send(msg.c_str(), msg.length());
 }
 

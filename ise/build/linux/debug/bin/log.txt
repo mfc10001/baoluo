@@ -1,0 +1,2 @@
+[2015-07-09 00:10:43](04979|4160591680) ERROR: The application is already running.
+[2015-07-09 00:17:02](03153|4160591680) ERROR: The application is already running.

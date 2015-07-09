@@ -94,7 +94,7 @@ void anyPacketSplitter(const char *data, int bytes, int& retrieveBytes)
 void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes)
 {
 	INT16 len=0;
-	memcpy(len,data,sizeof(len));
+	memcpy(&len,data,sizeof(len));
 	retrieveBytes=len+1;
 }
 
