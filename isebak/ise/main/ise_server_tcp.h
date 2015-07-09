@@ -146,6 +146,8 @@ void bytePacketSplitter(const char *data, int bytes, int& retrieveBytes);
 void linePacketSplitter(const char *data, int bytes, int& retrieveBytes);
 void nullTerminatedPacketSplitter(const char *data, int bytes, int& retrieveBytes);
 void anyPacketSplitter(const char *data, int bytes, int& retrieveBytes);
+void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes);
+
 
 // 每次接收一个字节的分包器
 const PacketSplitter BYTE_PACKET_SPLITTER = &ise::bytePacketSplitter;
@@ -155,6 +157,9 @@ const PacketSplitter LINE_PACKET_SPLITTER = &ise::linePacketSplitter;
 const PacketSplitter NULL_TERMINATED_PACKET_SPLITTER = &ise::nullTerminatedPacketSplitter;
 // 无论收到多少字节都立即获取的分包器
 const PacketSplitter ANY_PACKET_SPLITTER = &ise::anyPacketSplitter;
+
+//自定义分包
+const PacketSplitter SELFT_PACKET_SPLITTER = &ise::selfPacketSplitter;
 
 ///////////////////////////////////////////////////////////////////////////////
 // class TcpInspectInfo

@@ -15,7 +15,12 @@ public:
     virtual void initIseOptions(IseOptions& options);
     virtual void onTcpConnected(const TcpConnectionPtr& connection);
     virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
+	
+
+
+	void onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context);
 };
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
