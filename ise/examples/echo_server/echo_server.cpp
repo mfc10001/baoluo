@@ -98,7 +98,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 
 	Json::Reader reader;
 	Json::Value value;
-	if (reader.parse(strValue, value))
+	if (reader.parse(msg, value))
 	{
 		std::string str = value["type"].asString();
 		int n = atoi(str.c_str());
