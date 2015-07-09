@@ -1,4 +1,19 @@
----- selfPacketSplitter Matches (3 in 2 files) ----
-Ise_server_tcp.cpp (main):void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes)
-Ise_server_tcp.h (main):void selfPacketSplitter(const char *data, int bytes, int& retrieveBytes);
-Ise_server_tcp.h (main):const PacketSplitter SELFT_PACKET_SPLITTER = &ise::selfPacketSplitter;
+---- recv Matches (18 in 8 files) ----
+Ise_http.cpp (main):    connection->recv(LINE_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvLineTimeout);
+Ise_http.cpp (main):                    connection->recv(LINE_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvLineTimeout);
+Ise_http.cpp (main):                    connection->recv(LINE_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvLineTimeout);
+Ise_http.cpp (main):                        connection->recv(ANY_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvContentTimeout);
+Ise_http.cpp (main):                    connection->recv(ANY_PACKET_SPLITTER, EMPTY_CONTEXT, options_.recvContentTimeout);
+Ise_http.h (main):const int HTTP_SOCKET_OP_TIMEOUT           = 1000*60*10;  // Socket operation (recv/send) timeout.
+Ise_http.h (main):    int socketOpTimeout;                  // The timeout of the socket operation (recv/send).
+Ise_iocp.cpp (main):void IocpObject::recv(SOCKET socketHandle, PVOID buffer, int size, int offset,
+Ise_iocp.h (main):    void recv(SOCKET socketHandle, PVOID buffer, int size, int offset,
+Ise_server_tcp.cpp (main):void TcpConnection::recv(const PacketSplitter& packetSplitter, const Context& context, int timeout)
+Ise_server_tcp.cpp (main):    getEventLoop()->getIocpObject()->recv(
+Ise_server_tcp.cpp (main):        getEventLoop()->getIocpObject()->recv(
+Ise_server_tcp.h (main):// * 收到连接后(onTcpConnected)，即使用户不调用 connection->recv()，ISE也会在后台
+Ise_server_tcp.h (main):// * 即使用户在连接上无任何动作(既不 send 也不 recv)，当对方断开连接 (close/shutdown) 时，
+Ise_server_tcp.h (main):    void recv(
+Ise_socket.cpp (main):            n = recv(socketHandle, &((char*)buffer)[index], remainSize, 0);
+Ise_socket.cpp (main):        result = recv(socket_.getHandle(), (char*)buffer, size, 0);
+Ise_socket.h (main):const char* const SSEM_TCPRECVTIMEOUT    = "TCP recv timeout";

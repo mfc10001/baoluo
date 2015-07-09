@@ -95,6 +95,22 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
     logger().writeStr("onTcpRecvComplete");
 
     string msg((char*)packetBuffer, packetSize);
+
+	Json::Reader reader;
+	Json::Value value;
+	if (reader.parse(strValue, value))
+	{
+		std::string str = value["type"].asString();
+		int n = atoi(str.c_str());
+		switch (n)
+		{
+			case 1:
+				break;
+			default:
+				break;
+		}
+	}
+	
     msg = trimString(msg);
     if (msg == "quit")
         connection->disconnect();
