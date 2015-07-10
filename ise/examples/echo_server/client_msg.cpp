@@ -18,7 +18,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 &type,Jso
 			return true;
 		case PROTOCOL_AUTH_CS:
 			
-			err= TokenManager::instance().Authentication(arrayObj["uid"],,arrayObj["token"]);
+			err= TokenManager::instance().Authentication(arrayObj["uid"],arrayObj["token"]);
 			rNo=PROTOCOL_AUTH_CS;
 			break;
 
@@ -31,6 +31,13 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 &type,Jso
 			break;
 
 		case PROTOCOL_CREATE_CHAR_CS:
+			GamePlayer *player=new GamePlayer();
+			
+			player->createChar(arrayObj["chartype"])
+
+			GamePlayerManager::instance().AddPlayer(player);
+			break;
+		case PROTOCOL_CHAR_CHOSE_CS:
 			
 			break;
 		default:

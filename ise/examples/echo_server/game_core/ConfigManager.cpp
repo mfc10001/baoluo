@@ -5,7 +5,10 @@
 
 bool ConfigManager::loadAllFile()
 {
-    return true;
+	 loadLevelFile();
+	 loadPLayerFile();
+
+     return true;
 }
 
 bool ConfigManager::loadLevelFile()
@@ -43,5 +46,16 @@ bool ConfigManager::loadLevelFile()
 	 }
 	 fclose(fp);
 	 return true;
+}
+
+
+
+const ConfigLevelData* ConfigManager::getLevelData(uint32 id)
+{
+	
+}
+const ConfigPlayerData* ConfigManager::getPlayerData(uint32 id)
+{
+	
 }
 

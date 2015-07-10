@@ -13,7 +13,7 @@
 #include "ise/main/ise_application.h"
 #include "ise/ext/utils/json/json.h"
 
-#define MAX_SEND_BUFF 10240
+#define MAX_SEND_BUFF 4086
 ///////////////////////////////////////////////////////////////////////////////
 
 class AppBusiness : public IseBusiness
@@ -37,6 +37,8 @@ public:
 
 
 	bool msgProcess(const TcpConnectionPtr& connection,string type,Json::Value arrayObj);
+
+	DbConnectionPool db_mgr_;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
