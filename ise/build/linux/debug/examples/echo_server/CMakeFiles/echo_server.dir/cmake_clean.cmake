@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/echo_server.dir/echo_server.cpp.o"
+  "CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o"
   "../../bin/echo_server.pdb"
   "../../bin/echo_server"
 )

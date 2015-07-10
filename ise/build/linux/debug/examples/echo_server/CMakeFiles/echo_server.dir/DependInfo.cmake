@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ll/baoluo/ise/examples/echo_server/echo_server.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o"
+  "/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

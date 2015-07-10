@@ -20,3 +20,15 @@
 [2015-07-09 18:42:11](02765|4133230336) ERROR: Assertion failed: bytes <= getReadableBytes() (/home/ll/baoluo/ise/ise/main/ise_server_tcp.cpp:163)
 [2015-07-09 18:42:11](02765|4133230336) onTcpSendComplete
 [2015-07-09 18:42:11](02765|4133230336) onTcpRecvComplete
+[2015-07-09 18:53:03](03096|4160591680) echo_server started.
+[2015-07-09 18:53:08](03096|4133230336) onTcpConnected (192.168.140.1:1360) (ConnCount: 1)
+[2015-07-09 18:53:08](03096|4133230336) onTcpSendComplete
+[2015-07-09 18:53:08](03096|4133230336) onTcpRecvComplete
+[2015-07-09 18:56:32](03096|4133230336) Received message: E
+[2015-07-09 18:56:32](03096|4133230336) ERROR: Assertion failed: bytes <= getReadableBytes() (/home/ll/baoluo/ise/ise/main/ise_server_tcp.cpp:163)
+[2015-07-09 18:56:32](03096|4133230336) ERROR: Assertion failed: bytes <= getReadableBytes() (/home/ll/baoluo/ise/ise/main/ise_server_tcp.cpp:163)
+[2015-07-09 18:56:32](03096|4133230336) onTcpDisconnected (192.168.140.129:10000-192.168.140.1:1360#0)
+[2015-07-09 19:03:03](03272|4160591680) echo_server started.
+[2015-07-09 19:03:08](03272|4133230336) onTcpConnected (192.168.140.1:1417) (ConnCount: 1)
+[2015-07-09 19:03:08](03272|4133230336) onTcpSendComplete
+[2015-07-09 19:03:08](03272|4133230336) onTcpRecvComplete

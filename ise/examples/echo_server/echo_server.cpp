@@ -1,7 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "echo_server.h"
-#include "./game_core/ConfigManger.h"
+#include "game_core/ConfigManager.h"
+
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
@@ -18,7 +19,7 @@ void AppBusiness::initialize()
 {
 	try
 	{
-		bool ret=ConfigManager::getInstance()->loadAllFile();
+		bool ret=ConfigManager::instance().loadAllFile();
 		if(!ret)
 		{
 			throw(ret);
@@ -26,7 +27,7 @@ void AppBusiness::initialize()
 	}
 	catch(bool)
 	{
-		exit(1);      
+		exit(1);
 	}
     // nothing
 }
@@ -107,7 +108,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
     logger().writeStr("onTcpRecvComplete");
 
 	char *dataptr=(char*)packetBuffer;
-	
+
     string msg((char*)dataptr+2, packetSize-2);
 
 	Json::Reader reader;
@@ -124,7 +125,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 				break;
 		}
 	}
-	
+
     msg = trimString(msg);
     if (msg == "quit")
         connection->disconnect();

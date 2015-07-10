@@ -16,10 +16,10 @@ public:
         if(count <=1) return NULL;
         int * ints=new int[count];
         memset(ints,0x0,count*sizeof(int));
-        
+
         char split_str[48];
         int index_length=0;
-        
+
         snprintf(split_str,48,"%%d%s",split);
         for (int i=0;i<count;i++){
             sscanf(str+index_length,split_str,&ints[i]);
@@ -29,18 +29,7 @@ public:
         }
         return ints;
     }
-    //根据数字数组 组合为字符串
-    static char * bindNumbersToStr(int * nums,const unsigned int  nums_length,const char * split){
-        char * str=new char[1025];
-        char num_str[20]={0};
-        int index_length=0;
-        for(int i=0;i<nums_length;i++){
-            sprintf(str+index_length,"%d%s",nums[i],split);
-            index_length=strlen(str);
-        }
-        str[index_length-strlen(split)]=0x0;
-        return str;
-    }
+
 
 
 

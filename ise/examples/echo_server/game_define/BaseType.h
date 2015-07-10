@@ -4,7 +4,7 @@
 
 
 #include <string>
-using namespaces std;
+using namespace std;
 typedef vector<string> StrContaonType;
 typedef vector<string>::iterator StrContaonTypeItr;
 

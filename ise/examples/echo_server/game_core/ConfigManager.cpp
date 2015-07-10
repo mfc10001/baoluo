@@ -1,28 +1,27 @@
 #include "ConfigManager.h"
-#include "../Tools/CommonTools.h"
-#include "../GameDefine/BaseType.h"
+#include "../tools/CommonTools.h"
+#include "../game_define/BaseType.h"
 #include <string.h>
-using namsepace std;
-ConfigManager::loadAllFile()
+
+bool ConfigManager::loadAllFile()
 {
-	
+    return true;
 }
 
 bool ConfigManager::loadLevelFile()
 {
-	FILE * fp;
- 	string ch;
-
 	string path=CONFIG_ROOT_PATH;
 	path.append("custom.txt");
- 	if((fp=fopen(path,"r"))== NULL) )
+
+	FILE * fp=fopen(path.c_str(),"r");
+ 	if(!fp)
  	{
 		return false;
 	}
 
 	char buffer[BUFFLEN];
-	
-	 while(!feof(pf))
+
+	 while(!feof(fp))
 	 {
 	 	memset(buffer,0,BUFFLEN);
 		fgets(buffer,BUFFLEN,fp);
@@ -32,16 +31,17 @@ bool ConfigManager::loadLevelFile()
 		{
 			return false;
 		}
-		for(StrContaonTypeItr it=conVec.begin();it!=conVec.end();it++)
+		//for(StrContaonTypeItr it=conVec.begin();it!=conVec.end();it++)
 		{
 			ConfigLevelData *data=new ConfigLevelData();
-			data->id= std::atoi(conVec[0]);
-			data->level=std::atoi(conVec[1]);
-			data->exp=std::atoi(conVec[2]);
-			configLevelManager[data.getIndex()]=data;
+
+			data->id= atoi( conVec[0].c_str());
+			data->level=atoi(conVec[1].c_str());
+			data->exp=atoi(conVec[2].c_str());
+			configLevelManager[data->getIndex()]=data;
 		}
 	 }
-	 fclose(pf);
+	 fclose(fp);
 	 return true;
 }
 

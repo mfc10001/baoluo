@@ -181,6 +181,30 @@ echo_server.cpp.s:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.s
 .PHONY : echo_server.cpp.s
 
+game_core/ConfigManager.o: game_core/ConfigManager.cpp.o
+.PHONY : game_core/ConfigManager.o
+
+# target to build an object file
+game_core/ConfigManager.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o
+.PHONY : game_core/ConfigManager.cpp.o
+
+game_core/ConfigManager.i: game_core/ConfigManager.cpp.i
+.PHONY : game_core/ConfigManager.i
+
+# target to preprocess a source file
+game_core/ConfigManager.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.i
+.PHONY : game_core/ConfigManager.cpp.i
+
+game_core/ConfigManager.s: game_core/ConfigManager.cpp.s
+.PHONY : game_core/ConfigManager.s
+
+# target to generate assembly for a file
+game_core/ConfigManager.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.s
+.PHONY : game_core/ConfigManager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,6 +221,9 @@ help:
 	@echo "... echo_server.o"
 	@echo "... echo_server.i"
 	@echo "... echo_server.s"
+	@echo "... game_core/ConfigManager.o"
+	@echo "... game_core/ConfigManager.i"
+	@echo "... game_core/ConfigManager.s"
 .PHONY : help
 
 
