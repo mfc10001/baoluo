@@ -69,6 +69,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("/home/ll/baoluo/ise/build/linux/debug/ext/utils/cmake_install.cmake")
   include("/home/ll/baoluo/ise/build/linux/debug/ext/dbi/mysql/cmake_install.cmake")
   include("/home/ll/baoluo/ise/build/linux/debug/ext/utils/cipher/cmake_install.cmake")
   include("/home/ll/baoluo/ise/build/linux/debug/ext/utils/xml/cmake_install.cmake")

@@ -82,6 +82,7 @@ echo_server_EXTERNAL_OBJECTS =
 bin/echo_server: examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o
 bin/echo_server: examples/echo_server/CMakeFiles/echo_server.dir/build.make
 bin/echo_server: lib/libise.a
+bin/echo_server: lib/libise_utils_json.a
 bin/echo_server: examples/echo_server/CMakeFiles/echo_server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../bin/echo_server"
 	cd /home/ll/baoluo/ise/build/linux/debug/examples/echo_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/echo_server.dir/link.txt --verbose=$(VERBOSE)

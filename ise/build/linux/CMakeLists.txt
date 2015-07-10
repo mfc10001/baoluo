@@ -29,8 +29,10 @@ set(ISE_ROOT_PATH ${CMAKE_SOURCE_DIR}/../..)
 find_package(Boost REQUIRED)
 message(STATUS "Boost_INCLUDE_DIRS = " ${Boost_INCLUDE_DIRS})
 
+
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories(${ISE_ROOT_PATH})
+
 
 string(TOUPPER ${CMAKE_BUILD_TYPE} BUILD_TYPE)
 message(STATUS "CXX_FLAGS = " ${CMAKE_CXX_FLAGS} " " ${CMAKE_CXX_FLAGS_${BUILD_TYPE}})
@@ -39,6 +41,7 @@ aux_source_directory(${ISE_ROOT_PATH}/ise/main ISE_MAIN_SRCS)
 add_library(ise ${ISE_MAIN_SRCS})
 target_link_libraries(ise pthread)
 
+add_subdirectory(${ISE_ROOT_PATH}/ise/ext/utils/json ${PROJECT_BINARY_DIR}/ext/utils)
 add_subdirectory(${ISE_ROOT_PATH}/ise/ext/dbi/mysql ${PROJECT_BINARY_DIR}/ext/dbi/mysql)
 add_subdirectory(${ISE_ROOT_PATH}/ise/ext/utils/cipher ${PROJECT_BINARY_DIR}/ext/utils/cipher)
 add_subdirectory(${ISE_ROOT_PATH}/ise/ext/utils/xml ${PROJECT_BINARY_DIR}/ext/utils/xml)

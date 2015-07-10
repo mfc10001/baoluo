@@ -157,6 +157,19 @@ ise/fast:
 .PHONY : ise/fast
 
 #=============================================================================
+# Target rules for targets named ise_utils_json
+
+# Build rule for target.
+ise_utils_json: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ise_utils_json
+.PHONY : ise_utils_json
+
+# fast build rule for target.
+ise_utils_json/fast:
+	$(MAKE) -f ext/utils/CMakeFiles/ise_utils_json.dir/build.make ext/utils/CMakeFiles/ise_utils_json.dir/build
+.PHONY : ise_utils_json/fast
+
+#=============================================================================
 # Target rules for targets named ise_dbi_mysql
 
 # Build rule for target.
@@ -714,6 +727,7 @@ help:
 	@echo "... ise"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... ise_utils_json"
 	@echo "... ise_dbi_mysql"
 	@echo "... ise_utils_cipher"
 	@echo "... ise_utils_xml"
