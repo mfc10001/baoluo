@@ -38,7 +38,6 @@ public:
 
 	bool msgProcess(const TcpConnectionPtr& connection,string type,Json::Value arrayObj);
 
-	DbConnectionPool db_mgr_;
 };
 
 ///////////////////////////////////////////////////////////////////////////////

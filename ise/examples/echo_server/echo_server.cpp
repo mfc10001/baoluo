@@ -24,6 +24,7 @@ void AppBusiness::initialize()
 		{
 			throw(ret);
 		}
+
 	}
 	catch(bool)
 	{
@@ -118,7 +119,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		string str = value["type"].asString();
 		int n = atoi(str.c_str());
 
-		msgProcess(connection,n,value["data"]);
+		msgProcess(connection,n,value["data"].c_str());
 
 	}
 /*
