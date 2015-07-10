@@ -5,7 +5,7 @@
 
 #include<stdio.h>
 #include<string.h>
-#include "../GameDefine/BaseType.h"
+#include "../game_define/BaseType.h"
 
 class CommonTools{
 public:
