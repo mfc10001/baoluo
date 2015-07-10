@@ -118,7 +118,10 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	}
 
 }
-    string msg((char*)packetBuffer, packetSize);
+	char *dataptr=(char*)packetBuffer;
+	
+	
+    string msg((char*)dataptr+2, packetSize-2);
 
 	Json::Reader reader;
 	Json::Value value;
