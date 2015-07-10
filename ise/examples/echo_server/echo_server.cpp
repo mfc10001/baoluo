@@ -115,23 +115,19 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	Json::Value value;
 	if (reader.parse(msg, value))
 	{
-		std::string str = value["type"].asString();
+		string str = value["type"].asString();
 		int n = atoi(str.c_str());
-		switch (n)
-		{
-			case 1:
-				break;
-			default:
-				break;
-		}
-	}
 
+		msgProcess(connection,n,value["data"]);
+
+	}
+/*
     msg = trimString(msg);
     if (msg == "quit")
         connection->disconnect();
     else
         connection->send((char*)packetBuffer, packetSize);
-
+*/
     logger().writeFmt("Received message: %s", msg.c_str());
 }
 
@@ -143,5 +139,5 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
     logger().writeStr("onTcpSendComplete");
 
    // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
-       connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
+     connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }

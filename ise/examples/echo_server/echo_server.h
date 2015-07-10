@@ -12,8 +12,8 @@
 #include "ise/main/ise_server_tcp.h"
 #include "ise/main/ise_application.h"
 #include "ise/ext/utils/json/json.h"
-using namespace ise;
 
+#define MAX_SEND_BUFF 10240
 ///////////////////////////////////////////////////////////////////////////////
 
 class AppBusiness : public IseBusiness
@@ -34,6 +34,9 @@ public:
     virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
         int packetSize, const Context& context);
     virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
+
+
+	bool msgProcess(const TcpConnectionPtr& connection,string type,Json::Value arrayObj);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
