@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "echo_server.h"
-
+#include "./game_core/ConfigManger.h"
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
@@ -16,6 +16,18 @@ const int RECV_TIMEOUT = 1000*5;  // ms
 //-----------------------------------------------------------------------------
 void AppBusiness::initialize()
 {
+	try
+	{
+		bool ret=ConfigManager::getInstance()->loadAllFile();
+		if(!ret)
+		{
+			throw(ret);
+		}
+	}
+	catch(bool)
+	{
+		exit(1);      
+	}
     // nothing
 }
 
@@ -94,32 +106,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 {
     logger().writeStr("onTcpRecvComplete");
 
-
-{
-	std::string strValue = "{\"name\":\"json\",\"array\":[{\"cpp\":\"jsoncpp\"},{\"java\":\"jsoninjava\"},{\"php\":\"support\"}]}";
-
-	Json::Reader reader;
-	Json::Value value;
-
-	if (reader.parse(strValue, value))
-	{
-		std::string out = value["name"].asString();
-		std::cout << out << std::endl;
-		const Json::Value arrayObj = value["array"];
-		for (unsigned int i = 0; i < arrayObj.size(); i++)
-		{
-			if (!arrayObj[i].isMember("cpp")) 
-				continue;
-			out = arrayObj[i]["cpp"].asString();
-			std::cout << out;
-			if (i != (arrayObj.size() - 1))
-				std::cout << std::endl;
-		}
-	}
-
-}
 	char *dataptr=(char*)packetBuffer;
-	
 	
     string msg((char*)dataptr+2, packetSize-2);
 
