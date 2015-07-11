@@ -3,7 +3,7 @@
 #include "game_core/GamePlayerManager.h"
 #include "game_define/Protocol.h"
 #include "tools/CommonTools.h"
-
+#include "game_core/ConfigManager.h"
 
 bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
 {
@@ -48,22 +48,40 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 				char buff[BUFFLEN];
-				memsetbuff,0,BUFFLEN);
-				sprintf(buff,"insert into bl_user (account,role) values (%s,%s) SELECT @@IDENTITY AS uid ",account.c_str(),role.c_str())
-				query->setSql(sql);
+				memset(buff,0,BUFFLEN);
+				sprintf(buff,"select count(*) as num from bl_user where account=%s",account.c_str());
+                query->setSql(buff);
+                MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
+                if(!res->isEmpty() && res->next())
+                {
+					MySqlField* num = static_cast<MySqlField *> (res->getFields("num"));
+					if(num->asInteger()>0)
+					{
+                        break;
+					}
+                    delete res;
+                    res = NULL;
 
-				MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
-				while(!res->isEmpty() && res->next())
-				{
-					MySqlField* charid = static_cast<MySqlField *> (res->getFields("uid"));
-					GamePlayer *player=new GamePlayer();
+					memset(buff,0,BUFFLEN);
+                    sprintf(buff,"insert into bl_user (account,role) values (%s,%s);  ",account.c_str(),role.c_str());
+                    query->setSql(buff);
 
-	                //player->createChar(arrayObj["chartype"])
+                    try
+                    {
+                        query->execute();
+                        uint64 charid = query->getLastInsertId();
+                        GamePlayer *player=new GamePlayer();
+                        //player->createChar(arrayObj["chartype"])
+                        GamePlayerManager::instance().AddPlayer(player);
 
-	                GamePlayerManager::instance().AddPlayer(player);
-				}
-
-
+                        delete res;
+                        res = NULL;
+                    }
+                    catch(Exception)
+                    {
+                        break;
+                    }
+                }
 			}
 			break;
 		case PROTOCOL_CHAR_CHOSE_CS:

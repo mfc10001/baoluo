@@ -601,16 +601,8 @@ game_define/Protocol.h
 /home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
 tools/CommonTools.h
 /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
-
-/home/ll/baoluo/ise/examples/echo_server/echo_server.cpp
-echo_server.h
-/home/ll/baoluo/ise/examples/echo_server/echo_server.h
 game_core/ConfigManager.h
 /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
-ise/ext/dbi/mysql/ise_dbi_mysql.h
-/home/ll/baoluo/ise/examples/echo_server/ise/ext/dbi/mysql/ise_dbi_mysql.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 /home/ll/baoluo/ise/examples/echo_server/echo_server.h
 ise/main/ise.h
@@ -631,16 +623,6 @@ ise/main/ise_application.h
 /home/ll/baoluo/ise/examples/echo_server/ise/main/ise_application.h
 ise/ext/utils/json/json.h
 /home/ll/baoluo/ise/examples/echo_server/ise/ext/utils/json/json.h
-
-/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.cpp
-ConfigManager.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
-../tools/CommonTools.h
-/home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
-../game_define/BaseType.h
-/home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
-GamePlayer.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
 
 /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 ise/main/ise.h

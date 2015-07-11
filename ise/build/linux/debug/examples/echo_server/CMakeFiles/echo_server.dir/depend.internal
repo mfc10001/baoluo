@@ -37,8 +37,10 @@ examples/echo_server/CMakeFiles/echo_server.dir/client_msg.cpp.o
  /home/ll/baoluo/ise/build/linux/../../ise/main/ise_thread.h
  /home/ll/baoluo/ise/build/linux/../../ise/main/ise_timer.h
  /home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
+ /home/ll/baoluo/ise/examples/echo_server/bass_class/Singleton.h
  /home/ll/baoluo/ise/examples/echo_server/client_msg.cpp
  /home/ll/baoluo/ise/examples/echo_server/echo_server.h
+ /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
  /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
  /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
  /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h

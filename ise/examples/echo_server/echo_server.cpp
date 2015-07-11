@@ -34,7 +34,7 @@ void AppBusiness::initialize()
 		param->setHostName("192.168.18.147");
 		param->setUserName("root");
 		param->setPassword("123456");
-		param->setDbName("baoluo_jiemi");
+		param->setDbName("baoluo_zs");
 		param->setPort(3306);
 
 		MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());

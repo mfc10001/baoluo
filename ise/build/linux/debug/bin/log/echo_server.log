@@ -32,3 +32,135 @@
 [2015-07-09 19:03:08](03272|4133230336) onTcpConnected (192.168.140.1:1417) (ConnCount: 1)
 [2015-07-09 19:03:08](03272|4133230336) onTcpSendComplete
 [2015-07-09 19:03:08](03272|4133230336) onTcpRecvComplete
+[2015-07-10 23:57:07](06964|4160587584) Try to connect MySQL server... (0x74f168)
+[2015-07-10 23:57:17](06964|4160587584) Connected to MySQL server. (0x74f168)
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4120745728) epoll_wait error.
+[2015-07-10 23:57:30](06964|4160587584) echo_server started.
+[2015-07-10 23:57:34](06964|4120745728) epoll_wait error.
+[2015-07-11 00:18:37](07432|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 00:18:37](07432|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 00:18:37](07432|4160587584) echo_server started.
+[2015-07-11 00:18:45](07432|4120745728) onTcpConnected (192.168.140.1:6824) (ConnCount: 1)
+[2015-07-11 00:18:45](07432|4120745728) onTcpSendComplete
+[2015-07-11 00:18:45](07432|4120745728) onTcpRecvComplete
+[2015-07-11 00:20:04](07432|4120745728) Received message: {
+	"type":	"10005",
+	"data":	{
+		"account":	"5",
+		"role":	"1"
+	}
+}
+[2015-07-11 00:20:06](07432|4120745728) onTcpDisconnected (192.168.140.129:10000-192.168.140.1:6824#0)
+[2015-07-11 00:20:22](07432|4120745728) onTcpConnected (192.168.140.1:6831) (ConnCount: 1)
+[2015-07-11 00:20:22](07432|4120745728) onTcpSendComplete
+[2015-07-11 00:20:22](07432|4120745728) onTcpRecvComplete
+[2015-07-11 00:20:43](07432|4120745728) Received message: {
+	"type":	"10004",
+	"data":	{
+		"account":	"5",
+		"role":	"1"
+	}
+}
+[2015-07-11 00:20:45](07432|4120745728) onTcpDisconnected (192.168.140.129:10000-192.168.140.1:6831#1)
+[2015-07-11 00:20:52](07432|4120745728) onTcpConnected (192.168.140.1:6833) (ConnCount: 1)
+[2015-07-11 00:20:52](07432|4120745728) onTcpSendComplete
+[2015-07-11 00:20:52](07432|4120745728) onTcpRecvComplete
+[2015-07-11 00:21:55](07432|4120745728) Try to connect MySQL server... (0x7fffe8001578)
+[2015-07-11 00:21:55](07432|4120745728) Connected to MySQL server. (0x7fffe8001578)
+[2015-07-11 00:21:55](07432|4120745728) ERROR: insert into bl_user (account,role) values (5,1) SELECT @@IDENTITY AS uid ; Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @@IDENTITY AS uid' at line 1
+[2015-07-11 00:24:20](07469|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 00:24:20](07469|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 00:24:20](07469|4160587584) echo_server started.
+[2015-07-11 00:24:26](07469|4120745728) onTcpConnected (192.168.140.1:6844) (ConnCount: 1)
+[2015-07-11 00:24:26](07469|4120745728) onTcpSendComplete
+[2015-07-11 00:24:26](07469|4120745728) onTcpRecvComplete
+[2015-07-11 00:24:34](07469|4120745728) Try to connect MySQL server... (0x7fffe8001408)
+[2015-07-11 00:24:34](07469|4120745728) Connected to MySQL server. (0x7fffe8001408)
+[2015-07-11 01:05:16](07916|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 01:05:16](07916|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 01:05:16](07916|4160587584) echo_server started.
+[2015-07-11 01:05:21](07916|4120745728) onTcpConnected (192.168.140.1:7769) (ConnCount: 1)
+[2015-07-11 01:05:21](07916|4120745728) onTcpSendComplete
+[2015-07-11 01:05:21](07916|4120745728) onTcpRecvComplete
+[2015-07-11 01:07:04](08003|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 01:07:04](08003|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 01:07:04](08003|4160587584) echo_server started.
+[2015-07-11 01:07:08](08003|4120745728) onTcpConnected (192.168.140.1:7773) (ConnCount: 1)
+[2015-07-11 01:07:08](08003|4120745728) onTcpSendComplete
+[2015-07-11 01:07:08](08003|4120745728) onTcpRecvComplete
+[2015-07-11 01:07:22](08003|4120745728) Try to connect MySQL server... (0x7fffe8001398)
+[2015-07-11 01:07:22](08003|4120745728) Connected to MySQL server. (0x7fffe8001398)
+[2015-07-11 01:08:14](08003|4120745728) ERROR: insert into bl_user (account,role) values (12,1); SELECT @@IDENTITY AS uid ; Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT @@IDENTITY AS uid' at line 1
+[2015-07-11 01:17:43](08230|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 01:17:43](08230|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 01:17:43](08230|4160587584) echo_server started.
+[2015-07-11 01:17:50](08230|4120745728) onTcpConnected (192.168.140.1:7851) (ConnCount: 1)
+[2015-07-11 01:17:50](08230|4120745728) onTcpSendComplete
+[2015-07-11 01:17:50](08230|4120745728) onTcpRecvComplete
+[2015-07-11 01:17:58](08230|4120745728) Try to connect MySQL server... (0x7fffe8001398)
+[2015-07-11 01:17:58](08230|4120745728) Connected to MySQL server. (0x7fffe8001398)
+[2015-07-11 01:19:00](08230|4120745728) Received message: {
+	"type":	"1004",
+	"data":	{
+		"account":	"13",
+		"role":	"1"
+	}
+}
+[2015-07-11 01:19:00](08230|4120745728) onTcpSendComplete
+[2015-07-11 01:19:19](08243|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 01:19:19](08243|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 01:19:19](08243|4160587584) echo_server started.
+[2015-07-11 01:19:44](08243|4120745728) onTcpConnected (192.168.140.1:7857) (ConnCount: 1)
+[2015-07-11 01:19:44](08243|4120745728) onTcpSendComplete
+[2015-07-11 01:19:44](08243|4120745728) onTcpRecvComplete
+[2015-07-11 01:19:47](08243|4120745728) Try to connect MySQL server... (0x7fffe8001398)
+[2015-07-11 01:19:47](08243|4120745728) Connected to MySQL server. (0x7fffe8001398)
+[2015-07-11 01:19:57](08243|4120745728) Received message: {
+	"type":	"1004",
+	"data":	{
+		"account":	"13",
+		"role":	"1"
+	}
+}
+[2015-07-11 01:19:57](08243|4120745728) onTcpSendComplete
+[2015-07-11 01:20:00](08243|4120745728) onTcpRecvComplete
+[2015-07-11 01:20:03](08243|4120745728) Try to connect MySQL server... (0x7fffe800e2c8)
+[2015-07-11 01:20:03](08243|4120745728) Connected to MySQL server. (0x7fffe800e2c8)
+[2015-07-11 01:20:03](08243|4120745728) Received message: {
+	"type":	"1004",
+	"data":	{
+		"account":	"13",
+		"role":	"1"
+	}
+}
+[2015-07-11 01:20:03](08243|4120745728) onTcpDisconnected (192.168.140.129:10000-192.168.140.1:7857#0)
+[2015-07-11 01:20:14](08243|4120745728) onTcpConnected (192.168.140.1:7861) (ConnCount: 1)
+[2015-07-11 01:20:14](08243|4120745728) onTcpSendComplete
+[2015-07-11 01:20:14](08243|4120745728) onTcpRecvComplete
+[2015-07-11 01:20:20](08243|4120745728) Try to connect MySQL server... (0x7fffe801b328)
+[2015-07-11 01:20:20](08243|4120745728) Connected to MySQL server. (0x7fffe801b328)
+[2015-07-11 01:25:02](08243|4120745728) Received message: {
+	"type":	"1004",
+	"data":	{
+		"account":	"14",
+		"role":	"1"
+	}
+}
+[2015-07-11 01:25:02](08243|4120745728) onTcpSendComplete
+[2015-07-11 01:28:01](08395|4160587584) Try to connect MySQL server... (0x74f198)
+[2015-07-11 01:28:01](08395|4160587584) Connected to MySQL server. (0x74f198)
+[2015-07-11 01:28:01](08395|4160587584) echo_server started.
+[2015-07-11 01:28:10](08395|4120745728) onTcpConnected (192.168.140.1:7889) (ConnCount: 1)
+[2015-07-11 01:28:10](08395|4120745728) onTcpSendComplete
+[2015-07-11 01:28:10](08395|4120745728) onTcpRecvComplete
+[2015-07-11 01:28:10](08395|4120745728) Try to connect MySQL server... (0x7fffe8001398)
+[2015-07-11 01:28:10](08395|4120745728) Connected to MySQL server. (0x7fffe8001398)
