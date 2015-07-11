@@ -1,11 +1,7 @@
----- assistorThreadExecute Matches (10 in 8 files) ----
-Ise_application.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
-Ise_server_assistor.cpp (main):    iseApp().iseBusiness().assistorThreadExecute(assistorThread, assistorIndex);
-Ise_svr_mod.cpp (main):void IseSvrModBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
-Ise_svr_mod.cpp (main):            serverModuleMgr_.getItem(i).assistorThreadExecute(assistorThread, assistorIndex - index1);
-Ise_svr_mod.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
-Ise_svr_mod.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
-Svr_mod_1.cpp (e:\baoluo\ise\examples\server_module_msgs):void ServerModule_1::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
-Svr_mod_1.h (e:\baoluo\ise\examples\server_module_msgs):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
-Udp_client.cpp (e:\baoluo\ise\examples\udp_client):void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
-Udp_client.h (e:\baoluo\ise\examples\udp_client):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
+---- doExecute Matches (6 in 5 files) ----
+Client_msg.cpp (e:\baoluo\ise\examples\echo_server):				set->doExecute();
+Ise_database.cpp (main):    doExecute(NULL);
+Ise_database.cpp (main):        doExecute(dataSet);
+Ise_database.h (main):    virtual void doExecute(DbDataSet *resultDataSet) {}
+Ise_dbi_mysql.cpp (ext\dbi\mysql):void MySqlQuery::doExecute(DbDataSet *resultDataSet)
+Ise_dbi_mysql.h (ext\dbi\mysql):    virtual void doExecute(DbDataSet *resultDataSet);

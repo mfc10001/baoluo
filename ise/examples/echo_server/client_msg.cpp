@@ -16,8 +16,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 	{
 		case PROTOCOL_TOKEN_C:
             {
-                string uid = arrayObj["uid"].asString();
-                int n = atoi(uid.c_str());
+                string account = arrayObj["account"].asString();
+                int n = atoi(account.c_str());
                 uint32 m=uint32(n);
                 string token=arrayObj["token"].asString();
                 TokenManager::instance().AddToken(m,token);
@@ -25,8 +25,9 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 			return true;
 		case PROTOCOL_AUTH_CS:
             {
-                string uid = arrayObj["uid"].asString();
-                int n = atoi(uid.c_str());
+                string account = arrayObj["account"].asString();
+                int n = atoi(account.c_str());
+
                 string token=arrayObj["token"].asString();
                 //err= TokenManager::instance().Authentication(arrayObj["uid"],arrayObj["token"]);
                 rNo=PROTOCOL_AUTH_CS;
@@ -42,14 +43,19 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
+                string account = arrayObj["account"].asString();
+                string role = arrayObj["role"].asString();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
-				string sql="";
+
+				char buff[BUFFLEN];
+				memsetbuff,0,BUFFLEN);
+				sprintf(buff,"insert into bl_user (account,role) values (%s,%s) SELECT @@IDENTITY AS uid ",account.c_str(),role.c_str())
 				query->setSql(sql);
 
 				MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				while(!res->isEmpty() && res->next())
 				{
-					MySqlField* charid = static_cast<MySqlField *> (res->getFields("charid"));
+					MySqlField* charid = static_cast<MySqlField *> (res->getFields("uid"));
 					GamePlayer *player=new GamePlayer();
 
 	                //player->createChar(arrayObj["chartype"])
