@@ -156,3 +156,11 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
    // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
      connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
+
+
+
+void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
+{
+	
+}
+

@@ -31,18 +31,43 @@ enum PlayerAttr
 	PlayerAttr_Max=48
 };
 
+struct PlayerBaseAttr
+{
+	uint16 level;
+	uint32 exp;
+
+};
+
+typedef boost::function<void ()> PlayerLevelHandlerCallback;
+
 
 class GamePlayer
 {
 	public:
 		GamePlayer();
 		~GamePlayer();
-		void createChar(uint32 id);
+		void createChar(uint32 uid,uint8 role);
 
 		void setBaseAttr(uint16 type,uint32 value);
 
+		void addExp(uint32 num);
+		void levelUp();
+
+		
+		void setRole(uint8 type);
+
+		void save();
+	
+		void registerPlayerHandler(const PlayerLevelHandlerCallback& callback);
 	private:
+		uint16 id;
+		char name[MAX_NAME_SIZE];
+		uint32 role;
+
+		PlayerBaseAttr m_base_attr;
 		uint32 m_base_data[PlayerAttr_Max];
+
+
 };
 
 

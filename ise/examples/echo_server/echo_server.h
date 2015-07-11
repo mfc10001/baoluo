@@ -40,7 +40,7 @@ public:
 
 	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
 
-	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
+	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
 
 
 

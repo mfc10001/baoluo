@@ -1,9 +1,10 @@
 #include "GamePlayer.h"
 #include "ConfigManager.h"
-
+#include "../tools/CommonTools.h"
 
 GamePlayer::GamePlayer()
 {
+	boost::bind()
 
 }
 GamePlayer::~GamePlayer()
@@ -11,15 +12,22 @@ GamePlayer::~GamePlayer()
 
 }
 
-
-void GamePlayer::createChar(uint32 id)
+void GamePlayer::setRole(uint8 type)
 {
+	m_base_attr.role=type;
+}
+
+
+void GamePlayer::createChar(uint32 uid,uint8 role)
+{
+	id=uid;
+	setRole(role);
 	const ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(id);
 	if(!ptr_data)
 	{
 		return;
 	}
-
+	
 	setBaseAttr(PlayerAttr_physicsAttack,ptr_data->physicsAttack  );
 	setBaseAttr(PlayerAttr_magicAttack,ptr_data->magicAttack  );
 	setBaseAttr(PlayerAttr_barmor,ptr_data->barmor  );
@@ -53,4 +61,34 @@ void GamePlayer::setBaseAttr(uint16 type,uint32 value)
 	m_base_data[type]=value;
 }
 
+void GamePlayer::save()
+{
+	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
+
+	char buff[BUFFLEN];
+	memset(buff,0,BUFFLEN);
+	sprintf(buff,"update bl_user set level=%s , exp=%s  where uid=%s",m_base_attr.level,m_base_attr.exp,this->id);
+    query->setSql(buff);
+	try
+	{
+		query->execute();
+	}
+   	catch(Exception)
+   	{
+		//»’÷æ
+   	}
+}
+void GamePlayer::AddExp(uint32 num)
+{
+	
+}
+void GamePlayer::levelUp()
+{
+	
+}
+
+void GamePlayer::registerPlayerHandler(const PlayerLevelHandlerCallback& callback)
+{
+	//Functor level=boost::bind(levelUp);
+}
 

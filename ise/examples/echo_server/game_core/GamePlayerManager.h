@@ -41,6 +41,10 @@ class GamePlayerManager:public Singleton<GamePlayerManager>
 	public:
 		void AddPlayer(GamePlayer *player);
 		void DelPlayer(uint32 uid);
+
+		void SaveAll();
+
+		void GetCount();
 	private:
 		 friend class Singleton<GamePlayerManager>;
 

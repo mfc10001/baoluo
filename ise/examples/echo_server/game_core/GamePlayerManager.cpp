@@ -55,3 +55,16 @@ void GamePlayerManager::DelPlayer(uint32 uid)
 {
 }
 
+void GamePlayerManager::SaveAll()
+{
+	for(PlayerManagerMap::iterator it=m_player_manager_.end();it!=m_player_manager_.end();it++)
+	{
+		(*it).second->save();
+	}
+}
+
+uint32 GamePlayerManager::GetCount()
+{
+	return m_player_manager_.size();
+}
+

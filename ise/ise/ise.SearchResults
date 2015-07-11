@@ -1,7 +1,4 @@
----- doExecute Matches (6 in 5 files) ----
-Client_msg.cpp (e:\baoluo\ise\examples\echo_server):				set->doExecute();
-Ise_database.cpp (main):    doExecute(NULL);
-Ise_database.cpp (main):        doExecute(dataSet);
-Ise_database.h (main):    virtual void doExecute(DbDataSet *resultDataSet) {}
-Ise_dbi_mysql.cpp (ext\dbi\mysql):void MySqlQuery::doExecute(DbDataSet *resultDataSet)
-Ise_dbi_mysql.h (ext\dbi\mysql):    virtual void doExecute(DbDataSet *resultDataSet);
+---- freeDataSet Matches (3 in 2 files) ----
+Ise_dbi_mysql.cpp (ext\dbi\mysql):    freeDataSet();
+Ise_dbi_mysql.cpp (ext\dbi\mysql):void MySqlDataSet::freeDataSet()
+Ise_dbi_mysql.h (ext\dbi\mysql):    void freeDataSet();

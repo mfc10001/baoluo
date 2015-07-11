@@ -15,6 +15,8 @@ enum Protocol
 
 	PROTOCOL_CHAR_CHOSE_CS=1005,
 
+	PROTOCOL_ENTER_CS=1005,
+
 };
 
 
