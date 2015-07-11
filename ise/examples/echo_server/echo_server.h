@@ -36,7 +36,7 @@ public:
     virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
 
 
-	bool msgProcess(const TcpConnectionPtr& connection,string type,Json::Value arrayObj);
+	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
 
 };
 

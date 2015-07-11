@@ -2,11 +2,11 @@
 #define _ISE_PLAYER_H_
 
 #include "../bass_class/Entry.h"
+#include "ise/main/ise.h"
 
-
-#define MAX_NAME_SIZE 50;
+#define MAX_NAME_SIZE 50
 enum PlayerAttr
-{	
+{
 	PlayerAttr_physicsAttack=0,
 	PlayerAttr_magicAttack,
 	PlayerAttr_barmor,
@@ -28,7 +28,7 @@ enum PlayerAttr
 
 
 
-	PlayerAttr_Max=48;
+	PlayerAttr_Max=48
 };
 
 
@@ -40,7 +40,7 @@ class GamePlayer
 		void createChar(uint32 id);
 
 		void setBaseAttr(uint16 type,uint32 value);
-	
+
 	private:
 		uint32 m_base_data[PlayerAttr_Max];
 };

@@ -37,6 +37,10 @@ ise/main/ise_http.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_http.h
 ise/main/ise_inspector.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_inspector.h
+map
+-
+vector
+-
 
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise_application.h
 ise/main/ise_options.h
@@ -498,6 +502,8 @@ ise/main/ise_classes.h
 ise/main/ise_exceptions.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_exceptions.h
 
+/home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
+
 /home/ll/baoluo/ise/examples/echo_server/bass_class/Singleton.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/echo_server/bass_class/ise/main/ise.h
@@ -509,8 +515,8 @@ ConfigManager.h
 /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 ../game_define/BaseType.h
 /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
-string.h
--
+GamePlayer.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
 
 /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 ise/main/ise.h
@@ -519,6 +525,12 @@ ise/main/ise.h
 /home/ll/baoluo/ise/examples/echo_server/bass_class/Singleton.h
 map
 -
+
+/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
+../bass_class/Entry.h
+/home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
+ise/main/ise.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/ise/main/ise.h
 
 /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
 string

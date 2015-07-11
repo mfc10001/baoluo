@@ -43,5 +43,8 @@
 #include "ise/main/ise_database.h"
 #include "ise/main/ise_http.h"
 #include "ise/main/ise_inspector.h"
+#include <map>
+#include <vector>
+using namespace std;
 using namespace ise;
 #endif // _ISE_H_

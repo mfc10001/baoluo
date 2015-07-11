@@ -1,19 +1,19 @@
 
 #include "GamePlayerManager.h"
-
+#include "../game_define/Protocol.h"
 bool TokenManager::IsExist(uint32 uid)
 {
 	ToeknManagerMap::iterator it=m_token_manager_.find(uid);
-	if(it!=m_token_manager_.emd())
+	if(it!=m_token_manager_.end())
 	{
 		return false;
 	}
 	return true;
 }
 
-void TokenManager::AddToken(uint32 uid,string token);
+void TokenManager::AddToken(uint32 &uid,string &token)
 {
-	if(!IsExist())
+	if(!IsExist(uid))
 	{
 		TokenInfo *ptr=new TokenInfo();
 		ptr->uid=uid;
@@ -24,17 +24,17 @@ void TokenManager::AddToken(uint32 uid,string token);
 }
 void TokenManager::DelToken(uint32 uid )
 {
-	
+
 }
 uint32 TokenManager::Authentication(uint32 &uid,string &token)
 {
-	if(IsExist())
+	if(IsExist(uid))
 	{
 		ToeknManagerMap::iterator it=m_token_manager_.find(uid);
 		TokenInfo* ptr=(*it).second;
 		if(ptr->valid_time>=Timestamp::now())
 		{
-			if(strcmp(ptr->token,token)==0)
+			if(strcmp(ptr->token.c_str(),token.c_str())==0)
 			{
 				return ERR_SUCCESS;
 			}
@@ -48,7 +48,7 @@ uint32 TokenManager::Authentication(uint32 &uid,string &token)
 }
 
 
-void GamePlayerManager::AddPlayer(uint32 uid)
+void GamePlayerManager::AddPlayer(GamePlayer *player)
 {
 }
 void GamePlayerManager::DelPlayer(uint32 uid)

@@ -1,4 +1,4 @@
-#include "player.h"
+#include "GamePlayer.h"
 #include "ConfigManager.h"
 
 
@@ -8,13 +8,13 @@ GamePlayer::GamePlayer()
 }
 GamePlayer::~GamePlayer()
 {
-	
+
 }
 
 
 void GamePlayer::createChar(uint32 id)
 {
-	ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(id);
+	const ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(id);
 	if(!ptr_data)
 	{
 		return;
@@ -42,7 +42,7 @@ void GamePlayer::createChar(uint32 id)
 	setBaseAttr(PlayerAttr_opposeCritz,ptr_data->  )
 */
 
-	
+
 }
 void GamePlayer::setBaseAttr(uint16 type,uint32 value)
 {

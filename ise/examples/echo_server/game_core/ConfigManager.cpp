@@ -1,7 +1,8 @@
 #include "ConfigManager.h"
 #include "../tools/CommonTools.h"
 #include "../game_define/BaseType.h"
-#include <string.h>
+
+#include "GamePlayer.h"
 
 bool ConfigManager::loadAllFile()
 {
@@ -48,14 +49,27 @@ bool ConfigManager::loadLevelFile()
 	 return true;
 }
 
-
+bool ConfigManager::loadPLayerFile()
+{
+	 return true;
+}
 
 const ConfigLevelData* ConfigManager::getLevelData(uint32 id)
 {
-	
+    configLevelType::iterator it=configLevelManager.find(id);
+    if(it!=configLevelManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
 }
 const ConfigPlayerData* ConfigManager::getPlayerData(uint32 id)
 {
-	
+    configPlayerType::iterator it=configPlayerManager.find(id);
+    if(it!=configPlayerManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
 }
 

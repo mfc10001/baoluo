@@ -60,12 +60,13 @@ class ConfigManager:public Singleton<ConfigManager>
 		const ConfigLevelData* getLevelData(uint32 id);
 		const ConfigPlayerData* getPlayerData(uint32 id);
 
-		
+
 	private:
 		typedef map<uint32,  ConfigLevelData*> configLevelType;
 		configLevelType configLevelManager;
 
-
+		typedef map<uint32,  ConfigPlayerData*> configPlayerType;
+		configPlayerType configPlayerManager;
 
     friend class Singleton<ConfigManager>;
 };

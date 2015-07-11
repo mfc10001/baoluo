@@ -157,6 +157,30 @@ echo_server/fast:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/build
 .PHONY : echo_server/fast
 
+client_msg.o: client_msg.cpp.o
+.PHONY : client_msg.o
+
+# target to build an object file
+client_msg.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/client_msg.cpp.o
+.PHONY : client_msg.cpp.o
+
+client_msg.i: client_msg.cpp.i
+.PHONY : client_msg.i
+
+# target to preprocess a source file
+client_msg.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/client_msg.cpp.i
+.PHONY : client_msg.cpp.i
+
+client_msg.s: client_msg.cpp.s
+.PHONY : client_msg.s
+
+# target to generate assembly for a file
+client_msg.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/client_msg.cpp.s
+.PHONY : client_msg.cpp.s
+
 echo_server.o: echo_server.cpp.o
 .PHONY : echo_server.o
 
@@ -205,6 +229,54 @@ game_core/ConfigManager.cpp.s:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.s
 .PHONY : game_core/ConfigManager.cpp.s
 
+game_core/GamePlayer.o: game_core/GamePlayer.cpp.o
+.PHONY : game_core/GamePlayer.o
+
+# target to build an object file
+game_core/GamePlayer.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o
+.PHONY : game_core/GamePlayer.cpp.o
+
+game_core/GamePlayer.i: game_core/GamePlayer.cpp.i
+.PHONY : game_core/GamePlayer.i
+
+# target to preprocess a source file
+game_core/GamePlayer.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.i
+.PHONY : game_core/GamePlayer.cpp.i
+
+game_core/GamePlayer.s: game_core/GamePlayer.cpp.s
+.PHONY : game_core/GamePlayer.s
+
+# target to generate assembly for a file
+game_core/GamePlayer.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.s
+.PHONY : game_core/GamePlayer.cpp.s
+
+game_core/GamePlayerManager.o: game_core/GamePlayerManager.cpp.o
+.PHONY : game_core/GamePlayerManager.o
+
+# target to build an object file
+game_core/GamePlayerManager.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o
+.PHONY : game_core/GamePlayerManager.cpp.o
+
+game_core/GamePlayerManager.i: game_core/GamePlayerManager.cpp.i
+.PHONY : game_core/GamePlayerManager.i
+
+# target to preprocess a source file
+game_core/GamePlayerManager.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.i
+.PHONY : game_core/GamePlayerManager.cpp.i
+
+game_core/GamePlayerManager.s: game_core/GamePlayerManager.cpp.s
+.PHONY : game_core/GamePlayerManager.s
+
+# target to generate assembly for a file
+game_core/GamePlayerManager.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.s
+.PHONY : game_core/GamePlayerManager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -218,12 +290,21 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... client_msg.o"
+	@echo "... client_msg.i"
+	@echo "... client_msg.s"
 	@echo "... echo_server.o"
 	@echo "... echo_server.i"
 	@echo "... echo_server.s"
 	@echo "... game_core/ConfigManager.o"
 	@echo "... game_core/ConfigManager.i"
 	@echo "... game_core/ConfigManager.s"
+	@echo "... game_core/GamePlayer.o"
+	@echo "... game_core/GamePlayer.i"
+	@echo "... game_core/GamePlayer.s"
+	@echo "... game_core/GamePlayerManager.o"
+	@echo "... game_core/GamePlayerManager.i"
+	@echo "... game_core/GamePlayerManager.s"
 .PHONY : help
 
 

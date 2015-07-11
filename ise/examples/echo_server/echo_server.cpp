@@ -3,6 +3,7 @@
 #include "echo_server.h"
 #include "game_core/ConfigManager.h"
 
+
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
@@ -119,7 +120,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		string str = value["type"].asString();
 		int n = atoi(str.c_str());
 
-		msgProcess(connection,n,value["data"].c_str());
+		msgProcess(connection,n,value["data"]);
 
 	}
 /*
