@@ -1,108 +1,11 @@
----- logger Matches (107 in 31 files) ----
-App_business.cpp (e:\baoluo\ise\examples\server_inspector):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_inspector):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_inspector):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_module_msgs):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_module_msgs):    logger().writeStr(msg);
-App_business.cpp (e:\baoluo\ise\examples\server_module_msgs):    logger().writeStr(msg);
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("[%s] Discarded %u bytes.",
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("connect to %s %s.", peerAddr.getDisplayStr().c_str(), success? "successfully" : "failed");
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeStr(msg);
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeStr(msg);
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeStr(msg);
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeFmt("[%s] Discarded %u bytes.",
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeStr(msg);
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeStr(msg);
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeStr(msg);
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeStr("onTcpSendComplete");
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeStr(msg);
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeStr(msg);
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeStr(msg);
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeFmt("[%s] Discarded %u bytes.",
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeStr("onTcpRecvComplete");
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeFmt("Received message: %s", msg.c_str());
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeStr("onTcpSendComplete");
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeStr(msg);
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):        logger().writeFmt("Too many connections. (ConnCount: %d)", connCount);
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeStr("onTcpRecvComplete");
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeFmt("Received message: %s", msg.c_str());
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeStr("onTcpSendComplete");
-Http_server.cpp (e:\baoluo\ise\examples\http_server):    logger().writeStr(msg);
-Http_server.cpp (e:\baoluo\ise\examples\http_server):    logger().writeStr(msg);
-Http_server.cpp (e:\baoluo\ise\examples\http_server):    logger().writeStr(msg);
-Ise_application.cpp (main):        logger().writeException(e);
-Ise_application.cpp (main):        logger().writeException(e);
-Ise_application.cpp (main):    logger().writeFmt(SEM_SIG_TERM, sigNo);
-Ise_application.cpp (main):    logger().writeFmt(SEM_SIG_FATAL_ERROR, sigNo);
-Ise_application.cpp (main):    logger().writeStr(SEM_OUT_OF_MEMORY);
-Ise_application.cpp (main):    logger().setFileName(iseOptions_.getLogFileName(), iseOptions_.getLogNewFileDaily());
-Ise_assert.cpp (main):    logger().writeException(e);
-Ise_classes.h (main):inline Logger& logger() { return Logger::instance(); }
-Ise_dbi_mysql.cpp (ext\dbi\mysql):    logger().writeFmt(SEM_MYSQL_CONNECTING, &connObject_);
-Ise_dbi_mysql.cpp (ext\dbi\mysql):    logger().writeFmt(SEM_MYSQL_CONNECTED, &connObject_);
-Ise_dbi_mysql.cpp (ext\dbi\mysql):                    logger().writeStr(SEM_MYSQL_LOST_CONNNECTION);
-Ise_epoll.cpp (main):        logger().writeStr(SEM_EPOLL_WAIT_ERROR);
-Ise_epoll.cpp (main):        logger().writeStr(SEM_CREATE_EPOLL_ERROR);
-Ise_epoll.cpp (main):        logger().writeStr(SEM_CREATE_PIPE_ERROR);
-Ise_epoll.cpp (main):        logger().writeFmt(SEM_EPOLL_CTRL_ERROR, operation);
-Ise_epoll.cpp (main):            //logger().writeFmt("processEvents: %u", ev.events);  // debug
-Ise_event_loop.cpp (main):            logger().writeException(e);
-Ise_server_assistor.cpp (main):        logger().writeFmt(SEM_WAIT_FOR_THREADS, "assistor");
-Ise_server_tcp.cpp (main):            logger().writeException(e);
-Ise_server_tcp.cpp (main):    //logger().writeFmt("destroy conn: %s", getConnectionName().c_str());  // debug
-Ise_server_udp.cpp (main):        logger().writeFmt(SEM_THREAD_KILLED, killedCount, "udp worker");
-Ise_sys_threads.cpp (main):            logger().writeException(e);
-Ise_sys_threads.cpp (main):        logger().writeFmt(SEM_THREAD_KILLED, killedCount, "system");
-Ise_thread.cpp (main):        logger().writeStr(errMsg.c_str());
-Ise_thread.cpp (main):        logger().writeStr(errMsg.c_str());
-Ise_thread.cpp (main):            logger().writeException(e);
-Ise_timer.cpp (main):        logger().writeException(e);
-Svr_mod_2.cpp (e:\baoluo\ise\examples\server_module_msgs):            logger().writeFmt("recved server module message: %s", msg->msg.c_str());
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("[%s] Discarded %u bytes.",
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr("onTcpSendComplete");
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("[%s] Discarded %u bytes.",
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpConnected (%s) (ConnCount: %d)",
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr("onTcpRecvComplete");
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("Received message: %s", msg.c_str());
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeStr("onTcpSendComplete");
-Thread_pool.cpp (e:\baoluo\ise\examples\thread_pool):    logger().writeStr(s);
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeStr(msg);
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeStr(msg);
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeStr(msg);
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeStr("onTimerAt called.");
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeStr("onTimerAfter called.");
-Timer.cpp (e:\baoluo\ise\examples\timer):    logger().writeFmt("onTimerEvery called. (%d)", everyTimerExpiredCount_);
-Udp_client.cpp (e:\baoluo\ise\examples\udp_client):                    logger().writeStr(log);
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):    logger().writeStr(msg);
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):    logger().writeStr(msg);
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):    logger().writeStr(msg);
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):        logger().writeStr("Invalid packet.");
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):                logger().writeFmt("Received packet from <%s>: %s.",
-Udp_server.cpp (e:\baoluo\ise\examples\udp_server):            logger().writeStr("Unknown packet.");
+---- assistorThreadExecute Matches (10 in 8 files) ----
+Ise_application.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
+Ise_server_assistor.cpp (main):    iseApp().iseBusiness().assistorThreadExecute(assistorThread, assistorIndex);
+Ise_svr_mod.cpp (main):void IseSvrModBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
+Ise_svr_mod.cpp (main):            serverModuleMgr_.getItem(i).assistorThreadExecute(assistorThread, assistorIndex - index1);
+Ise_svr_mod.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
+Ise_svr_mod.h (main):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
+Svr_mod_1.cpp (e:\baoluo\ise\examples\server_module_msgs):void ServerModule_1::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
+Svr_mod_1.h (e:\baoluo\ise\examples\server_module_msgs):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
+Udp_client.cpp (e:\baoluo\ise\examples\udp_client):void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
+Udp_client.h (e:\baoluo\ise\examples\udp_client):    virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
