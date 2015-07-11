@@ -353,6 +353,23 @@ void MySqlQuery::doExecute(DbDataSet *resultDataSet)
        指定不让 mysql_real_query() 自动重连，而是由程序显式重连。
     */
 
+
+	int r = mysql_real_query(&getConnObject(), sql_.c_str(), (int)sql_.length());
+	if (r != 0)
+	{
+		     // 否则抛出异常
+            string sql(sql_);
+            if (sql.length() > 1024*2)
+            {
+                sql.resize(100);
+                sql += "...";
+            }
+
+            string errMsg = formatString("%s; Error: %s", sql.c_str(), mysql_error(&getConnObject()));
+            iseThrowDbException(errMsg.c_str());
+	}
+
+/*
     for (int times = 0; times < 2; times++)
     {
         int r = mysql_real_query(&getConnObject(), sql_.c_str(), (int)sql_.length());
@@ -387,6 +404,7 @@ void MySqlQuery::doExecute(DbDataSet *resultDataSet)
         }
         else break;
     }
+    */
 }
 
 //-----------------------------------------------------------------------------
