@@ -40,11 +40,22 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
-                GamePlayer *player=new GamePlayer();
+				MySqlQuery *query=m_db_conn->createDbQuery();
+				string sql="";
+				query->setSql(sql);
 
-                //player->createChar(arrayObj["chartype"])
+				MySqlDataSet *res=query->query();
+				while(!res->isEmpty() && res->next())
+				{
+					string charid = res->getFields("charid");
+					GamePlayer *player=new GamePlayer();
 
-                GamePlayerManager::instance().AddPlayer(player);
+	                //player->createChar(arrayObj["chartype"])
+
+	                GamePlayerManager::instance().AddPlayer(player);
+				}
+				
+
 			}
 			break;
 		case PROTOCOL_CHAR_CHOSE_CS:

@@ -26,6 +26,17 @@ void AppBusiness::initialize()
 			throw(ret);
 		}
 
+		m_db_conn=new MySqlDatabase();
+		
+		DbConnParams *param=m_db_conn->getDbConnParams();
+		param->setHostName("192.168.18.147");
+		param->setUserName("root");
+		param->setPassword("123456");
+		param->setDbName("baoluo_jiemi");
+		param->setPort(3306);
+
+		MySqlConnection *dbconn = m_db_conn->createDbConnection();
+		dbconn->doConnect();
 	}
 	catch(bool)
 	{

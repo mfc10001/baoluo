@@ -45,6 +45,9 @@
 #include "ise/main/ise_inspector.h"
 #include <map>
 #include <vector>
+#include "ise/main/ise_database.h"
+#include "ise/ext/dbi/mysql/ise_dbi_mysql.h"
+
 using namespace std;
 using namespace ise;
 #endif // _ISE_H_

@@ -13,6 +13,8 @@
 #include "ise/main/ise_application.h"
 #include "ise/ext/utils/json/json.h"
 
+
+
 #define MAX_SEND_BUFF 4086
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -37,6 +39,10 @@ public:
 
 
 	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
+
+	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
+
+	static MySqlDatabase *m_db_conn;
 
 };
 
