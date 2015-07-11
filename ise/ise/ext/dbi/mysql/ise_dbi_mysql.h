@@ -35,8 +35,8 @@
 
 #include "ise/main/ise_database.h"
 
-#include <errmsg.h>
-#include <mysql.h>
+#include <mysql/errmsg.h>
+#include <mysql/mysql.h>
 
 namespace ise
 {
@@ -151,5 +151,6 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 
 } // namespace ise
+
 
 #endif // _ISE_DBI_MYSQL_H_

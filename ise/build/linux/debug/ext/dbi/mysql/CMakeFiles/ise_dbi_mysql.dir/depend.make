@@ -14,12 +14,4 @@ ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /home/ll/baoluo/
 ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_sys_utils.h
 ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_thread.h
 ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /home/ll/baoluo/ise/ise/ext/dbi/mysql/ise_dbi_mysql.cpp
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/errmsg.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/my_alloc.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/my_list.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/mysql.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/mysql_com.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/mysql_time.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/mysql_version.h
-ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o: /usr/include/mysql/typelib.h
 

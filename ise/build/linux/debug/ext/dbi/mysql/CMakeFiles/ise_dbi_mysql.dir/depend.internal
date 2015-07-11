@@ -15,11 +15,3 @@ ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o
  /home/ll/baoluo/ise/build/linux/../../ise/main/ise_sys_utils.h
  /home/ll/baoluo/ise/build/linux/../../ise/main/ise_thread.h
  /home/ll/baoluo/ise/ise/ext/dbi/mysql/ise_dbi_mysql.cpp
- /usr/include/mysql/errmsg.h
- /usr/include/mysql/my_alloc.h
- /usr/include/mysql/my_list.h
- /usr/include/mysql/mysql.h
- /usr/include/mysql/mysql_com.h
- /usr/include/mysql/mysql_time.h
- /usr/include/mysql/mysql_version.h
- /usr/include/mysql/typelib.h

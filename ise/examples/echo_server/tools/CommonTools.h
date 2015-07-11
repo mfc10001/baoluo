@@ -47,4 +47,5 @@ public:
 	}
 };
 
+extern MySqlDatabase *m_db_conn;
 #endif

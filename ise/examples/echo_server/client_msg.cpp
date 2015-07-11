@@ -1,8 +1,10 @@
 #include "echo_server.h"
 #include "game_core/GamePlayer.h"
 #include "game_core/GamePlayerManager.h"
-
 #include "game_define/Protocol.h"
+#include "tools/CommonTools.h"
+
+
 bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
 {
 	uint32 err=1;
@@ -40,21 +42,21 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
-				MySqlQuery *query=m_db_conn->createDbQuery();
+				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 				string sql="";
 				query->setSql(sql);
 
-				MySqlDataSet *res=query->query();
+				MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				while(!res->isEmpty() && res->next())
 				{
-					string charid = res->getFields("charid");
+					MySqlField* charid = static_cast<MySqlField *> (res->getFields("charid"));
 					GamePlayer *player=new GamePlayer();
 
 	                //player->createChar(arrayObj["chartype"])
 
 	                GamePlayerManager::instance().AddPlayer(player);
 				}
-				
+
 
 			}
 			break;

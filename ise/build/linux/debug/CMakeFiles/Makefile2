@@ -374,6 +374,7 @@ examples/echo_server/preinstall:
 # Target rules for target examples/echo_server/CMakeFiles/echo_server.dir
 
 # All Build rule for target.
+examples/echo_server/CMakeFiles/echo_server.dir/all: ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/all
 examples/echo_server/CMakeFiles/echo_server.dir/all: CMakeFiles/ise.dir/all
 examples/echo_server/CMakeFiles/echo_server.dir/all: ext/utils/CMakeFiles/ise_utils_json.dir/all
 	$(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/depend
@@ -388,7 +389,7 @@ all: examples/echo_server/CMakeFiles/echo_server.dir/all
 
 # Build rule for subdir invocation for target.
 examples/echo_server/CMakeFiles/echo_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ll/baoluo/ise/build/linux/debug/CMakeFiles 28
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ll/baoluo/ise/build/linux/debug/CMakeFiles 29
 	$(MAKE) -f CMakeFiles/Makefile2 examples/echo_server/CMakeFiles/echo_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ll/baoluo/ise/build/linux/debug/CMakeFiles 0
 .PHONY : examples/echo_server/CMakeFiles/echo_server.dir/rule

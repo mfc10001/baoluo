@@ -14,9 +14,9 @@
 #include "ise/ext/utils/json/json.h"
 
 
-
 #define MAX_SEND_BUFF 4086
 ///////////////////////////////////////////////////////////////////////////////
+
 
 class AppBusiness : public IseBusiness
 {
@@ -42,7 +42,7 @@ public:
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex) {}
 
-	static MySqlDatabase *m_db_conn;
+
 
 };
 

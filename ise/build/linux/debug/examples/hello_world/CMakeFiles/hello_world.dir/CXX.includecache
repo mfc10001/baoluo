@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
+ise/main/ise_database.h
+/home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise/main/ise_database.h
+mysql/errmsg.h
+-
+mysql/mysql.h
+-
+
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise.h
 ise/main/ise_options.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_options.h
@@ -41,6 +49,10 @@ map
 -
 vector
 -
+ise/main/ise_database.h
+/home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_database.h
+ise/ext/dbi/mysql/ise_dbi_mysql.h
+/home/ll/baoluo/ise/build/linux/../../ise/main/ise/ext/dbi/mysql/ise_dbi_mysql.h
 
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise_application.h
 ise/main/ise_options.h

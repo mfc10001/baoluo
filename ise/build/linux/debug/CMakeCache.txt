@@ -165,7 +165,7 @@ MYSQL_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libmysqlclient.so
 ise_BINARY_DIR:STATIC=/home/ll/baoluo/ise/build/linux/debug
 
 //Dependencies for the target
-ise_LIB_DEPENDS:STATIC=general;pthread;
+ise_LIB_DEPENDS:STATIC=general;pthread;general;mysqlclient;
 
 //Value Computed by CMake
 ise_SOURCE_DIR:STATIC=/home/ll/baoluo/ise/build/linux

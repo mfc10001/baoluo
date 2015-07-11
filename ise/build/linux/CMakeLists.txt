@@ -39,7 +39,7 @@ message(STATUS "CXX_FLAGS = " ${CMAKE_CXX_FLAGS} " " ${CMAKE_CXX_FLAGS_${BUILD_T
 
 aux_source_directory(${ISE_ROOT_PATH}/ise/main ISE_MAIN_SRCS)
 add_library(ise ${ISE_MAIN_SRCS})
-target_link_libraries(ise pthread)
+target_link_libraries(ise pthread mysqlclient)
 
 add_subdirectory(${ISE_ROOT_PATH}/ise/ext/utils/json ${PROJECT_BINARY_DIR}/ext/utils)
 add_subdirectory(${ISE_ROOT_PATH}/ise/ext/dbi/mysql ${PROJECT_BINARY_DIR}/ext/dbi/mysql)

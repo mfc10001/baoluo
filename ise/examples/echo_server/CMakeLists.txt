@@ -9,5 +9,5 @@ add_executable(echo_server
   ./game_core/GamePlayerManager.cpp
   )
 
-target_link_libraries(echo_server ise ise_utils_json)
+target_link_libraries(echo_server ise ise_utils_json  ise_dbi_mysql)
 

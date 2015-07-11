@@ -2,8 +2,10 @@
 
 #include "echo_server.h"
 #include "game_core/ConfigManager.h"
+#include "ise/ext/dbi/mysql/ise_dbi_mysql.h"
+#include "tools/CommonTools.h"
 
-
+MySqlDatabase *m_db_conn=NULL;
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
@@ -27,7 +29,7 @@ void AppBusiness::initialize()
 		}
 
 		m_db_conn=new MySqlDatabase();
-		
+
 		DbConnParams *param=m_db_conn->getDbConnParams();
 		param->setHostName("192.168.18.147");
 		param->setUserName("root");
@@ -35,7 +37,7 @@ void AppBusiness::initialize()
 		param->setDbName("baoluo_jiemi");
 		param->setPort(3306);
 
-		MySqlConnection *dbconn = m_db_conn->createDbConnection();
+		MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());
 		dbconn->doConnect();
 	}
 	catch(bool)
