@@ -1,16 +1,12 @@
----- boost::function Matches (15 in 10 files) ----
-GamePlayer.h (e:\baoluo\ise\examples\echo_server\game_core):typedef boost::function<void ()> PlayerLevelHandlerCallback;
-Ise_application.h (main):typedef boost::function<void (int signalNumber)> UserSignalHandlerCallback;
-Ise_epoll.h (main):    typedef boost::function<void (BaseTcpConnection *connection, EVENT_TYPE eventType)> NotifyEventCallback;
-Ise_global_defs.h (main):typedef boost::function<void(void)> Functor;
-Ise_global_defs.h (main):typedef boost::function<void(void)> TimerCallback;
-Ise_http.h (main):    typedef boost::function<void (
-Ise_inspector.h (main):    typedef boost::function<string (const PropertyList& args, string& contentType)> OutputCallback;
-Ise_iocp.h (main):typedef boost::function<void (const IocpTaskData& taskData)> IocpCallback;
-Ise_server_tcp.h (main):typedef boost::function<void (
-Ise_server_tcp.h (main):    typedef boost::function<void (bool success, TcpConnection *connection,
-Ise_socket.h (main):    typedef boost::function<void (void *packetBuffer, int packetSize,
-Ise_socket.h (main):    typedef boost::function<void (BaseTcpServer *tcpServer, SOCKET socketHandle,
-Ise_socket.h (main):    typedef boost::function<void (BaseTcpServer *tcpServer,
-Ise_thread.h (main):    typedef boost::function<void (Thread& thread)> ThreadProc;
-Ise_thread.h (main):    typedef boost::function<void (Thread& thread)> Task;
+---- recvBuffer_ Matches (11 in 2 files) ----
+Ise_server_tcp.cpp (main):    if (recvTaskQueue_.empty() && recvBuffer_.getReadableBytes() >= MAX_BUFFER_SIZE)
+Ise_server_tcp.cpp (main):    recvBuffer_.append(MAX_RECV_SIZE);
+Ise_server_tcp.cpp (main):    const char *buffer = recvBuffer_.peek() + bytesRecved_;
+Ise_server_tcp.cpp (main):        const char *buffer = recvBuffer_.peek();
+Ise_server_tcp.cpp (main):                recvBuffer_.retrieve(packetSize);
+Ise_server_tcp.cpp (main):    if (recvTaskQueue_.empty() && recvBuffer_.getReadableBytes() >= MAX_BUFFER_SIZE)
+Ise_server_tcp.cpp (main):        recvBuffer_.append(dataBuf, bytesRecved);
+Ise_server_tcp.cpp (main):    const char *buffer = recvBuffer_.peek();
+Ise_server_tcp.cpp (main):    int readableBytes = recvBuffer_.getReadableBytes();
+Ise_server_tcp.cpp (main):            recvBuffer_.retrieve(packetSize);
+Ise_server_tcp.h (main):    IoBuffer recvBuffer_;                 // 数据接收缓存
