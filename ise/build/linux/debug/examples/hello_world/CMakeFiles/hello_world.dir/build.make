@@ -72,16 +72,43 @@ examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.o.provides: exam
 
 examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.o.provides.build: examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.o
 
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o: examples/hello_world/CMakeFiles/hello_world.dir/flags.make
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o: /home/ll/baoluo/ise/examples/hello_world/server_msg.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/hello_world && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/hello_world.dir/server_msg.cpp.o -c /home/ll/baoluo/ise/examples/hello_world/server_msg.cpp
+
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hello_world.dir/server_msg.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/hello_world && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/hello_world/server_msg.cpp > CMakeFiles/hello_world.dir/server_msg.cpp.i
+
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hello_world.dir/server_msg.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/hello_world && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/hello_world/server_msg.cpp -o CMakeFiles/hello_world.dir/server_msg.cpp.s
+
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.requires:
+.PHONY : examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.requires
+
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.provides: examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.requires
+	$(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.provides.build
+.PHONY : examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.provides
+
+examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.provides.build: examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o
+
 # Object files for target hello_world
 hello_world_OBJECTS = \
-"CMakeFiles/hello_world.dir/hello_world.cpp.o"
+"CMakeFiles/hello_world.dir/hello_world.cpp.o" \
+"CMakeFiles/hello_world.dir/server_msg.cpp.o"
 
 # External object files for target hello_world
 hello_world_EXTERNAL_OBJECTS =
 
 bin/hello_world: examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.o
+bin/hello_world: examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o
 bin/hello_world: examples/hello_world/CMakeFiles/hello_world.dir/build.make
 bin/hello_world: lib/libise.a
+bin/hello_world: lib/libise_utils_json.a
+bin/hello_world: lib/libise_dbi_mysql.a
 bin/hello_world: examples/hello_world/CMakeFiles/hello_world.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../bin/hello_world"
 	cd /home/ll/baoluo/ise/build/linux/debug/examples/hello_world && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello_world.dir/link.txt --verbose=$(VERBOSE)
@@ -91,6 +118,7 @@ examples/hello_world/CMakeFiles/hello_world.dir/build: bin/hello_world
 .PHONY : examples/hello_world/CMakeFiles/hello_world.dir/build
 
 examples/hello_world/CMakeFiles/hello_world.dir/requires: examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.o.requires
+examples/hello_world/CMakeFiles/hello_world.dir/requires: examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o.requires
 .PHONY : examples/hello_world/CMakeFiles/hello_world.dir/requires
 
 examples/hello_world/CMakeFiles/hello_world.dir/clean:

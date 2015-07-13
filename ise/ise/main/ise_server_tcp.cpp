@@ -474,6 +474,10 @@ void TcpConnection::recv(const PacketSplitter& packetSplitter, const Context& co
             boost::bind(&TcpConnection::postRecvTask, this, packetSplitter, context, timeout));
     }
 }
+int TcpConnection::recvBaseBuff(void *buffer, int size, bool syncMode, int timeoutMSecs)
+{
+      return recvBuffer(buffer,size,syncMode,timeoutMSecs);
+}
 
 //-----------------------------------------------------------------------------
 

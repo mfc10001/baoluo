@@ -43,7 +43,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
-				
+
 				/*
                 string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();
@@ -74,12 +74,12 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
                         uint64 charid = query->getLastInsertId();
                         GamePlayer *player=new GamePlayer();
 						int n = atoi(str.c_str());
-						
-						
+
+
                         player->createChar(charid,n);
                         GamePlayerManager::instance().AddPlayer(player);
-						
-						
+
+
                         delete res;
                         res = NULL;
                     }
@@ -93,23 +93,24 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 			break;
 		case PROTOCOL_ENTER_CS:
 			{
+                /*
                 string account = arrayObj["account"].asString();
 
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 				char buff[BUFFLEN];
 				memset(buff,0,BUFFLEN);
-				sprintf(buff,"select count(*) as num from bl_user where account=%s",account.c_str());				
+				sprintf(buff,"select count(*) as num from bl_user where account=%s",account.c_str());
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
                 while(!res->isEmpty() && res->next())
                 {
-					
+
 				}
-				
+				*/
 			}
 			break;
 
-		 
+
 		default:
 			return false;
 	}

@@ -5,10 +5,9 @@
 
 #include "ise/main/ise.h"
 #include "../bass_class/Singleton.h"
-#include <map>
-using namespace std;
+
 //读取文件最大缓冲
-const uint16 BUFFLEN  = 512;
+
 
 //读取配置文本跟目录
 const string CONFIG_ROOT_PATH ="./config/res/";

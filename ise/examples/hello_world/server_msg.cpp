@@ -1,5 +1,5 @@
 
-
+#include "hello_world.h"
 bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
 {
 	uint32 err=1;
@@ -11,7 +11,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 	switch(type)
 	{
 		case PROTOCOL_TOKEN_C:
-				
+
 			    string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
@@ -39,7 +39,9 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 					{
 						query->execute();
 						uint64 uid = query->getLastInsertId();
-						rData['uid']=uid;								
+						memset(buff,0,BUFFLEN);
+						sprintf(buff,"%s",uid);
+						rData['uid']=buff;
 						delete res;
 						res = NULL;
 					}
@@ -51,7 +53,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 				break;
 
-				
+
 	}
 
 	rValue["code"]=err;

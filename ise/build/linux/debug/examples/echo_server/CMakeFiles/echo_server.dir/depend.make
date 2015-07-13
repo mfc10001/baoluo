@@ -85,6 +85,7 @@ examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baol
 examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/echo_server.h
 examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
+examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
 examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
@@ -152,6 +153,8 @@ examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /hom
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.cpp
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise.h

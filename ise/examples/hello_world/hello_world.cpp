@@ -3,12 +3,33 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "hello_world.h"
-
+#include "ise/ext/dbi/mysql/ise_dbi_mysql.h"
 //-----------------------------------------------------------------------------
+MySqlDatabase *m_db_conn=NULL;
 
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
+}
+void AppBusiness::initialize()
+{
+	try
+	{
+        m_db_conn=new MySqlDatabase();
+        DbConnParams *param=m_db_conn->getDbConnParams();
+        param->setHostName("192.168.18.147");
+        param->setUserName("root");
+        param->setPassword("123456");
+        param->setDbName("baoluo_zs");
+        param->setPort(3306);
+
+        MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());
+        dbconn->doConnect();
+	}
+    catch(exception)
+    {
+        exit(1);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////

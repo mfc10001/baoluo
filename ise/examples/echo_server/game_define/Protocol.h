@@ -6,9 +6,9 @@ enum Protocol
 	//inner msg  2-999
 	INNER_CREATE_ROLE=10,
 
-	
+
 	//client msg
-	
+
 	PROTOCOL_TOKEN_C=1000,
 
 	PROTOCOL_AUTH_CS=1001,
@@ -34,5 +34,11 @@ enum ErrCode
 	ERR_TOKEN_INVALID=5,
 	ERR_TOKEN_TIME=6,
 };
+
+
+#define MAX_SEND_BUFF 4086
+#define MAX_REV_BUFF 4096
+const uint16 BUFFLEN  = 512;
+
 #endif
 

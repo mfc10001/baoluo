@@ -2,9 +2,8 @@
 
 #include "echo_server.h"
 #include "game_core/ConfigManager.h"
-#include "ise/ext/dbi/mysql/ise_dbi_mysql.h"
 #include "tools/CommonTools.h"
-
+#include "game_define/Protocol.h"
 MySqlDatabase *m_db_conn=NULL;
 IseBusiness* createIseBusinessObject()
 {
@@ -22,32 +21,24 @@ void AppBusiness::initialize()
 {
 	try
 	{
+
+
 		bool ret=ConfigManager::instance().loadAllFile();
 		if(!ret)
 		{
 			throw(ret);
 		}
 
-		m_db_conn=new MySqlDatabase();
 
-		DbConnParams *param=m_db_conn->getDbConnParams();
-		param->setHostName("192.168.18.147");
-		param->setUserName("root");
-		param->setPassword("123456");
-		param->setDbName("baoluo_zs");
-		param->setPort(3306);
-
-		MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());
-		dbconn->doConnect();
 		//链接DBserver
-		recvBuf_.reset(new IoBuffer(1024));
-		
-   		tcpClient_.reset(new BaseTcpClient());
-		tcpClient_->connect("127.0.0.1",22306)
+		recvBuf_.reset(new IoBuffer());
 
-		
+   		tcpClient_.reset(new TcpClient());
+		tcpClient_->connect("127.0.0.1",22306);
+
+
 	}
-	catch(bool)
+	catch(exception)
 	{
 		exit(1);
 	}
@@ -98,14 +89,14 @@ void AppBusiness::initIseOptions(IseOptions& options)
     // 设置TCP事件循环的个数
     options.setTcpServerEventLoopCount(1);
 
-	
+
 	options.setAssistorThreadCount(1);
 
 
 
 
 
-	
+
 }
 
 //-----------------------------------------------------------------------------
@@ -119,7 +110,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
     //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
-	uint32 cid=ConnetMangaer.add(connection);
+	uint32 cid=ConnetManager::instance().add(connection);
 	Json::Value rValue;
 	rValue["cid"]=cid;
 	string str = rValue.toStyledString();
@@ -129,7 +120,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 	memcpy(buff,&len,sizeof(uint16));
 	memcpy(buff+2,str.c_str(),str.length());
 	connection->send(buff,len);
- 
+
 }
 
 //-----------------------------------------------------------------------------
@@ -162,12 +153,12 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		{
 			string cid = value["cid"].asString();
 			int m = atoi(cid.c_str());
-			const TcpConnectionPtr * ptr_con=ConnetMangaer.instance().getConn(m);
+			const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(m);
 			if(ptr_con)
 			{
-				innerMsgProcess(ptr_con,n,value["data"]);
+				innerMsgProcess(*ptr_con,n,value["data"]);
 			}
-			
+
 		}
 		else
 		{
@@ -205,35 +196,33 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 	if(assistorIndex==0)
 	{
 		while(true)
-		{            
-			uint32 readindex=0;
-			uint32 writeindex=0;
-			uint16 length=0;
-			
+		{
 			char revbuff[MAX_REV_BUFF];
 			memset(revbuff,0,MAX_REV_BUFF);
-            int recvBytes = tcpClient_->recvBuffer(revbuff, MAX_REV_BUFF);
-			if(recvBytes>0)
-			{
-				recvBuf_.append(revbuff,recvBytes);
-			}
-			
+
+            int recvBytes = tcpClient_->getConnection().recvBaseBuff(revbuff, MAX_REV_BUFF);
+
+            if(recvBytes>0)
+            {
+                recvBuf_.get()->append(revbuff,recvBytes);
+            }
+
 			usleep(1000);
 		}
-		
+
 
 	}
 	else if(assistorIndex==1)
 	{
 		while(true)
 		{
-			int readableBytes = recvBuf_.getReadableBytes();
+			int readableBytes = recvBuf_.get()->getReadableBytes();
 			while (readableBytes > 2)
 		    {
-		    	const char *buffer = recvBuf_.peek();
+		    	const char *buffer = recvBuf_.get()->peek();
 		        int packetSize = 0;
 				uint16 len=0;
-				memcpy(len,buffer,sizeof(len));
+				memcpy(&len,buffer,sizeof(len));
 
 		        if (readableBytes >= len)
 		        {
@@ -241,16 +230,16 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 				    string msg((char*)dataptr+2, packetSize-2);
 					//Json::Reader reader;
 					//Json::Value value;
-				
-		            recvBuf_.retrieve(packetSize);
-	
+
+		            recvBuf_.get()->retrieve(packetSize);
+
 		        }
 				else
 				{
 					break;
 				}
 		    }
-			
+
 			usleep(1000);
 		}
 	}
@@ -258,19 +247,19 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 
 
 
-uint32  ConnetMangaer::add(const TcpConnectionPtr& con)
+uint32  ConnetManager::add(const TcpConnectionPtr& con)
 {
 	uint32 cid=makeCid();
-	ConnetManagerMap::it=m_con_manager.find(cid);
+	ConnetManagerMap::iterator it=m_con_manager.find(cid);
 	if(it==m_con_manager.end())
 	{
 		return 0;
 	}
 	m_con_manager[cid]=con;
 }
-void ConnetMangaer::del(uint32 cid)
+void ConnetManager::del(uint32 cid)
 {
-	ConnetManagerMap::it=m_con_manager.find(cid);
+	ConnetManagerMap::iterator it=m_con_manager.find(cid);
 	if(it==m_con_manager.end())
 	{
 		return;
@@ -278,16 +267,16 @@ void ConnetMangaer::del(uint32 cid)
 	m_con_manager.erase(it);
 }
 
-uint32 ConnetMangaer::makeCid()
+uint32 ConnetManager::makeCid()
 {
 	return 0;
 }
-const TcpConnectionPtr* ConnetMangaer::getConn(uint32 cid)
+const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 {
-	ConnetManagerMap::it=m_con_manager.find(cid);
+	ConnetManagerMap::iterator it=m_con_manager.find(cid);
 	if(it==m_con_manager.end())
 	{
-		return null;
+		return NULL;
 	}
 
 	return &(*it).second;

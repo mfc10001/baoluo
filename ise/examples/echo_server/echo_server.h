@@ -14,8 +14,6 @@
 #include "ise/ext/utils/json/json.h"
 
 
-#define MAX_SEND_BUFF 4086
-#define MAX_REV_BUFF 4096
 ///////////////////////////////////////////////////////////////////////////////
 
 
@@ -40,12 +38,12 @@ public:
 
 
 	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
-	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,uint32 cid,Json::Value &arrayObj);
+	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
 
 
-	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
+	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
 
-	boost::scoped_ptr<BaseTcpClient> tcpClient_;
+	boost::scoped_ptr<TcpClient> tcpClient_;
 	//IoBuffer *recvBuf_;
 	boost::scoped_ptr<IoBuffer> recvBuf_;
 
@@ -55,23 +53,20 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 
 
-class ConnetMangaer:public Singleton<TokenManager>
+class ConnetManager:public Singleton<ConnetManager>
 {
 	public:
-		const TcpConnectionPtr& connection
+		//const TcpConnectionPtr& connection;
 
-		void add(const TcpConnectionPtr& con);
+		uint32 add(const TcpConnectionPtr& con);
 		void del(uint32 cid);
 		uint32 makeCid();
 		const TcpConnectionPtr* getConn(uint32 cid);
 	private:
-		friend class Singleton<TokenManager>;
+		friend class Singleton<ConnetManager>;
 		//¿Í»§¶Ëcid
 		typedef map<uint32,const TcpConnectionPtr&>  ConnetManagerMap;
 		ConnetManagerMap m_con_manager;
-
-
-
-}
+};
 
 #endif // _ECHO_SERVER_H_

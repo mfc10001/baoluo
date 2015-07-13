@@ -181,6 +181,30 @@ hello_world.cpp.s:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/hello_world.cpp.s
 .PHONY : hello_world.cpp.s
 
+server_msg.o: server_msg.cpp.o
+.PHONY : server_msg.o
+
+# target to build an object file
+server_msg.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.o
+.PHONY : server_msg.cpp.o
+
+server_msg.i: server_msg.cpp.i
+.PHONY : server_msg.i
+
+# target to preprocess a source file
+server_msg.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.i
+.PHONY : server_msg.cpp.i
+
+server_msg.s: server_msg.cpp.s
+.PHONY : server_msg.s
+
+# target to generate assembly for a file
+server_msg.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/server_msg.cpp.s
+.PHONY : server_msg.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -197,6 +221,9 @@ help:
 	@echo "... hello_world.o"
 	@echo "... hello_world.i"
 	@echo "... hello_world.s"
+	@echo "... server_msg.o"
+	@echo "... server_msg.i"
+	@echo "... server_msg.s"
 .PHONY : help
 
 

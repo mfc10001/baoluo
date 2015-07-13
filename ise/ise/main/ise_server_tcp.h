@@ -324,7 +324,7 @@ public:
         const Context& context = EMPTY_CONTEXT,
         int timeout = TIMEOUT_INFINITE
         );
-
+    int recvBaseBuff(void *buffer, int size, bool syncMode = false, int timeoutMSecs = -1);
     bool isFromClient() const { return (tcpServer_ == NULL);}
     bool isFromServer() const { return (tcpServer_ != NULL);}
     const string& getConnectionName() const;
@@ -370,6 +370,7 @@ class TcpClient : public BaseTcpClient
 {
 public:
     TcpConnection& getConnection() { return *static_cast<TcpConnection*>(connection_); }
+
 protected:
     virtual BaseTcpConnection* createConnection();
 private:
