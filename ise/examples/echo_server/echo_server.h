@@ -39,13 +39,38 @@ public:
 
 
 	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
+	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,uint32 cid,Json::Value &arrayObj);
+
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
 
+	boost::scoped_ptr<BaseTcpClient> tcpClient_;
+	//IoBuffer *recvBuf_;
+	boost::scoped_ptr<IoBuffer> recvBuf_;
 
 
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+
+
+class ConnetMangaer:public Singleton<TokenManager>
+{
+	public:
+		const TcpConnectionPtr& connection
+
+		void add(const TcpConnectionPtr& con);
+		void del(uint32 cid);
+		uint32 makeCid();
+		const TcpConnectionPtr* getConn(uint32 cid);
+	private:
+		friend class Singleton<TokenManager>;
+		//¿Í»§¶Ëcid
+		typedef map<uint32,const TcpConnectionPtr&>  ConnetManagerMap;
+		ConnetManagerMap m_con_manager;
+
+
+
+}
 
 #endif // _ECHO_SERVER_H_

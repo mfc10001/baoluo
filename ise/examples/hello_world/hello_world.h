@@ -19,6 +19,7 @@ public:
 
 
 	void onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context);
+	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
 };
 
 

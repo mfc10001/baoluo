@@ -39,6 +39,13 @@ void AppBusiness::initialize()
 
 		MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());
 		dbconn->doConnect();
+		//链接DBserver
+		recvBuf_.reset(new IoBuffer(1024));
+		
+   		tcpClient_.reset(new BaseTcpClient());
+		tcpClient_->connect("127.0.0.1",22306)
+
+		
 	}
 	catch(bool)
 	{
@@ -90,6 +97,15 @@ void AppBusiness::initIseOptions(IseOptions& options)
     options.setTcpServerPort(10000);
     // 设置TCP事件循环的个数
     options.setTcpServerEventLoopCount(1);
+
+	
+	options.setAssistorThreadCount(1);
+
+
+
+
+
+	
 }
 
 //-----------------------------------------------------------------------------
@@ -101,9 +117,19 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
         connection->getPeerAddr().getDisplayStr().c_str(),
         connection->getServerConnCount());
 
-    string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
-    connection->send(msg.c_str(), msg.length());
+    //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
+	uint32 cid=ConnetMangaer.add(connection);
+	Json::Value rValue;
+	rValue["cid"]=cid;
+	string str = rValue.toStyledString();
+	char buff[MAX_SEND_BUFF];
+	memset(buff,0,MAX_SEND_BUFF);
+	uint16 len=str.length()+2;
+	memcpy(buff,&len,sizeof(uint16));
+	memcpy(buff+2,str.c_str(),str.length());
+	connection->send(buff,len);
+ 
 }
 
 //-----------------------------------------------------------------------------
@@ -132,8 +158,23 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	{
 		string str = value["type"].asString();
 		int n = atoi(str.c_str());
+		if(n<1000)
+		{
+			string cid = value["cid"].asString();
+			int m = atoi(cid.c_str());
+			const TcpConnectionPtr * ptr_con=ConnetMangaer.instance().getConn(m);
+			if(ptr_con)
+			{
+				innerMsgProcess(ptr_con,n,value["data"]);
+			}
+			
+		}
+		else
+		{
+			msgProcess(connection,n,value["data"]);
 
-		msgProcess(connection,n,value["data"]);
+		}
+
 
 	}
 /*
@@ -161,6 +202,95 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
 
 void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
 {
+	if(assistorIndex==0)
+	{
+		while(true)
+		{            
+			uint32 readindex=0;
+			uint32 writeindex=0;
+			uint16 length=0;
+			
+			char revbuff[MAX_REV_BUFF];
+			memset(revbuff,0,MAX_REV_BUFF);
+            int recvBytes = tcpClient_->recvBuffer(revbuff, MAX_REV_BUFF);
+			if(recvBytes>0)
+			{
+				recvBuf_.append(revbuff,recvBytes);
+			}
+			
+			usleep(1000);
+		}
+		
+
+	}
+	else if(assistorIndex==1)
+	{
+		while(true)
+		{
+			int readableBytes = recvBuf_.getReadableBytes();
+			while (readableBytes > 2)
+		    {
+		    	const char *buffer = recvBuf_.peek();
+		        int packetSize = 0;
+				uint16 len=0;
+				memcpy(len,buffer,sizeof(len));
+
+		        if (readableBytes >= len)
+		        {
+		        	char *dataptr=(char*)buffer;
+				    string msg((char*)dataptr+2, packetSize-2);
+					//Json::Reader reader;
+					//Json::Value value;
+				
+		            recvBuf_.retrieve(packetSize);
 	
+		        }
+				else
+				{
+					break;
+				}
+		    }
+			
+			usleep(1000);
+		}
+	}
 }
+
+
+
+uint32  ConnetMangaer::add(const TcpConnectionPtr& con)
+{
+	uint32 cid=makeCid();
+	ConnetManagerMap::it=m_con_manager.find(cid);
+	if(it==m_con_manager.end())
+	{
+		return 0;
+	}
+	m_con_manager[cid]=con;
+}
+void ConnetMangaer::del(uint32 cid)
+{
+	ConnetManagerMap::it=m_con_manager.find(cid);
+	if(it==m_con_manager.end())
+	{
+		return;
+	}
+	m_con_manager.erase(it);
+}
+
+uint32 ConnetMangaer::makeCid()
+{
+	return 0;
+}
+const TcpConnectionPtr* ConnetMangaer::getConn(uint32 cid)
+{
+	ConnetManagerMap::it=m_con_manager.find(cid);
+	if(it==m_con_manager.end())
+	{
+		return null;
+	}
+
+	return &(*it).second;
+}
+
 

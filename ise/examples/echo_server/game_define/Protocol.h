@@ -2,7 +2,13 @@
 #define _ISE_ERR_H_
 enum Protocol
 {
-	PROTOCOL_INVALID =100,
+	PROTOCOL_INVALID =1,
+	//inner msg  2-999
+	INNER_CREATE_ROLE=10,
+
+	
+	//client msg
+	
 	PROTOCOL_TOKEN_C=1000,
 
 	PROTOCOL_AUTH_CS=1001,

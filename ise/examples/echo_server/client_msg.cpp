@@ -43,6 +43,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
+				
+				/*
                 string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
@@ -86,6 +88,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
                         break;
                     }
                 }
+                */
 			}
 			break;
 		case PROTOCOL_ENTER_CS:
@@ -106,7 +109,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 			}
 			break;
 
-		case 
+		 
 		default:
 			return false;
 	}
