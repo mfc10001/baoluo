@@ -107,8 +107,8 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
     //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
-	uint32 cid=ConnetManager::instance().add(connection);
-	
+	ConnetManager::instance().add(connection);
+/*
 	Json::Value rValue;
 	rValue["cid"]=cid;
 	string str = rValue.toStyledString();
@@ -118,7 +118,8 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 	memcpy(buff,&len,sizeof(uint16));
 	memcpy(buff+2,str.c_str(),str.length());
 	connection->send(buff,len);
-
+*/
+    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
 //-----------------------------------------------------------------------------
@@ -159,7 +160,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 			{
 				return;
 			}
-			
+
 			uint32 cid =  ConnetManager::instance().getCid(connection);
 			if(cid==0)
 			{
@@ -174,7 +175,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 			memcpy(buff,&len,sizeof(uint16));
 			memcpy(buff+2,rstr.c_str(),rstr.length());
 
-			
+
             if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
             {
 				 logger().writeFmt("forward message falid : %s", msg.c_str());
@@ -240,8 +241,8 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 							string str = value["type"].asString();
 							int n = atoi(str.c_str());
 
-							
-							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"].isMember("cid").asInt());
+
+							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
 							if(ptr_con)
 							{
 								innerMsgProcess(*ptr_con,n,value["data"],value["code"].asInt());
@@ -334,14 +335,14 @@ uint32  ConnetManager::add(const TcpConnectionPtr& con)
 {
 	uint32 cid=makeCid();
     ConnetCidMap::iterator it=m_cid_manager.find(cid);
-	if(it==m_con_manager.end())
+	if(it!=m_cid_manager.end())
 	{
 		return 0;
 	}
 	m_cid_manager[cid]=&con;
 	m_con_manager[&con]=cid;
 
-	
+
 	return cid;
 }
 
@@ -351,7 +352,7 @@ void ConnetManager::del(const TcpConnectionPtr& con)
 	{
 		if(&con==(*it).first)
 		{
-			ConnetCidMap::iterator ip= ConnetCidMap.find((*it).second);
+			ConnetCidMap::iterator ip= m_cid_manager.find((*it).second);
 
 			m_cid_manager.erase(ip);
 			m_con_manager.erase(it);
@@ -360,7 +361,7 @@ void ConnetManager::del(const TcpConnectionPtr& con)
 }
 uint32 ConnetManager::getCid(const TcpConnectionPtr& con)
 {
-	ConnetManagerMap::iterator it=m_con_manager.find(con);
+	ConnetManagerMap::iterator it=m_con_manager.find(&con);
 	if(it==m_con_manager.end())
 	{
 		return 0;
@@ -374,8 +375,8 @@ uint64 ConnetManager::makeCid()
 }
 const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 {
-	ConnetManagerMap::iterator it=m_con_manager.find(cid);
-	if(it==m_con_manager.end())
+	ConnetCidMap::iterator it=m_cid_manager.find(cid);
+	if(it==m_cid_manager.end())
 	{
 		return NULL;
 	}

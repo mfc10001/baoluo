@@ -584,25 +584,9 @@ ise/main/ise_classes.h
 ise/main/ise_exceptions.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_exceptions.h
 
-/home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
-
 /home/ll/baoluo/ise/examples/echo_server/bass_class/Singleton.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/echo_server/bass_class/ise/main/ise.h
-
-/home/ll/baoluo/ise/examples/echo_server/client_msg.cpp
-echo_server.h
-/home/ll/baoluo/ise/examples/echo_server/echo_server.h
-game_core/GamePlayer.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
-game_core/GamePlayerManager.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
-game_define/Protocol.h
-/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
-game_core/ConfigManager.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 
 /home/ll/baoluo/ise/examples/echo_server/echo_server.cpp
 echo_server.h
@@ -640,37 +624,15 @@ ise/main/ise.h
 ../bass_class/Singleton.h
 /home/ll/baoluo/ise/examples/echo_server/bass_class/Singleton.h
 
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
-../bass_class/Entry.h
-/home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
-ise/main/ise.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/ise/main/ise.h
-../game_define/Protocol.h
-/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
-
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
-ise/main/ise.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/ise/main/ise.h
-
 /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
 string
 -
 
 /home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
-
-/home/ll/baoluo/ise/examples/echo_server/inner_msg.cpp
-echo_server.h
-/home/ll/baoluo/ise/examples/echo_server/echo_server.h
-game_core/GamePlayer.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
-game_core/GamePlayerManager.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
-game_define/Protocol.h
-/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
-game_core/ConfigManager.h
-/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
+map
+-
+set
+-
 
 /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 stdio.h
