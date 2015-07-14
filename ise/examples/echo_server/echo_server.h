@@ -12,7 +12,7 @@
 #include "ise/main/ise_server_tcp.h"
 #include "ise/main/ise_application.h"
 #include "ise/ext/utils/json/json.h"
-
+#include "game_define/Protocol.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -76,7 +76,7 @@ class ConnetManager:public Singleton<ConnetManager>
 		typedef map<uint32,const TcpConnectionPtr*>  ConnetManagerMap;
 		ConnetManagerMap m_con_manager;
 
-		SeqNumberAlloc alloc;
+		SeqNumberAlloc *alloc;
 };
 
 #endif // _ECHO_SERVER_H_

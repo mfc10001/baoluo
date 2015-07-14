@@ -10,10 +10,12 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 	switch(type)
 	{
-		case INNER_CREATE_ROLE:
-
+		case PROTOCOL_CREATE_CHAR_CS:
+            {
 			    string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();
+                //string cid = arrayObj["cid"].asString();
+                rData["cid"]=arrayObj["cid"];
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 				char buff[BUFFLEN];
@@ -40,8 +42,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 						query->execute();
 						uint64 uid = query->getLastInsertId();
 						memset(buff,0,BUFFLEN);
-						sprintf(buff,"%s",uid);
-						rData['uid']=buff;
+						sprintf(buff,"%llu",uid);
+						rData["uid"]=buff;
 						delete res;
 						res = NULL;
 					}
@@ -50,9 +52,10 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 						break;
 					}
 				}
-
+            }
 				break;
-
+        default:
+                return false;
 
 	}
 
@@ -68,5 +71,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 	memcpy(buff+2,str.c_str(),str.length());
 
 	connection->send(buff,len);
+
+    return true;
+
 }
 

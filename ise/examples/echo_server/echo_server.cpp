@@ -3,7 +3,7 @@
 #include "echo_server.h"
 #include "game_core/ConfigManager.h"
 #include "tools/CommonTools.h"
-#include "game_define/Protocol.h"
+
 MySqlDatabase *m_db_conn=NULL;
 IseBusiness* createIseBusinessObject()
 {
@@ -156,7 +156,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		{
 			msgProcess(connection,n,value["data"]);
 		}
-		
+
 	}
 
     logger().writeFmt("Received message: %s", msg.c_str());
@@ -191,7 +191,7 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
                 recvBuf_.get()->append(revbuff,recvBytes);
             }
 
-			
+
 			int readableBytes = recvBuf_.get()->getReadableBytes();
 			while (readableBytes > 2)
 			{
@@ -231,7 +231,7 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 			}
 
 
-			
+
 			usleep(1000);
 		}
 
@@ -325,7 +325,7 @@ void ConnetManager::del(uint32 cid)
 
 uint64 ConnetManager::makeCid()
 {
-	return alloc.allocId();
+	return alloc->allocId();
 }
 const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 {
@@ -340,6 +340,6 @@ const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 
 ConnetManager::ConnetManager()
 {
-	alloc.SeqNumberAlloc(1000);
+    alloc=new SeqNumberAlloc(1000);
 }
 
