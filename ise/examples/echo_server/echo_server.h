@@ -38,7 +38,7 @@ public:
 
 
 	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
-	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
+	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code);
 
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
@@ -67,14 +67,20 @@ class ConnetManager:public Singleton<ConnetManager>
 		//const TcpConnectionPtr& connection;
 		ConnetManager();
 		uint32 add(const TcpConnectionPtr& con);
-		void del(uint32 cid);
+
+		void del(const TcpConnectionPtr& con);
+
+		uint32 getCid(const TcpConnectionPtr& con);
 		uint64 makeCid();
 		const TcpConnectionPtr* getConn(uint32 cid);
 	private:
 		friend class Singleton<ConnetManager>;
 		//¿Í»§¶Ëcid
-		typedef map<uint32,const TcpConnectionPtr*>  ConnetManagerMap;
-		ConnetManagerMap m_con_manager;
+		typedef map<const TcpConnectionPtr*,uint32>  ConnetManagerMap;
+		ConnetManagerMap m_con_manager ;
+
+		typedef map<uint32,const TcpConnectionPtr*>  ConnetCidMap;
+		ConnetCidMap m_cid_manager;
 
 		SeqNumberAlloc *alloc;
 };

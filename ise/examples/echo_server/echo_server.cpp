@@ -21,7 +21,9 @@ void AppBusiness::initialize()
 {
 	try
 	{
-		addForwardPro(PROTOCOL_CREATE_CHAR_CS);
+		addForwardPro(PROTOCOL_CREATE_CHAR_C);
+		addForwardPro(PROTOCOL_ENTER_C);
+		addForwardPro(PROTOCOL_CHAR_LIST_C);
 
 		bool ret=ConfigManager::instance().loadAllFile();
 		if(!ret)
@@ -106,6 +108,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
     //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
 	uint32 cid=ConnetManager::instance().add(connection);
+	
 	Json::Value rValue;
 	rValue["cid"]=cid;
 	string str = rValue.toStyledString();
@@ -124,6 +127,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
 {
     logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+	ConnetManager::instance().del(connection);
 }
 
 //-----------------------------------------------------------------------------
@@ -146,7 +150,32 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		int n = atoi(str.c_str());
 		if(isExist(n))
 		{
-            if(tcpClient_->getConnection().sendBaseBuff(dataptr,packetSize)<=0)
+			if(!value.isMember("data"))
+			{
+				return;
+			}
+
+			if(value["data"].isMember("cid"))
+			{
+				return;
+			}
+			
+			uint32 cid =  ConnetManager::instance().getCid(connection);
+			if(cid==0)
+			{
+				return;
+			}
+			value["data"]["cid"]=cid;
+			string rstr = value.toStyledString();
+
+			char buff[MAX_SEND_BUFF];
+			memset(buff,0,MAX_SEND_BUFF);
+			uint16 len=rstr.length()+2;
+			memcpy(buff,&len,sizeof(uint16));
+			memcpy(buff+2,rstr.c_str(),rstr.length());
+
+			
+            if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
             {
 				 logger().writeFmt("forward message falid : %s", msg.c_str());
 			}
@@ -206,18 +235,17 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 					Json::Value value;
 					if (reader.parse(msg, value))
 					{
-						string str = value["type"].asString();
-						int n = atoi(str.c_str());
-						if(n<1000)
+						if(value.isMember("type")&&value.isMember("code")&&value.isMember("data")&&value["data"].isMember("cid"))
 						{
-							string cid ="1";
-							int m = atoi(cid.c_str());
-							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(m);
+							string str = value["type"].asString();
+							int n = atoi(str.c_str());
+
+							
+							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"].isMember("cid").asInt());
 							if(ptr_con)
 							{
-								innerMsgProcess(*ptr_con,n,value["data"]);
+								innerMsgProcess(*ptr_con,n,value["data"],value["code"].asInt());
 							}
-
 						}
 					}
 
@@ -305,22 +333,39 @@ void AppBusiness::addForwardPro(uint32 pro)
 uint32  ConnetManager::add(const TcpConnectionPtr& con)
 {
 	uint32 cid=makeCid();
-    ConnetManagerMap::iterator it=m_con_manager.find(cid);
+    ConnetCidMap::iterator it=m_cid_manager.find(cid);
 	if(it==m_con_manager.end())
 	{
 		return 0;
 	}
-	m_con_manager[cid]=&con;
+	m_cid_manager[cid]=&con;
+	m_con_manager[&con]=cid;
+
+	
 	return cid;
 }
-void ConnetManager::del(uint32 cid)
+
+void ConnetManager::del(const TcpConnectionPtr& con)
 {
-	ConnetManagerMap::iterator it=m_con_manager.find(cid);
+	for(ConnetManagerMap::iterator it=m_con_manager.begin();it!=m_con_manager.end();it++)
+	{
+		if(&con==(*it).first)
+		{
+			ConnetCidMap::iterator ip= ConnetCidMap.find((*it).second);
+
+			m_cid_manager.erase(ip);
+			m_con_manager.erase(it);
+		}
+	}
+}
+uint32 ConnetManager::getCid(const TcpConnectionPtr& con)
+{
+	ConnetManagerMap::iterator it=m_con_manager.find(con);
 	if(it==m_con_manager.end())
 	{
-		return;
+		return 0;
 	}
-	m_con_manager.erase(it);
+	return (*it).second;
 }
 
 uint64 ConnetManager::makeCid()

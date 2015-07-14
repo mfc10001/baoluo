@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
+bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code)
 {
 
 	uint32 err=1;
@@ -17,14 +17,19 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Js
 
 	switch(type)
 	{
-		case INNER_CREATE_ROLE:
-			if(arrayObj.isMember("uid")&&arrayObj.isMember("role"))
+		case PROTOCOL_CREATE_CHAR_C:
+			if(code==ERR_SUCCESS)
 			{
-				uint32 uid = arrayObj["uid"].asUInt();
-	            uint32 role = arrayObj["role"].asUInt();
-				GamePlayer *player=new GamePlayer();
-	            player->createChar(uid,role);
-	            GamePlayerManager::instance().AddPlayer(player);
+				if(arrayObj.isMember("uid")&&arrayObj.isMember("role"))
+				{
+					uint32 uid = arrayObj["uid"].asUInt();
+		            uint32 role = arrayObj["role"].asUInt();
+					GamePlayer *player=new GamePlayer();
+		            player->createChar(uid,role);
+		            GamePlayerManager::instance().AddPlayer(player);
+					rNo=PROTOCOL_CREATE_CHAR_S;
+					err=ERR_SUCCESS;
+				}
 			}
 			break;
 		default:

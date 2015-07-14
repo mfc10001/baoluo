@@ -1,5 +1,49 @@
----- sendBaseBuff Matches (4 in 4 files) ----
-Client_msg.cpp (e:\baoluo\ise\examples\echo_server):                if(tcpClient_->getConnection().sendBaseBuff(buff,len)>0)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):            if(tcpClient_->getConnection().sendBaseBuff(dataptr,packetSize)<=0)
-Ise_server_tcp.cpp (main):int TcpConnection::sendBaseBuff(void *buffer, int size, bool syncMode, int timeoutMSecs)
-Ise_server_tcp.h (main):    int sendBaseBuff(void *buffer, int size, bool syncMode = false, int timeoutMSecs = -1);
+---- onTcpDisconnected Matches (48 in 31 files) ----
+Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Chargen_client.h (e:\baoluo\ise\examples\chargen_client):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Chargen_server.h (e:\baoluo\ise\examples\chargen_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Daytime_server.h (e:\baoluo\ise\examples\daytime_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Discard_server.cpp (e:\baoluo\ise\examples\discard_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Discard_server.cpp (e:\baoluo\ise\examples\discard_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Discard_server.h (e:\baoluo\ise\examples\discard_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Echo_server.cpp (e:\baoluo\ise\examples\echo_server):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Echo_server.cpp (e:\baoluo\ise\examples\max_connection):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Echo_server.cpp (e:\baoluo\ise\examples\max_connection):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Echo_server.h (e:\baoluo\ise\examples\echo_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Echo_server.h (e:\baoluo\ise\examples\max_connection):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Http_server.cpp (e:\baoluo\ise\examples\http_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Http_server.cpp (e:\baoluo\ise\examples\http_server):    httpServer_.onTcpDisconnected(connection);
+Http_server.h (e:\baoluo\ise\examples\http_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Ise_application.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) = 0;
+Ise_application.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) {}
+Ise_http.cpp (main):void HttpServer::onTcpDisconnected(const TcpConnectionPtr& connection)
+Ise_http.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Ise_inspector.cpp (main):void IseServerInspector::onTcpDisconnected(const TcpConnectionPtr& connection)
+Ise_inspector.cpp (main):    httpServer_.onTcpDisconnected(connection);
+Ise_inspector.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Ise_server_tcp.cpp (main)://   之后 TcpConnection::errorOccurred() 被调用，进而调用 onTcpDisconnected() 和
+Ise_server_tcp.cpp (main):        &IseBusiness::onTcpDisconnected,
+Ise_server_tcp.h (main)://   我方也能够感知，并通过 onTcpDisconnected() 通知用户。
+Ise_server_tcp.h (main)://      引发 IOCP/EPoll 错误，调用 errorOccurred()，执行 onTcpDisconnected() 和
+Ise_svr_mod.cpp (main):void IseSvrModBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
+Ise_svr_mod.cpp (main):        serverModuleMgr_.getItem(modIndex).onTcpDisconnected(connection);
+Ise_svr_mod.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) {}
+Ise_svr_mod.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Chargen::onTcpDisconnected(const TcpConnectionPtr& connection)
+Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Svr_mod_chargen.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Daytime::onTcpDisconnected(const TcpConnectionPtr& connection)
+Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Svr_mod_daytime.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Discard::onTcpDisconnected(const TcpConnectionPtr& connection)
+Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Svr_mod_discard.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
+Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Echo::onTcpDisconnected(const TcpConnectionPtr& connection)
+Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):    logger().writeFmt("onTcpDisconnected (%s)", connection->getConnectionName().c_str());
+Svr_mod_echo.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);

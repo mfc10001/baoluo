@@ -5,17 +5,18 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 	uint32 err=1;
 	Json::Value rValue;
 	Json::Value rData;
-	uint32 rNo=PROTOCOL_INVALID;
+	uint32 rNo=type;
 
 
 	switch(type)
 	{
-		case PROTOCOL_CREATE_CHAR_CS:
+		case PROTOCOL_CREATE_CHAR_C:
             {
 			    string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();
                 //string cid = arrayObj["cid"].asString();
                 rData["cid"]=arrayObj["cid"];
+				rData["role"]=arrayObj["role"];
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 				char buff[BUFFLEN];
