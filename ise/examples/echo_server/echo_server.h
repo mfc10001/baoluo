@@ -43,9 +43,17 @@ public:
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
 
+	bool isExist(uint32 pro);
+	void addForwardPro(uint32 pro);
+
+
 	boost::scoped_ptr<TcpClient> tcpClient_;
 	//IoBuffer *recvBuf_;
+
+
 	boost::scoped_ptr<IoBuffer> recvBuf_;
+
+	BaseSet  forward_;
 
 
 };
@@ -57,16 +65,18 @@ class ConnetManager:public Singleton<ConnetManager>
 {
 	public:
 		//const TcpConnectionPtr& connection;
-
+		ConnetManager();
 		uint32 add(const TcpConnectionPtr& con);
 		void del(uint32 cid);
-		uint32 makeCid();
+		uint64 makeCid();
 		const TcpConnectionPtr* getConn(uint32 cid);
 	private:
 		friend class Singleton<ConnetManager>;
 		//¿Í»§¶Ëcid
 		typedef map<uint32,const TcpConnectionPtr*>  ConnetManagerMap;
 		ConnetManagerMap m_con_manager;
+
+		SeqNumberAlloc alloc;
 };
 
 #endif // _ECHO_SERVER_H_

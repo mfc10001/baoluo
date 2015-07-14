@@ -21,7 +21,7 @@ void AppBusiness::initialize()
 {
 	try
 	{
-
+		addForwardPro(PROTOCOL_CREATE_CHAR_CS);
 
 		bool ret=ConfigManager::instance().loadAllFile();
 		if(!ret)
@@ -90,12 +90,7 @@ void AppBusiness::initIseOptions(IseOptions& options)
     options.setTcpServerEventLoopCount(1);
 
 
-	options.setAssistorThreadCount(2);
-
-
-
-
-
+	options.setAssistorThreadCount(1);
 
 }
 
@@ -149,16 +144,21 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	{
 		string str = value["type"].asString();
 		int n = atoi(str.c_str());
-
-		msgProcess(connection,n,value["data"]);
+		if(isExist(n))
+		{
+            if(tcpClient_->getConnection().sendBaseBuff(dataptr,packetSize)<=0)
+            {
+				 logger().writeFmt("forward message falid : %s", msg.c_str());
+			}
+			return ;
+		}
+		else
+		{
+			msgProcess(connection,n,value["data"]);
+		}
+		
 	}
-/*
-    msg = trimString(msg);
-    if (msg == "quit")
-        connection->disconnect();
-    else
-        connection->send((char*)packetBuffer, packetSize);
-*/
+
     logger().writeFmt("Received message: %s", msg.c_str());
 }
 
@@ -191,11 +191,54 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
                 recvBuf_.get()->append(revbuff,recvBytes);
             }
 
+			
+			int readableBytes = recvBuf_.get()->getReadableBytes();
+			while (readableBytes > 2)
+			{
+				const char *buffer = recvBuf_.get()->peek();
+				uint16 len=0;
+				memcpy(&len,buffer,sizeof(len));
+
+				if (readableBytes >= len)
+				{
+					string msg((char*)buffer+2, len-2);
+					Json::Reader reader;
+					Json::Value value;
+					if (reader.parse(msg, value))
+					{
+						string str = value["type"].asString();
+						int n = atoi(str.c_str());
+						if(n<1000)
+						{
+							string cid ="1";
+							int m = atoi(cid.c_str());
+							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(m);
+							if(ptr_con)
+							{
+								innerMsgProcess(*ptr_con,n,value["data"]);
+							}
+
+						}
+					}
+
+					recvBuf_.get()->retrieve(len);
+
+				}
+				else
+				{
+					break;
+				}
+			}
+
+
+			
 			usleep(1000);
 		}
 
 
 	}
+
+	/*
 	else if(assistorIndex==1)
 	{
 		while(true)
@@ -204,14 +247,12 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 			while (readableBytes > 2)
 		    {
 		    	const char *buffer = recvBuf_.get()->peek();
-		        int packetSize = 0;
 				uint16 len=0;
 				memcpy(&len,buffer,sizeof(len));
 
 		        if (readableBytes >= len)
 		        {
-		        	char *dataptr=(char*)buffer;
-				    string msg((char*)dataptr+2, packetSize-2);
+				    string msg((char*)buffer+2, len-2);
 					Json::Reader reader;
 					Json::Value value;
                     if (reader.parse(msg, value))
@@ -243,8 +284,22 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 			usleep(1000);
 		}
 	}
+	*/
 }
 
+bool AppBusiness::isExist(uint32 pro)
+{
+	BaseSet::iterator it = forward_.find(pro);
+	if(it==forward_.end())
+	{
+		return false;
+	}
+	return true;
+}
+void AppBusiness::addForwardPro(uint32 pro)
+{
+	forward_.insert(pro);
+}
 
 
 uint32  ConnetManager::add(const TcpConnectionPtr& con)
@@ -268,9 +323,9 @@ void ConnetManager::del(uint32 cid)
 	m_con_manager.erase(it);
 }
 
-uint32 ConnetManager::makeCid()
+uint64 ConnetManager::makeCid()
 {
-	return 1;
+	return alloc.allocId();
 }
 const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 {
@@ -283,4 +338,8 @@ const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 	return (*it).second;
 }
 
+ConnetManager::ConnetManager()
+{
+	alloc.SeqNumberAlloc(1000);
+}
 

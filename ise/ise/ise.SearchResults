@@ -1,12 +1,5 @@
----- recvBuffer_ Matches (11 in 2 files) ----
-Ise_server_tcp.cpp (main):    if (recvTaskQueue_.empty() && recvBuffer_.getReadableBytes() >= MAX_BUFFER_SIZE)
-Ise_server_tcp.cpp (main):    recvBuffer_.append(MAX_RECV_SIZE);
-Ise_server_tcp.cpp (main):    const char *buffer = recvBuffer_.peek() + bytesRecved_;
-Ise_server_tcp.cpp (main):        const char *buffer = recvBuffer_.peek();
-Ise_server_tcp.cpp (main):                recvBuffer_.retrieve(packetSize);
-Ise_server_tcp.cpp (main):    if (recvTaskQueue_.empty() && recvBuffer_.getReadableBytes() >= MAX_BUFFER_SIZE)
-Ise_server_tcp.cpp (main):        recvBuffer_.append(dataBuf, bytesRecved);
-Ise_server_tcp.cpp (main):    const char *buffer = recvBuffer_.peek();
-Ise_server_tcp.cpp (main):    int readableBytes = recvBuffer_.getReadableBytes();
-Ise_server_tcp.cpp (main):            recvBuffer_.retrieve(packetSize);
-Ise_server_tcp.h (main):    IoBuffer recvBuffer_;                 // 数据接收缓存
+---- sendBaseBuff Matches (4 in 4 files) ----
+Client_msg.cpp (e:\baoluo\ise\examples\echo_server):                if(tcpClient_->getConnection().sendBaseBuff(buff,len)>0)
+Echo_server.cpp (e:\baoluo\ise\examples\echo_server):            if(tcpClient_->getConnection().sendBaseBuff(dataptr,packetSize)<=0)
+Ise_server_tcp.cpp (main):int TcpConnection::sendBaseBuff(void *buffer, int size, bool syncMode, int timeoutMSecs)
+Ise_server_tcp.h (main):    int sendBaseBuff(void *buffer, int size, bool syncMode = false, int timeoutMSecs = -1);

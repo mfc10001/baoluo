@@ -43,6 +43,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
+				/*
                 rData["account"]=arrayObj["account"];
                 rData["role"]=arrayObj["role"];
             	rValue["type"]=INNER_CREATE_ROLE;
@@ -53,52 +54,12 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
                 uint16 len=str.length()+2;
                 memcpy(buff,&len,sizeof(uint16));
                 memcpy(buff+2,str.c_str(),str.length());
-                tcpClient_->getConnection().sendBaseBuff(buff,len);
-				/*
-                string account = arrayObj["account"].asString();
-                string role = arrayObj["role"].asString();
-				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
-
-				char buff[BUFFLEN];
-				memset(buff,0,BUFFLEN);
-				sprintf(buff,"select count(*) as num from bl_user where account=%s",account.c_str());
-                query->setSql(buff);
-                MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
-                if(!res->isEmpty() && res->next())
+                if(tcpClient_->getConnection().sendBaseBuff(buff,len)>0)
                 {
-					MySqlField* num = static_cast<MySqlField *> (res->getFields("num"));
-					if(num->asInteger()>0)
-					{
-                        break;
-					}
-                    delete res;
-                    res = NULL;
-
-					memset(buff,0,BUFFLEN);
-                    sprintf(buff,"insert into bl_user (account,role) values (%s,%s);  ",account.c_str(),role.c_str());
-                    query->setSql(buff);
-
-                    try
-                    {
-                        query->execute();
-                        uint64 charid = query->getLastInsertId();
-                        GamePlayer *player=new GamePlayer();
-						int n = atoi(str.c_str());
-
-
-                        player->createChar(charid,n);
-                        GamePlayerManager::instance().AddPlayer(player);
-
-
-                        delete res;
-                        res = NULL;
-                    }
-                    catch(Exception)
-                    {
-                        break;
-                    }
-                }
-                */
+					return true;
+				}
+				return false;
+				*/
 			}
 			break;
 		case PROTOCOL_ENTER_CS:

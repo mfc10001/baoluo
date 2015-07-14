@@ -70,10 +70,13 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 	Json::Value value;
 	if (reader.parse(msg, value))
 	{
-		string str = value["type"].asString();
-		int n = atoi(str.c_str());
+		if(value.isMember("type"))
+		{
+			string str = value["type"].asString();
+			int n = atoi(str.c_str());
 
-		msgProcess(connection,n,value["data"]);
+			msgProcess(connection,n,value["data"]);
+		}
 	}
 }
 
