@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o"
   "/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o"
   "/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o"
+  "/home/ll/baoluo/ise/examples/echo_server/inner_msg.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/CMakeFiles/echo_server.dir/inner_msg.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -478,6 +478,10 @@ int TcpConnection::recvBaseBuff(void *buffer, int size, bool syncMode, int timeo
 {
       return recvBuffer(buffer,size,syncMode,timeoutMSecs);
 }
+int TcpConnection::sendBaseBuff(void *buffer, int size, bool syncMode, int timeoutMSecs)
+{
+    return sendBuffer(buffer,size,syncMode,timeoutMSecs);
+}
 
 //-----------------------------------------------------------------------------
 

@@ -277,6 +277,30 @@ game_core/GamePlayerManager.cpp.s:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.s
 .PHONY : game_core/GamePlayerManager.cpp.s
 
+inner_msg.o: inner_msg.cpp.o
+.PHONY : inner_msg.o
+
+# target to build an object file
+inner_msg.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/inner_msg.cpp.o
+.PHONY : inner_msg.cpp.o
+
+inner_msg.i: inner_msg.cpp.i
+.PHONY : inner_msg.i
+
+# target to preprocess a source file
+inner_msg.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/inner_msg.cpp.i
+.PHONY : inner_msg.cpp.i
+
+inner_msg.s: inner_msg.cpp.s
+.PHONY : inner_msg.s
+
+# target to generate assembly for a file
+inner_msg.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/inner_msg.cpp.s
+.PHONY : inner_msg.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -305,6 +329,9 @@ help:
 	@echo "... game_core/GamePlayerManager.o"
 	@echo "... game_core/GamePlayerManager.i"
 	@echo "... game_core/GamePlayerManager.s"
+	@echo "... inner_msg.o"
+	@echo "... inner_msg.i"
+	@echo "... inner_msg.s"
 .PHONY : help
 
 

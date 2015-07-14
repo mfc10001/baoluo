@@ -1,6 +1,7 @@
 
 #include "GamePlayerManager.h"
 #include "../game_define/Protocol.h"
+#include "GamePlayer.h"
 bool TokenManager::IsExist(uint32 uid)
 {
 	ToeknManagerMap::iterator it=m_token_manager_.find(uid);

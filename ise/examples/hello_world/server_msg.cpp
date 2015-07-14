@@ -10,7 +10,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 	switch(type)
 	{
-		case PROTOCOL_TOKEN_C:
+		case INNER_CREATE_ROLE:
 
 			    string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();

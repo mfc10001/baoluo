@@ -9,3 +9,4 @@
 [2015-07-09 00:54:45](04215|4160591680) ERROR: The application is already running.
 [2015-07-09 00:57:19](04249|4160591680) ERROR: The application is already running.
 [2015-07-09 01:00:46](04375|4160591680) ERROR: The application is already running.
+[2015-07-13 19:35:59](35512|4160587584) ERROR: The application is already running.

@@ -1,7 +1,7 @@
 #include "ConfigManager.h"
 #include "../tools/CommonTools.h"
 #include "../game_define/BaseType.h"
-
+#include "../game_define/Protocol.h"
 #include "GamePlayer.h"
 
 bool ConfigManager::loadAllFile()

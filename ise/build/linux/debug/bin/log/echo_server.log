@@ -164,3 +164,21 @@
 [2015-07-11 01:28:10](08395|4120745728) onTcpRecvComplete
 [2015-07-11 01:28:10](08395|4120745728) Try to connect MySQL server... (0x7fffe8001398)
 [2015-07-11 01:28:10](08395|4120745728) Connected to MySQL server. (0x7fffe8001398)
+[2015-07-13 20:10:46](35957|4160591680) echo_server started.
+[2015-07-13 20:13:24](35957|4133230336) onTcpConnected (192.168.140.1:2600) (ConnCount: 1)
+[2015-07-13 20:13:24](35957|4133230336) onTcpSendComplete
+[2015-07-13 20:13:24](35957|4133230336) onTcpRecvComplete
+[2015-07-13 20:14:44](35957|4133230336) ERROR: Event loop not specified.
+[2015-07-13 20:14:54](35957|4133230336) onTcpRecvComplete
+[2015-07-13 20:34:53](36326|4160591680) echo_server started.
+[2015-07-13 20:34:56](36326|4133230336) onTcpConnected (192.168.140.1:2769) (ConnCount: 1)
+[2015-07-13 20:34:56](36326|4133230336) onTcpSendComplete
+[2015-07-13 20:34:56](36326|4133230336) onTcpRecvComplete
+[2015-07-13 20:35:24](36326|4133230336) Received message: {
+	"type":	"1004",
+	"data":	{
+		"account":	"17",
+		"role":	"1"
+	}
+}
+[2015-07-13 20:35:24](36326|4133230336) onTcpSendComplete

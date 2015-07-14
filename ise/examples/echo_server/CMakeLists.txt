@@ -1,6 +1,7 @@
 add_executable(echo_server
   echo_server.cpp
   client_msg.cpp
+    inner_msg.cpp
   ./game_core/ConfigManager.cpp
   ./game_define/BaseType.h
   ./tools/CommonTools.h

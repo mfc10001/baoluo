@@ -7,18 +7,18 @@
 
 bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
 {
-	
+
 	uint32 err=1;
 	Json::Value rValue;
 	Json::Value rData;
 	uint32 rNo=PROTOCOL_INVALID;;
 
-	
+
 
 	switch(type)
 	{
 		case INNER_CREATE_ROLE:
-			if(arrayObj.isMember["uid"]&&arrayObj.isMember["role"])
+			if(arrayObj.isMember("uid")&&arrayObj.isMember("role"))
 			{
 				uint32 uid = arrayObj["uid"].asUInt();
 	            uint32 role = arrayObj["role"].asUInt();

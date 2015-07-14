@@ -65,7 +65,7 @@ class ConnetManager:public Singleton<ConnetManager>
 	private:
 		friend class Singleton<ConnetManager>;
 		//¿Í»§¶Ëcid
-		typedef map<uint32,const TcpConnectionPtr&>  ConnetManagerMap;
+		typedef map<uint32,const TcpConnectionPtr*>  ConnetManagerMap;
 		ConnetManagerMap m_con_manager;
 };
 

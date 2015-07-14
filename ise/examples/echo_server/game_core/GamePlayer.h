@@ -3,7 +3,7 @@
 
 #include "../bass_class/Entry.h"
 #include "ise/main/ise.h"
-
+#include "../game_define/Protocol.h"
 #define MAX_NAME_SIZE 50
 enum PlayerAttr
 {
@@ -53,11 +53,11 @@ class GamePlayer
 		void addExp(uint32 num);
 		void levelUp();
 
-		
+
 		void setRole(uint8 type);
 
 		void save();
-	
+
 		void registerPlayerHandler(const PlayerLevelHandlerCallback& callback);
 	private:
 		uint16 id;

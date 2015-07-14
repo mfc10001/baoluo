@@ -641,6 +641,8 @@ ConfigManager.h
 /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 ../game_define/BaseType.h
 /home/ll/baoluo/ise/examples/echo_server/game_define/BaseType.h
+../game_define/Protocol.h
+/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
 GamePlayer.h
 /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
 
@@ -663,12 +665,16 @@ ConfigManager.h
 /home/ll/baoluo/ise/examples/echo_server/bass_class/Entry.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/echo_server/game_core/ise/main/ise.h
+../game_define/Protocol.h
+/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
 
 /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.cpp
 GamePlayerManager.h
 /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
 ../game_define/Protocol.h
 /home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
+GamePlayer.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
 
 /home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
 ise/main/ise.h
@@ -679,6 +685,20 @@ string
 -
 
 /home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
+
+/home/ll/baoluo/ise/examples/echo_server/inner_msg.cpp
+echo_server.h
+/home/ll/baoluo/ise/examples/echo_server/echo_server.h
+game_core/GamePlayer.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayer.h
+game_core/GamePlayerManager.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/GamePlayerManager.h
+game_define/Protocol.h
+/home/ll/baoluo/ise/examples/echo_server/game_define/Protocol.h
+tools/CommonTools.h
+/home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
+game_core/ConfigManager.h
+/home/ll/baoluo/ise/examples/echo_server/game_core/ConfigManager.h
 
 /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 stdio.h

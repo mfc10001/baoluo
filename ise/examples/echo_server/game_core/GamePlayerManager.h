@@ -44,7 +44,7 @@ class GamePlayerManager:public Singleton<GamePlayerManager>
 
 		void SaveAll();
 
-		void GetCount();
+		uint32 GetCount();
 	private:
 		 friend class Singleton<GamePlayerManager>;
 

@@ -43,7 +43,17 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 		case PROTOCOL_CREATE_CHAR_CS:
             {
-
+                rData["account"]=arrayObj["account"];
+                rData["role"]=arrayObj["role"];
+            	rValue["type"]=INNER_CREATE_ROLE;
+                rValue["data"]=rData;
+                string str = rValue.toStyledString();
+                char buff[MAX_SEND_BUFF];
+                memset(buff,0,MAX_SEND_BUFF);
+                uint16 len=str.length()+2;
+                memcpy(buff,&len,sizeof(uint16));
+                memcpy(buff+2,str.c_str(),str.length());
+                tcpClient_->getConnection().sendBaseBuff(buff,len);
 				/*
                 string account = arrayObj["account"].asString();
                 string role = arrayObj["role"].asString();

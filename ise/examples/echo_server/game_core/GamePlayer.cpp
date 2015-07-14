@@ -4,8 +4,6 @@
 
 GamePlayer::GamePlayer()
 {
-	boost::bind()
-
 }
 GamePlayer::~GamePlayer()
 {
@@ -14,7 +12,7 @@ GamePlayer::~GamePlayer()
 
 void GamePlayer::setRole(uint8 type)
 {
-	m_base_attr.role=type;
+	role=type;
 }
 
 
@@ -27,7 +25,7 @@ void GamePlayer::createChar(uint32 uid,uint8 role)
 	{
 		return;
 	}
-	
+
 	setBaseAttr(PlayerAttr_physicsAttack,ptr_data->physicsAttack  );
 	setBaseAttr(PlayerAttr_magicAttack,ptr_data->magicAttack  );
 	setBaseAttr(PlayerAttr_barmor,ptr_data->barmor  );
@@ -78,13 +76,13 @@ void GamePlayer::save()
 		//»’÷æ
    	}
 }
-void GamePlayer::AddExp(uint32 num)
+void GamePlayer::addExp(uint32 num)
 {
-	
+
 }
 void GamePlayer::levelUp()
 {
-	
+
 }
 
 void GamePlayer::registerPlayerHandler(const PlayerLevelHandlerCallback& callback)
