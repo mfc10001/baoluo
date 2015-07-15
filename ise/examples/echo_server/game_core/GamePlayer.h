@@ -67,6 +67,7 @@ class GamePlayer
 	private:
 		uint16 uid;
 		char name[MAX_NAME_SIZE];
+
 		uint32 role;
 
 		PlayerBaseAttr m_base_attr;

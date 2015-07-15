@@ -18,9 +18,9 @@ void GamePlayer::setRole(uint8 type)
 
 void GamePlayer::createChar(uint32 uid,uint8 role)
 {
-	id=uid;
+	this->uid=uid;
 	setRole(role);
-	const ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(id);
+	const ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(role);
 	if(!ptr_data)
 	{
 		return;
@@ -61,11 +61,12 @@ void GamePlayer::setBaseAttr(uint16 type,uint32 value)
 
 void GamePlayer::save()
 {
+/*
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 	char buff[BUFFLEN];
 	memset(buff,0,BUFFLEN);
-	sprintf(buff,"update bl_user set level=%s , exp=%s  where uid=%s",m_base_attr.level,m_base_attr.exp,this->id);
+	sprintf(buff,"update bl_user set level=%s , exp=%s  where uid=%s",m_base_attr.level,m_base_attr.exp,this->uid);
     query->setSql(buff);
 	try
 	{
@@ -75,6 +76,7 @@ void GamePlayer::save()
    	{
 		//»’÷æ
    	}
+   	*/
 }
 void GamePlayer::addExp(uint32 num)
 {
@@ -89,20 +91,20 @@ void GamePlayer::registerPlayerHandler(const PlayerLevelHandlerCallback& callbac
 {
 	//Functor level=boost::bind(levelUp);
 }
-void GamePlayer::init(Json::Value &data)
+void GamePlayer::init(Json::Value &arrayObj)
 {
-	uid = arrayObj["uid"].asUInt();	
+	uid = arrayObj["uid"].asUInt();
 	string namestr = arrayObj["name"].asString();
 	memcpy(name,namestr.c_str(),namestr.length()+1);
-	
-	role = arrayObj["role"].asUInt();	
+
+	role = arrayObj["role"].asUInt();
 	m_base_attr.level = arrayObj["level"].asUInt();
-	m_base_attr.exp = arrayObj["exp"].asUInt();	
+	m_base_attr.exp = arrayObj["exp"].asUInt();
 	m_base_data[ PlayerAttr_physicsAttack] = arrayObj["physicsAttack"].asUInt();
 	m_base_data[ PlayerAttr_magicAttack]	= arrayObj["magicAttack"].asUInt();
 	m_base_data[ PlayerAttr_barmor	]	= arrayObj["barmor"].asUInt();
 	m_base_data[ PlayerAttr_bresistance]	= arrayObj["bresistance"].asUInt();
-	m_base_data[ PlayerAttr_hp	]	= arrayObj["hp"].asUInt();	
+	m_base_data[ PlayerAttr_hp	]	= arrayObj["hp"].asUInt();
 	m_base_data[ PlayerAttr_hit	]	= arrayObj["hit"].asUInt();
 	m_base_data[ PlayerAttr_dodge	]	= arrayObj["dodge"].asUInt();
 	m_base_data[ PlayerAttr_crit	]	= arrayObj["crit"].asUInt();

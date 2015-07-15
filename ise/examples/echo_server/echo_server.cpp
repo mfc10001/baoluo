@@ -215,42 +215,42 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
             }
 
 
-			int readableBytes = recvBuf_.get()->getReadableBytes();
-			while (readableBytes > 2)
-			{
-				const char *buffer = recvBuf_.get()->peek();
-				uint16 len=0;
-				memcpy(&len,buffer,sizeof(len));
+            int readableBytes = recvBuf_.get()->getReadableBytes();
+            while (readableBytes > 2)
+            {
+                const char *buffer = recvBuf_.get()->peek();
+                uint16 len=0;
+                memcpy(&len,buffer,sizeof(len));
 
-				if (readableBytes >= len)
-				{
-					string msg((char*)buffer+2, len-2);
-					Json::Reader reader;
-					Json::Value value;
-					if (reader.parse(msg, value))
-					{
-						if(value.isMember("type")&&value.isMember("code")&&value.isMember("data")&&value["data"].isMember("cid"))
-						{
-							uint32 type = value["type"].asUInt();
-							//int n = atoi(str.c_str());
+                if (readableBytes >= len)
+                {
+                    string msg((char*)buffer+2, len-2);
+                    Json::Reader reader;
+                    Json::Value value;
+                    if (reader.parse(msg, value))
+                    {
+                        if(value.isMember("type")&&value.isMember("code")&&value.isMember("data")&&value["data"].isMember("cid"))
+                        {
+                            uint32 type = value["type"].asUInt();
 
-							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
+                            TcpConnection *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
+                            if(ptr_con)
+                            {
+                                innerMsgProcess(*ptr_con,type,value["data"],value["code"].asInt());
+                            }
+                        }
+                    }
 
-							if(ptr_con)
-							{
-								innerMsgProcess(*ptr_con,type,value["data"],value["code"].asInt());
-							}
-						}
-					}
+                    recvBuf_.get()->retrieve(len);
+                    readableBytes = recvBuf_.get()->getReadableBytes();
+                }
+                else
+                {
+                    break;
+                }
 
-					recvBuf_.get()->retrieve(len);
 
-				}
-				else
-				{
-					break;
-				}
-			}
+            }
 
 
 
@@ -328,13 +328,12 @@ void  ConnetManager::add(const TcpConnectionPtr& con)
 {
 	TcpConnection *addr=con.get();
 	int handler = addr->getSocket().getHandle();
-
     ConnetCidMap::iterator it=m_cid_manager.find(handler);
 	if(it!=m_cid_manager.end())
 	{
 		return;
 	}
-	m_cid_manager[handler]=&con;
+	m_cid_manager[handler]=addr;
 }
 
 void ConnetManager::del(const TcpConnectionPtr& con)
@@ -353,7 +352,7 @@ uint64 ConnetManager::makeCid()
 {
 	return alloc->allocId();
 }
-const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
+TcpConnection* ConnetManager::getConn(uint32 cid)
 {
 	ConnetCidMap::iterator it=m_cid_manager.find(cid);
 	if(it==m_cid_manager.end())

@@ -89,6 +89,14 @@ examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baol
 examples/echo_server/CMakeFiles/echo_server.dir/echo_server.cpp.o: /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/autolink.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/config.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/features.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/forwards.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/json.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/reader.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/value.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/writer.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_application.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_assert.h
@@ -124,6 +132,14 @@ examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/ConfigManager.cpp.o: /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/autolink.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/config.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/features.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/forwards.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/json.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/reader.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/value.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/writer.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_application.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_assert.h
@@ -159,6 +175,14 @@ examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /hom
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/echo_server/tools/CommonTools.h
 
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/autolink.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/config.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/features.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/forwards.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/json.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/reader.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/value.h
+examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/utils/json/writer.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_application.h
 examples/echo_server/CMakeFiles/echo_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_assert.h

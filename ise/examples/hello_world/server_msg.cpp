@@ -85,19 +85,19 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					MySqlField* dodge = static_cast<MySqlField *> (res->getFields("dodge"));
 					MySqlField* crit = static_cast<MySqlField *> (res->getFields("crit"));
 
-					rData["uid"]=uid.asInteger();
-					rData["name"]=name.asString();
-					rData["role"]=uid.asInteger();
-					rData["level"]=level.asInteger();
-					rData["exp"]=exp.asInteger();
-					rData["physicsAttack"]=physicsAttack.asInteger();
-					rData["magicAttack"]=magicAttack.asInteger();
-					rData["barmor"]=barmor.asInteger();
-					rData["bresistance"]=bresistance.asInteger();
-					rData["hp"]=hp.asInteger();
-					rData["hit"]=hit.asInteger();
-					rData["dodge"]=dodge.asInteger();
-					rData["crit"]=crit.asInteger();
+					rData["uid"]=uid->asInteger();
+					rData["name"]=name->asString();
+					rData["role"]=uid->asInteger();
+					rData["level"]=level->asInteger();
+					rData["exp"]=exp->asInteger();
+					rData["physicsAttack"]=physicsAttack->asInteger();
+					rData["magicAttack"]=magicAttack->asInteger();
+					rData["barmor"]=barmor->asInteger();
+					rData["bresistance"]=bresistance->asInteger();
+					rData["hp"]=hp->asInteger();
+					rData["hit"]=hit->asInteger();
+					rData["dodge"]=dodge->asInteger();
+					rData["crit"]=crit->asInteger();
 
 				}
 
@@ -112,13 +112,13 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	rValue["data"]=rData;
 	string str = rValue.toStyledString();
 
-	char buff[MAX_SEND_BUFF];
-	memset(buff,0,MAX_SEND_BUFF);
+	char buff_send[MAX_SEND_BUFF];
+	memset(buff_send,0,MAX_SEND_BUFF);
 	uint16 len=str.length()+2;
-	memcpy(buff,&len,sizeof(uint16));
-	memcpy(buff+2,str.c_str(),str.length());
+	memcpy(buff_send,&len,sizeof(uint16));
+	memcpy(buff_send+2,str.c_str(),str.length());
 
-	connection->send(buff,len);
+	connection->send(buff_send,len);
 
     return true;
 

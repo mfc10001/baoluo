@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj,uint32 code) const
+bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Value &arrayObj,uint32 code) const
 {
 
 	uint32 err=1;
@@ -31,7 +31,7 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type
 	            player->createChar(uid,role);
 	            GamePlayerManager::instance().AddPlayer(player);
 				err=ERR_SUCCESS;
-				
+
 			}
 			break;
 		case PROTOCOL_ENTER_C:
@@ -40,9 +40,9 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type
 				if(code!=ERR_SUCCESS)
 				{
 					break;
-				}	
+				}
 				GamePlayer *player=new GamePlayer();
-				player.init(arrayObj);
+				player->init(arrayObj);
 				GamePlayerManager::instance().AddPlayer(player);
 				err=ERR_SUCCESS;
 			}
@@ -62,7 +62,8 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type
 	memcpy(buff,&len,sizeof(uint16));
 	memcpy(buff+2,str.c_str(),str.length());
 
-	connection->send(buff,len);
+	connection.sendBaseBuff(buff,len);
+	//connection.sendBaseBuff(buff,len);
 	return true;
 }
 
