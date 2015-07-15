@@ -4,6 +4,9 @@
 #include "../bass_class/Entry.h"
 #include "ise/main/ise.h"
 #include "../game_define/Protocol.h"
+#include "ise/ext/utils/json/json.h"
+
+
 #define MAX_NAME_SIZE 50
 enum PlayerAttr
 {
@@ -59,8 +62,10 @@ class GamePlayer
 		void save();
 
 		void registerPlayerHandler(const PlayerLevelHandlerCallback& callback);
+
+		void init(Json::Value &data);
 	private:
-		uint16 id;
+		uint16 uid;
 		char name[MAX_NAME_SIZE];
 		uint32 role;
 

@@ -18,21 +18,34 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type
 	switch(type)
 	{
 		case PROTOCOL_CREATE_CHAR_C:
-            rNo=PROTOCOL_CREATE_CHAR_S;
-			if(code==ERR_SUCCESS)
 			{
-				if(arrayObj.isMember("uid")&&arrayObj.isMember("role"))
+	            rNo=PROTOCOL_CREATE_CHAR_S;
+				if(code!=ERR_SUCCESS)
 				{
-					uint32 uid = arrayObj["uid"].asUInt();
-		            uint32 role = arrayObj["role"].asUInt();
-					GamePlayer *player=new GamePlayer();
-		            player->createChar(uid,role);
-		            GamePlayerManager::instance().AddPlayer(player);
-					err=ERR_SUCCESS;
+					break;
 				}
 
+				uint32 uid = arrayObj["uid"].asUInt();
+	            uint32 role = arrayObj["role"].asUInt();
+				GamePlayer *player=new GamePlayer();
+	            player->createChar(uid,role);
+	            GamePlayerManager::instance().AddPlayer(player);
+				err=ERR_SUCCESS;
+				
 			}
 			break;
+		case PROTOCOL_ENTER_C:
+			{
+				rNo=PROTOCOL_ENTER_S;
+				if(code!=ERR_SUCCESS)
+				{
+					break;
+				}	
+				GamePlayer *player=new GamePlayer();
+				player.init(arrayObj);
+				GamePlayerManager::instance().AddPlayer(player);
+				err=ERR_SUCCESS;
+			}
 		default:
 			return false;
 	}

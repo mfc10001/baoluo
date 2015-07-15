@@ -71,7 +71,6 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				if(!res->isEmpty() && res->next())
 				{
 					err=ERR_SUCCESS;
-					rNo=PROTOCOL_ENTER_C;
 					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
 					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
 					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));

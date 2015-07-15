@@ -89,4 +89,24 @@ void GamePlayer::registerPlayerHandler(const PlayerLevelHandlerCallback& callbac
 {
 	//Functor level=boost::bind(levelUp);
 }
+void GamePlayer::init(Json::Value &data)
+{
+	uid = arrayObj["uid"].asUInt();	
+	string namestr = arrayObj["name"].asString();
+	memcpy(name,namestr.c_str(),namestr.length()+1);
+	
+	role = arrayObj["role"].asUInt();	
+	m_base_attr.level = arrayObj["level"].asUInt();
+	m_base_attr.exp = arrayObj["exp"].asUInt();	
+	m_base_data[ PlayerAttr_physicsAttack] = arrayObj["physicsAttack"].asUInt();
+	m_base_data[ PlayerAttr_magicAttack]	= arrayObj["magicAttack"].asUInt();
+	m_base_data[ PlayerAttr_barmor	]	= arrayObj["barmor"].asUInt();
+	m_base_data[ PlayerAttr_bresistance]	= arrayObj["bresistance"].asUInt();
+	m_base_data[ PlayerAttr_hp	]	= arrayObj["hp"].asUInt();	
+	m_base_data[ PlayerAttr_hit	]	= arrayObj["hit"].asUInt();
+	m_base_data[ PlayerAttr_dodge	]	= arrayObj["dodge"].asUInt();
+	m_base_data[ PlayerAttr_crit	]	= arrayObj["crit"].asUInt();
+
+
+}
 
