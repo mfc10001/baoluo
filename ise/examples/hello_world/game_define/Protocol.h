@@ -40,6 +40,9 @@ enum ErrCode
 
 	ERR_TOKEN_INVALID=5,
 	ERR_TOKEN_TIME=6,
+
+
+	ERR_EXIST_ROLE=7,
 };
 
 

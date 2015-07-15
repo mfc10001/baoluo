@@ -2,7 +2,7 @@
 #include "hello_world.h"
 bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
 {
-	uint32 err=1;
+	uint32 err=ERR_INNER;
 	Json::Value rValue;
 	Json::Value rData;
 	uint32 rNo=type;
@@ -47,11 +47,16 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 						rData["uid"]=buff;
 						delete res;
 						res = NULL;
+						err=ERR_SUCCESS;
 					}
 					catch(Exception)
 					{
 						break;
 					}
+				}
+				else
+				{
+					err=ERR_EXIST_ROLE
 				}
             }
 				break;
