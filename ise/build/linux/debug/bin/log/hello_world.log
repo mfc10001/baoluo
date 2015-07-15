@@ -123,3 +123,5 @@
 [2015-07-15 02:36:15](50953|4160587584) Connected to MySQL server. (0x73fc58)
 [2015-07-15 02:36:22](50953|4120745728) Try to connect MySQL server... (0x7fffe8001478)
 [2015-07-15 02:36:22](50953|4120745728) Connected to MySQL server. (0x7fffe8001478)
+[2015-07-15 02:40:13](02671|4160587584) Try to connect MySQL server... (0x73fc58)
+[2015-07-15 02:40:22](02671|4160587584) Connected to MySQL server. (0x73fc58)
