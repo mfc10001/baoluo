@@ -44,11 +44,8 @@ void AppBusiness::initIseOptions(IseOptions& options)
 
 void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 {
+connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 
-    string msg = "Hello World!\r\n";
-
-
-    connection->send(msg.c_str(), msg.length());
 }
 
 //-----------------------------------------------------------------------------

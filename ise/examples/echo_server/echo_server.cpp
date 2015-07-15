@@ -234,15 +234,14 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 					{
 						if(value.isMember("type")&&value.isMember("code")&&value.isMember("data")&&value["data"].isMember("cid"))
 						{
-							string str = value["type"].asString();
-							int n = atoi(str.c_str());
-
+							uint32 type = value["type"].asUInt();
+							//int n = atoi(str.c_str());
 
 							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
 
 							if(ptr_con)
 							{
-								innerMsgProcess(*ptr_con,n,value["data"],value["code"].asInt());
+								innerMsgProcess(*ptr_con,type,value["data"],value["code"].asInt());
 							}
 						}
 					}
