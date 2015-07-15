@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code)
+bool AppBusiness::innerMsgProcess(const TcpConnection* connection,int type,Json::Value &arrayObj,uint32 code) const
 {
 
 	uint32 err=1;
@@ -49,6 +49,7 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Js
 	memcpy(buff+2,str.c_str(),str.length());
 
 	connection->send(buff,len);
+	return true;
 }
 
 

@@ -242,10 +242,11 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 							int n = atoi(str.c_str());
 
 
-							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
+							const TcpConnection *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
+
 							if(ptr_con)
 							{
-								innerMsgProcess(*ptr_con,n,value["data"],value["code"].asInt());
+								innerMsgProcess(ptr_con,n,value["data"],value["code"].asInt());
 							}
 						}
 					}
@@ -334,13 +335,16 @@ void AppBusiness::addForwardPro(uint32 pro)
 uint32  ConnetManager::add(const TcpConnectionPtr& con)
 {
 	uint32 cid=makeCid();
+	TcpConnection *addr=con.get();
     ConnetCidMap::iterator it=m_cid_manager.find(cid);
 	if(it!=m_cid_manager.end())
 	{
 		return 0;
 	}
-	m_cid_manager[cid]=&con;
-	m_con_manager[&con]=cid;
+	m_cid_manager[cid]=addr;
+
+
+	m_con_manager[addr]=cid;
 
 
 	return cid;
@@ -348,9 +352,10 @@ uint32  ConnetManager::add(const TcpConnectionPtr& con)
 
 void ConnetManager::del(const TcpConnectionPtr& con)
 {
+    TcpConnection *addr=con.get();
 	for(ConnetManagerMap::iterator it=m_con_manager.begin();it!=m_con_manager.end();it++)
 	{
-		if(&con==(*it).first)
+		if(addr==(*it).first)
 		{
 			ConnetCidMap::iterator ip= m_cid_manager.find((*it).second);
 
@@ -361,7 +366,8 @@ void ConnetManager::del(const TcpConnectionPtr& con)
 }
 uint32 ConnetManager::getCid(const TcpConnectionPtr& con)
 {
-	ConnetManagerMap::iterator it=m_con_manager.find(&con);
+    TcpConnection *addr=con.get();
+	ConnetManagerMap::iterator it=m_con_manager.find(addr);
 	if(it==m_con_manager.end())
 	{
 		return 0;
@@ -373,7 +379,7 @@ uint64 ConnetManager::makeCid()
 {
 	return alloc->allocId();
 }
-const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
+const TcpConnection* ConnetManager::getConn(uint32 cid)
 {
 	ConnetCidMap::iterator it=m_cid_manager.find(cid);
 	if(it==m_cid_manager.end())
