@@ -37,8 +37,8 @@ public:
     virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
 
 
-	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
-	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code) const;
+	bool msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj);
+	bool innerMsgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj,uint32 code) const;
 
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);

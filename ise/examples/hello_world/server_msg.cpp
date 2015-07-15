@@ -1,6 +1,6 @@
 
 #include "hello_world.h"
-bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
+bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj)
 {
 	uint32 err=ERR_INNER;
 	Json::Value rValue;
@@ -12,8 +12,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 	{
 		case PROTOCOL_CREATE_CHAR_C:
             {
-			    string account = arrayObj["account"].asString();
-                string role = arrayObj["role"].asString();
+			    uint32 account = arrayObj["account"].asUInt();
+                uint32 role = arrayObj["role"].asUInt();
                 //string cid = arrayObj["cid"].asString();
                 rData["cid"]=arrayObj["cid"];
 				rData["role"]=arrayObj["role"];
@@ -21,7 +21,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 
 				char buff[BUFFLEN];
 				memset(buff,0,BUFFLEN);
-				sprintf(buff,"select count(*) as num from bl_user where account=%s",account.c_str());
+				sprintf(buff,"select count(*) as num from bl_user where account=%u",account);
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
@@ -35,16 +35,14 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 					res = NULL;
 
 					memset(buff,0,BUFFLEN);
-					sprintf(buff,"insert into bl_user (account,role) values (%s,%s);  ",account.c_str(),role.c_str());
+					sprintf(buff,"insert into bl_user (account,role) values (%u,%u);  ",account,role);
 					query->setSql(buff);
 
 					try
 					{
 						query->execute();
 						uint64 uid = query->getLastInsertId();
-						memset(buff,0,BUFFLEN);
-						sprintf(buff,"%llu",uid);
-						rData["uid"]=buff;
+						rData["uid"]=(uint32)uid;
 						delete res;
 						res = NULL;
 						err=ERR_SUCCESS;
@@ -56,7 +54,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::V
 				}
 				else
 				{
-					err=ERR_EXIST_ROLE
+					err=ERR_EXIST_ROLE;
 				}
             }
 				break;

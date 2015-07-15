@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code) const
+bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj,uint32 code) const
 {
 
 	uint32 err=1;
@@ -18,6 +18,7 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Js
 	switch(type)
 	{
 		case PROTOCOL_CREATE_CHAR_C:
+            rNo=PROTOCOL_CREATE_CHAR_S;
 			if(code==ERR_SUCCESS)
 			{
 				if(arrayObj.isMember("uid")&&arrayObj.isMember("role"))
@@ -27,9 +28,9 @@ bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Js
 					GamePlayer *player=new GamePlayer();
 		            player->createChar(uid,role);
 		            GamePlayerManager::instance().AddPlayer(player);
-					rNo=PROTOCOL_CREATE_CHAR_S;
 					err=ERR_SUCCESS;
 				}
+
 			}
 			break;
 		default:

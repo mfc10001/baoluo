@@ -69,9 +69,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 	{
 		if(value.isMember("type"))
 		{
-			string str = value["type"].asString();
-			int n = atoi(str.c_str());
-
+			uint32 n = value["type"].asUInt();
 			msgProcess(connection,n,value["data"]);
 		}
 	}

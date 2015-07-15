@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
+bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj)
 {
 	uint32 err=1;
 	Json::Value rValue;

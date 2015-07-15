@@ -147,8 +147,8 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	Json::Value value;
 	if (reader.parse(msg, value))
 	{
-		string str = value["type"].asString();
-		int n = atoi(str.c_str());
+
+		uint32 n = value["type"].asUInt();
 		if(isExist(n))
 		{
 			if(!value.isMember("data"))
@@ -160,8 +160,6 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 			{
 				return;
 			}
-
-
 			value["data"]["cid"]=connection.get()->getSocket().getHandle();
 			string rstr = value.toStyledString();
 
@@ -170,7 +168,6 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 			uint16 len=rstr.length()+2;
 			memcpy(buff,&len,sizeof(uint16));
 			memcpy(buff+2,rstr.c_str(),rstr.length());
-
 
             if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
             {

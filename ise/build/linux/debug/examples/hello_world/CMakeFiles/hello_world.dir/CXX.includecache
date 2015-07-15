@@ -590,12 +590,6 @@ map
 set
 -
 
-/home/ll/baoluo/ise/examples/hello_world/hello_world.cpp
-hello_world.h
-/home/ll/baoluo/ise/examples/hello_world/hello_world.h
-ise/ext/dbi/mysql/ise_dbi_mysql.h
-/home/ll/baoluo/ise/examples/hello_world/ise/ext/dbi/mysql/ise_dbi_mysql.h
-
 /home/ll/baoluo/ise/examples/hello_world/hello_world.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/hello_world/ise/main/ise.h
@@ -603,4 +597,8 @@ ise/ext/utils/json/json.h
 /home/ll/baoluo/ise/examples/hello_world/ise/ext/utils/json/json.h
 game_define/Protocol.h
 /home/ll/baoluo/ise/examples/hello_world/game_define/Protocol.h
+
+/home/ll/baoluo/ise/examples/hello_world/server_msg.cpp
+hello_world.h
+/home/ll/baoluo/ise/examples/hello_world/hello_world.h
 
