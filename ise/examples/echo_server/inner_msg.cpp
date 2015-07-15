@@ -5,7 +5,7 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
-bool AppBusiness::innerMsgProcess(const TcpConnection* connection,int type,Json::Value &arrayObj,uint32 code) const
+bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code) const
 {
 
 	uint32 err=1;

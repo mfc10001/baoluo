@@ -161,12 +161,8 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 				return;
 			}
 
-			uint32 cid =  ConnetManager::instance().getCid(connection);
-			if(cid==0)
-			{
-				return;
-			}
-			value["data"]["cid"]=cid;
+
+			value["data"]["cid"]=connection.get()->getSocket().getHandle();
 			string rstr = value.toStyledString();
 
 			char buff[MAX_SEND_BUFF];
@@ -242,11 +238,11 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 							int n = atoi(str.c_str());
 
 
-							const TcpConnection *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
+							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"]["cid"].asInt());
 
 							if(ptr_con)
 							{
-								innerMsgProcess(ptr_con,n,value["data"],value["code"].asInt());
+								innerMsgProcess(*ptr_con,n,value["data"],value["code"].asInt());
 							}
 						}
 					}
@@ -332,54 +328,36 @@ void AppBusiness::addForwardPro(uint32 pro)
 }
 
 
-uint32  ConnetManager::add(const TcpConnectionPtr& con)
+void  ConnetManager::add(const TcpConnectionPtr& con)
 {
-	uint32 cid=makeCid();
 	TcpConnection *addr=con.get();
-    ConnetCidMap::iterator it=m_cid_manager.find(cid);
+	int handler = addr->getSocket().getHandle();
+
+    ConnetCidMap::iterator it=m_cid_manager.find(handler);
 	if(it!=m_cid_manager.end())
 	{
-		return 0;
+		return;
 	}
-	m_cid_manager[cid]=addr;
-
-
-	m_con_manager[addr]=cid;
-
-
-	return cid;
+	m_cid_manager[handler]=&con;
 }
 
 void ConnetManager::del(const TcpConnectionPtr& con)
 {
     TcpConnection *addr=con.get();
-	for(ConnetManagerMap::iterator it=m_con_manager.begin();it!=m_con_manager.end();it++)
+    int handler = addr->getSocket().getHandle();
+    ConnetCidMap::iterator it=m_cid_manager.find(handler);
+	if(it==m_cid_manager.end())
 	{
-		if(addr==(*it).first)
-		{
-			ConnetCidMap::iterator ip= m_cid_manager.find((*it).second);
-
-			m_cid_manager.erase(ip);
-			m_con_manager.erase(it);
-		}
+		return ;
 	}
-}
-uint32 ConnetManager::getCid(const TcpConnectionPtr& con)
-{
-    TcpConnection *addr=con.get();
-	ConnetManagerMap::iterator it=m_con_manager.find(addr);
-	if(it==m_con_manager.end())
-	{
-		return 0;
-	}
-	return (*it).second;
+    m_cid_manager.erase(it);
 }
 
 uint64 ConnetManager::makeCid()
 {
 	return alloc->allocId();
 }
-const TcpConnection* ConnetManager::getConn(uint32 cid)
+const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
 {
 	ConnetCidMap::iterator it=m_cid_manager.find(cid);
 	if(it==m_cid_manager.end())
