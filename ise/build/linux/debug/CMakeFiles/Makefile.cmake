@@ -11,8 +11,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.0.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.0.2/CMakeSystem.cmake"
   "/home/ll/baoluo/ise/examples/CMakeLists.txt"
-  "/home/ll/baoluo/ise/examples/echo_server/CMakeLists.txt"
-  "/home/ll/baoluo/ise/examples/hello_world/CMakeLists.txt"
+  "/home/ll/baoluo/ise/examples/db_server/CMakeLists.txt"
+  "/home/ll/baoluo/ise/examples/game_server/CMakeLists.txt"
   "/home/ll/baoluo/ise/ise/ext/dbi/mysql/CMakeLists.txt"
   "/home/ll/baoluo/ise/ise/ext/dbi/mysql/Findlibmysqlclient.cmake"
   "/home/ll/baoluo/ise/ise/ext/utils/cipher/CMakeLists.txt"
@@ -45,8 +45,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "ext/utils/cipher/CMakeFiles/CMakeDirectoryInformation.cmake"
   "ext/utils/xml/CMakeFiles/CMakeDirectoryInformation.cmake"
   "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "examples/hello_world/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "examples/echo_server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/db_server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/game_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -56,6 +56,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/DependInfo.cmake"
   "ext/utils/cipher/CMakeFiles/ise_utils_cipher.dir/DependInfo.cmake"
   "ext/utils/xml/CMakeFiles/ise_utils_xml.dir/DependInfo.cmake"
-  "examples/hello_world/CMakeFiles/hello_world.dir/DependInfo.cmake"
-  "examples/echo_server/CMakeFiles/echo_server.dir/DependInfo.cmake"
+  "examples/db_server/CMakeFiles/db_server.dir/DependInfo.cmake"
+  "examples/game_server/CMakeFiles/main_server.dir/DependInfo.cmake"
   )

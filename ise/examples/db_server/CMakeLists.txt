@@ -1,7 +1,7 @@
-add_executable(hello_world
-  hello_world.cpp
+add_executable(db_server
+  db_server.cpp
   server_msg.cpp
   ./game_define/Protocol.h
   )
 
-target_link_libraries(hello_world ise ise_utils_json  ise_dbi_mysql)
+target_link_libraries(db_server ise ise_utils_json  ise_dbi_mysql)

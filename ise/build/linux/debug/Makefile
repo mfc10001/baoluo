@@ -209,30 +209,30 @@ ise_utils_xml/fast:
 .PHONY : ise_utils_xml/fast
 
 #=============================================================================
-# Target rules for targets named hello_world
+# Target rules for targets named db_server
 
 # Build rule for target.
-hello_world: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hello_world
-.PHONY : hello_world
+db_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 db_server
+.PHONY : db_server
 
 # fast build rule for target.
-hello_world/fast:
-	$(MAKE) -f examples/hello_world/CMakeFiles/hello_world.dir/build.make examples/hello_world/CMakeFiles/hello_world.dir/build
-.PHONY : hello_world/fast
+db_server/fast:
+	$(MAKE) -f examples/db_server/CMakeFiles/db_server.dir/build.make examples/db_server/CMakeFiles/db_server.dir/build
+.PHONY : db_server/fast
 
 #=============================================================================
-# Target rules for targets named echo_server
+# Target rules for targets named main_server
 
 # Build rule for target.
-echo_server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 echo_server
-.PHONY : echo_server
+main_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main_server
+.PHONY : main_server
 
 # fast build rule for target.
-echo_server/fast:
-	$(MAKE) -f examples/echo_server/CMakeFiles/echo_server.dir/build.make examples/echo_server/CMakeFiles/echo_server.dir/build
-.PHONY : echo_server/fast
+main_server/fast:
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/build
+.PHONY : main_server/fast
 
 home/ll/baoluo/ise/ise/main/ise_application.o: home/ll/baoluo/ise/ise/main/ise_application.cpp.o
 .PHONY : home/ll/baoluo/ise/ise/main/ise_application.o
@@ -731,8 +731,8 @@ help:
 	@echo "... ise_dbi_mysql"
 	@echo "... ise_utils_cipher"
 	@echo "... ise_utils_xml"
-	@echo "... hello_world"
-	@echo "... echo_server"
+	@echo "... db_server"
+	@echo "... main_server"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.o"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.i"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.s"

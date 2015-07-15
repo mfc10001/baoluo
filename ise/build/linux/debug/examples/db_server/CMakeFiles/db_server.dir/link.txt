@@ -1,0 +1,1 @@
+g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/db_server.dir/db_server.cpp.o CMakeFiles/db_server.dir/server_msg.cpp.o  -o ../../bin/db_server -rdynamic ../../lib/libise.a ../../lib/libise_utils_json.a ../../lib/libise_dbi_mysql.a -lpthread -lmysqlclient 

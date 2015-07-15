@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ll/baoluo/ise/build/linux/debug/examples/hello_world/cmake_install.cmake")
-  include("/home/ll/baoluo/ise/build/linux/debug/examples/echo_server/cmake_install.cmake")
+  include("/home/ll/baoluo/ise/build/linux/debug/examples/db_server/cmake_install.cmake")
+  include("/home/ll/baoluo/ise/build/linux/debug/examples/game_server/cmake_install.cmake")
 
 endif()
 
