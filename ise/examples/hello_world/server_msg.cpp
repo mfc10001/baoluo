@@ -7,20 +7,20 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	Json::Value rData;
 	uint32 rNo=type;
 
+	char buff[BUFFLEN];
+	memset(buff,0,BUFFLEN);
 
 	switch(type)
 	{
 		case PROTOCOL_CREATE_CHAR_C:
             {
+				rNo=PROTOCOL_CREATE_CHAR_C;
 			    uint32 account = arrayObj["account"].asUInt();
                 uint32 role = arrayObj["role"].asUInt();
-                //string cid = arrayObj["cid"].asString();
                 rData["cid"]=arrayObj["cid"];
 				rData["role"]=arrayObj["role"];
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
-				char buff[BUFFLEN];
-				memset(buff,0,BUFFLEN);
 				sprintf(buff,"select count(*) as num from bl_user where account=%u",account);
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
@@ -58,6 +58,51 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				}
             }
 				break;
+
+		case PROTOCOL_ENTER_C:
+			{
+				rNo=PROTOCOL_ENTER_C;
+				rData["cid"]=arrayObj["cid"];
+				uint32 account = arrayObj["account"].asUInt();
+				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
+				sprintf(buff,"select *  from bl_user where account=%u",account);
+                query->setSql(buff);
+                MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
+				if(!res->isEmpty() && res->next())
+				{
+					err=ERR_SUCCESS;
+					rNo=PROTOCOL_ENTER_C;
+					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
+					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
+					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
+					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));
+					MySqlField* exp = static_cast<MySqlField *> (res->getFields("exp"));
+					MySqlField* physicsAttack = static_cast<MySqlField *> (res->getFields("physicsAttack"));
+					MySqlField* magicAttack = static_cast<MySqlField *> (res->getFields("magicAttack"));
+					MySqlField* barmor = static_cast<MySqlField *> (res->getFields("barmor"));
+					MySqlField* bresistance = static_cast<MySqlField *> (res->getFields("bresistance"));
+					MySqlField* hp = static_cast<MySqlField *> (res->getFields("hp"));
+					MySqlField* hit = static_cast<MySqlField *> (res->getFields("hit"));
+					MySqlField* dodge = static_cast<MySqlField *> (res->getFields("dodge"));
+					MySqlField* crit = static_cast<MySqlField *> (res->getFields("crit"));
+
+					rData["uid"]=uid.asInteger();
+					rData["name"]=name.asString();
+					rData["role"]=uid.asInteger();
+					rData["level"]=level.asInteger();
+					rData["exp"]=exp.asInteger();
+					rData["physicsAttack"]=physicsAttack.asInteger();
+					rData["magicAttack"]=magicAttack.asInteger();
+					rData["barmor"]=barmor.asInteger();
+					rData["bresistance"]=bresistance.asInteger();
+					rData["hp"]=hp.asInteger();
+					rData["hit"]=hit.asInteger();
+					rData["dodge"]=dodge.asInteger();
+					rData["crit"]=crit.asInteger();
+
+				}
+
+			}
         default:
                 return false;
 

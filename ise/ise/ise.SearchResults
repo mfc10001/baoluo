@@ -1,149 +1,28 @@
----- TcpConnectionPtr Matches (149 in 36 files) ----
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Chargen_client.h (e:\baoluo\ise\examples\chargen_client):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Chargen_client.h (e:\baoluo\ise\examples\chargen_client):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Chargen_client.h (e:\baoluo\ise\examples\chargen_client):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Chargen_server.cpp (e:\baoluo\ise\examples\chargen_server):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Chargen_server.h (e:\baoluo\ise\examples\chargen_server):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Chargen_server.h (e:\baoluo\ise\examples\chargen_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Chargen_server.h (e:\baoluo\ise\examples\chargen_server):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Chargen_server.h (e:\baoluo\ise\examples\chargen_server):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Client_msg.cpp (e:\baoluo\ise\examples\echo_server):bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Daytime_server.cpp (e:\baoluo\ise\examples\daytime_server):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Daytime_server.h (e:\baoluo\ise\examples\daytime_server):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Daytime_server.h (e:\baoluo\ise\examples\daytime_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Daytime_server.h (e:\baoluo\ise\examples\daytime_server):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Discard_server.cpp (e:\baoluo\ise\examples\discard_server):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Discard_server.h (e:\baoluo\ise\examples\discard_server):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Discard_server.h (e:\baoluo\ise\examples\discard_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Discard_server.h (e:\baoluo\ise\examples\discard_server):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):							const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(value["data"].isMember("cid").asInt());
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):                            const TcpConnectionPtr *ptr_con=ConnetManager::instance().getConn(m);
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):uint32  ConnetManager::add(const TcpConnectionPtr& con)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):void ConnetManager::del(const TcpConnectionPtr& con)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):uint32 ConnetManager::getCid(const TcpConnectionPtr& con)
-Echo_server.cpp (e:\baoluo\ise\examples\echo_server):const TcpConnectionPtr* ConnetManager::getConn(uint32 cid)
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Echo_server.cpp (e:\baoluo\ise\examples\max_connection):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Echo_server.h (e:\baoluo\ise\examples\echo_server):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Echo_server.h (e:\baoluo\ise\examples\echo_server):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):	bool innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		//const TcpConnectionPtr& connection;
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		uint32 add(const TcpConnectionPtr& con);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		void del(const TcpConnectionPtr& con);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		uint32 getCid(const TcpConnectionPtr& con);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		const TcpConnectionPtr* getConn(uint32 cid);
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		typedef map<const TcpConnectionPtr*,uint32>  ConnetManagerMap;
-Echo_server.h (e:\baoluo\ise\examples\echo_server):		typedef map<uint32,const TcpConnectionPtr*>  ConnetCidMap;
-Echo_server.h (e:\baoluo\ise\examples\max_connection):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Echo_server.h (e:\baoluo\ise\examples\max_connection):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Echo_server.h (e:\baoluo\ise\examples\max_connection):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Echo_server.h (e:\baoluo\ise\examples\max_connection):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Hello_world.cpp (e:\baoluo\ise\examples\hello_world):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Hello_world.cpp (e:\baoluo\ise\examples\hello_world):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Hello_world.cpp (e:\baoluo\ise\examples\hello_world):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context)
-Hello_world.h (e:\baoluo\ise\examples\hello_world):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Hello_world.h (e:\baoluo\ise\examples\hello_world):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Hello_world.h (e:\baoluo\ise\examples\hello_world):	void onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context);
-Hello_world.h (e:\baoluo\ise\examples\hello_world):	bool msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj);
-Http_server.cpp (e:\baoluo\ise\examples\http_server):void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Http_server.cpp (e:\baoluo\ise\examples\http_server):void AppBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Http_server.cpp (e:\baoluo\ise\examples\http_server):void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Http_server.cpp (e:\baoluo\ise\examples\http_server):void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Http_server.h (e:\baoluo\ise\examples\http_server):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Http_server.h (e:\baoluo\ise\examples\http_server):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Http_server.h (e:\baoluo\ise\examples\http_server):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Http_server.h (e:\baoluo\ise\examples\http_server):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Inner_msg.cpp (e:\baoluo\ise\examples\echo_server):bool AppBusiness::innerMsgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj,uint32 code)
-Ise_application.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection) = 0;
-Ise_application.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) = 0;
-Ise_application.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_application.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context) = 0;
-Ise_application.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection) {}
-Ise_application.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) {}
-Ise_application.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_application.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context) {}
-Ise_http.cpp (main):void HttpServer::onTcpConnected(const TcpConnectionPtr& connection)
-Ise_http.cpp (main):void HttpServer::onTcpDisconnected(const TcpConnectionPtr& connection)
-Ise_http.cpp (main):void HttpServer::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_http.cpp (main):void HttpServer::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Ise_http.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Ise_http.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Ise_http.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_http.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Ise_inspector.cpp (main):void IseServerInspector::onTcpConnected(const TcpConnectionPtr& connection)
-Ise_inspector.cpp (main):void IseServerInspector::onTcpDisconnected(const TcpConnectionPtr& connection)
-Ise_inspector.cpp (main):void IseServerInspector::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_inspector.cpp (main):void IseServerInspector::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Ise_inspector.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Ise_inspector.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Ise_inspector.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_inspector.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Ise_server_tcp.cpp (main):    TcpConnectionPtr connPtr(connection);
-Ise_server_tcp.cpp (main):        TcpConnectionPtr conn = tcpConnMap_.begin()->second;
-Ise_server_tcp.cpp (main):            TcpConnectionPtr& connPtr = iter->second;
-Ise_server_tcp.cpp (main):void WinTcpConnection::onIocpCallback(const TcpConnectionPtr& thisObj, const IocpTaskData& taskData)
-Ise_server_tcp.cpp (main):void LinuxTcpConnection::afterPostRecvTask(const TcpConnectionPtr& thisObj)
-Ise_server_tcp.h (main):typedef boost::shared_ptr<TcpConnection> TcpConnectionPtr;
-Ise_server_tcp.h (main):    typedef std::map<string, TcpConnectionPtr> TcpConnectionMap;  // <connectionName, TcpConnectionPtr>
-Ise_server_tcp.h (main):    static void onIocpCallback(const TcpConnectionPtr& thisObj, const IocpTaskData& taskData);
-Ise_server_tcp.h (main):    static void afterPostRecvTask(const TcpConnectionPtr& thisObj);
-Ise_svr_mod.cpp (main):void IseSvrModBusiness::onTcpConnected(const TcpConnectionPtr& connection)
-Ise_svr_mod.cpp (main):void IseSvrModBusiness::onTcpDisconnected(const TcpConnectionPtr& connection)
-Ise_svr_mod.cpp (main):void IseSvrModBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_svr_mod.cpp (main):void IseSvrModBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Ise_svr_mod.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection) {}
-Ise_svr_mod.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection) {}
-Ise_svr_mod.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_svr_mod.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context) {}
-Ise_svr_mod.h (main):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Ise_svr_mod.h (main):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Ise_svr_mod.h (main):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Ise_svr_mod.h (main):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,int type,Json::Value &arrayObj)
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Chargen::onTcpConnected(const TcpConnectionPtr& connection)
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Chargen::onTcpDisconnected(const TcpConnectionPtr& connection)
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Chargen::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_chargen.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Chargen::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Svr_mod_chargen.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Svr_mod_chargen.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Svr_mod_chargen.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_chargen.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Daytime::onTcpConnected(const TcpConnectionPtr& connection)
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Daytime::onTcpDisconnected(const TcpConnectionPtr& connection)
-Svr_mod_daytime.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Daytime::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Svr_mod_daytime.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Svr_mod_daytime.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Svr_mod_daytime.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Discard::onTcpConnected(const TcpConnectionPtr& connection)
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Discard::onTcpDisconnected(const TcpConnectionPtr& connection)
-Svr_mod_discard.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Discard::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_discard.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Svr_mod_discard.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Svr_mod_discard.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Echo::onTcpConnected(const TcpConnectionPtr& connection)
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Echo::onTcpDisconnected(const TcpConnectionPtr& connection)
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Echo::onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_echo.cpp (e:\baoluo\ise\examples\server_modules):void ServerModule_Echo::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
-Svr_mod_echo.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpConnected(const TcpConnectionPtr& connection);
-Svr_mod_echo.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpDisconnected(const TcpConnectionPtr& connection);
-Svr_mod_echo.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpRecvComplete(const TcpConnectionPtr& connection, void *packetBuffer,
-Svr_mod_echo.h (e:\baoluo\ise\examples\server_modules):    virtual void onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context);
+---- MySqlField Matches (42 in 3 files) ----
+Ise_dbi_mysql.cpp (ext\dbi\mysql):// class MySqlField
+Ise_dbi_mysql.cpp (ext\dbi\mysql):MySqlField::MySqlField()
+Ise_dbi_mysql.cpp (ext\dbi\mysql):void MySqlField::setData(void *dataPtr, int dataSize)
+Ise_dbi_mysql.cpp (ext\dbi\mysql):string MySqlField::asString() const
+Ise_dbi_mysql.cpp (ext\dbi\mysql):        MySqlField* field;
+Ise_dbi_mysql.cpp (ext\dbi\mysql):                field = (MySqlField*)dbFieldList_[i];
+Ise_dbi_mysql.cpp (ext\dbi\mysql):                field = new MySqlField();
+Ise_dbi_mysql.h (ext\dbi\mysql)://   * MySqlField            - 字段数据类
+Ise_dbi_mysql.h (ext\dbi\mysql):class MySqlField;
+Ise_dbi_mysql.h (ext\dbi\mysql):// class MySqlField - 字段数据类
+Ise_dbi_mysql.h (ext\dbi\mysql):class MySqlField : public DbField
+Ise_dbi_mysql.h (ext\dbi\mysql):    MySqlField();
+Ise_dbi_mysql.h (ext\dbi\mysql):    virtual ~MySqlField() {}
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* num = static_cast<MySqlField *> (res->getFields("num"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* exp = static_cast<MySqlField *> (res->getFields("exp"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* physicsAttack = static_cast<MySqlField *> (res->getFields("physicsAttack"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* magicAttack = static_cast<MySqlField *> (res->getFields("magicAttack"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* barmor = static_cast<MySqlField *> (res->getFields("barmor"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* bresistance = static_cast<MySqlField *> (res->getFields("bresistance"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* hp = static_cast<MySqlField *> (res->getFields("hp"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* hit = static_cast<MySqlField *> (res->getFields("hit"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* dodge = static_cast<MySqlField *> (res->getFields("dodge"));
+Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* crit = static_cast<MySqlField *> (res->getFields("crit"));
