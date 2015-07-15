@@ -44,10 +44,16 @@
 		<Unit filename="../examples/echo_server/game_core/GamePlayerManager.h" />
 		<Unit filename="../examples/echo_server/game_define/BaseType.h" />
 		<Unit filename="../examples/echo_server/game_define/Protocol.h" />
+		<Unit filename="../examples/echo_server/inner_msg.cpp" />
 		<Unit filename="../examples/echo_server/tools/CommonTools.h" />
 		<Unit filename="../examples/echo_server/tools/MemoryChunk.h" />
 		<Unit filename="../examples/echo_server/tools/ObejctManager.h" />
 		<Unit filename="../examples/echo_server/tools/StaticMemory.h" />
+		<Unit filename="../examples/hello_world/game_define/BaseType.h" />
+		<Unit filename="../examples/hello_world/game_define/Protocol.h" />
+		<Unit filename="../examples/hello_world/hello_world.cpp" />
+		<Unit filename="../examples/hello_world/hello_world.h" />
+		<Unit filename="../examples/hello_world/server_msg.cpp" />
 		<Unit filename="ext/dbi/mysql/depend/include/config-win.h" />
 		<Unit filename="ext/dbi/mysql/depend/include/decimal.h" />
 		<Unit filename="ext/dbi/mysql/depend/include/errmsg.h" />

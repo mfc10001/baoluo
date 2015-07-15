@@ -108,17 +108,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
     //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
 	ConnetManager::instance().add(connection);
-/*
-	Json::Value rValue;
-	rValue["cid"]=cid;
-	string str = rValue.toStyledString();
-	char buff[MAX_SEND_BUFF];
-	memset(buff,0,MAX_SEND_BUFF);
-	uint16 len=str.length()+2;
-	memcpy(buff,&len,sizeof(uint16));
-	memcpy(buff+2,str.c_str(),str.length());
-	connection->send(buff,len);
-*/
+
     connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
@@ -183,6 +173,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	}
 
     logger().writeFmt("Received message: %s", msg.c_str());
+    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
 //-----------------------------------------------------------------------------
@@ -193,7 +184,7 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
     logger().writeStr("onTcpSendComplete");
 
    // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
-     connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
+     //connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
 

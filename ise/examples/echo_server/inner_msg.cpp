@@ -61,8 +61,10 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 	uint16 len=str.length()+2;
 	memcpy(buff,&len,sizeof(uint16));
 	memcpy(buff+2,str.c_str(),str.length());
+	LinuxTcpConnection*  pp =  static_cast<LinuxTcpConnection*> (&connection);
+	pp->send(buff,len);
 
-	connection.sendBaseBuff(buff,len);
+//	connection.sendBaseBuff(buff,len);
 	//connection.sendBaseBuff(buff,len);
 	return true;
 }
