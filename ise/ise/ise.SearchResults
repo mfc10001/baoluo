@@ -1,28 +1,4 @@
----- MySqlField Matches (42 in 3 files) ----
-Ise_dbi_mysql.cpp (ext\dbi\mysql):// class MySqlField
-Ise_dbi_mysql.cpp (ext\dbi\mysql):MySqlField::MySqlField()
-Ise_dbi_mysql.cpp (ext\dbi\mysql):void MySqlField::setData(void *dataPtr, int dataSize)
-Ise_dbi_mysql.cpp (ext\dbi\mysql):string MySqlField::asString() const
-Ise_dbi_mysql.cpp (ext\dbi\mysql):        MySqlField* field;
-Ise_dbi_mysql.cpp (ext\dbi\mysql):                field = (MySqlField*)dbFieldList_[i];
-Ise_dbi_mysql.cpp (ext\dbi\mysql):                field = new MySqlField();
-Ise_dbi_mysql.h (ext\dbi\mysql)://   * MySqlField            - 字段数据类
-Ise_dbi_mysql.h (ext\dbi\mysql):class MySqlField;
-Ise_dbi_mysql.h (ext\dbi\mysql):// class MySqlField - 字段数据类
-Ise_dbi_mysql.h (ext\dbi\mysql):class MySqlField : public DbField
-Ise_dbi_mysql.h (ext\dbi\mysql):    MySqlField();
-Ise_dbi_mysql.h (ext\dbi\mysql):    virtual ~MySqlField() {}
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* num = static_cast<MySqlField *> (res->getFields("num"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* exp = static_cast<MySqlField *> (res->getFields("exp"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* physicsAttack = static_cast<MySqlField *> (res->getFields("physicsAttack"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* magicAttack = static_cast<MySqlField *> (res->getFields("magicAttack"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* barmor = static_cast<MySqlField *> (res->getFields("barmor"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* bresistance = static_cast<MySqlField *> (res->getFields("bresistance"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* hp = static_cast<MySqlField *> (res->getFields("hp"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* hit = static_cast<MySqlField *> (res->getFields("hit"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* dodge = static_cast<MySqlField *> (res->getFields("dodge"));
-Server_msg.cpp (e:\baoluo\ise\examples\hello_world):					MySqlField* crit = static_cast<MySqlField *> (res->getFields("crit"));
+---- setNotifyEventCallback Matches (3 in 3 files) ----
+Ise_epoll.cpp (main):void EpollObject::setNotifyEventCallback(const NotifyEventCallback& callback)
+Ise_epoll.h (main):    void setNotifyEventCallback(const NotifyEventCallback& callback);
+Ise_server_tcp.cpp (main):    epollObject_->setNotifyEventCallback(boost::bind(&LinuxTcpEventLoop::onEpollNotifyEvent, this, _1, _2));

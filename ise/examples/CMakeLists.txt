@@ -1,2 +1,2 @@
-add_subdirectory(hello_world)
-add_subdirectory(echo_server)
+add_subdirectory(db_server)
+add_subdirectory(game_server)
