@@ -10,7 +10,7 @@
 
 
 //读取配置文本跟目录
-const string CONFIG_ROOT_PATH ="./config/res/";
+const string CONFIG_ROOT_PATH ="./res/";
 
 
 enum ConfigFile
@@ -23,8 +23,10 @@ struct ConfigLevelData:public BaseConfig
 	uint32 id;
 	uint32 level;
 	uint32 exp;
-
+    uint32 getIndex(){return id;};
 };
+
+
 
 struct ConfigPlayerData:public BaseConfig
 {
@@ -47,6 +49,7 @@ struct ConfigPlayerData:public BaseConfig
 	uint16 dodgez;
 	uint16 critz;
 	uint16 opposeCritz;
+    uint32 getIndex(){return id;};
 };
 
 class ConfigManager:public Singleton<ConfigManager>

@@ -8,7 +8,7 @@ class BaseConfig
 {
 public:
 	uint32 id;
-	uint32 getIndex(){return id;}
+	virtual uint32 getIndex(){return id;}
 };
 
 
