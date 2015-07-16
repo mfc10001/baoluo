@@ -66,6 +66,7 @@ void AppBusiness::initialize()
 			pinfo.addr=addr->asString();
 			pinfo.port=port->asInteger();
 			server_manager_[pinfo.sid]=pinfo;
+<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
 
 			if(!tcpClient_)
 			{
@@ -74,14 +75,19 @@ void AppBusiness::initialize()
 				tcpClient_->connect(pinfo.addr.c_str(),pinfo.port);
 			}
 
+=======
+>>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
 
 		}
 		delete res;
 		res = NULL;
 
+<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
 
 
 
+=======
+>>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
 	}
     catch(exception)
     {
@@ -290,6 +296,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					err=ERR_NONE_SERVER;
 					break;
 				}
+<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
 					{
 						Json::Value rValueg,rDatag;
 						rDatag["token"]="1111";
@@ -302,6 +309,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 							 logger().writeFmt("forward message falid : %s", rstr.c_str());
 						}
 					}
+=======
+>>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
 				rData["addr"]=(*it).second.addr;
 				rData["port"]=(*it).second.port;
 				err=ERR_SUCCESS;
