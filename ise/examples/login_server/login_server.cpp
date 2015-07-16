@@ -66,28 +66,15 @@ void AppBusiness::initialize()
 			pinfo.addr=addr->asString();
 			pinfo.port=port->asInteger();
 			server_manager_[pinfo.sid]=pinfo;
-<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
-
 			if(!tcpClient_)
 			{
 				tcpClient_=new TcpClient();
-				
+
 				tcpClient_->connect(pinfo.addr.c_str(),pinfo.port);
 			}
-
-=======
->>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
-
 		}
 		delete res;
 		res = NULL;
-
-<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
-
-
-
-=======
->>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
 	}
     catch(exception)
     {
@@ -296,25 +283,27 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					err=ERR_NONE_SERVER;
 					break;
 				}
-<<<<<<< HEAD:ise/examples/login_server/login_server.cpp
+
 					{
 						Json::Value rValueg,rDatag;
 						rDatag["token"]="1111";
 						rValueg["code"]=err;
 						rValueg["type"]=rNo;
 						rValueg["data"]=rDatag;
-						string str = rValueg.toStyledString();
-						if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
+						string strg = rValueg.toStyledString();
+                        uint16 leng=strg.length()+2;
+                        char buff_sendg[MAX_SEND_BUFF];
+                        memcpy(buff_sendg,&leng,sizeof(uint16));
+                        memcpy(buff_sendg+2,strg.c_str(),strg.length());
+						if(tcpClient_->getConnection().sendBaseBuff(buff_sendg,leng)<=0)
 						{
-							 logger().writeFmt("forward message falid : %s", rstr.c_str());
+							 logger().writeFmt("forward message falid : %s", strg.c_str());
 						}
 					}
-=======
->>>>>>> f8979d97bb98bb5776235788a6159a15a89e8baf:ise/examples/login_server/login_server.cpp
 				rData["addr"]=(*it).second.addr;
 				rData["port"]=(*it).second.port;
 				err=ERR_SUCCESS;
-				
+
 			}
 			break;
 		default:
