@@ -642,6 +642,14 @@ ise/main/ise.h
 ise/ext/utils/json/json.h
 /home/ll/baoluo/ise/examples/game_server/game_core/ise/ext/utils/json/json.h
 
+/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.cpp
+GamePlayerManager.h
+/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
+../game_define/Protocol.h
+/home/ll/baoluo/ise/examples/game_server/game_define/Protocol.h
+GamePlayer.h
+/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
+
 /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/game_server/game_core/ise/main/ise.h

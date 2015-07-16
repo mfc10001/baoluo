@@ -4,4 +4,5 @@
 /home/ll/baoluo/ise/build/linux/debug/ext/utils/cipher/CMakeFiles/ise_utils_cipher.dir
 /home/ll/baoluo/ise/build/linux/debug/ext/utils/CMakeFiles/ise_utils_json.dir
 /home/ll/baoluo/ise/build/linux/debug/ext/utils/xml/CMakeFiles/ise_utils_xml.dir
+/home/ll/baoluo/ise/build/linux/debug/examples/login_server/CMakeFiles/login_server.dir
 /home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir

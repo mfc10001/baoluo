@@ -6,13 +6,11 @@ using namespace std;
 enum Protocol
 {
 	PROTOCOL_INVALID =1,
-	//inner msg  2-999
 
 
 
+	//login
 
-	//login 
-	
 	PROTOCOL_REGISTER_C = 100,
 	PROTOCOL_REGISTER_S ,
 	PROTOCOL_LOGIN_C,
@@ -21,15 +19,15 @@ enum Protocol
 	PROTOCOL_SERVERLIST_S,
 	PROTOCOL_SERVER_ADDR_C,
 	PROTOCOL_SERVER_ADDR_S,
-	
 
+	//inner msg  200-500
 	INNER_SAVE_DATA =200,
 
 
 	PROTOCOL_TOKEN_C=900,
 	//client msg
 
-	
+
 	PROTOCOL_AUTH_C=1000,
 	PROTOCOL_AUTH_S,
 
@@ -38,12 +36,10 @@ enum Protocol
 
 	PROTOCOL_ENTER_C,
 	PROTOCOL_ENTER_S,
-	
+
 	PROTOCOL_CHAR_LIST_C,
-	PROTOCOL_CHAR_LIST_S,
-	
-	
-	
+	PROTOCOL_CHAR_LIST_S
+
 
 };
 
@@ -52,13 +48,17 @@ enum ErrCode
 {
 	ERR_SUCCESS=0,
 	ERR_INNER=1,
+	//login
+	ERR_PWD=3,
+	ERR_UNREGISTER=4,
+	ERR_NONE_SERVER=5,
 
-	ERR_TOKEN_INVALID=5,
-	ERR_TOKEN_TIME=6,
+    //game
+	ERR_TOKEN_INVALID=20,
+	ERR_TOKEN_TIME,
+	ERR_EXIST_ROLE,
 
-	ERR_EXIST_ROLE=7,
-
-	ERR_EXIST_AL_LOGIN=8,
+	ERR_EXIST_AL_LOGIN
 };
 
 

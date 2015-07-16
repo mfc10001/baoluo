@@ -293,16 +293,19 @@ clean: ext/utils/xml/CMakeFiles/ise_utils_xml.dir/clean
 # Convenience name for "all" pass in the directory.
 examples/all: examples/db_server/all
 examples/all: examples/game_server/all
+examples/all: examples/login_server/all
 .PHONY : examples/all
 
 # Convenience name for "clean" pass in the directory.
 examples/clean: examples/db_server/clean
 examples/clean: examples/game_server/clean
+examples/clean: examples/login_server/clean
 .PHONY : examples/clean
 
 # Convenience name for "preinstall" pass in the directory.
 examples/preinstall: examples/db_server/preinstall
 examples/preinstall: examples/game_server/preinstall
+examples/preinstall: examples/login_server/preinstall
 .PHONY : examples/preinstall
 
 #=============================================================================
@@ -381,7 +384,7 @@ examples/game_server/CMakeFiles/main_server.dir/all: ext/utils/CMakeFiles/ise_ut
 examples/game_server/CMakeFiles/main_server.dir/all: ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/all
 	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/depend
 	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles  29 30 31 32 33 34
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles  30 31 32 33 34 35
 	@echo "Built target main_server"
 .PHONY : examples/game_server/CMakeFiles/main_server.dir/all
 
@@ -407,6 +410,58 @@ examples/game_server/CMakeFiles/main_server.dir/clean:
 
 # clean rule for target.
 clean: examples/game_server/CMakeFiles/main_server.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory examples/login_server
+
+# Convenience name for "all" pass in the directory.
+examples/login_server/all: examples/login_server/CMakeFiles/login_server.dir/all
+.PHONY : examples/login_server/all
+
+# Convenience name for "clean" pass in the directory.
+examples/login_server/clean: examples/login_server/CMakeFiles/login_server.dir/clean
+.PHONY : examples/login_server/clean
+
+# Convenience name for "preinstall" pass in the directory.
+examples/login_server/preinstall:
+.PHONY : examples/login_server/preinstall
+
+#=============================================================================
+# Target rules for target examples/login_server/CMakeFiles/login_server.dir
+
+# All Build rule for target.
+examples/login_server/CMakeFiles/login_server.dir/all: CMakeFiles/ise.dir/all
+examples/login_server/CMakeFiles/login_server.dir/all: ext/utils/CMakeFiles/ise_utils_json.dir/all
+examples/login_server/CMakeFiles/login_server.dir/all: ext/dbi/mysql/CMakeFiles/ise_dbi_mysql.dir/all
+	$(MAKE) -f examples/login_server/CMakeFiles/login_server.dir/build.make examples/login_server/CMakeFiles/login_server.dir/depend
+	$(MAKE) -f examples/login_server/CMakeFiles/login_server.dir/build.make examples/login_server/CMakeFiles/login_server.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles  29
+	@echo "Built target login_server"
+.PHONY : examples/login_server/CMakeFiles/login_server.dir/all
+
+# Include target in all.
+all: examples/login_server/CMakeFiles/login_server.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+examples/login_server/CMakeFiles/login_server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ll/baoluo/ise/build/linux/debug/CMakeFiles 25
+	$(MAKE) -f CMakeFiles/Makefile2 examples/login_server/CMakeFiles/login_server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ll/baoluo/ise/build/linux/debug/CMakeFiles 0
+.PHONY : examples/login_server/CMakeFiles/login_server.dir/rule
+
+# Convenience name for target.
+login_server: examples/login_server/CMakeFiles/login_server.dir/rule
+.PHONY : login_server
+
+# clean rule for target.
+examples/login_server/CMakeFiles/login_server.dir/clean:
+	$(MAKE) -f examples/login_server/CMakeFiles/login_server.dir/build.make examples/login_server/CMakeFiles/login_server.dir/clean
+.PHONY : examples/login_server/CMakeFiles/login_server.dir/clean
+
+# clean rule for target.
+clean: examples/login_server/CMakeFiles/login_server.dir/clean
 .PHONY : clean
 
 #=============================================================================

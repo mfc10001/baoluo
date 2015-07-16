@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/ll/baoluo/ise/examples/CMakeLists.txt"
   "/home/ll/baoluo/ise/examples/db_server/CMakeLists.txt"
   "/home/ll/baoluo/ise/examples/game_server/CMakeLists.txt"
+  "/home/ll/baoluo/ise/examples/login_server/CMakeLists.txt"
   "/home/ll/baoluo/ise/ise/ext/dbi/mysql/CMakeLists.txt"
   "/home/ll/baoluo/ise/ise/ext/dbi/mysql/Findlibmysqlclient.cmake"
   "/home/ll/baoluo/ise/ise/ext/utils/cipher/CMakeLists.txt"
@@ -47,6 +48,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "examples/CMakeFiles/CMakeDirectoryInformation.cmake"
   "examples/db_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   "examples/game_server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "examples/login_server/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -58,4 +60,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "ext/utils/xml/CMakeFiles/ise_utils_xml.dir/DependInfo.cmake"
   "examples/db_server/CMakeFiles/db_server.dir/DependInfo.cmake"
   "examples/game_server/CMakeFiles/main_server.dir/DependInfo.cmake"
+  "examples/login_server/CMakeFiles/login_server.dir/DependInfo.cmake"
   )
