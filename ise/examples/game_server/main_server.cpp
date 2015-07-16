@@ -31,7 +31,7 @@ void AppBusiness::initialize()
 		{
 			throw(ret);
 		}
-		//Á´½ÓDBserver
+
 		recvBuf_.reset(new IoBuffer());
 
    		//tcpClient_.reset(new TcpClient());

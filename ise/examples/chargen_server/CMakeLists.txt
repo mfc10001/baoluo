@@ -1,5 +1,5 @@
-add_executable(chargen_server
-  chargen_server.cpp
+add_executable(login_server
+  login.cpp
   )
 
-target_link_libraries(chargen_server ise)
+target_link_libraries(chargen_server ise ise_utils_json  ise_dbi_mysql)
