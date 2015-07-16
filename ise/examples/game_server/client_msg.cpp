@@ -20,7 +20,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 
                 string token=arrayObj["token"].asString();
                 TokenManager::instance().AddToken(aid,token);
-				return;
+				return true;
             }
 			return true;
 		case PROTOCOL_AUTH_C:
@@ -51,5 +51,6 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	memcpy(buff+2,str.c_str(),str.length());
 
 	connection->send(buff,len);
+	return true;
 }
 

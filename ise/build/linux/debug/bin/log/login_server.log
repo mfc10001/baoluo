@@ -1,0 +1,19 @@
+[2015-07-16 01:32:07](10669|4160587584) Try to connect MySQL server... (0x744cc8)
+[2015-07-16 01:32:07](10669|4160587584) Connected to MySQL server. (0x744cc8)
+[2015-07-16 01:32:12](10669|4160587584) Try to connect MySQL server... (0x7641e8)
+[2015-07-16 01:32:12](10669|4160587584) Connected to MySQL server. (0x7641e8)
+[2015-07-16 01:50:29](11043|4160587584) Try to connect MySQL server... (0x744cc8)
+[2015-07-16 01:50:29](11043|4160587584) Connected to MySQL server. (0x744cc8)
+[2015-07-16 01:50:29](11043|4160587584) Try to connect MySQL server... (0x7641e8)
+[2015-07-16 01:50:29](11043|4160587584) Connected to MySQL server. (0x7641e8)
+[2015-07-16 01:50:29](11043|4160587584) login_server started.
+[2015-07-16 01:56:09](11173|4160587584) Try to connect MySQL server... (0x744cc8)
+[2015-07-16 01:56:09](11173|4160587584) Connected to MySQL server. (0x744cc8)
+[2015-07-16 01:56:09](11173|4160587584) Try to connect MySQL server... (0x7641e8)
+[2015-07-16 01:56:09](11173|4160587584) Connected to MySQL server. (0x7641e8)
+[2015-07-16 01:56:09](11173|4160587584) login_server started.
+[2015-07-16 02:13:39](11495|4160587584) Try to connect MySQL server... (0x744cc8)
+[2015-07-16 02:13:39](11495|4160587584) Connected to MySQL server. (0x744cc8)
+[2015-07-16 02:13:39](11495|4160587584) Try to connect MySQL server... (0x7641e8)
+[2015-07-16 02:13:39](11495|4160587584) Connected to MySQL server. (0x7641e8)
+[2015-07-16 02:13:39](11495|4160587584) login_server started.

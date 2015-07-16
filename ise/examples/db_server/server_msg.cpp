@@ -15,13 +15,13 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 		case PROTOCOL_CREATE_CHAR_C:
             {
 				rNo=PROTOCOL_CREATE_CHAR_C;
-			    uint32 account = arrayObj["account"].asUInt();
+			    uint32 aid = arrayObj["AID"].asUInt();
                 uint32 role = arrayObj["role"].asUInt();
                 rData["cid"]=arrayObj["cid"];
 				rData["role"]=arrayObj["role"];
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
-				sprintf(buff,"select count(*) as num from bl_user where account=%u",account);
+				sprintf(buff,"select count(*) as num from bl_user where AID=%u",aid);
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
@@ -35,7 +35,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					res = NULL;
 
 					memset(buff,0,BUFFLEN);
-					sprintf(buff,"insert into bl_user (account,role) values (%u,%u);  ",account,role);
+					sprintf(buff,"insert into bl_user (AID,role) values (%u,%u);  ",aid,role);
 					query->setSql(buff);
 
 					try
@@ -63,9 +63,9 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 			{
 				rNo=PROTOCOL_ENTER_C;
 				rData["cid"]=arrayObj["cid"];
-				uint32 account = arrayObj["account"].asUInt();
+				uint32 aid = arrayObj["AID"].asUInt();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
-				sprintf(buff,"select *  from bl_user where account=%u",account);
+				sprintf(buff,"select *  from bl_user where AID=%u",aid);
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
@@ -85,19 +85,25 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					MySqlField* dodge = static_cast<MySqlField *> (res->getFields("dodge"));
 					MySqlField* crit = static_cast<MySqlField *> (res->getFields("crit"));
 
+
+					MySqlField* initflag = static_cast<MySqlField *> (res->getFields("initFlag"));
+					if(initflag->asInteger()==1)
+                    {
+                        rData["level"]=level->asInteger();
+                        rData["exp"]=exp->asInteger();
+                        rData["physicsAttack"]=physicsAttack->asInteger();
+                        rData["magicAttack"]=magicAttack->asInteger();
+                        rData["barmor"]=barmor->asInteger();
+                        rData["bresistance"]=bresistance->asInteger();
+                        rData["hp"]=hp->asInteger();
+                        rData["hit"]=hit->asInteger();
+                        rData["dodge"]=dodge->asInteger();
+                        rData["crit"]=crit->asInteger();
+                    }
 					rData["uid"]=uid->asInteger();
 					rData["name"]=name->asString();
 					rData["role"]=uid->asInteger();
-					rData["level"]=level->asInteger();
-					rData["exp"]=exp->asInteger();
-					rData["physicsAttack"]=physicsAttack->asInteger();
-					rData["magicAttack"]=magicAttack->asInteger();
-					rData["barmor"]=barmor->asInteger();
-					rData["bresistance"]=bresistance->asInteger();
-					rData["hp"]=hp->asInteger();
-					rData["hit"]=hit->asInteger();
-					rData["dodge"]=dodge->asInteger();
-					rData["crit"]=crit->asInteger();
+                    rData["initFlag"]=initflag->asInteger();
 
 				}
 

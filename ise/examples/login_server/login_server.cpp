@@ -214,7 +214,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					{
 						query->execute();
 						uint64 aid = query->getLastInsertId();
-						rData["aid"]=(uint32)aid;
+						rData["AID"]=(uint32)aid;
 						delete res;
 						res = NULL;
 						err=ERR_SUCCESS;
