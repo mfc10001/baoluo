@@ -102,6 +102,11 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				}
 
 			}
+		case INNER_SAVE_DATA:
+			{
+				save(arrayObj);
+				return true;
+			}
         default:
                 return false;
 

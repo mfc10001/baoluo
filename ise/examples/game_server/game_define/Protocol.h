@@ -8,7 +8,7 @@ enum Protocol
 	PROTOCOL_INVALID =1,
 	//inner msg  2-999
 
-
+	INNER_SAVE_DATA =100,
 
 
 	PROTOCOL_TOKEN_C=900,
@@ -42,12 +42,15 @@ enum ErrCode
 	ERR_TOKEN_TIME=6,
 
 	ERR_EXIST_ROLE=7,
+
+	ERR_EXIST_AL_LOGIN=8,
 };
 
 
 #define MAX_SEND_BUFF 4086
 #define MAX_REV_BUFF 4096
 const uint16 BUFFLEN  = 512;
+const uint16 RECV_TIMEOUT = 1000*5;  // ms
 
 
 typedef map<uint32,uint32>  BaseMap;

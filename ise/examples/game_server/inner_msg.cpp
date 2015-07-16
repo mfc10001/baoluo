@@ -24,26 +24,36 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				{
 					break;
 				}
-
+/*
 				uint32 uid = arrayObj["uid"].asUInt();
 	            uint32 role = arrayObj["role"].asUInt();
 				GamePlayer *player=new GamePlayer();
 	            player->createChar(uid,role);
 	            GamePlayerManager::instance().AddPlayer(player);
+ */
 				err=ERR_SUCCESS;
 
 			}
 			break;
 		case PROTOCOL_ENTER_C:
 			{
+				uint32 uid = arrayObj["uid"].asUInt();
 				rNo=PROTOCOL_ENTER_S;
 				if(code!=ERR_SUCCESS)
 				{
 					break;
 				}
-				GamePlayer *player=new GamePlayer();
+
+				GamePlayer *player = GamePlayerManager::instance().getPlayer(uid);
+				if(player)
+				{
+					err=ERR_EXIST_AL_LOGIN;
+					break;
+				}
+				player=new GamePlayer();
 				player->init(arrayObj);
 				GamePlayerManager::instance().AddPlayer(player);
+				player->fillClientData(rData);
 				err=ERR_SUCCESS;
 			}
 		default:

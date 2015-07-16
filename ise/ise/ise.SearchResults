@@ -1,4 +1,31 @@
----- setNotifyEventCallback Matches (3 in 3 files) ----
-Ise_epoll.cpp (main):void EpollObject::setNotifyEventCallback(const NotifyEventCallback& callback)
-Ise_epoll.h (main):    void setNotifyEventCallback(const NotifyEventCallback& callback);
-Ise_server_tcp.cpp (main):    epollObject_->setNotifyEventCallback(boost::bind(&LinuxTcpEventLoop::onEpollNotifyEvent, this, _1, _2));
+---- tcpClient_ Matches (30 in 5 files) ----
+Ise_http.cpp (main):        tcpClient_.disconnect();
+Ise_http.cpp (main):    lastKeepAlive_ = tcpClient_.isConnected() && response_.getKeepAlive();
+Ise_http.cpp (main):        tcpClient_.disconnect();
+Ise_http.cpp (main):    return tcpClient_.getConnection().recvBuffer(buffer, size, true, timeoutMSecs);
+Ise_http.cpp (main):        tcpClient_.disconnect();
+Ise_http.cpp (main):    if (tcpClient_.isConnected())
+Ise_http.cpp (main):        if (tcpClient_.getConnection().getPeerAddr() != inetAddr)
+Ise_http.cpp (main):            tcpClient_.disconnect();
+Ise_http.cpp (main):    if (!tcpClient_.isConnected())
+Ise_http.cpp (main):        int state = tcpClient_.asyncConnect(ipToString(inetAddr.ip),
+Ise_http.cpp (main):    if (tcpClient_.isConnected())
+Ise_http.cpp (main):        SOCKET handle = tcpClient_.getConnection().getSocket().getHandle();
+Ise_http.cpp (main):    int r = tcpClient_.getConnection().sendBuffer(buffer.data(), buffer.getSize(),
+Ise_http.cpp (main):            int r = tcpClient_.getConnection().sendBuffer(buffer.data(), readSize,
+Ise_http.cpp (main):            int r = tcpClient_.getConnection().recvBuffer(&ch, sizeof(ch), true, remainTimeout);
+Ise_http.cpp (main):                int recvSize = tcpClient_.getConnection().recvBuffer(buffer.data(),
+Ise_http.cpp (main):        int r = tcpClient_.getConnection().recvBuffer(&ch, sizeof(ch), true, remainTimeout);
+Ise_http.cpp (main):        int recvSize = tcpClient_.getConnection().recvBuffer(
+Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    bool isConnected() { return tcpClient_.isConnected(); }
+Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    HttpTcpClient& getTcpClient() { return tcpClient_; }
+Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    HttpTcpClient tcpClient_;
+Ise_http.h (main):    bool isConnected() { return tcpClient_.isConnected(); }
+Ise_http.h (main):    HttpTcpClient& getTcpClient() { return tcpClient_; }
+Ise_http.h (main):    HttpTcpClient tcpClient_;
+Main_server.cpp (e:\baoluo\ise\examples\game_server):   		tcpClient_.reset(new TcpClient());
+Main_server.cpp (e:\baoluo\ise\examples\game_server):		tcpClient_->connect("127.0.0.1",22306);
+Main_server.cpp (e:\baoluo\ise\examples\game_server):            if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
+Main_server.cpp (e:\baoluo\ise\examples\game_server):            int recvBytes = tcpClient_->getConnection().recvBaseBuff(revbuff, MAX_REV_BUFF);
+Main_server.cpp (e:\baoluo\ise\examples\game_server):	tcpClient_
+Main_server.h (e:\baoluo\ise\examples\game_server):	static boost::scoped_ptr<TcpClient> tcpClient_;

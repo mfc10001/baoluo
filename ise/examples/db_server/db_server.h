@@ -19,6 +19,9 @@ public:
 
 	void onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context);
 	bool msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj);
+
+
+	void save();
 };
 
 extern MySqlDatabase *m_db_conn;

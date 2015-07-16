@@ -74,4 +74,30 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 		}
 	}
 }
+void AppBusiness::save(Json::Value &arrayObj)
+{
+	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
+
+	sprintf(buff,"update bl_user set level = u%,exp = u%,physicsAttack = %u,magicAttack = %u,
+	barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u where uid=%u",
+	arrayObj["level"].asUInt(),arrayObj["exp"].asUInt(),arrayObj["physicsAttack"].asUInt(),
+	arrayObj["magicAttack"].asUInt(),arrayObj["barmor"].asUInt(),arrayObj["bresistance"].asUInt(),
+	arrayObj["hp"].asUInt(),arrayObj["hit"].asUInt(),arrayObj["dodge"].asUInt(),
+	arrayObj["crit"].asUInt(),arrayObj["uid"].asUInt());
+
+
+	query->setSql(buff);
+
+	try
+	{
+		query->execute();
+		delete res;
+		res = NULL;
+	}
+	catch(Exception)
+	{
+		
+		break;
+	}
+}
 

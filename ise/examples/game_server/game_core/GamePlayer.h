@@ -36,6 +36,10 @@ enum PlayerAttr
 
 struct PlayerBaseAttr
 {
+	char name[MAX_NAME_SIZE];
+	uint32 role;
+	uint8 init_flag;
+
 	uint16 level;
 	uint32 exp;
 
@@ -49,7 +53,7 @@ class GamePlayer
 	public:
 		GamePlayer();
 		~GamePlayer();
-		void createChar(uint32 uid,uint8 role);
+		void createChar();
 
 		void setBaseAttr(uint16 type,uint32 value);
 
@@ -64,12 +68,15 @@ class GamePlayer
 		void registerPlayerHandler(const PlayerLevelHandlerCallback& callback);
 
 		void init(Json::Value &data);
+
+		uint32 getUid();
+
+		void  fillClientData(Json::Value &arrayObj);
+		void  fillDbData(Json::Value &arrayObj);
 	private:
 		uint16 uid;
-		char name[MAX_NAME_SIZE];
 
-		uint32 role;
-
+			
 		PlayerBaseAttr m_base_attr;
 		uint32 m_base_data[PlayerAttr_Max];
 

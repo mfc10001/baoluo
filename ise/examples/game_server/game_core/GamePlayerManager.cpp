@@ -49,11 +49,33 @@ uint32 TokenManager::Authentication(uint32 &uid,string &token)
 }
 
 
-void GamePlayerManager::AddPlayer(GamePlayer *player)
+bool  GamePlayerManager::AddPlayer(GamePlayer *player)
 {
+	PlayerManagerMap::iterator it = m_player_manager_.find(uid);
+	if(it!=m_player_manager_.end())
+	{
+		return false;
+	}
+	m_player_manager_[player->getUid()]=player;
 }
 void GamePlayerManager::DelPlayer(uint32 uid)
 {
+	PlayerManagerMap::iterator it = m_player_manager_.find(uid);
+	if(it!=m_player_manager_.end())
+	{
+		delete (*it).second;
+		(*it).second=NULL;
+		m_player_manager_.erase(it);
+	}
+}
+GamePlayer *GamePlayerManager::getPlayer(uint32 uid)
+{
+	PlayerManagerMap::iterator it = m_player_manager_.find(uid);
+	if(it==m_player_manager_.end())
+	{
+		return NULL;
+	}
+	return (*it).second;
 }
 
 void GamePlayerManager::SaveAll()

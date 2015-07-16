@@ -43,11 +43,17 @@ public:
 
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
 
+	static uint32 sendToDb(Json::Value &arrayObj);
+
+	void loop();
+
 	bool isExist(uint32 pro);
 	void addForwardPro(uint32 pro);
 
 
-	boost::scoped_ptr<TcpClient> tcpClient_;
+
+	static boost::scoped_ptr<TcpClient> tcpClient_;
+
 	//IoBuffer *recvBuf_;
 
 

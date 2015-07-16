@@ -4,7 +4,7 @@
 #include "game_core/ConfigManager.h"
 #include "tools/CommonTools.h"
 
-MySqlDatabase *m_db_conn=NULL;
+
 IseBusiness* createIseBusinessObject()
 {
     return new AppBusiness();
@@ -12,7 +12,7 @@ IseBusiness* createIseBusinessObject()
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const int RECV_TIMEOUT = 1000*5;  // ms
+
 
 //-----------------------------------------------------------------------------
 // 描述: 初始化 (失败则抛出异常)
@@ -143,16 +143,20 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 		{
 			if(!value.isMember("data"))
 			{
+			    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 				return;
 			}
 
 			if(value["data"].isMember("cid"))
 			{
+			    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 				return;
 			}
 			value["data"]["cid"]=connection.get()->getSocket().getHandle();
-			string rstr = value.toStyledString();
 
+			sendToDb(value);
+			/*
+			string rstr = value.toStyledString();
 			char buff[MAX_SEND_BUFF];
 			memset(buff,0,MAX_SEND_BUFF);
 			uint16 len=rstr.length()+2;
@@ -163,7 +167,8 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
             {
 				 logger().writeFmt("forward message falid : %s", msg.c_str());
 			}
-			return ;
+			*/
+			
 		}
 		else
 		{
@@ -248,7 +253,11 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 
 
 	}
-
+	else if(assistorIndex==1)
+	{
+		GamePlayerManager::instance().SaveAll();
+		usleep(10000);
+	}
 	/*
 	else if(assistorIndex==1)
 	{
@@ -296,6 +305,24 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 		}
 	}
 	*/
+}
+void AppBusiness::loop()
+{
+	GamePlayerManager::instance().SaveAll();
+}
+uint32 AppBusiness::sendToDb(Json::Value &arrayObj)
+{
+	string rstr = arrayObj.toStyledString();
+	char buff[MAX_SEND_BUFF];
+	memset(buff,0,MAX_SEND_BUFF);
+	uint16 len=rstr.length()+2;
+	memcpy(buff,&len,sizeof(uint16));
+	memcpy(buff+2,rstr.c_str(),rstr.length());
+	
+	if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
+	{
+		 logger().writeFmt("forward message falid : %s", msg.c_str());
+	}
 }
 
 bool AppBusiness::isExist(uint32 pro)
