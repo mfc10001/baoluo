@@ -45,6 +45,9 @@ public:
 
 	static uint32 sendToDb(Json::Value &arrayObj);
 
+	TimerId addTimer(Timestamp expiration, INT64 interval, const TimerCallback& callback);
+
+
 	void loop();
 
 	bool isExist(uint32 pro);

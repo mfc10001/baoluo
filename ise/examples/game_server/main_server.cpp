@@ -194,6 +194,10 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
      //connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
+TimerId AppBusiness::addTimer(Timestamp expiration, INT64 interval, const TimerCallback& callback)
+{
+	  Timer *timer = new Timer(expiration, interval, callback);
+}
 
 
 void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex)
