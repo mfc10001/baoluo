@@ -3,7 +3,8 @@
 #include "main_server.h"
 #include "game_core/ConfigManager.h"
 #include "tools/CommonTools.h"
-
+#include "game_core/GamePlayerManager.h"
+TcpClient *tcpClient_ = NULL;
 
 IseBusiness* createIseBusinessObject()
 {
@@ -30,12 +31,12 @@ void AppBusiness::initialize()
 		{
 			throw(ret);
 		}
-
-
 		//Á´½ÓDBserver
 		recvBuf_.reset(new IoBuffer());
 
-   		tcpClient_.reset(new TcpClient());
+   		//tcpClient_.reset(new TcpClient());
+        tcpClient_=new TcpClient();
+
 		tcpClient_->connect("127.0.0.1",22306);
 
 
@@ -168,7 +169,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 				 logger().writeFmt("forward message falid : %s", msg.c_str());
 			}
 			*/
-			
+
 		}
 		else
 		{
@@ -318,10 +319,10 @@ uint32 AppBusiness::sendToDb(Json::Value &arrayObj)
 	uint16 len=rstr.length()+2;
 	memcpy(buff,&len,sizeof(uint16));
 	memcpy(buff+2,rstr.c_str(),rstr.length());
-	
+
 	if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
 	{
-		 logger().writeFmt("forward message falid : %s", msg.c_str());
+		 logger().writeFmt("forward message falid : %s", rstr.c_str());
 	}
 }
 

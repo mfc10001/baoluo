@@ -15,8 +15,8 @@
 #include "game_define/Protocol.h"
 
 ///////////////////////////////////////////////////////////////////////////////
-
-
+extern   TcpClient* tcpClient_;
+//boost::scoped_ptr<TcpClient> tcpClient_;
 class AppBusiness : public IseBusiness
 {
 public:
@@ -49,10 +49,6 @@ public:
 
 	bool isExist(uint32 pro);
 	void addForwardPro(uint32 pro);
-
-
-
-	static boost::scoped_ptr<TcpClient> tcpClient_;
 
 	//IoBuffer *recvBuf_;
 

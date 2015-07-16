@@ -584,6 +584,12 @@ ise/main/ise_classes.h
 ise/main/ise_exceptions.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_exceptions.h
 
+/home/ll/baoluo/ise/examples/db_server/db_server.cpp
+db_server.h
+/home/ll/baoluo/ise/examples/db_server/db_server.h
+ise/ext/dbi/mysql/ise_dbi_mysql.h
+/home/ll/baoluo/ise/examples/db_server/ise/ext/dbi/mysql/ise_dbi_mysql.h
+
 /home/ll/baoluo/ise/examples/db_server/db_server.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/db_server/ise/main/ise.h

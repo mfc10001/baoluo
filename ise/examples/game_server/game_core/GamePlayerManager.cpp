@@ -51,12 +51,13 @@ uint32 TokenManager::Authentication(uint32 &uid,string &token)
 
 bool  GamePlayerManager::AddPlayer(GamePlayer *player)
 {
-	PlayerManagerMap::iterator it = m_player_manager_.find(uid);
+	PlayerManagerMap::iterator it = m_player_manager_.find(player->getUid());
 	if(it!=m_player_manager_.end())
 	{
 		return false;
 	}
 	m_player_manager_[player->getUid()]=player;
+	return true;
 }
 void GamePlayerManager::DelPlayer(uint32 uid)
 {

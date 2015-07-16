@@ -7,14 +7,14 @@ enum Protocol
 {
 	PROTOCOL_INVALID =1,
 	//inner msg  2-999
-
+	INNER_SAVE_DATA =100,
 
 
 
 	PROTOCOL_TOKEN_C=900,
 	//client msg
 
-	
+
 	PROTOCOL_AUTH_C=1000,
 	PROTOCOL_AUTH_S,
 
@@ -23,12 +23,12 @@ enum Protocol
 
 	PROTOCOL_ENTER_C,
 	PROTOCOL_ENTER_S,
-	
+
 	PROTOCOL_CHAR_LIST_C,
 	PROTOCOL_CHAR_LIST_S,
-	
-	
-	
+
+
+
 
 };
 

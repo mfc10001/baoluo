@@ -39,7 +39,7 @@ class TokenManager:public Singleton<TokenManager>
 class GamePlayerManager:public Singleton<GamePlayerManager>
 {
 	public:
-		void AddPlayer(GamePlayer *player);
+		bool AddPlayer(GamePlayer *player);
 		void DelPlayer(uint32 uid);
 
 		void SaveAll();

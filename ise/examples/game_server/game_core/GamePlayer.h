@@ -74,9 +74,9 @@ class GamePlayer
 		void  fillClientData(Json::Value &arrayObj);
 		void  fillDbData(Json::Value &arrayObj);
 	private:
-		uint16 uid;
+		uint32 uid;
 
-			
+
 		PlayerBaseAttr m_base_attr;
 		uint32 m_base_data[PlayerAttr_Max];
 
