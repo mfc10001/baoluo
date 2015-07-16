@@ -234,6 +234,19 @@ main_server/fast:
 	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/build
 .PHONY : main_server/fast
 
+#=============================================================================
+# Target rules for targets named login_server
+
+# Build rule for target.
+login_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 login_server
+.PHONY : login_server
+
+# fast build rule for target.
+login_server/fast:
+	$(MAKE) -f examples/login_server/CMakeFiles/login_server.dir/build.make examples/login_server/CMakeFiles/login_server.dir/build
+.PHONY : login_server/fast
+
 home/ll/baoluo/ise/ise/main/ise_application.o: home/ll/baoluo/ise/ise/main/ise_application.cpp.o
 .PHONY : home/ll/baoluo/ise/ise/main/ise_application.o
 
@@ -733,6 +746,7 @@ help:
 	@echo "... ise_utils_xml"
 	@echo "... db_server"
 	@echo "... main_server"
+	@echo "... login_server"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.o"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.i"
 	@echo "... home/ll/baoluo/ise/ise/main/ise_application.s"
