@@ -179,7 +179,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	}
 
     logger().writeFmt("Received message: %s", msg.c_str());
-    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
+  
 }
 
 //-----------------------------------------------------------------------------
@@ -188,6 +188,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
 {
     logger().writeStr("onTcpSendComplete");
+	connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 
    // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT, RECV_TIMEOUT);
      //connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);

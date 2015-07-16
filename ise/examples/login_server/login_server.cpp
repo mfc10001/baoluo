@@ -277,6 +277,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 			{
 				rNo = PROTOCOL_SERVER_ADDR_S;
 				uint32 id = arrayObj["ID"].asUInt();
+				uint32 AID = arrayObj["AID"].asUInt();
 				map<uint32 ,sevreinfo> ::iterator it=server_manager_.find(id);
 				if(it==server_manager_.end())
 				{
@@ -286,6 +287,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 
 					{
 						Json::Value rValueg,rDatag;
+						rDatag["AID"]=AID;
 						rDatag["token"]="1111";
 						rValueg["code"]=err;
 						rValueg["type"]=rNo;

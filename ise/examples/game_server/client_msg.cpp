@@ -16,22 +16,19 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	{
 		case PROTOCOL_TOKEN_C:
             {
-                string account = arrayObj["account"].asString();
-                int n = atoi(account.c_str());
-                uint32 m=uint32(n);
+                uint32 aid = arrayObj["AID"].asUInt();
+
                 string token=arrayObj["token"].asString();
-                TokenManager::instance().AddToken(m,token);
+                TokenManager::instance().AddToken(aid,token);
+				return;
             }
 			return true;
 		case PROTOCOL_AUTH_C:
             {
-                string account = arrayObj["account"].asString();
-                int n = atoi(account.c_str());
-
+                uint32 aid = arrayObj["AID"].asUInt();
                 string token=arrayObj["token"].asString();
-                uint32 uid=arrayObj["uid"].asUInt();
-
-                err= TokenManager::instance().Authentication( uid,token);
+                //uint32 uid=arrayObj["uid"].asUInt();
+                err= TokenManager::instance().Authentication( aid,token);
                 rNo=PROTOCOL_AUTH_S;
                 break;
             }

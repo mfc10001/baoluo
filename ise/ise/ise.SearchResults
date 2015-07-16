@@ -1,31 +1,24 @@
----- tcpClient_ Matches (30 in 5 files) ----
-Ise_http.cpp (main):        tcpClient_.disconnect();
-Ise_http.cpp (main):    lastKeepAlive_ = tcpClient_.isConnected() && response_.getKeepAlive();
-Ise_http.cpp (main):        tcpClient_.disconnect();
-Ise_http.cpp (main):    return tcpClient_.getConnection().recvBuffer(buffer, size, true, timeoutMSecs);
-Ise_http.cpp (main):        tcpClient_.disconnect();
-Ise_http.cpp (main):    if (tcpClient_.isConnected())
-Ise_http.cpp (main):        if (tcpClient_.getConnection().getPeerAddr() != inetAddr)
-Ise_http.cpp (main):            tcpClient_.disconnect();
-Ise_http.cpp (main):    if (!tcpClient_.isConnected())
-Ise_http.cpp (main):        int state = tcpClient_.asyncConnect(ipToString(inetAddr.ip),
-Ise_http.cpp (main):    if (tcpClient_.isConnected())
-Ise_http.cpp (main):        SOCKET handle = tcpClient_.getConnection().getSocket().getHandle();
-Ise_http.cpp (main):    int r = tcpClient_.getConnection().sendBuffer(buffer.data(), buffer.getSize(),
-Ise_http.cpp (main):            int r = tcpClient_.getConnection().sendBuffer(buffer.data(), readSize,
-Ise_http.cpp (main):            int r = tcpClient_.getConnection().recvBuffer(&ch, sizeof(ch), true, remainTimeout);
-Ise_http.cpp (main):                int recvSize = tcpClient_.getConnection().recvBuffer(buffer.data(),
-Ise_http.cpp (main):        int r = tcpClient_.getConnection().recvBuffer(&ch, sizeof(ch), true, remainTimeout);
-Ise_http.cpp (main):        int recvSize = tcpClient_.getConnection().recvBuffer(
-Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    bool isConnected() { return tcpClient_.isConnected(); }
-Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    HttpTcpClient& getTcpClient() { return tcpClient_; }
-Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    HttpTcpClient tcpClient_;
-Ise_http.h (main):    bool isConnected() { return tcpClient_.isConnected(); }
-Ise_http.h (main):    HttpTcpClient& getTcpClient() { return tcpClient_; }
-Ise_http.h (main):    HttpTcpClient tcpClient_;
-Main_server.cpp (e:\baoluo\ise\examples\game_server):   		tcpClient_.reset(new TcpClient());
+---- connect Matches (23 in 17 files) ----
+Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    iseApp().tcpConnector().connect(InetAddress(ip, port),
+Chargen_client.cpp (e:\baoluo\ise\examples\chargen_client):    logger().writeFmt("connect to %s %s.", peerAddr.getDisplayStr().c_str(), success? "successfully" : "failed");
+Ise_database.cpp (main):        connect();
+Ise_database.cpp (main):void DbConnection::connect()
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    void connect();
+Ise_database.h (main):    void connect();
+Ise_dbi_mysql.cpp (ext\dbi\mysql):const char* const SEM_MYSQL_CONNECTING            = "Try to connect MySQL server... (%p)";
+Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):const int HTTP_TCP_CONNECT_TIMEOUT         = 1000*30;     // TCP connect timeout (ms).
+Ise_http.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    int tcpConnectTimeout;                // TCP connect timeout (ms).
+Ise_http.h (main):const int HTTP_TCP_CONNECT_TIMEOUT         = 1000*30;     // TCP connect timeout (ms).
+Ise_http.h (main):    int tcpConnectTimeout;                // TCP connect timeout (ms).
+Ise_server_tcp.cpp (main):void TcpConnector::connect(const InetAddress& peerAddr,
+Ise_server_tcp.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    void connect(const InetAddress& peerAddr,
+Ise_server_tcp.h (main):    void connect(const InetAddress& peerAddr,
+Ise_socket.cpp (main):void BaseTcpClient::connect(const string& ip, int port)
+Ise_socket.cpp (main):            if (::connect(socket.getHandle(), (struct sockaddr*)&addr, sizeof(addr)) < 0)
+Ise_socket.cpp (main):            int r = ::connect(socket.getHandle(), (struct sockaddr*)&addr, sizeof(addr));
+Ise_socket.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    void connect(const string& ip, int port);
+Ise_socket.h (main):    void connect(const string& ip, int port);
+Login_server.cpp (e:\baoluo\ise\examples\login_server):				tcpClient_->connect(pinfo.addr.c_str(),pinfo.port);
 Main_server.cpp (e:\baoluo\ise\examples\game_server):		tcpClient_->connect("127.0.0.1",22306);
-Main_server.cpp (e:\baoluo\ise\examples\game_server):            if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
-Main_server.cpp (e:\baoluo\ise\examples\game_server):            int recvBytes = tcpClient_->getConnection().recvBaseBuff(revbuff, MAX_REV_BUFF);
-Main_server.cpp (e:\baoluo\ise\examples\game_server):	tcpClient_
-Main_server.h (e:\baoluo\ise\examples\game_server):	static boost::scoped_ptr<TcpClient> tcpClient_;
+Mysql.h (ext\dbi\mysql\depend\include):   On connect, find out the replication role of the server, and
+Mysql_com.h (ext\dbi\mysql\depend\include):#define CLIENT_CONNECT_WITH_DB	8	/* One can specify db on connect */
