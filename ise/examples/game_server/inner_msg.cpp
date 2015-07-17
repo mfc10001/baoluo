@@ -46,6 +46,7 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				player=new GamePlayer();
 				player->init(arrayObj);
 				GamePlayerManager::instance().AddPlayer(player);
+				ConnetManager::instance().add(connection.getSocket().getHandle(),player->getUid());
 				player->fillClientData(rData);
 				err=ERR_SUCCESS;
 			}

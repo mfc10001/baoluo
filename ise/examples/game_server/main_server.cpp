@@ -343,6 +343,16 @@ void  ConnetManager::add(const TcpConnectionPtr& con)
 	}
 	m_cid_manager[handler]=addr;
 }
+void  ConnetManager::add(uint32 con,uint32 uid)
+{
+    ConnetCidMap::iterator it=m_cid_manager.find(con);
+	if(it==m_cid_manager.end())
+	{
+		return;
+	}
+    m_cid_con[con]=uid;
+}
+
 
 void ConnetManager::del(const TcpConnectionPtr& con)
 {
@@ -354,6 +364,13 @@ void ConnetManager::del(const TcpConnectionPtr& con)
 		return ;
 	}
     m_cid_manager.erase(it);
+
+    CidMap::iterator ip=m_cid_con.find(handler);
+    if(ip==m_cid_con.end())
+    {
+        return ;
+    }
+    GamePlayerManager::instance().DelPlayer((*ip).second);
 }
 
 uint64 ConnetManager::makeCid()

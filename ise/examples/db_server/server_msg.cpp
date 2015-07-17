@@ -131,7 +131,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
                 {
                     return false;
                 }
-				rNo=PROTOCOL_ENTER_C;
+				rNo=PROTOCOL_CHAR_LIST_C;
 				rData["cid"]=arrayObj["cid"];
 				uint32 aid = arrayObj["AID"].asUInt();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
