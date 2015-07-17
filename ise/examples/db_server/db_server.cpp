@@ -22,7 +22,8 @@ void AppBusiness::initialize()
         param->setPassword("123456");
         param->setDbName("baoluo_zs");
         param->setPort(3306);
-
+        DbOptions *op = m_db_conn ->getDbOptions();
+        op->setInitialCharSet("utf-8");
         MySqlConnection *dbconn = static_cast<MySqlConnection *> (m_db_conn->createDbConnection());
         dbconn->doConnect();
 	}
