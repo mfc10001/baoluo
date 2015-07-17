@@ -14,6 +14,7 @@ bool TokenManager::IsExist(uint32 aid)
 
 void TokenManager::AddToken(uint32 aid,string token)
 {
+
 	if(!IsExist(aid))
 	{
 		TokenInfo *ptr=new TokenInfo();
@@ -23,6 +24,13 @@ void TokenManager::AddToken(uint32 aid,string token)
 		memcpy(ptr->token,token.c_str(),token.length());
 		ptr->valid_time=Timestamp::now()+TOKEN_MAX_VALID_TIME;
 		m_token_manager_[aid]=ptr;
+	}
+	else
+	{
+        ToeknManagerMap::iterator it=m_token_manager_.find(aid);
+        memset((*it).second->token,0,TOKEN_LEN);
+        memcpy((*it).second->token,token.c_str(),token.length());
+        (*it).second->valid_time=Timestamp::now()+TOKEN_MAX_VALID_TIME;;
 	}
 }
 void TokenManager::DelToken(uint32 aid )

@@ -7,13 +7,14 @@
 class GamePlayer;
 const uint16 TOKEN_LEN=48;
 const uint32 TOKEN_MAX_VALID_TIME=600000;
+
 struct TokenInfo
 {
 	TokenInfo(){memset(this,0,sizeof(TokenInfo));}
     uint32 aid;
 	uint32 uid;
 	//string token;
-    char token[50];
+    char token[TOKEN_LEN];
 	Timestamp valid_time;
 };
 
