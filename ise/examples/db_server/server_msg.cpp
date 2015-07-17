@@ -137,17 +137,19 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 				sprintf(buff,"select *  from bl_user where AID=%u",aid);
                 query->setSql(buff);
+
+                MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
 				{
 					err=ERR_SUCCESS;
 					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
 					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
 					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
-					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));					
+					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));
 					rData["uid"]=uid->asInteger();
 					rData["name"]=name->asString();
 					rData["role"]=role->asInteger();
-					rData["level"]=level->asInteger();	
+					rData["level"]=level->asInteger();
 				}
 			}
 			break;
