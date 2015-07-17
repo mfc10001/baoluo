@@ -105,7 +105,7 @@ void GamePlayer::init(Json::Value &arrayObj)
 {
 	uid = arrayObj["uid"].asUInt();
 	string namestr = arrayObj["name"].asString();
-	memcpy(m_base_attr.name,namestr.c_str(),namestr.length()+1);
+	memcpy(m_base_attr.name,namestr.c_str(),namestr.length());
 
 	m_base_attr.role = arrayObj["role"].asUInt();
 	m_base_attr.level = arrayObj["level"].asUInt();
@@ -114,6 +114,7 @@ void GamePlayer::init(Json::Value &arrayObj)
 	if(arrayObj["initFlag"]==0)
 	{
 		createChar();
+		return;
 	}
 
 

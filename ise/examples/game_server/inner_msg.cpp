@@ -24,13 +24,6 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				{
 					break;
 				}
-/*
-				uint32 uid = arrayObj["uid"].asUInt();
-	            uint32 role = arrayObj["role"].asUInt();
-				GamePlayer *player=new GamePlayer();
-	            player->createChar(uid,role);
-	            GamePlayerManager::instance().AddPlayer(player);
- */
 				err=ERR_SUCCESS;
 
 			}
@@ -56,6 +49,7 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				player->fillClientData(rData);
 				err=ERR_SUCCESS;
 			}
+			break;
 		default:
 			return false;
 	}

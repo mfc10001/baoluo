@@ -28,7 +28,11 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
                 uint32 aid = arrayObj["AID"].asUInt();
                 string token=arrayObj["token"].asString();
                 //uint32 uid=arrayObj["uid"].asUInt();
-                err= TokenManager::instance().Authentication( aid,token);
+                err= TokenManager::instance().Authentication(aid,token);
+                if(err==ERR_SUCCESS)
+                {
+                    ConnetManager::instance().add(connection);
+                }
                 rNo=PROTOCOL_AUTH_S;
                 break;
             }

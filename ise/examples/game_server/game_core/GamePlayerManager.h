@@ -6,13 +6,14 @@
 
 class GamePlayer;
 const uint16 TOKEN_LEN=48;
-const uint16 TOKEN_MAX_VALID_TIME=3600;
+const uint32 TOKEN_MAX_VALID_TIME=600000;
 struct TokenInfo
 {
 	TokenInfo(){memset(this,0,sizeof(TokenInfo));}
-
+    uint32 aid;
 	uint32 uid;
-	string token;
+	//string token;
+    char token[50];
 	Timestamp valid_time;
 };
 
@@ -21,13 +22,13 @@ class TokenManager:public Singleton<TokenManager>
 {
 	public:
 
-		void AddToken(uint32 &uid,string &token);
+		void AddToken(uint32 aid,string token);
 
-		void DelToken(uint32 uid );
+		void DelToken(uint32 aid );
 
-		bool IsExist(uint32 uid);
+		bool IsExist(uint32 aid);
 
-		uint32 Authentication(uint32 &uid,string &token);
+		uint32 Authentication(uint32 &aid,string &token);
 
 	private:
 		typedef map<uint32 ,TokenInfo*> ToeknManagerMap;

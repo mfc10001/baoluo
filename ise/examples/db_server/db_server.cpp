@@ -53,7 +53,7 @@ connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Context& context)
 {
     //connection->disconnect();
-    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
+   // connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
 void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * packetBuffer,int packetSize,const Context & context)
@@ -73,6 +73,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 			msgProcess(connection,n,value["data"]);
 		}
 	}
+    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 void AppBusiness::save(Json::Value &arrayObj)
 {

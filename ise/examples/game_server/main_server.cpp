@@ -108,7 +108,7 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
     //string msg = "Welcome to the simple echo server, type 'quit' to exit.\r\n";
 
-	ConnetManager::instance().add(connection);
+	//ConnetManager::instance().add(connection);
 
     connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
@@ -156,20 +156,6 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 			value["data"]["cid"]=connection.get()->getSocket().getHandle();
 
 			sendToDb(value);
-			/*
-			string rstr = value.toStyledString();
-			char buff[MAX_SEND_BUFF];
-			memset(buff,0,MAX_SEND_BUFF);
-			uint16 len=rstr.length()+2;
-			memcpy(buff,&len,sizeof(uint16));
-			memcpy(buff+2,rstr.c_str(),rstr.length());
-
-            if(tcpClient_->getConnection().sendBaseBuff(buff,len)<=0)
-            {
-				 logger().writeFmt("forward message falid : %s", msg.c_str());
-			}
-			*/
-
 		}
 		else
 		{
@@ -179,7 +165,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr& connection, void *pa
 	}
 
     logger().writeFmt("Received message: %s", msg.c_str());
-  
+    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
 
 //-----------------------------------------------------------------------------

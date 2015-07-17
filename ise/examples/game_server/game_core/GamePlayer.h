@@ -36,6 +36,10 @@ enum PlayerAttr
 
 struct PlayerBaseAttr
 {
+    PlayerBaseAttr()
+    {
+        memset(this,0,sizeof(*this));
+    }
 	char name[MAX_NAME_SIZE];
 	uint32 role;
 	uint8 init_flag;

@@ -47,8 +47,7 @@ public:
 	bool msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj);
 	virtual void assistorThreadExecute(AssistorThread& assistorThread, int assistorIndex);
 
-private:
-    void initMessage();
+
 private:
     string message_;
     UINT64 transferredBytes_;

@@ -14,9 +14,14 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	{
 		case PROTOCOL_CREATE_CHAR_C:
             {
+                if(!arrayObj.isMember("AID")&&!arrayObj.isMember("role")&&!arrayObj.isMember("cid"))
+                {
+                    return false;
+                }
 				rNo=PROTOCOL_CREATE_CHAR_C;
 			    uint32 aid = arrayObj["AID"].asUInt();
                 uint32 role = arrayObj["role"].asUInt();
+                string name = arrayObj["name"].asString();
                 rData["cid"]=arrayObj["cid"];
 				rData["role"]=arrayObj["role"];
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
@@ -35,7 +40,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					res = NULL;
 
 					memset(buff,0,BUFFLEN);
-					sprintf(buff,"insert into bl_user (AID,role) values (%u,%u);  ",aid,role);
+					sprintf(buff,"insert into bl_user (AID,role,name) values (%u,%u,'%s');  ",aid,role,name.c_str());
 					query->setSql(buff);
 
 					try
@@ -61,6 +66,10 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 
 		case PROTOCOL_ENTER_C:
 			{
+                if(!arrayObj.isMember("AID")&&!arrayObj.isMember("cid"))
+                {
+                    return false;
+                }
 				rNo=PROTOCOL_ENTER_C;
 				rData["cid"]=arrayObj["cid"];
 				uint32 aid = arrayObj["AID"].asUInt();
@@ -102,12 +111,15 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
                     }
 					rData["uid"]=uid->asInteger();
 					rData["name"]=name->asString();
-					rData["role"]=uid->asInteger();
+					rData["role"]=role->asInteger();
+					rData["level"]=level->asInteger();
+					rData["exp"]=exp->asInteger();
                     rData["initFlag"]=initflag->asInteger();
 
 				}
 
 			}
+			break;
 		case INNER_SAVE_DATA:
 			{
 				save(arrayObj);

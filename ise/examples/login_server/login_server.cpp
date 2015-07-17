@@ -15,23 +15,12 @@ IseBusiness* createIseBusinessObject()
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void AppBusiness::initMessage()
-{
-    string line;
-    for (int i = 33; i < 127; ++i)
-        line.push_back(char(i));
-    line += line;
 
-    message_.clear();
-    for (size_t i = 0; i < 127-33; ++i)
-        message_ += line.substr(i, 72) + '\n';
-}
 
 //-----------------------------------------------------------------------------
 
 void AppBusiness::initialize()
 {
-    initMessage();
     transferredBytes_ = 0;
 
 	try
@@ -131,8 +120,9 @@ void AppBusiness::onTcpConnected(const TcpConnectionPtr& connection)
 
     connection->setNoDelay(true);
 
-    connection->recv();
-    connection->send(message_.c_str(), message_.length());
+    connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
+   // connection->recv();
+   // connection->send(message_.c_str(), message_.length());
 }
 
 //-----------------------------------------------------------------------------
@@ -189,11 +179,11 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	{
 		case PROTOCOL_REGISTER_C:
             {
-				rNo =PROTOCOL_SERVER_ADDR_C;
+				rNo =PROTOCOL_REGISTER_S;
 				string PassportID = arrayObj["PassportID"].asString();
-                string PassporPwd = arrayObj["PassporPwd"].asString();
+                string PassporPwd = arrayObj["PassportPwd"].asString();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
-				sprintf(buff,"select count(*) as num from snsuserinfo where PassportID=%s",PassportID.c_str());
+				sprintf(buff,"select count(*) as num from snsuserinfo where PassportID='%s'",PassportID.c_str());
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
@@ -225,19 +215,19 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					}
 				}
             }
-			return true;
+			break;
 		case PROTOCOL_LOGIN_C:
             {
-				rNo =PROTOCOL_SERVER_ADDR_S;
+				rNo =PROTOCOL_LOGIN_S;
 				string PassportID = arrayObj["PassportID"].asString();
-                string PassporPwd = arrayObj["PassporPwd"].asString();
+                string PassporPwd = arrayObj["PassportPwd"].asString();
 				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 				sprintf(buff,"select AID,PassportPwd from snsuserinfo where PassportID='%s'",PassportID.c_str());
                 query->setSql(buff);
                 MySqlDataSet *res=static_cast<MySqlDataSet *>(query->query());
 				if(!res->isEmpty() && res->next())
 				{
-					MySqlField* pwd = static_cast<MySqlField *> (res->getFields("PassporPwd"));
+					MySqlField* pwd = static_cast<MySqlField *> (res->getFields("PassportPwd"));
 					if(strcmp(PassporPwd.c_str(),pwd->asString().c_str())==0)
 					{
 						err=ERR_SUCCESS;
@@ -254,19 +244,21 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					err=ERR_UNREGISTER;
 				}
 
-
-                rNo=PROTOCOL_AUTH_S;
-
             }
 			break;
 		case PROTOCOL_SERVERLIST_C:
 			{
 				for(map<uint32 ,sevreinfo> ::iterator it =server_manager_.begin();it!=server_manager_.end();it++)
 				{
-					rData["ID"]=(*it).second.sid;
-					//rData["addr"]=(*it).second.addr;
-					//rData["port"]=(*it).second.port;
-					rData["name"]=(*it).second.name;
+
+                    Json::Value srv;
+                    srv["ID"]=(*it).second.sid;
+                    srv["name"]=(*it).second.name;
+
+                    sprintf(buff,"%u",(*it).second.sid);
+                    rData[buff]=srv;
+					//rData["ID"]=(*it).second.sid;
+					//rData["name"]=(*it).second.name;
 				}
 				rNo=PROTOCOL_SERVERLIST_S;
 				err=ERR_SUCCESS;
@@ -289,8 +281,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 						Json::Value rValueg,rDatag;
 						rDatag["AID"]=AID;
 						rDatag["token"]="1111";
-						rValueg["code"]=err;
-						rValueg["type"]=rNo;
+						rValueg["type"]=PROTOCOL_TOKEN_C;
 						rValueg["data"]=rDatag;
 						string strg = rValueg.toStyledString();
                         uint16 leng=strg.length()+2;
