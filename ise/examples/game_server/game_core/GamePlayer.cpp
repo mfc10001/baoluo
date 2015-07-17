@@ -133,6 +133,7 @@ void GamePlayer::init(Json::Value &arrayObj)
 void  GamePlayer::fillClientData(Json::Value &arrayObj)
 {
 	arrayObj["uid"]=uid;
+	arrayObj["name"]=m_base_attr.name;
 	arrayObj["role"]=m_base_attr.role;
 	arrayObj["level"]=m_base_attr.level;
 	arrayObj["exp"]=m_base_attr.exp;

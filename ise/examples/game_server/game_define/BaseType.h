@@ -9,7 +9,8 @@ using namespace std;
 #define bcopy(src,dst,size)	memcpy(dst,src,size);
 
 inline void bzero(void* Dest, int Count)
-{	
+{
+/*
 	__asm
 	{
 		mov		ecx, [Count]
@@ -22,6 +23,8 @@ inline void bzero(void* Dest, int Count)
 			mov     ecx, edx
 			rep     stosb
 	}
+	*/
+        memset(Dest,0,Count);
 }
 
 

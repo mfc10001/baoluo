@@ -54,13 +54,13 @@ struct ConfigPlayerData:public BaseConfig
 
 struct ItemDataEntry:public BaseConfig
 {
-	
-}
+
+};
 
 struct EquipDataEntry:public BaseConfig
 {
-	
-}
+
+};
 
 
 class ConfigManager:public Singleton<ConfigManager>

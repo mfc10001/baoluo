@@ -585,30 +585,30 @@ ise/main/ise_exceptions.h
 /home/ll/baoluo/ise/build/linux/../../ise/main/ise/main/ise_exceptions.h
 
 /home/ll/baoluo/ise/examples/game_server/bass_class/Entry.h
+ise/main/ise.h
+/home/ll/baoluo/ise/examples/game_server/bass_class/ise/main/ise.h
+../game_define/Protocol.h
+/home/ll/baoluo/ise/examples/game_server/game_define/Protocol.h
 
 /home/ll/baoluo/ise/examples/game_server/bass_class/Singleton.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/game_server/bass_class/ise/main/ise.h
-
-/home/ll/baoluo/ise/examples/game_server/client_msg.cpp
-main_server.h
-/home/ll/baoluo/ise/examples/game_server/main_server.h
-game_core/GamePlayer.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
-game_core/GamePlayerManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
-game_define/Protocol.h
-/home/ll/baoluo/ise/examples/game_server/game_define/Protocol.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/game_server/tools/CommonTools.h
-game_core/ConfigManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.h
 
 /home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.h
 ise/main/ise.h
 /home/ll/baoluo/ise/examples/game_server/game_core/ise/main/ise.h
 ../bass_class/Singleton.h
 /home/ll/baoluo/ise/examples/game_server/bass_class/Singleton.h
+
+/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp
+GamePlayer.h
+/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
+ConfigManager.h
+/home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.h
+../tools/CommonTools.h
+/home/ll/baoluo/ise/examples/game_server/tools/CommonTools.h
+../main_server.h
+/home/ll/baoluo/ise/examples/game_server/main_server.h
 
 /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
 ../bass_class/Entry.h
@@ -620,18 +620,6 @@ ise/main/ise.h
 ise/ext/utils/json/json.h
 /home/ll/baoluo/ise/examples/game_server/game_core/ise/ext/utils/json/json.h
 
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.cpp
-GamePlayerManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
-../game_define/Protocol.h
-/home/ll/baoluo/ise/examples/game_server/game_define/Protocol.h
-GamePlayer.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
-
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
-ise/main/ise.h
-/home/ll/baoluo/ise/examples/game_server/game_core/ise/main/ise.h
-
 /home/ll/baoluo/ise/examples/game_server/game_define/BaseType.h
 string
 -
@@ -641,30 +629,6 @@ map
 -
 set
 -
-
-/home/ll/baoluo/ise/examples/game_server/inner_msg.cpp
-main_server.h
-/home/ll/baoluo/ise/examples/game_server/main_server.h
-game_core/GamePlayer.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.h
-game_core/GamePlayerManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
-game_define/Protocol.h
-/home/ll/baoluo/ise/examples/game_server/game_define/Protocol.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/game_server/tools/CommonTools.h
-game_core/ConfigManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.h
-
-/home/ll/baoluo/ise/examples/game_server/main_server.cpp
-main_server.h
-/home/ll/baoluo/ise/examples/game_server/main_server.h
-game_core/ConfigManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.h
-tools/CommonTools.h
-/home/ll/baoluo/ise/examples/game_server/tools/CommonTools.h
-game_core/GamePlayerManager.h
-/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.h
 
 /home/ll/baoluo/ise/examples/game_server/main_server.h
 ise/main/ise.h

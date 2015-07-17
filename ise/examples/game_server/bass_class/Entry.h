@@ -1,23 +1,23 @@
 #include "ise/main/ise.h"
 
-
-struct Entry : private Noncopyable
+#include "../game_define/Protocol.h"
+struct Entry : private boost::noncopyable
 {
-	public: 
+	public:
 		union
 		{
 			uint32 id;
 			struct
 			{
-				uint16 wid1; 
-				uint16 wid2; 
+				uint16 wid1;
+				uint16 wid2;
 			};
 			struct
 			{
-				uint8 cid1; 
-				uint8 cid2; 
-				uint8 cid3; 
-				uint8 cid4; 
+				uint8 cid1;
+				uint8 cid2;
+				uint8 cid3;
+				uint8 cid4;
 			};
 		};
 		union
