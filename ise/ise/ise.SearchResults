@@ -1,25 +1,5 @@
----- Timer Matches (26 in 4 files) ----
-Ise_event_loop.cpp (main):    Timer *timer = new Timer(expiration, interval, callback);
-Ise_timer.cpp (main):// class Timer
-Ise_timer.cpp (main):SeqNumberAlloc Timer::s_timerIdAlloc(1);
-Ise_timer.cpp (main):Timer::Timer(Timestamp expiration, INT64 interval, const TimerCallback& callback) :
-Ise_timer.cpp (main):void Timer::invokeCallback()
-Ise_timer.cpp (main):void Timer::restart(Timestamp now)
-Ise_timer.cpp (main):void TimerQueue::addTimer(Timer *timer)
-Ise_timer.cpp (main):        Timer *timer = iter->second;
-Ise_timer.cpp (main):    std::vector<Timer*> expiredTimers;
-Ise_timer.cpp (main):    TimerItem timerItem(now, reinterpret_cast<Timer*>(std::numeric_limits<uintptr_t>::max()));
-Ise_timer.cpp (main):        Timer *timer = iter->second;
-Ise_timer.cpp (main):        Timer *timer = expiredTimers[i];
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):// class Timer
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):class Timer : boost::noncopyable
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    Timer(Timestamp expiration, INT64 interval, const TimerCallback& callback);
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    void addTimer(Timer *timer);
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    typedef std::pair<Timestamp, Timer*> TimerItem;
-Ise_timer.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    typedef std::map<TimerId, Timer*> TimerIdMap;
-Ise_timer.h (main):// class Timer
-Ise_timer.h (main):class Timer : boost::noncopyable
-Ise_timer.h (main):    Timer(Timestamp expiration, INT64 interval, const TimerCallback& callback);
-Ise_timer.h (main):    void addTimer(Timer *timer);
-Ise_timer.h (main):    typedef std::pair<Timestamp, Timer*> TimerItem;
-Ise_timer.h (main):    typedef std::map<TimerId, Timer*> TimerIdMap;
+---- ERR_EXIST_ROLE Matches (4 in 4 files) ----
+Protocol.h (e:\baoluo\ise\examples\db_server\game_define):	ERR_EXIST_ROLE,
+Protocol.h (e:\baoluo\ise\examples\game_server\game_define):	ERR_EXIST_ROLE,//已经存在角色
+Protocol.h (e:\baoluo\ise\examples\login_server):	ERR_EXIST_ROLE,
+Server_msg.cpp (e:\baoluo\ise\examples\db_server):					err=ERR_EXIST_ROLE;

@@ -52,6 +52,17 @@ struct ConfigPlayerData:public BaseConfig
     uint32 getIndex(){return id;};
 };
 
+struct ItemDataEntry:public BaseConfig
+{
+	
+}
+
+struct EquipDataEntry:public BaseConfig
+{
+	
+}
+
+
 class ConfigManager:public Singleton<ConfigManager>
 {
 	public:

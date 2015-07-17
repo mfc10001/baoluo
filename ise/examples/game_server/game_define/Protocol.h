@@ -47,21 +47,21 @@ enum Protocol
 enum ErrCode
 {
 	ERR_SUCCESS=0,
-	ERR_INNER=1,
+	ERR_INNER=1,//内部错误
 	//login
-	ERR_PWD=3,
-	ERR_UNREGISTER=4,
-	ERR_NONE_SERVER=5,
+	ERR_PWD=3,//密码错误
+	ERR_UNREGISTER=4,//未注册
+	ERR_NONE_SERVER=5,//没有找到酚蜗服务器地址
 
     //game
-	ERR_TOKEN_INVALID=20,
-	ERR_TOKEN_TIME,
-	ERR_EXIST_ROLE,
-	ERR_TOKEN_NULL,
-	ERR_EXIST_AL_LOGIN,
+	ERR_TOKEN_INVALID=20,//无效token
+	ERR_TOKEN_TIME,//token过期
+	ERR_EXIST_ROLE,//已经存在角色
+	ERR_TOKEN_NULL,//没有找到token
+	ERR_EXIST_AL_LOGIN,//已经登陆
 
 
-	ERR_CHAR_EXIST=30
+	ERR_CHAR_EXIST=30//角色
 };
 
 
