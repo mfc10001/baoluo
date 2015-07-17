@@ -50,6 +50,16 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				err=ERR_SUCCESS;
 			}
 			break;
+		case PROTOCOL_CHAR_LIST_C:
+			{
+				rNo=PROTOCOL_CHAR_LIST_S;
+				rData["uid"]=arrayObj["uid"];
+				rData["name"]=arrayObj["name"];
+				rData["role"]=arrayObj["role"];
+				rData["level"]=arrayObj["level"];
+				err=ERR_SUCCESS;
+			}
+			break;
 		default:
 			return false;
 	}

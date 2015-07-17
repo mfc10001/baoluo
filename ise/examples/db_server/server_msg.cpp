@@ -125,6 +125,32 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				save(arrayObj);
 				return true;
 			}
+		case PROTOCOL_CHAR_LIST_C:
+			{
+                if(!arrayObj.isMember("AID")&&!arrayObj.isMember("cid"))
+                {
+                    return false;
+                }
+				rNo=PROTOCOL_ENTER_C;
+				rData["cid"]=arrayObj["cid"];
+				uint32 aid = arrayObj["AID"].asUInt();
+				MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
+				sprintf(buff,"select *  from bl_user where AID=%u",aid);
+                query->setSql(buff);
+				if(!res->isEmpty() && res->next())
+				{
+					err=ERR_SUCCESS;
+					MySqlField* uid = static_cast<MySqlField *> (res->getFields("uid"));
+					MySqlField* name = static_cast<MySqlField *> (res->getFields("name"));
+					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
+					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));					
+					rData["uid"]=uid->asInteger();
+					rData["name"]=name->asString();
+					rData["role"]=role->asInteger();
+					rData["level"]=level->asInteger();	
+				}
+			}
+			break;
         default:
                 return false;
 
