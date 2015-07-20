@@ -3,10 +3,10 @@
 class GamePlayerPackages
 {
 
-
+	
 
 	typedef ZQGame::vector<GameItem*> ItemVec;
-
+	
 	
 
 	typedef ZQGame::map<uint32, GameItem*> PackItemMap;

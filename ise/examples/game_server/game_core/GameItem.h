@@ -5,4 +5,5 @@ class GameItem:public Entry
 {
 	
 	ItemData m_data;
+	const ItemDataEntry *m_base_data;
 }

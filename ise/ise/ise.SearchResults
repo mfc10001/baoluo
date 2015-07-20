@@ -1,5 +1,23 @@
----- ERR_EXIST_ROLE Matches (4 in 4 files) ----
-Protocol.h (e:\baoluo\ise\examples\db_server\game_define):	ERR_EXIST_ROLE,
-Protocol.h (e:\baoluo\ise\examples\game_server\game_define):	ERR_EXIST_ROLE,//已经存在角色
-Protocol.h (e:\baoluo\ise\examples\login_server):	ERR_EXIST_ROLE,
-Server_msg.cpp (e:\baoluo\ise\examples\db_server):					err=ERR_EXIST_ROLE;
+---- DbOptions Matches (24 in 3 files) ----
+Ise_database.cpp (main):// class DbOptions
+Ise_database.cpp (main):DbOptions::DbOptions()
+Ise_database.cpp (main):void DbOptions::setMaxDbConnections(int value)
+Ise_database.cpp (main):void DbOptions::setInitialSqlCmd(const string& value)
+Ise_database.cpp (main):void DbOptions::setInitialCharSet(const string& value)
+Ise_database.cpp (main):DbOptions* Database::getDbOptions()
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main)://   * DbOptions             - 数据库配置参数类
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):class DbOptions;
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):// class DbOptions - 数据库配置参数类
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):class DbOptions
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    DbOptions();
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    virtual DbOptions* createDbOptions() { return new DbOptions(); }
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    DbOptions* getDbOptions();
+Ise_database.h (e:\baoluo\ise\build\linux\debug-install\include\ise\main):    DbOptions *dbOptions_;                   // 数据库配置参数
+Ise_database.h (main)://   * DbOptions             - 数据库配置参数类
+Ise_database.h (main):class DbOptions;
+Ise_database.h (main):// class DbOptions - 数据库配置参数类
+Ise_database.h (main):class DbOptions
+Ise_database.h (main):    DbOptions();
+Ise_database.h (main):    virtual DbOptions* createDbOptions() { return new DbOptions(); }
+Ise_database.h (main):    DbOptions* getDbOptions();
+Ise_database.h (main):    DbOptions *dbOptions_;                   // 数据库配置参数
