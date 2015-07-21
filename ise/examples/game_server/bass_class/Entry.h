@@ -47,3 +47,6 @@ struct Entry : private boost::noncopyable
 		bool trace(const char * pattern, ...) const __attribute__((format(printf,2,3)));
 };
 
+
+
+

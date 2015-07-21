@@ -18,7 +18,7 @@ enum ConfigFile
 	ConfigFileLevel=1,
 };
 
-struct ConfigLevelData:public BaseConfig
+struct LevelDataEntry:public Entry
 {
 	uint32 id;
 	uint32 level;
@@ -28,7 +28,7 @@ struct ConfigLevelData:public BaseConfig
 
 
 
-struct ConfigPlayerData:public BaseConfig
+struct PlayerDataEntry:public Entry
 {
 	uint32 id;
 	uint16 physicsAttack;
@@ -52,14 +52,38 @@ struct ConfigPlayerData:public BaseConfig
     uint32 getIndex(){return id;};
 };
 
-struct ItemDataEntry:public BaseConfig
+struct ItemDataEntry:public Entry
 {
-
+	uint32 itemid;
+	char   name[MAX_NAMESIZE];
+	uint8 quality;
+	uint8 type;
+	uint16 level;
+	uint8 use_type;
+	uint16 effect;
+	uint32 cd;
+	uint32 add_max;
 };
 
-struct EquipDataEntry:public BaseConfig
+struct EquipDataEntry:public Entry
 {
-
+	uint32 itemid;
+	char   name[MAX_NAMESIZE];	
+	uint8 profession;
+	uint8 part;	
+	uint16 grade;
+	uint8 quality;
+	uint32 icon;
+	uint16 physicsAttack;
+	uint16 magicAttack;
+	uint16 n_barmor;
+	uint16 bresistance;
+	uint32 hp;
+	uint32 hit;
+	uint16 dodge;
+	uint16 n_crit;
+	uint16 n_opposeCrit;
+	
 };
 
 
@@ -75,11 +99,14 @@ class ConfigManager:public Singleton<ConfigManager>
 
 
 	private:
-		typedef map<uint32,  ConfigLevelData*> configLevelType;
+		typedef map<uint32,  LevelDataEntry*> configLevelType;
 		configLevelType configLevelManager;
 
-		typedef map<uint32,  ConfigPlayerData*> configPlayerType;
+		typedef map<uint32,  PlayerDataEntry*> configPlayerType;
 		configPlayerType configPlayerManager;
+
+	
+
 
     friend class Singleton<ConfigManager>;
 };

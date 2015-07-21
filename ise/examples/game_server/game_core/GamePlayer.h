@@ -5,54 +5,12 @@
 #include "ise/main/ise.h"
 #include "../game_define/Protocol.h"
 #include "ise/ext/utils/json/json.h"
-
-
-#define MAX_NAME_SIZE 50
-enum PlayerAttr
-{
-	PlayerAttr_physicsAttack=0,
-	PlayerAttr_magicAttack,
-	PlayerAttr_barmor,
-	PlayerAttr_bresistance,
-	PlayerAttr_hp,
-	PlayerAttr_hit,
-	PlayerAttr_dodge,
-	PlayerAttr_crit,
-	PlayerAttr_opposeCrit,
-	PlayerAttr_physicsAttackz,
-	PlayerAttr_magicAttackz,
-	PlayerAttr_barmorz,
-	PlayerAttr_bresistancez,
-	PlayerAttr_hpz,
-	PlayerAttr_hitz,
-	PlayerAttr_dodgez,
-	PlayerAttr_critz,
-	PlayerAttr_opposeCritz,
+#include "GamePackage.h"
+#include "../game_define/EntryBase.h"
 
 
 
-	PlayerAttr_Max=48
-};
-
-struct PlayerBaseAttr
-{
-    PlayerBaseAttr()
-    {
-        memset(this,0,sizeof(*this));
-    }
-	char name[MAX_NAME_SIZE];
-	uint32 role;
-	uint8 init_flag;
-
-	uint16 level;
-	uint32 exp;
-
-};
-
-typedef boost::function<void ()> PlayerLevelHandlerCallback;
-
-
-class GamePlayer
+class GamePlayer:GameEntry
 {
 	public:
 		GamePlayer();
@@ -81,8 +39,10 @@ class GamePlayer
 		uint32 uid;
 
 
-		PlayerBaseAttr m_base_attr;
+		
 		uint32 m_base_data[PlayerAttr_Max];
+
+		GamePlayerPackages m_pack_manager;
 
 
 };

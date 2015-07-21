@@ -33,6 +33,49 @@ typedef vector<string> StrContaonType;
 typedef vector<string>::iterator StrContaonTypeItr;
 
 
+#define CheckCondition(cond, ret)\
+	do{\
+		if(!(cond))	\
+		return (ret); \
+	}while(0)
+
+#define CheckConditionVoid(cond)\
+	do{\
+		if(!(cond))	\
+		return; \
+	}while(0)
+
+#define LogCheckCondition(cond, ret, msg, ...)\
+	do{\
+		if(!(cond)){\
+			ERROR(msg, ##__VA_ARGS__);\
+			return (ret);\
+		}\
+	}while(0)
+
+#define LogCheckConditionVoid(cond, msg, ...)\
+	do{\
+		if(!(cond)){\
+			ERROR(msg, ##__VA_ARGS__);\
+			return;\
+		}\
+	}while(0)
+
+#ifndef DELETE_VALUE
+#define DELETE_VALUE(x) \
+			do{  \
+				delete (x); \
+				(x) = NULL; \
+			}while(0) 
+#endif
+		
+#ifndef DELETE_ARRAY
+#define DELETE_ARRAY(x) \
+			do{ \
+				delete [] (x); \
+				(x) = NULL; \
+			}while(0)
+#endif
 
 
 #endif
