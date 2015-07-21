@@ -205,6 +205,102 @@ game_core/ConfigManager.cpp.s:
 	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.s
 .PHONY : game_core/ConfigManager.cpp.s
 
+game_core/GameItem.o: game_core/GameItem.cpp.o
+.PHONY : game_core/GameItem.o
+
+# target to build an object file
+game_core/GameItem.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o
+.PHONY : game_core/GameItem.cpp.o
+
+game_core/GameItem.i: game_core/GameItem.cpp.i
+.PHONY : game_core/GameItem.i
+
+# target to preprocess a source file
+game_core/GameItem.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.i
+.PHONY : game_core/GameItem.cpp.i
+
+game_core/GameItem.s: game_core/GameItem.cpp.s
+.PHONY : game_core/GameItem.s
+
+# target to generate assembly for a file
+game_core/GameItem.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.s
+.PHONY : game_core/GameItem.cpp.s
+
+game_core/GameItemManager.o: game_core/GameItemManager.cpp.o
+.PHONY : game_core/GameItemManager.o
+
+# target to build an object file
+game_core/GameItemManager.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o
+.PHONY : game_core/GameItemManager.cpp.o
+
+game_core/GameItemManager.i: game_core/GameItemManager.cpp.i
+.PHONY : game_core/GameItemManager.i
+
+# target to preprocess a source file
+game_core/GameItemManager.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.i
+.PHONY : game_core/GameItemManager.cpp.i
+
+game_core/GameItemManager.s: game_core/GameItemManager.cpp.s
+.PHONY : game_core/GameItemManager.s
+
+# target to generate assembly for a file
+game_core/GameItemManager.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.s
+.PHONY : game_core/GameItemManager.cpp.s
+
+game_core/GamePackage.o: game_core/GamePackage.cpp.o
+.PHONY : game_core/GamePackage.o
+
+# target to build an object file
+game_core/GamePackage.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o
+.PHONY : game_core/GamePackage.cpp.o
+
+game_core/GamePackage.i: game_core/GamePackage.cpp.i
+.PHONY : game_core/GamePackage.i
+
+# target to preprocess a source file
+game_core/GamePackage.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.i
+.PHONY : game_core/GamePackage.cpp.i
+
+game_core/GamePackage.s: game_core/GamePackage.cpp.s
+.PHONY : game_core/GamePackage.s
+
+# target to generate assembly for a file
+game_core/GamePackage.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.s
+.PHONY : game_core/GamePackage.cpp.s
+
+game_core/GamePackageManager.o: game_core/GamePackageManager.cpp.o
+.PHONY : game_core/GamePackageManager.o
+
+# target to build an object file
+game_core/GamePackageManager.cpp.o:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o
+.PHONY : game_core/GamePackageManager.cpp.o
+
+game_core/GamePackageManager.i: game_core/GamePackageManager.cpp.i
+.PHONY : game_core/GamePackageManager.i
+
+# target to preprocess a source file
+game_core/GamePackageManager.cpp.i:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.i
+.PHONY : game_core/GamePackageManager.cpp.i
+
+game_core/GamePackageManager.s: game_core/GamePackageManager.cpp.s
+.PHONY : game_core/GamePackageManager.s
+
+# target to generate assembly for a file
+game_core/GamePackageManager.cpp.s:
+	cd /home/ll/baoluo/ise/build/linux/debug && $(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.s
+.PHONY : game_core/GamePackageManager.cpp.s
+
 game_core/GamePlayer.o: game_core/GamePlayer.cpp.o
 .PHONY : game_core/GamePlayer.o
 
@@ -320,6 +416,18 @@ help:
 	@echo "... game_core/ConfigManager.o"
 	@echo "... game_core/ConfigManager.i"
 	@echo "... game_core/ConfigManager.s"
+	@echo "... game_core/GameItem.o"
+	@echo "... game_core/GameItem.i"
+	@echo "... game_core/GameItem.s"
+	@echo "... game_core/GameItemManager.o"
+	@echo "... game_core/GameItemManager.i"
+	@echo "... game_core/GameItemManager.s"
+	@echo "... game_core/GamePackage.o"
+	@echo "... game_core/GamePackage.i"
+	@echo "... game_core/GamePackage.s"
+	@echo "... game_core/GamePackageManager.o"
+	@echo "... game_core/GamePackageManager.i"
+	@echo "... game_core/GamePackageManager.s"
 	@echo "... game_core/GamePlayer.o"
 	@echo "... game_core/GamePlayer.i"
 	@echo "... game_core/GamePlayer.s"

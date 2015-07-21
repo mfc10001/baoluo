@@ -3,36 +3,45 @@
 
 
 #include "ise/main/ise.h"
+#include "ConfigManager.h"
+#include "../game_define/Protocol.h"
+#include "../game_define/ItemBase.h"
+class GameItem;
+class GamePlayer;
 
-#include "GameItem.h"
-class GameItemManager :public Singleton<GameItemManager>
+class GameItemManager
 {
+    public:
+        GameItemManager(GamePlayer *user);
+        ~GameItemManager();
+        GamePlayer *getOwner();
 
-	bool addItem(GameItem* item);
-	void removeItem(GameItem* item);
+        bool addItem(GameItem* item);
+        void removeItem(GameItem* item);
 
-    friend class Singleton<GameItemManager>;
+        friend class Singleton<GameItemManager>;
 
-	typedef map<uint32 , GameItem*> ItemMap;
-	ItemMap m_item_manager;
+        typedef map<uint32 , GameItem*> ItemMap;
+        ItemMap m_item_manager;
+        GamePlayer *owner;
 
 };
 
 struct ItemCreator
 {
-	static GameItem* createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, Cmd::AddItemAction action,  GamePlayer *owner = NULL, Cmd::ItemQualityType quality = Cmd::ItemQualityType_None);
-	static bool autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, Cmd::AddItemAction action, uint16 bind_mask = 0, Cmd::ItemQualityType quality = Cmd::ItemQualityType_None, uint8 emoney_mask = 0);
-	static void destroyItem(GameItem* &item, uint32 oper_id, const char* oper_name, uint32 owner_id, const char* owner_name, GamePlayer* owner, Cmd::DelItemAction action);
-}
+    static GameItem* createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner = NULL);
+
+	static bool autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action);
+	static void destroyItem(GameItem* &item, GamePlayer* owner, DelItemAction action);
+};
 
 
 
 class GlobalItemManager :public Singleton<GlobalItemManager>
 {
 	private:
-		friend class Singleton<GlobalItemManager>;
-		GlobalItemManager();
-		~GlobalItemManager();
+		GlobalItemManager(){};
+		~GlobalItemManager(){};
 
 	public:
 		bool addItem(GameItem* item);
@@ -44,7 +53,9 @@ class GlobalItemManager :public Singleton<GlobalItemManager>
 	private:
 
 		typedef map<uint32,GameItem*> ItemMap;
-		ItemMap m_item_manager;	
+		ItemMap m_item_manager;
+
+        friend class Singleton<GlobalItemManager>;
 };
 
 #endif

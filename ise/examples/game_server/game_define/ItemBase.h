@@ -1,4 +1,6 @@
-
+#ifndef _ISE_BASEITEM_H_
+#define _ISE_BASEITEM_H_
+#include "ise/main/ise.h"
 #include "BaseType.h"
 
 
@@ -17,7 +19,7 @@ enum EquipAttrGeneType
 enum ItemType
 {
 	ItemType_Common=0,
-	ItemType_Equip=1,	
+	ItemType_Equip=1,
 };
 
 
@@ -27,16 +29,16 @@ struct ItemBase
 	{
 		struct
 		{
-			uint32 create_time;		///< 道具生成时间 
-			uint32 first_thisid;	///< 第一次生成的thisid 
+			uint32 create_time;		///< 道具生成时间
+			uint32 first_thisid;	///< 第一次生成的thisid
 		};
 		uint64 createid;
 	};
 	uint32 thisid;   			///< 道具唯一ID
-	uint32 baseid;  			///< 道具表里的ID 
+	uint32 baseid;  			///< 道具表里的ID
 	uint32 num;					///< 道具数量
 	uint8  base_type;
-	
+
 	ItemBase() {
 		bzero(this, sizeof(ItemBase));
 	}
@@ -56,14 +58,14 @@ struct ItemData : public ItemBase
 			return equip_attr[EquipAttrGeneType_##name];\
 		}
 
-		EQUIP_GET_ATTR_FUNC(Base		)	
-		EQUIP_GET_ATTR_FUNC(Hole1		)	
-		EQUIP_GET_ATTR_FUNC(Hole2		)	
-		EQUIP_GET_ATTR_FUNC(Hole3		)	
+		EQUIP_GET_ATTR_FUNC(Base		)
+		EQUIP_GET_ATTR_FUNC(Hole1		)
+		EQUIP_GET_ATTR_FUNC(Hole2		)
+		EQUIP_GET_ATTR_FUNC(Hole3		)
 		EQUIP_GET_ATTR_FUNC(Hole4		)
-
-	
 	#undef EQUIP_GET_ATTR_FUNC
+
+
 	uint32 equip_attr[EquipAttrGeneType_Max];
 
 /*
@@ -75,26 +77,26 @@ struct ItemData : public ItemBase
 			assert_log(p); \
 			return *p; \
 		}
-		EQUIP_GET_ATTR_FUNC(Base		)	
+		EQUIP_GET_ATTR_FUNC(Base		)
 		EQUIP_GET_ATTR_FUNC(Strengthen	)
 		EQUIP_GET_ATTR_FUNC(Additional	)
 		EQUIP_GET_ATTR_FUNC(Hidden		)
-		EQUIP_GET_ATTR_FUNC(Hole1		)	
-		EQUIP_GET_ATTR_FUNC(Hole2		)	
-		EQUIP_GET_ATTR_FUNC(Hole3		)	
+		EQUIP_GET_ATTR_FUNC(Hole1		)
+		EQUIP_GET_ATTR_FUNC(Hole2		)
+		EQUIP_GET_ATTR_FUNC(Hole3		)
 		EQUIP_GET_ATTR_FUNC(Hole4		)
 		EQUIP_GET_ATTR_FUNC(Hole5		)
-		EQUIP_GET_ATTR_FUNC(Hole6		)	
-		EQUIP_GET_ATTR_FUNC(Reform		)	
-		EQUIP_GET_ATTR_FUNC(Ext		    )	
+		EQUIP_GET_ATTR_FUNC(Hole6		)
+		EQUIP_GET_ATTR_FUNC(Reform		)
+		EQUIP_GET_ATTR_FUNC(Ext		    )
 
 	#undef EQUIP_GET_ATTR_FUNC
 
 	EquipAttrMap* equip_attr[EquipAttrGeneType_Max]; ///< 装备属性
 	*/
-}
+};
 
-#define MAX_SOUL_PACKAGE_SOLT  6
+
 
 enum EquipPostion
 {
@@ -144,6 +146,7 @@ enum PackageType
 	PackageType_Soul,//Ԫ�����
 	PackageType_Treasure,//�������
 	PackageType_Equip,//װ������
+	PackageType_Soul_Solt,
 	PackageType_Max,
 };
 
@@ -154,7 +157,7 @@ enum PackageCap
 	PackageCap_CommonInit		= 30,					///< 普通包裹初始大小
 	PackageCap_CommonAdd		= 1, 					///< 一次购买添加的格子数量
 	PackageCap_CommonMax		= 96, 					///< 普通包裹上限
-	
+
 	PackageCap_SoulInit		= 30,					///< 普通包裹初始大小
 	PackageCap_SoulAdd		= 1, 					///< 一次购买添加的格子数量
 	PackageCap_SoulMax		= 96, 					///< 普通包裹上限
@@ -162,7 +165,7 @@ enum PackageCap
 	PackageCap_TreasureInit		= 30,					///< 普通包裹初始大小
 	PackageCap_TreasureAdd		= 1, 					///< 一次购买添加的格子数量
 	PackageCap_TreasureMax		= 96, 					///< 普通包裹上限
-	
+
 
 	PackageCap_Stor			= 80,					///< 仓库普通包裹初始大小
 
@@ -192,8 +195,8 @@ inline const char *getAddItemActionStr(uint8 act)
 	{
 		"��",
 
-		
-			
+
+
 	};
 	return act < AddItemAction_Max ? AddItemActionName[act] : "异常的道具添加操作类型";
 }
@@ -216,6 +219,7 @@ enum EquipAttrType
 	EquipAttrType_Max,
 };
 
-typedef std::map<EquipAttrType, int32>		EquipAttrMap;	
+typedef std::map<EquipAttrType, uint32>		EquipAttrMap;
 
 
+#endif

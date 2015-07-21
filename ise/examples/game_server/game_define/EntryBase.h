@@ -1,8 +1,8 @@
 #ifndef _ISE_ENTRYBASE_H_
 #define _ISE_ENTRYBASE_H_
+#include "ise/main/ise.h"
+#include "Protocol.h"
 
-
-#define MAX_NAME_SIZE 50
 enum PlayerAttr
 {
 	PlayerAttr_physicsAttack=0,
@@ -26,7 +26,7 @@ enum PlayerAttr
 
 
 
-	PlayerAttr_Max=48
+	PlayerAttr_Max=48,
 };
 
 struct PlayerBaseAttr
@@ -49,8 +49,9 @@ typedef boost::function<void ()> PlayerLevelHandlerCallback;
 
 class GameEntry :public Entry
 {
+    public:
 	virtual uint32 getRole(){return m_base_attr.role;};
-	PlayerBaseAttr m_base_attr; 
+	PlayerBaseAttr m_base_attr;
 };
 
 #endif

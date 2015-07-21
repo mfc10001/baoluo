@@ -4,19 +4,24 @@
 
 #include "ise/main/ise.h"
 #include "../game_define/ItemBase.h"
+#include "GamePlayer.h"
+#include "../game_define/EntryBase.h"
 
+class GamePlayer;
 class GameItem:public Entry
 {
-	void generateThisID();
-	uint8 getBaseType();
-	uint32 getBaseID();
-	uint32 getItemNumber();
-	
-	bool incNumber(uint32 num, GamePlayer *player, AddItemAction act);
-	bool subNumber(uint32 num, GamePlayer *player, DelItemAction act);
-	
-	ItemData m_data;
-	const ItemDataEntry *m_base_data;
-}
+    public:
+        void generateThisID();
+        uint8 getBaseType();
+        uint32 getBaseID();
+        uint32 getItemNumber();
+
+        bool incNumber(uint32 num, GamePlayer *player, AddItemAction act);
+        bool subNumber(uint32 num, GamePlayer *player, DelItemAction act);
+
+
+        const ItemDataEntry *m_base_data;
+        ItemData m_data;
+};
 
 #endif

@@ -5,12 +5,11 @@
 #include "ise/main/ise.h"
 #include "../game_define/Protocol.h"
 #include "ise/ext/utils/json/json.h"
-#include "GamePackage.h"
 #include "../game_define/EntryBase.h"
+#include "GamePackageManager.h"
 
 
-
-class GamePlayer:GameEntry
+class GamePlayer:public GameEntry
 {
 	public:
 		GamePlayer();
@@ -22,7 +21,7 @@ class GamePlayer:GameEntry
 		void addExp(uint32 num);
 		void levelUp();
 
-
+        uint32 getRole(){return m_base_attr.role;};
 		void setRole(uint8 type);
 
 		void save();
@@ -35,14 +34,16 @@ class GamePlayer:GameEntry
 
 		void  fillClientData(Json::Value &arrayObj);
 		void  fillDbData(Json::Value &arrayObj);
+
+        GamePlayerPackages m_pack_manager;
 	private:
 		uint32 uid;
 
 
-		
+
 		uint32 m_base_data[PlayerAttr_Max];
 
-		GamePlayerPackages m_pack_manager;
+
 
 
 };

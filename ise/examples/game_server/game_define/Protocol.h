@@ -67,10 +67,13 @@ enum ErrCode
 
 #define MAX_SEND_BUFF 4086
 #define MAX_REV_BUFF 4096
+
+#define MAX_NAME_SIZE 50
+#define MAX_SOUL_PACKAGE_SOLT  6
 const uint16 BUFFLEN  = 512;
 const uint16 RECV_TIMEOUT = 1000*5;  // ms
-const uint16 MAX_NAMESIZE =48;
-
+//const uint16 MAX_NAMESIZE =48;
+#define MAX_NAMESIZE 48
 typedef map<uint32,uint32>  BaseMap;
 typedef set<uint32> BaseSet;
 

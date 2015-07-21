@@ -3,13 +3,13 @@
 #define _ISE_SINGLETON_H_
 #include "ise/main/ise.h"
 
-
+/*
 class BaseConfig
 {
 public:
 	uint32 id;
 	virtual uint32 getIndex(){return id;}
 };
-
+*/
 
 #endif

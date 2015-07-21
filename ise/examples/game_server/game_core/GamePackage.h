@@ -3,14 +3,21 @@
 
 
 #include "ise/main/ise.h"
-
+#include "../game_define/ItemBase.h"
+#include "GameItemManager.h"
+#include "../game_define/Protocol.h"
+class GameItem;
+class GameEntry;
+class GamePlayer;
+class Entry;
+class GameItemManager;
 
 class PackageBase
 {
 	protected:
 		PackageBase(GameItemManager* im, uint32 type);
-		virtual ~PackageBase();
-		
+		virtual ~PackageBase(){};
+
 		void initCapacity();
 
 	public:
@@ -23,15 +30,18 @@ class PackageBase
 		virtual bool removeItem(GameItem *item, DelItemAction act, bool swap/* = false*/, uint32 &err);
 
 		bool obtainItem(GameItem* &item, AddItemAction action);
+
+		GamePlayer * getOwner();
 	private:
-		
+
 		typedef map<uint32, GameItem*> PackItemMap;
 
 		uint32 m_size;
-		PackItemMap m_item_map; 
+		PackItemMap m_item_map;
 		const uint32 m_type;//背包类型
 		uint16 m_upper_bound_grids;//格子上限
-		
+		uint32 m_valid_grids;
+
 	public:
 		GameItemManager* m_im;
 
@@ -58,10 +68,10 @@ class SoulPackage:public PackageBase
 		~SoulPackage();
 };
 
-class EquipPackage 
+class EquipPackage:public PackageBase
 {
 	public:
-		EquipPackage(GameItemManager* im,Entry *owner);
+		EquipPackage(GameItemManager* im);
 		~EquipPackage();
 
 		inline GameItem* getClothes 	() const	{ return m_clothes		; }
@@ -80,9 +90,19 @@ class EquipPackage
 				GameItem *m_shoes		;
 			};
 			GameItem *m_equips[EquipPosition_Max];
-		}; 
+		};
 
 		EquipSuitAttribute m_equipsuit_attrs;
+
+};
+
+
+class SoulEquipPackage:public PackageBase
+{
+	public:
+		SoulEquipPackage(GameItemManager* im);
+		~SoulEquipPackage();
+		GameItem *m_equips[MAX_SOUL_PACKAGE_SOLT];
 
 };
 
@@ -90,36 +110,5 @@ class Hero
 {
 
 };
-class SoulEquipPackage 
-{
-	public:
-		SoulEquipPackage(GameEntry *entry);
-		~SoulEquipPackage();
-		GameItem *m_equips[MAX_SOUL_PACKAGE_SOLT];
-		
-};
-class GamePlayerPackages
-{
-
-	GamePlayerPackages(GamePlayer *player);
-	~GamePlayerPackages();
-
-	bool obtainItem(GameItem* &item, AddItemAction action);
-
-	
-	private:
-
-		LuggablePackage m_commom_pack;
-		TreasurePackage m_treasure_pack;
-		SoulPackage		m_soul_pack;
-
-
-		SoulEquipPackage m_soul_equip_pack;
-		EquipPackage	m_equip_pack;
-
-		
-		GameItemManager m_uim;
-};
-
 
 #endif

@@ -1,15 +1,16 @@
 
 #include "GameItem.h"
+#include "GamePlayer.h"
 void GameItem::generateThisID()
 {
-	int64 id = (randBetween(0, 1) ? randBetween(-1000, 0x80000000) : randBetween(1000, 0x7FFFFFFE));
+	id = (getRandom(0, 1) ? getRandom(-1000, 0x80000000) : getRandom(1000, 0x7FFFFFFE));
 	m_data.thisid = id;
 }
 
 
 uint8 GameItem::getBaseType()
 {
-	return m_base_data.type;
+	return m_base_data->type;
 }
 
 uint32 GameItem::getBaseID()
@@ -20,19 +21,19 @@ uint32 GameItem::getBaseID()
 
 bool GameItem::incNumber(uint32 num, GamePlayer *player, AddItemAction act)
 {
-	if(m_base_data->max_num ==0)
+	if(m_base_data->add_max ==0)
 	{
-		m_data.num += num;	
+		m_data.num += num;
 	}
 	/*
 	if(num + m_data.num <= m_base_data->max_num)
 	{
-		m_data.num += num;		
+		m_data.num += num;
 	}
 	*/
 	return true;
 }
-bool GameItem::subNumber(uint32 num, GamePlayer *player, Cmd::DelItemAction act)
+bool GameItem::subNumber(uint32 num, GamePlayer *player, DelItemAction act)
 {
 	CheckCondition(m_data.num >= num, false);
 

@@ -1,10 +1,12 @@
-#include "GamePackage.h"
 
-
-
-
+#include "GameItemManager.h"
+#include "../game_define/EntryBase.h"
+#include "GamePlayer.h"
+#include "../bass_class/Entry.h"
+#include "../game_define/ItemBase.h"
+#include "GameItem.h"
 PackageBase::PackageBase(GameItemManager* im, uint32 type)
-	: m_size(0) 
+	: m_size(0)
 	, m_type(type)
 	, m_im(im)
 
@@ -47,12 +49,12 @@ void PackageBase::initCapacity()
 
 		default:
 			break;
-
+    }
 }
 GameItem* PackageBase::getItemByThisID(uint32 thisid)
 {
 	PackItemMap::iterator it = m_item_map.find(thisid);
-	if(it==m_item_map.edn())
+	if(it==m_item_map.end())
 	{
 		return NULL;
 	}
@@ -67,19 +69,22 @@ GameItem* PackageBase::getItemByPosX(uint16 posX)
 	return NULL;
 
 }
-
+GamePlayer * PackageBase::getOwner()
+{
+    m_im->getOwner();
+}
 bool PackageBase::addItem(GameItem *item, AddItemAction act)
 {
 	if (!item){
         return false;
     }
 
-	GameItem* self_item = getItemByBaseID(item->getBaseID())
+	GameItem* self_item = getItemByBaseID(item->getBaseID());
 	if(self_item)
 	{
 		if(self_item->m_base_data->add_max==0)
 		{
-			 self_item->incNumber(item->getItemNumber());
+			 self_item->incNumber(item->getItemNumber(),getOwner(),act);
 			 return false;
 		}
 	}
@@ -110,19 +115,19 @@ bool PackageBase::removeItem(GameItem* item, DelItemAction act, bool swap, uint3
 LuggablePackage::LuggablePackage(GameItemManager* im)
 :PackageBase(im, PackageType_Common)
 {
-	
+
 }
 LuggablePackage::~LuggablePackage()
 {
-	
+
 }
 
 ////
 TreasurePackage::TreasurePackage(GameItemManager* im)
 :PackageBase(im, PackageType_Treasure)
 {
-	
-}	
+
+}
 
 TreasurePackage::~TreasurePackage()
 {
@@ -134,66 +139,29 @@ TreasurePackage::~TreasurePackage()
 SoulPackage::SoulPackage(GameItemManager* im)
 :PackageBase(im, PackageType_Soul)
 {
-	
-}	
+
+}
 SoulPackage::~SoulPackage()
 {
 }
 
 //
-
-bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
-{
-	if(item)
-	{
-		switch(item->getBaseType())
-		{
-			case PackageType_Common:
-				{
-					return m_commom_pack.addItem(item,action);
-				}
-				break;
-			case PackageType_Soul:
-				{
-					return m_soul_pack.addItem(item,action);
-				}
-				break;
-			case PackageType_Treasure:
-				{
-					return m_treasure_pack.addItem(item,action);
-				}
-				break;
-			case PackageType_Equip:
-				{
-					
-				}
-				break;
-			default:
-				return false;
-		}
-	}
-	return true;
-}
-
-
-
-GamePlayerPackages::GamePlayerPackages(GamePlayer *player)
-: m_equip_pack(player, &m_uim)
-{
-	
-}
-GamePlayerPackages::~GamePlayerPackages()
-{
-	
-}
-
-
 EquipPackage::EquipPackage(GameItemManager* im)
+:PackageBase(im, PackageType_Equip)
 {
-	
+
 }
 EquipPackage::~EquipPackage()
 {
-	
+
 }
 
+SoulEquipPackage::SoulEquipPackage(GameItemManager* im)
+:PackageBase(im, PackageType_Soul_Solt)
+{
+
+}
+SoulEquipPackage::~SoulEquipPackage()
+{
+
+}

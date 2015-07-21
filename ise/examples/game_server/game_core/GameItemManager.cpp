@@ -1,15 +1,33 @@
 #include "GameItemManager.h"
+#include "../game_define/BaseType.h"
+#include "GameItem.h"
 
-bool addItem(GameItem* item)
+
+GameItemManager::GameItemManager(GamePlayer *user)
+:owner(user)
 {
+
 }
-void removeItem(GameItem* item)
+GameItemManager::~GameItemManager()
 {
-	
+
+}
+
+bool GameItemManager::addItem(GameItem* item)
+{
+    return false;
+}
+void GameItemManager::removeItem(GameItem* item)
+{
+
 }
 
 
-GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, Cmd::AddItemAction action,  GamePlayer *owner = NULL);
+GamePlayer *GameItemManager::getOwner()
+{
+    return owner;
+}
+GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner)
 {
 	GameItem* item = new GameItem();
 	CheckCondition(item, NULL);
@@ -19,10 +37,10 @@ GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 
 	strncpy(item->name, base->name, MAX_NAMESIZE);
 	item->m_data.num = 1;//((item->m_base_data->max_num >= num) ? num : 1);
 	item->generateThisID();
-	item->m_data.create_time = Timestamp::now();
+	item->m_data.create_time = Timestamp::now().epochMilliseconds();
 
 
-	if(!GlobalItemManager::getInstance().addItem(item))
+	if(!GlobalItemManager::instance().addItem(item))
 	{
 		DELETE_VALUE(item);
 		return NULL;
@@ -30,27 +48,29 @@ GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 
 
 	return item;
 }
-bool ItemCreator::autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, Cmd::AddItemAction action)
+bool ItemCreator::autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action)
 {
 	CheckCondition(owner, false);
 
-	const ItemDataEntry* base_data = ItemDataEntryManager::getInstance().getTableByID(baseid);
+	const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
 	//LogCheckCondition(base_data, false, "获取道具属性表失败 baseid:%u, action:%u", baseid, action);
 	CheckCondition(base_data, false);
 
 
-	GameItem* item = ItemCreator::createItem(base_data, num, owner->id, owner->name, getAddItemActionStr(action), action, owner);
-	if(owner->m_packages.obtainItem(item, action))
+	GameItem* item = ItemCreator::createItem(base_data, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
+	if(owner->m_pack_manager.obtainItem(item, action))
 	{
-		
+
 	}
 	else
 	{
 		destroyItem(item,  owner, DelItemAction_CreateAddToPackageFail);
 	}
+
+	return true;
 }
 
-void ItemCreator::destroyItem(GameItem* &item, GamePlayer* owner, DelItemAction action);
+void ItemCreator::destroyItem(GameItem* &item, GamePlayer* owner, DelItemAction action)
 {
 	CheckConditionVoid(item);
 	DELETE_VALUE(item);
@@ -61,7 +81,7 @@ void ItemCreator::destroyItem(GameItem* &item, GamePlayer* owner, DelItemAction 
 bool GlobalItemManager::addItem(GameItem* item)
 {
 	CheckCondition(item, false);
-	
+
 	GameItem* temp_item = getItemByThisID(item->id);
 	if(!temp_item)
 	{
@@ -100,14 +120,14 @@ GameItem* GlobalItemManager::getItemByThisID(uint32 thisid)
 }
 void GlobalItemManager::removeItem(GameItem* item)
 {
-	
+
 }
 void GlobalItemManager::removeItem(uint32 thisid)
 {
 	ItemMap::iterator it = m_item_manager.find(thisid);
 	if(it == m_item_manager.end())
 	{
-		return NULL;
+		return;
 	}
 	m_item_manager.erase(it);
 }

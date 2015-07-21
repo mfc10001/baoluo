@@ -1,3 +1,4 @@
+#include ""
 #define MAX_NAME_SIZE 50
 enum PlayerAttr
 {
@@ -22,7 +23,7 @@ enum PlayerAttr
 
 
 
-	PlayerAttr_Max=48
+	PlayerAttr_Max=48,
 };
 
 struct PlayerBaseAttr

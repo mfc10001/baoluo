@@ -6,6 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ll/baoluo/ise/examples/game_server/client_msg.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/client_msg.cpp.o"
   "/home/ll/baoluo/ise/examples/game_server/game_core/ConfigManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o"
+  "/home/ll/baoluo/ise/examples/game_server/game_core/GameItem.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o"
+  "/home/ll/baoluo/ise/examples/game_server/game_core/GameItemManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o"
+  "/home/ll/baoluo/ise/examples/game_server/game_core/GamePackage.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o"
+  "/home/ll/baoluo/ise/examples/game_server/game_core/GamePackageManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o"
   "/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o"
   "/home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o"
   "/home/ll/baoluo/ise/examples/game_server/inner_msg.cpp" "/home/ll/baoluo/ise/build/linux/debug/examples/game_server/CMakeFiles/main_server.dir/inner_msg.cpp.o"

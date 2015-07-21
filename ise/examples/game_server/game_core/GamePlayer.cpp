@@ -4,6 +4,7 @@
 #include "../main_server.h"
 
 GamePlayer::GamePlayer()
+:m_pack_manager(this)
 {
 }
 GamePlayer::~GamePlayer()
@@ -19,7 +20,7 @@ void GamePlayer::setRole(uint8 type)
 
 void GamePlayer::createChar()
 {
-	const ConfigPlayerData *ptr_data=ConfigManager::instance().getPlayerData(m_base_attr.role);
+	const PlayerDataEntry *ptr_data=ConfigManager::instance().getPlayerData(m_base_attr.role);
 	if(!ptr_data)
 	{
 		return;

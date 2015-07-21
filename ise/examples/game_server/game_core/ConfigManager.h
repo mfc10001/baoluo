@@ -4,7 +4,7 @@
 #define _ISE_CONFIG_H_
 
 #include "ise/main/ise.h"
-#include "../bass_class/Singleton.h"
+#include "../bass_class/Entry.h"
 
 //读取文件最大缓冲
 
@@ -12,12 +12,12 @@
 //读取配置文本跟目录
 const string CONFIG_ROOT_PATH ="./res/";
 
-
+/*
 enum ConfigFile
 {
-	ConfigFileLevel=1,
+	ConfigFileLevel=1
 };
-
+*/
 struct LevelDataEntry:public Entry
 {
 	uint32 id;
@@ -68,9 +68,9 @@ struct ItemDataEntry:public Entry
 struct EquipDataEntry:public Entry
 {
 	uint32 itemid;
-	char   name[MAX_NAMESIZE];	
+	char   name[MAX_NAMESIZE];
 	uint8 profession;
-	uint8 part;	
+	uint8 part;
 	uint16 grade;
 	uint8 quality;
 	uint32 icon;
@@ -83,7 +83,7 @@ struct EquipDataEntry:public Entry
 	uint16 dodge;
 	uint16 n_crit;
 	uint16 n_opposeCrit;
-	
+
 };
 
 
@@ -94,9 +94,12 @@ class ConfigManager:public Singleton<ConfigManager>
 		bool loadLevelFile();
 		bool loadPLayerFile();
 
-		const ConfigLevelData* getLevelData(uint32 id);
-		const ConfigPlayerData* getPlayerData(uint32 id);
+		const LevelDataEntry* getLevelData(uint32 id);
+		const PlayerDataEntry* getPlayerData(uint32 id);
 
+  		const ItemDataEntry* getItemData(uint32 id);
+
+  		const EquipDataEntry* getEquipData(uint32 id);
 
 	private:
 		typedef map<uint32,  LevelDataEntry*> configLevelType;
@@ -105,8 +108,12 @@ class ConfigManager:public Singleton<ConfigManager>
 		typedef map<uint32,  PlayerDataEntry*> configPlayerType;
 		configPlayerType configPlayerManager;
 
-	
+		typedef map<uint32,  ItemDataEntry*> configItemType;
+        configItemType configItemManager;
 
+
+		typedef map<uint32,  EquipDataEntry*> configEquipType;
+        configEquipType configEquipManager;
 
     friend class Singleton<ConfigManager>;
 };

@@ -41,7 +41,7 @@ bool ConfigManager::loadLevelFile()
 			return false;
 		}
 		{
-			ConfigLevelData *data=new ConfigLevelData();
+			LevelDataEntry *data=new LevelDataEntry();
 
 			data->id= atoi( conVec[0].c_str());
 			data->level=atoi(conVec[1].c_str());
@@ -82,7 +82,7 @@ bool ConfigManager::loadPLayerFile()
 			return false;
 		}
 		{
-			ConfigPlayerData *data=new ConfigPlayerData();
+			PlayerDataEntry *data=new PlayerDataEntry();
             data->id= atoi(conVec[ 0 ].c_str());
             data->physicsAttack= atoi(conVec[ 1 ].c_str());
             data->magicAttack= atoi(conVec[ 2 ].c_str());
@@ -111,7 +111,7 @@ bool ConfigManager::loadPLayerFile()
 	 return true;
 }
 
-const ConfigLevelData* ConfigManager::getLevelData(uint32 id)
+const LevelDataEntry* ConfigManager::getLevelData(uint32 id)
 {
     configLevelType::iterator it=configLevelManager.find(id);
     if(it!=configLevelManager.end())
@@ -120,7 +120,7 @@ const ConfigLevelData* ConfigManager::getLevelData(uint32 id)
     }
     return NULL;
 }
-const ConfigPlayerData* ConfigManager::getPlayerData(uint32 id)
+const PlayerDataEntry* ConfigManager::getPlayerData(uint32 id)
 {
     configPlayerType::iterator it=configPlayerManager.find(id);
     if(it!=configPlayerManager.end())
@@ -130,3 +130,22 @@ const ConfigPlayerData* ConfigManager::getPlayerData(uint32 id)
     return NULL;
 }
 
+const ItemDataEntry* ConfigManager::getItemData(uint32 id)
+{
+    configItemType::iterator it=configItemManager.find(id);
+    if(it!=configItemManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
+}
+
+const EquipDataEntry* ConfigManager::getEquipData(uint32 id)
+{
+    configEquipType::iterator it=configEquipManager.find(id);
+    if(it!=configEquipManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
+}

@@ -141,32 +141,9 @@ examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o.pr
 
 examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o
 
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o"
-	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp
-
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i"
-	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp > CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i
-
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s"
-	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp -o CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s
-
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires:
-.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
-
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
-	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides.build
-.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides
-
-examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o
-
 examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
 examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o"
 	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayerManager.cpp
 
@@ -187,14 +164,133 @@ examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.
 
 examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o
 
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GameItemManager.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GameItemManager.cpp
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GameItemManager.cpp > CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.i
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GameItemManager.cpp -o CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.s
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.requires:
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.requires
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.requires
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.provides.build
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.provides
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GamePackage.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GamePackage.cpp
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GamePackage.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GamePackage.cpp > CMakeFiles/main_server.dir/game_core/GamePackage.cpp.i
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GamePackage.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GamePackage.cpp -o CMakeFiles/main_server.dir/game_core/GamePackage.cpp.s
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.requires:
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.requires
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.requires
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.provides.build
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.provides
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GameItem.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GameItem.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GameItem.cpp
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GameItem.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GameItem.cpp > CMakeFiles/main_server.dir/game_core/GameItem.cpp.i
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GameItem.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GameItem.cpp -o CMakeFiles/main_server.dir/game_core/GameItem.cpp.s
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.requires:
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.requires
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.requires
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.provides.build
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.provides
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GamePackageManager.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GamePackageManager.cpp
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GamePackageManager.cpp > CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.i
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GamePackageManager.cpp -o CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.s
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.requires:
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.requires
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.requires
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.provides.build
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.provides
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o: examples/game_server/CMakeFiles/main_server.dir/flags.make
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o: /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/ll/baoluo/ise/build/linux/debug/CMakeFiles $(CMAKE_PROGRESS_10)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o -c /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp > CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.i
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s"
+	cd /home/ll/baoluo/ise/build/linux/debug/examples/game_server && g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/ll/baoluo/ise/examples/game_server/game_core/GamePlayer.cpp -o CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.s
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires:
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
+	$(MAKE) -f examples/game_server/CMakeFiles/main_server.dir/build.make examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides.build
+.PHONY : examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides
+
+examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.provides.build: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o
+
 # Object files for target main_server
 main_server_OBJECTS = \
 "CMakeFiles/main_server.dir/main_server.cpp.o" \
 "CMakeFiles/main_server.dir/client_msg.cpp.o" \
 "CMakeFiles/main_server.dir/inner_msg.cpp.o" \
 "CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o" \
-"CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o" \
-"CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o"
+"CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o" \
+"CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o" \
+"CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o" \
+"CMakeFiles/main_server.dir/game_core/GameItem.cpp.o" \
+"CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o" \
+"CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o"
 
 # External object files for target main_server
 main_server_EXTERNAL_OBJECTS =
@@ -203,8 +299,12 @@ bin/main_server: examples/game_server/CMakeFiles/main_server.dir/main_server.cpp
 bin/main_server: examples/game_server/CMakeFiles/main_server.dir/client_msg.cpp.o
 bin/main_server: examples/game_server/CMakeFiles/main_server.dir/inner_msg.cpp.o
 bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o
-bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o
 bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o
+bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o
+bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o
+bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o
+bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o
+bin/main_server: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o
 bin/main_server: examples/game_server/CMakeFiles/main_server.dir/build.make
 bin/main_server: lib/libise.a
 bin/main_server: lib/libise_utils_json.a
@@ -221,8 +321,12 @@ examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/C
 examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/client_msg.cpp.o.requires
 examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/inner_msg.cpp.o.requires
 examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/ConfigManager.cpp.o.requires
-examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
 examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayerManager.cpp.o.requires
+examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItemManager.cpp.o.requires
+examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackage.cpp.o.requires
+examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GameItem.cpp.o.requires
+examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePackageManager.cpp.o.requires
+examples/game_server/CMakeFiles/main_server.dir/requires: examples/game_server/CMakeFiles/main_server.dir/game_core/GamePlayer.cpp.o.requires
 .PHONY : examples/game_server/CMakeFiles/main_server.dir/requires
 
 examples/game_server/CMakeFiles/main_server.dir/clean:
