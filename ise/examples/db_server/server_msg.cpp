@@ -155,10 +155,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				savePlayer(arrayObj);
 				return true;
 			}
-		case INNER_SAVE_PACKAGE_DATA:
-			{
-				s
-			}
+
         default:
                 return false;
 

@@ -589,6 +589,8 @@ db_server.h
 /home/ll/baoluo/ise/examples/db_server/db_server.h
 ise/ext/dbi/mysql/ise_dbi_mysql.h
 /home/ll/baoluo/ise/examples/db_server/ise/ext/dbi/mysql/ise_dbi_mysql.h
+game_define/BaseType.h
+/home/ll/baoluo/ise/examples/db_server/game_define/BaseType.h
 
 /home/ll/baoluo/ise/examples/db_server/db_server.h
 ise/main/ise.h
@@ -597,6 +599,10 @@ ise/ext/utils/json/json.h
 /home/ll/baoluo/ise/examples/db_server/ise/ext/utils/json/json.h
 game_define/Protocol.h
 /home/ll/baoluo/ise/examples/db_server/game_define/Protocol.h
+
+/home/ll/baoluo/ise/examples/db_server/game_define/BaseType.h
+string
+-
 
 /home/ll/baoluo/ise/examples/db_server/game_define/Protocol.h
 map

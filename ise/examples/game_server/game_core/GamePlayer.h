@@ -39,7 +39,7 @@ class GamePlayer:public GameEntry
 		bool checkMoney(MoneyType eType, const uint64 num);
 		uint64 	getMoney(MoneyType eType) const;
 		void 	addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify = true);
-		bool 	subMoney(MoneyType eType, const uint64 num, Cmd::DelMoneyAction action, bool notify = true);
+		bool 	subMoney(MoneyType eType, const uint64 num, DelMoneyAction action, bool notify = true);
 	private:
 
 		void addMoney(MoneyType eType, const uint64 money);

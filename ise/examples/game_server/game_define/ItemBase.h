@@ -19,12 +19,12 @@ enum EquipAttrGeneType
 
 
 struct ItemBase
-{	
+{
 	uint32 thisid;   			///< 道具唯一ID
 	uint32 baseid;  			///< 道具表里的ID
 	uint32 num;					///< 道具数量
 	uint8  base_type;
-	uint32 create_time; 
+	uint32 create_time;
 
 	ItemBase() {
 		bzero(this, sizeof(ItemBase));
@@ -58,7 +58,7 @@ struct ItemData : public ItemBase
 		equip_attr[EquipAttrGeneType_Strengthen]+=lev;
 	};
 
-	
+
 	uint32 equip_attr[EquipAttrGeneType_Max];
 	*/
 
@@ -146,7 +146,7 @@ enum DelItemAction
 {
 	DelItemAction_None		= 0,
 	DelItemAction_CreateAddToPackageFail=1,
-	DelItemAction_Improve	=2
+	DelItemAction_Improve	=2,
 
 	DelItemAction_Max
 };
@@ -184,7 +184,7 @@ inline const char *getDelItemActionStr(uint8 act)
 enum EquipAttrType
 {
 	EquipAttrType_None = 0,
-	
+
 	EquipAttrType_Max,
 };
 

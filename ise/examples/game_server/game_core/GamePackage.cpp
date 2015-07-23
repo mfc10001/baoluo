@@ -13,13 +13,6 @@ PackageBase::PackageBase(GameItemManager* im, uint32 type)
 {
 	initCapacity();
 }
-bool GamePlayerPackages::deleteItem(GameItem* &item, Cmd::DelItemAction action)
-{
-
-}
-
-
-
 
 void PackageBase::initCapacity()
 {
@@ -87,11 +80,7 @@ bool PackageBase::addItem(GameItem *item, AddItemAction act)
 	GameItem* self_item = getItemByBaseID(item->getBaseID());
 	if(self_item)
 	{
-		if(self_item->m_base_data->add_max==0)
-		{
-			 self_item->incNumber(item->getItemNumber(),getOwner(),act);
-			 return false;
-		}
+        self_item->incNumber(item->getItemNumber(),getOwner(),act);
 	}
 
 	if(m_im->addItem(item))
@@ -103,7 +92,7 @@ bool PackageBase::addItem(GameItem *item, AddItemAction act)
 	return false;
 }
 
-bool PackageBase::removeItem(GameItem* item, DelItemAction act, bool swap, uint32 &err)
+bool PackageBase::removeItem(GameItem* item, DelItemAction act,  uint32 &err)
 {
     if (!item){
         err = ERR_INNER;
@@ -151,8 +140,8 @@ SoulPackage::~SoulPackage()
 }
 
 //
-EquipPackage::EquipPackage()
-
+EquipPackage::EquipPackage(GamePlayer *user):
+m_owner(user)
 {
 
 }
@@ -165,8 +154,8 @@ uint32  EquipPackage::cost(uint32 level)
 {
 	uint32 coststonenum=0;
 	uint32 costmoney=100;
-	
-	uint32 money = m_owner->getMoney(MoneyType_Money)
+
+	uint32 money = m_owner->getMoney(MoneyType_Money);
 
 	if(coststonenum != 0)
 	{
@@ -176,10 +165,10 @@ uint32  EquipPackage::cost(uint32 level)
 	}
 
 	CheckCondition(money>=costmoney,ERR_MONEY);
-	
+
 
 	m_owner->subMoney(MoneyType_Money,costmoney,DelMoneyAction_EquipImprove);
-	if(coststonenum !=)
+	if(coststonenum != 0)
 	{
 		m_owner->m_pack_manager.reduceItemNumByBaseID(100001,coststonenum,DelItemAction_Improve);
 	}
@@ -207,7 +196,7 @@ GameItem * EquipPackage::getEquip(uint8 pos)
 		case EquipPosition_glove:
 			return getGlove();
 		case EquipPosition_shoes:
-			return getShoes();	
+			return getShoes();
 		default:
 			return NULL;
 	}

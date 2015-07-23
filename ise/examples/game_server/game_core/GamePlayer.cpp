@@ -40,7 +40,7 @@ void GamePlayer::createChar()
 
 	m_base_attr.init_flag=1;
 
-	
+
 	/*
 	setBaseAttr(PlayerAttr_physicsAttackz,ptr_data->  )
 	setBaseAttr(PlayerAttr_magicAttackz,ptr_data->  )
@@ -70,9 +70,9 @@ void GamePlayer::save()
 	data["type"]= INNER_SAVE_PLAYER_BASE_DATA;
 	fillDbData(data["data"]["base"]);
 	m_pack_manager.m_uim.fillDbData(data["data"]["package"]);
-	
+
 	AppBusiness::sendToDb(data);
-	
+
 	/*
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
@@ -176,15 +176,15 @@ void  GamePlayer::fillDbData(Json::Value &arrayObj)
 bool GamePlayer::checkMoney(MoneyType eType, const uint64 num)
 {
 	CheckCondition(isMoneyTypeValid(eType) && num <= MONEY_LIMIT, false);
-	return m_base_data.money[eType] >= num;
+	return m_packet[eType] >= num;
 }
 
-void GamePlayer::addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify = true)
+void GamePlayer::addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify)
 {
 	CheckConditionVoid(isMoneyTypeValid(eType) && num <= MONEY_LIMIT && num > 0);
 	addMoney(eType, num);
 }
-bool GamePlayer::subMoney(MoneyType eType, const uint64 num, Cmd::DelMoneyAction action, bool notify = true)
+bool GamePlayer::subMoney(MoneyType eType, const uint64 num, DelMoneyAction action, bool notify)
 {
 	CheckCondition(num && checkMoney(eType, num), false);
 	subMoney(eType, num);
@@ -198,7 +198,7 @@ void GamePlayer::addMoney(MoneyType eType, const uint64 money)
 	CheckConditionVoid(isMoneyTypeValid(eType) && money <= MONEY_LIMIT);
 	uint64 n64Tmp = m_packet[eType] + money;
 	n64Tmp = std::min(MONEY_LIMIT, n64Tmp) ;
-	m_base_data.money[eType] = n64Tmp;
+	m_packet[eType] = n64Tmp;
 }
 
 void GamePlayer::subMoney(MoneyType eType, const uint64 money)
@@ -210,6 +210,6 @@ void GamePlayer::subMoney(MoneyType eType, const uint64 money)
 uint64 GamePlayer::getMoney(MoneyType eType) const
 {
 	CheckCondition(isMoneyTypeValid(eType), 0);
-	return m_base_data.money[eType];
+	return m_packet[eType];
 }
 

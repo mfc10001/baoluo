@@ -6,6 +6,7 @@
 #include "ConfigManager.h"
 #include "../game_define/Protocol.h"
 #include "../game_define/ItemBase.h"
+#include "ise/ext/utils/json/json.h"
 class GameItem;
 class GamePlayer;
 
@@ -36,9 +37,9 @@ class GameItemManager
 
 struct ItemCreator
 {
-    static GameItem* createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner = NULL);
+    static GameItem* createItem(uint8 type ,uint32 baseid,uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner = NULL);
 
-	static bool autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action);
+	static bool autoUnionCreateItem(uint8 type ,uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action);
 	static void destroyItem(GameItem* &item, GamePlayer* owner, DelItemAction action);
 };
 

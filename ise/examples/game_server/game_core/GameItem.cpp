@@ -10,7 +10,7 @@ void GameItem::generateThisID()
 
 uint8 GameItem::getBaseType()
 {
-	return m_base_data->type;
+	return m_data.base_type;
 }
 
 uint32 GameItem::getBaseID()
@@ -21,10 +21,8 @@ uint32 GameItem::getBaseID()
 
 bool GameItem::incNumber(uint32 num, GamePlayer *player, AddItemAction act)
 {
-	if(m_base_data->add_max ==0)
-	{
-		m_data.num += num;
-	}
+    m_data.num += num;
+
 	/*
 	if(num + m_data.num <= m_base_data->max_num)
 	{
@@ -47,8 +45,4 @@ uint32 GameItem::getItemNumber()
 }
 
 
-bool GameItem::updateEquipStrengthenLev(uint16 strlev)
-{
-	inc_strengthen(strlev);
-}
 

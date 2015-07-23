@@ -6,7 +6,7 @@ GamePlayerPackages::GamePlayerPackages(GamePlayer *player)
 m_commom_pack(&m_uim),
 m_treasure_pack(&m_uim),
 m_soul_pack(&m_uim),
-m_equip_pack(&player),
+m_equip_pack(player),
 m_soul_equip_pack(&m_uim),
 m_owner(player)
 {
@@ -38,11 +38,6 @@ bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
 					return m_treasure_pack.addItem(item,action);
 				}
 				break;
-			case PackageType_Equip:
-				{
-
-				}
-				break;
 			default:
 				return false;
 		}
@@ -50,13 +45,15 @@ bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
 	return true;
 }
 
-bool GamePlayerPackages::deleteItem(GameItem* &item, Cmd::DelItemAction action)
+bool GamePlayerPackages::deleteItem(GameItem* &item, DelItemAction action)
 {
 	CheckCondition(item && m_owner, false);
+    uint32 ret=0;
+	if(m_commom_pack.removeItem(item,action,ret))
+    {
+        ItemCreator::destroyItem(item, m_owner, action);
+    }
 
-	m_commom_pack.removeItem(item,action);
-
-	ItemCreator::destroyItem(item, m_owner, action);
 }
 
 bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelItemAction action)
@@ -92,7 +89,7 @@ bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelIte
 		deleteItem(*iter, action);
 	}
 
-	
+
 	if(last_del)
 	{
 		last_del->subNumber(num, m_owner, action);

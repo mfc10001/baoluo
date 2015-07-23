@@ -15,18 +15,14 @@ class GameItem:public Entry
         uint8 getBaseType();
         uint32 getBaseID();
         uint32 getItemNumber();
-		
-		bool updateEquipStrengthenLev(uint16 strlev=1);
-
-
         bool incNumber(uint32 num, GamePlayer *player, AddItemAction act);
         bool subNumber(uint32 num, GamePlayer *player, DelItemAction act);
 
 		union {
 			const ItemDataEntry  *m_item_data;
 			const EquipDataEntry *m_equip_data;
-		}
-        
+		};
+
         ItemData m_data;
 };
 

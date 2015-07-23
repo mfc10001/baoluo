@@ -4,6 +4,7 @@
 
 #include "db_server.h"
 #include "ise/ext/dbi/mysql/ise_dbi_mysql.h"
+#include "game_define/BaseType.h"
 //-----------------------------------------------------------------------------
 MySqlDatabase *m_db_conn=NULL;
 
@@ -97,7 +98,7 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 	}
 	catch(Exception)
 	{
-		
+
 
 	}
 
@@ -126,11 +127,11 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 	}
 	catch(Exception)
 	{
-		
+
 
 	}
 
-	
+
 }
 
 

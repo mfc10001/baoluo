@@ -37,6 +37,7 @@ examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise
 examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/main/ise_timer.h
 examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise/examples/db_server/db_server.cpp
 examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise/examples/db_server/db_server.h
+examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise/examples/db_server/game_define/BaseType.h
 examples/db_server/CMakeFiles/db_server.dir/db_server.cpp.o: /home/ll/baoluo/ise/examples/db_server/game_define/Protocol.h
 
 examples/db_server/CMakeFiles/db_server.dir/server_msg.cpp.o: /home/ll/baoluo/ise/build/linux/../../ise/ext/dbi/mysql/ise_dbi_mysql.h

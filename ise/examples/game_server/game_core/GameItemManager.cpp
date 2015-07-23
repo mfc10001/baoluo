@@ -39,14 +39,16 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 		temp["baseid"]=entry->m_data.baseid;
 		temp["num"]=entry->m_data.num;
 		temp["base_type"]=entry->m_data.base_type;
+		/*
 		if(entry->m_data.base_type == ItemType_Equip)
 		{
 			temp["Strengthen"]=entry->m_data.Strengthen;
 			temp["Hole1"]=entry->m_data.Hole1;
 			temp["Hole2"]=entry->m_data.Hole2;
-			temp["Hole3"]=entry->m_data.Hole3;		
-			temp["Hole4"]=entry->m_data.Hole4;		
+			temp["Hole3"]=entry->m_data.Hole3;
+			temp["Hole4"]=entry->m_data.Hole4;
 		}
+		*/
 		arrayObj.append(temp);
 	}
 }
@@ -63,17 +65,49 @@ void GameItemManager::save()
 
 
 //////
-GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner)
+GameItem* ItemCreator::createItem(uint8 type,uint32 baseid, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner)
 {
 	GameItem* item = new GameItem();
 	CheckCondition(item, NULL);
 
-	item->m_base_data = base;
-	item->m_data.baseid = base->id;
-	strncpy(item->name, base->name, MAX_NAMESIZE);
-	item->m_data.num = 1;//((item->m_base_data->max_num >= num) ? num : 1);
-	item->generateThisID();
-	item->m_data.create_time = Timestamp::now().epochMilliseconds();
+    switch(type)
+    {
+        case ItemType_Common:
+            {
+                const ItemDataEntry* base = ConfigManager::instance().getItemData(baseid);
+                item->m_data.base_type= type;
+                item->m_data.baseid = baseid;
+                strncpy(item->name, base->name, MAX_NAMESIZE);
+                item->m_data.num = 1;//((item->m_base_data->max_num >= num) ? num : 1);
+                item->generateThisID();
+                item->m_data.create_time = Timestamp::now().epochMilliseconds();
+            }
+            break;
+        case ItemType_Soul:
+            {
+                const SoulDataEntry* base = ConfigManager::instance().getSoulData(baseid);
+                item->m_data.base_type= type;
+                item->m_data.baseid = baseid;
+                strncpy(item->name, base->name, MAX_NAMESIZE);
+                item->m_data.num = 1;//((item->m_base_data->max_num >= num) ? num : 1);
+                item->generateThisID();
+                item->m_data.create_time = Timestamp::now().epochMilliseconds();
+            }
+            break;
+        case ItemType_Treausre:
+            {
+                const TreasureDataEntry* base = ConfigManager::instance().getTreasureData(baseid);
+                item->m_data.base_type= type;
+                item->m_data.baseid = baseid;
+                strncpy(item->name, base->name, MAX_NAMESIZE);
+                item->m_data.num = 1;//((item->m_base_data->max_num >= num) ? num : 1);
+                item->generateThisID();
+                item->m_data.create_time = Timestamp::now().epochMilliseconds();
+            }
+            break;
+
+    }
+
 
 
 	if(!GlobalItemManager::instance().addItem(item))
@@ -84,16 +118,15 @@ GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 
 
 	return item;
 }
-bool ItemCreator::autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action)
+bool ItemCreator::autoUnionCreateItem(uint8 type,uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action)
 {
 	CheckCondition(owner, false);
 
-	const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
-	//LogCheckCondition(base_data, false, "获取道具属性表失败 baseid:%u, action:%u", baseid, action);
-	CheckCondition(base_data, false);
+	//const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
 
+	//CheckCondition(base_data, false);
 
-	GameItem* item = ItemCreator::createItem(base_data, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
+	GameItem* item = ItemCreator::createItem(type,baseid, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
 	if(owner->m_pack_manager.obtainItem(item, action))
 	{
 

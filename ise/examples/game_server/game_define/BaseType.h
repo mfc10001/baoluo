@@ -31,30 +31,16 @@ typedef vector<string>::iterator StrContaonTypeItr;
 		return; \
 	}while(0)
 
-#define LogCheckCondition(cond, ret, msg, ...)\
-	do{\
-		if(!(cond)){\
-			ERROR(msg, ##__VA_ARGS__);\
-			return (ret);\
-		}\
-	}while(0)
 
-#define LogCheckConditionVoid(cond, msg, ...)\
-	do{\
-		if(!(cond)){\
-			ERROR(msg, ##__VA_ARGS__);\
-			return;\
-		}\
-	}while(0)
 
 #ifndef DELETE_VALUE
 #define DELETE_VALUE(x) \
 			do{  \
 				delete (x); \
 				(x) = NULL; \
-			}while(0) 
+			}while(0)
 #endif
-		
+
 #ifndef DELETE_ARRAY
 #define DELETE_ARRAY(x) \
 			do{ \
@@ -68,7 +54,9 @@ typedef vector<string>::iterator StrContaonTypeItr;
 enum ItemType
 {
 	ItemType_Common=0,
-	ItemType_Equip=1,
+	ItemType_Soul = 1,
+	ItemType_Treausre=2,
+	ItemType_Equip=3,
 };
 
 
