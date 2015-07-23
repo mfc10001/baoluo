@@ -1,2 +1,4 @@
 ise/build/linux/debug
 ise/build/linux/debug-install
+*.o
+*.cmake
