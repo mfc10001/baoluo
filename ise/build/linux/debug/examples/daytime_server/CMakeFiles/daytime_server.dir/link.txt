@@ -1,1 +1,0 @@
-g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/daytime_server.dir/daytime_server.cpp.o  -o ../../bin/daytime_server -rdynamic ../../lib/libise.a -lpthread 

@@ -1,1 +1,0 @@
-g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/hello_world.dir/hello_world.cpp.o CMakeFiles/hello_world.dir/server_msg.cpp.o  -o ../../bin/hello_world -rdynamic ../../lib/libise.a ../../lib/libise_utils_json.a ../../lib/libise_dbi_mysql.a -lpthread -lmysqlclient 

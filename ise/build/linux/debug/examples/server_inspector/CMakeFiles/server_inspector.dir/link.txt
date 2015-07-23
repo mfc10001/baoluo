@@ -1,1 +1,0 @@
-g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/server_inspector.dir/app_business.cpp.o CMakeFiles/server_inspector.dir/svr_mod_inspector.cpp.o  -o ../../bin/server_inspector -rdynamic ../../lib/libise.a -lpthread 

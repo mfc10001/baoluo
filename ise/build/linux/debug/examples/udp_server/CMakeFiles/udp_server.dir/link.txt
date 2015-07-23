@@ -1,1 +1,0 @@
-g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/udp_server.dir/udp_server.cpp.o  -o ../../bin/udp_server -rdynamic ../../lib/libise.a -lpthread 

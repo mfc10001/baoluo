@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../../lib/libise_utils_xml.a  CMakeFiles/ise_utils_xml.dir/ise_xml.cpp.o
-/usr/bin/ranlib ../../../lib/libise_utils_xml.a

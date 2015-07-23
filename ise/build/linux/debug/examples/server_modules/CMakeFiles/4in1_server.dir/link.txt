@@ -1,1 +1,0 @@
-g++   -g -Wall -Woverloaded-virtual -march=native -rdynamic -O0    CMakeFiles/4in1_server.dir/app_business.cpp.o CMakeFiles/4in1_server.dir/svr_mod_chargen.cpp.o CMakeFiles/4in1_server.dir/svr_mod_daytime.cpp.o CMakeFiles/4in1_server.dir/svr_mod_discard.cpp.o CMakeFiles/4in1_server.dir/svr_mod_echo.cpp.o  -o ../../bin/4in1_server -rdynamic ../../lib/libise.a -lpthread 

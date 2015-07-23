@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../../lib/libise_dbi_mysql.a  CMakeFiles/ise_dbi_mysql.dir/ise_dbi_mysql.cpp.o
-/usr/bin/ranlib ../../../lib/libise_dbi_mysql.a
