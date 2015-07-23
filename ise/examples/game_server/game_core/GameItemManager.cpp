@@ -27,6 +27,42 @@ GamePlayer *GameItemManager::getOwner()
 {
     return owner;
 }
+
+void  GameItemManager::fillDbData(Json::Value &arrayObj)
+{
+	for(ItemMap::iterator it = m_item_manager.begin();it != m_item_manager.end();it++)
+	{
+		GameItem *entry = (*it).second;
+
+		Json::Value temp;
+		temp["thisid"]=entry->m_data.thisid;
+		temp["baseid"]=entry->m_data.baseid;
+		temp["num"]=entry->m_data.num;
+		temp["base_type"]=entry->m_data.base_type;
+		if(entry->m_data.base_type == ItemType_Equip)
+		{
+			temp["Strengthen"]=entry->m_data.Strengthen;
+			temp["Hole1"]=entry->m_data.Hole1;
+			temp["Hole2"]=entry->m_data.Hole2;
+			temp["Hole3"]=entry->m_data.Hole3;		
+			temp["Hole4"]=entry->m_data.Hole4;		
+		}
+		arrayObj.append(temp);
+	}
+}
+
+void GameItemManager::save()
+{
+/*
+	Json::Value data;
+	data["type"]=INNER_SAVE_PACKAGE_DATA;
+	fillDbData(data["data"]);
+	AppBusiness::sendToDb(data);
+	*/
+}
+
+
+//////
 GameItem* ItemCreator::createItem(const ItemDataEntry *base, uint32 num, uint32 src_id, const char* src_name, const char *desc, AddItemAction action,  GamePlayer *owner)
 {
 	GameItem* item = new GameItem();

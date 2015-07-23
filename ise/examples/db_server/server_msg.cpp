@@ -120,11 +120,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 
 			}
 			break;
-		case INNER_SAVE_DATA:
-			{
-				save(arrayObj);
-				return true;
-			}
+
 		case PROTOCOL_CHAR_LIST_C:
 			{
                 if(!arrayObj.isMember("AID")&&!arrayObj.isMember("cid"))
@@ -153,6 +149,16 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				}
 			}
 			break;
+
+		case INNER_SAVE_PLAYER_BASE_DATA:
+			{
+				savePlayer(arrayObj);
+				return true;
+			}
+		case INNER_SAVE_PACKAGE_DATA:
+			{
+				s
+			}
         default:
                 return false;
 

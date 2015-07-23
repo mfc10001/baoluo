@@ -63,6 +63,7 @@ struct ItemDataEntry:public Entry
 	uint16 effect;
 	uint32 cd;
 	uint32 add_max;
+	uint32 getIndex(){return itemid;};
 };
 
 struct EquipDataEntry:public Entry
@@ -83,9 +84,34 @@ struct EquipDataEntry:public Entry
 	uint16 dodge;
 	uint16 n_crit;
 	uint16 n_opposeCrit;
+	uint32 getIndex(){return itemid;};
+
 
 };
 
+struct SoulDataEntry :public Entry
+{
+	uint32 itemid;
+	char   name[MAX_NAMESIZE];
+	uint8 quality;
+	uint8 type;
+	uint8 useType;
+	uint16 effect;
+	uint32 getIndex(){return itemid;};	
+};
+
+struct TreasureDataEntry :public Entry
+{
+	uint32 itemid;
+	char   name[MAX_NAMESIZE];
+	uint8 part;
+	uint8 quality;
+	uint32 harm;
+	uint32 missHarm;
+	uint16 attackSpeed;
+	uint16 speed;
+	uint32 getIndex(){return itemid;};		
+};
 
 class ConfigManager:public Singleton<ConfigManager>
 {
@@ -93,13 +119,23 @@ class ConfigManager:public Singleton<ConfigManager>
 		bool loadAllFile();
 		bool loadLevelFile();
 		bool loadPLayerFile();
+		bool loadItemFile();
+		bool loadEquipFile();
+		bool loadSoulFile();
+		bool loadTreasureFile();
+		
 
 		const LevelDataEntry* getLevelData(uint32 id);
+		
 		const PlayerDataEntry* getPlayerData(uint32 id);
 
   		const ItemDataEntry* getItemData(uint32 id);
 
   		const EquipDataEntry* getEquipData(uint32 id);
+
+		const SoulDataEntry* getSoulData(uint32 id);		
+
+		const TreasureDataEntry* getTreasureData(uint32 id);
 
 	private:
 		typedef map<uint32,  LevelDataEntry*> configLevelType;
@@ -111,11 +147,17 @@ class ConfigManager:public Singleton<ConfigManager>
 		typedef map<uint32,  ItemDataEntry*> configItemType;
         configItemType configItemManager;
 
-
 		typedef map<uint32,  EquipDataEntry*> configEquipType;
         configEquipType configEquipManager;
 
-    friend class Singleton<ConfigManager>;
+
+		typedef map<uint32,  SoulDataEntry*> configSoulType;
+        configSoulType configSoulManager;
+		
+		typedef map<uint32,  TreasureDataEntry*> configTreasureType;
+        configTreasureType configTreasureManager;
+
+   		friend class Singleton<ConfigManager>;
 };
 
 #endif

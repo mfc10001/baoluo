@@ -76,17 +76,17 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 	}
     connection->recv(SELF_PACKET_SPLITTER, EMPTY_CONTEXT);
 }
-void AppBusiness::save(Json::Value &arrayObj)
+void AppBusiness::savePlayer(Json::Value &arrayObj)
 {
+	uint32 uid=arrayObj["base"]["uid"].asUInt();
     char buff[BUFFLEN];
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 	sprintf(buff,"update bl_user set level = u%,exp = u%,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u where uid=%u",
-	arrayObj["level"].asUInt(),arrayObj["exp"].asUInt(),arrayObj["physicsAttack"].asUInt(),
-	arrayObj["magicAttack"].asUInt(),arrayObj["barmor"].asUInt(),arrayObj["bresistance"].asUInt(),
-	arrayObj["hp"].asUInt(),arrayObj["hit"].asUInt(),arrayObj["dodge"].asUInt(),
-	arrayObj["crit"].asUInt(),arrayObj["uid"].asUInt());
-
+		arrayObj["base"]["level"].asUInt(),arrayObj["base"]["exp"].asUInt(),arrayObj["base"]["physicsAttack"].asUInt(),
+		arrayObj["base"]["magicAttack"].asUInt(),arrayObj["base"]["barmor"].asUInt(),arrayObj["base"]["bresistance"].asUInt(),
+		arrayObj["base"]["hp"].asUInt(),arrayObj["base"]["hit"].asUInt(),arrayObj["base"]["dodge"].asUInt(),
+		arrayObj["base"]["crit"].asUInt(),uid);
 
 	query->setSql(buff);
 
@@ -97,8 +97,40 @@ void AppBusiness::save(Json::Value &arrayObj)
 	}
 	catch(Exception)
 	{
-
+		
 
 	}
+
+	if(arrayObj["package"]["base_type"] == ItemType_Equip)
+	{
+		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type,Strengthen,Hole1,Hole2,Hole3,Hole4) values (%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u)",
+			arrayObj["package"]["baseid"].asUInt(),uid,arrayObj["package"]["thisid"].asUInt(),
+			arrayObj["package"]["num"].asUInt(),arrayObj["package"]["base_type"].asUInt(),
+			arrayObj["package"]["Strengthen"].asUInt(),arrayObj["package"]["Hole1"].asUInt(),
+			arrayObj["package"]["Hole2"].asUInt(),arrayObj["package"]["Hole3"].asUInt(),
+			arrayObj["package"]["Hole4"].asUInt());
+	}
+	else
+	{
+		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type) values (%u,%u,%u,%u,%u,%u)",
+			arrayObj["package"]["baseid"].asUInt(),uid,arrayObj["package"]["thisid"].asUInt(),
+			arrayObj["package"]["num"].asUInt(),arrayObj["package"]["base_type"].asUInt());
+	}
+
+	query->setSql(buff);
+
+	try
+	{
+		query->execute();
+
+	}
+	catch(Exception)
+	{
+		
+
+	}
+
+	
 }
+
 

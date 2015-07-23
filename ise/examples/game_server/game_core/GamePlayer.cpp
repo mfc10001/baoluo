@@ -37,8 +37,10 @@ void GamePlayer::createChar()
 	setBaseAttr(PlayerAttr_crit,ptr_data->crit);
 	setBaseAttr(PlayerAttr_opposeCrit,ptr_data->opposeCrit);
 
+
 	m_base_attr.init_flag=1;
 
+	
 	/*
 	setBaseAttr(PlayerAttr_physicsAttackz,ptr_data->  )
 	setBaseAttr(PlayerAttr_magicAttackz,ptr_data->  )
@@ -65,8 +67,12 @@ void GamePlayer::setBaseAttr(uint16 type,uint32 value)
 void GamePlayer::save()
 {
 	Json::Value data;
-	fillDbData(data);
+	data["type"]= INNER_SAVE_PLAYER_BASE_DATA;
+	fillDbData(data["data"]["base"]);
+	m_pack_manager.m_uim.fillDbData(data["data"]["package"]);
+	
 	AppBusiness::sendToDb(data);
+	
 	/*
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
@@ -165,5 +171,45 @@ void  GamePlayer::fillDbData(Json::Value &arrayObj)
 	arrayObj["hit"]=		   m_base_data[ PlayerAttr_hit ];
 	arrayObj["dodge"]=		   m_base_data[ PlayerAttr_dodge   ];
 	arrayObj["crit"]=		   m_base_data[ PlayerAttr_crit    ];
+}
+
+bool GamePlayer::checkMoney(MoneyType eType, const uint64 num)
+{
+	CheckCondition(isMoneyTypeValid(eType) && num <= MONEY_LIMIT, false);
+	return m_base_data.money[eType] >= num;
+}
+
+void GamePlayer::addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify = true)
+{
+	CheckConditionVoid(isMoneyTypeValid(eType) && num <= MONEY_LIMIT && num > 0);
+	addMoney(eType, num);
+}
+bool GamePlayer::subMoney(MoneyType eType, const uint64 num, Cmd::DelMoneyAction action, bool notify = true)
+{
+	CheckCondition(num && checkMoney(eType, num), false);
+	subMoney(eType, num);
+	return true;
+}
+
+
+
+void GamePlayer::addMoney(MoneyType eType, const uint64 money)
+{
+	CheckConditionVoid(isMoneyTypeValid(eType) && money <= MONEY_LIMIT);
+	uint64 n64Tmp = m_packet[eType] + money;
+	n64Tmp = std::min(MONEY_LIMIT, n64Tmp) ;
+	m_base_data.money[eType] = n64Tmp;
+}
+
+void GamePlayer::subMoney(MoneyType eType, const uint64 money)
+{
+	CheckConditionVoid(isMoneyTypeValid(eType) && money <= MONEY_LIMIT);
+	m_packet[eType] = m_packet[eType] > money ? m_packet[eType] - money : 0;
+}
+
+uint64 GamePlayer::getMoney(MoneyType eType) const
+{
+	CheckCondition(isMoneyTypeValid(eType), 0);
+	return m_base_data.money[eType];
 }
 

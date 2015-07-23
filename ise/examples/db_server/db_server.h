@@ -21,7 +21,8 @@ public:
 	bool msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj);
 
 
-	void save(Json::Value &arrayObj);
+	void savePlayer(Json::Value &arrayObj);
+	void savePackage(Json::Value &arrayObj);
 };
 
 extern MySqlDatabase *m_db_conn;

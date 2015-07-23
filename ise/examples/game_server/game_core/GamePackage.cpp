@@ -13,6 +13,11 @@ PackageBase::PackageBase(GameItemManager* im, uint32 type)
 {
 	initCapacity();
 }
+bool GamePlayerPackages::deleteItem(GameItem* &item, Cmd::DelItemAction action)
+{
+
+}
+
 
 
 
@@ -146,8 +151,8 @@ SoulPackage::~SoulPackage()
 }
 
 //
-EquipPackage::EquipPackage(GameItemManager* im)
-:PackageBase(im, PackageType_Equip)
+EquipPackage::EquipPackage()
+
 {
 
 }
@@ -156,6 +161,61 @@ EquipPackage::~EquipPackage()
 
 }
 
+uint32  EquipPackage::cost(uint32 level)
+{
+	uint32 coststonenum=0;
+	uint32 costmoney=100;
+	
+	uint32 money = m_owner->getMoney(MoneyType_Money)
+
+	if(coststonenum != 0)
+	{
+		GameItem *stone = m_owner->m_pack_manager.m_commom_pack.getItemByBaseID(100001);
+		CheckCondition(stone,ERR_STONE);
+		CheckCondition(stone->getItemNumber()>coststonenum,ERR_STONE);
+	}
+
+	CheckCondition(money>=costmoney,ERR_MONEY);
+	
+
+	m_owner->subMoney(MoneyType_Money,costmoney,DelMoneyAction_EquipImprove);
+	if(coststonenum !=)
+	{
+		m_owner->m_pack_manager.reduceItemNumByBaseID(100001,coststonenum,DelItemAction_Improve);
+	}
+	return ERR_SUCCESS;
+}
+uint32 EquipPackage::Improve(uint8 type)
+{
+	uint32 ret = cost(m_equip_pos[type].getLevel());
+	if(ret == ERR_SUCCESS)
+	{
+		m_equip_pos[type].levelUp();
+	}
+	return ret;
+}
+
+/*
+GameItem * EquipPackage::getEquip(uint8 pos)
+{
+	switch(pos)
+	{
+		case EquipPosition_Clothes:
+			return getClothes();
+		case EquipPosition_Weapon:
+			return getWeapon();
+		case EquipPosition_glove:
+			return getGlove();
+		case EquipPosition_shoes:
+			return getShoes();	
+		default:
+			return NULL;
+	}
+}
+*/
+
+
+////
 SoulEquipPackage::SoulEquipPackage(GameItemManager* im)
 :PackageBase(im, PackageType_Soul_Solt)
 {

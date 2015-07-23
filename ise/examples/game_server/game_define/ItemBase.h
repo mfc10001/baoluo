@@ -16,28 +16,15 @@ enum EquipAttrGeneType
 	EquipAttrGeneType_Max,
 };
 
-enum ItemType
-{
-	ItemType_Common=0,
-	ItemType_Equip=1,
-};
 
 
 struct ItemBase
-{
-	union
-	{
-		struct
-		{
-			uint32 create_time;		///< 道具生成时间
-			uint32 first_thisid;	///< 第一次生成的thisid
-		};
-		uint64 createid;
-	};
+{	
 	uint32 thisid;   			///< 道具唯一ID
 	uint32 baseid;  			///< 道具表里的ID
 	uint32 num;					///< 道具数量
 	uint8  base_type;
+	uint32 create_time; 
 
 	ItemBase() {
 		bzero(this, sizeof(ItemBase));
@@ -51,7 +38,7 @@ struct ItemBase
 
 struct ItemData : public ItemBase
 {
-
+/*
 	#define EQUIP_GET_ATTR_FUNC(name) \
 		uint32 get##name##Attr()\
 		{\
@@ -59,41 +46,22 @@ struct ItemData : public ItemBase
 		}
 
 		EQUIP_GET_ATTR_FUNC(Base		)
-		EQUIP_GET_ATTR_FUNC(Hole1		)
-		EQUIP_GET_ATTR_FUNC(Hole2		)
-		EQUIP_GET_ATTR_FUNC(Hole3		)
-		EQUIP_GET_ATTR_FUNC(Hole4		)
-	#undef EQUIP_GET_ATTR_FUNC
-
-
-	uint32 equip_attr[EquipAttrGeneType_Max];
-
-/*
-	#define EQUIP_GET_ATTR_FUNC(name) \
-		EquipAttrMap& get##name##Attr() \
-		{ \
-			EquipAttrMap*& p = equip_attr[EquipAttrGeneType_##name]; \
-			if(p == NULL) p = new EquipAttrMap; \
-			assert_log(p); \
-			return *p; \
-		}
-		EQUIP_GET_ATTR_FUNC(Base		)
 		EQUIP_GET_ATTR_FUNC(Strengthen	)
-		EQUIP_GET_ATTR_FUNC(Additional	)
-		EQUIP_GET_ATTR_FUNC(Hidden		)
 		EQUIP_GET_ATTR_FUNC(Hole1		)
 		EQUIP_GET_ATTR_FUNC(Hole2		)
 		EQUIP_GET_ATTR_FUNC(Hole3		)
 		EQUIP_GET_ATTR_FUNC(Hole4		)
-		EQUIP_GET_ATTR_FUNC(Hole5		)
-		EQUIP_GET_ATTR_FUNC(Hole6		)
-		EQUIP_GET_ATTR_FUNC(Reform		)
-		EQUIP_GET_ATTR_FUNC(Ext		    )
-
 	#undef EQUIP_GET_ATTR_FUNC
 
-	EquipAttrMap* equip_attr[EquipAttrGeneType_Max]; ///< 装备属性
+	void inc_strengthen(uint32 lev)
+	{
+		equip_attr[EquipAttrGeneType_Strengthen]+=lev;
+	};
+
+	
+	uint32 equip_attr[EquipAttrGeneType_Max];
 	*/
+
 };
 
 
@@ -177,7 +145,8 @@ enum PackageCap
 enum DelItemAction
 {
 	DelItemAction_None		= 0,
-	DelItemAction_CreateAddToPackageFail,
+	DelItemAction_CreateAddToPackageFail=1,
+	DelItemAction_Improve	=2
 
 	DelItemAction_Max
 };
@@ -215,7 +184,7 @@ inline const char *getDelItemActionStr(uint8 act)
 enum EquipAttrType
 {
 	EquipAttrType_None = 0,
-
+	
 	EquipAttrType_Max,
 };
 

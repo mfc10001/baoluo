@@ -108,8 +108,31 @@ bool ConfigManager::loadPLayerFile()
 	 }
 	 fclose(fp);
 	 return true;
-	 return true;
+
 }
+
+
+bool ConfigManager::loadItemFile()
+{
+	return true;
+
+}
+bool ConfigManager::loadEquipFile()
+{
+	return true;
+
+}
+bool ConfigManager::loadSoulFile()
+{
+	return true;
+
+}
+bool ConfigManager::loadTreasureFile()
+{
+	return true;
+
+}
+
 
 const LevelDataEntry* ConfigManager::getLevelData(uint32 id)
 {
@@ -149,3 +172,25 @@ const EquipDataEntry* ConfigManager::getEquipData(uint32 id)
     }
     return NULL;
 }
+
+const SoulDataEntry* ConfigManager::getSoulData(uint32 id)
+{
+    configSoulType::iterator it=configSoulManager.find(id);
+    if(it!=configSoulManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
+
+}
+
+const TreasureDataEntry* ConfigManager::getTreasureData(uint32 id)
+{
+	configTreasureType::iterator it=configTreasureManager.find(id);
+    if(it!=configTreasureManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
+}
+

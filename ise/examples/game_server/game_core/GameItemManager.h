@@ -14,6 +14,14 @@ class GameItemManager
     public:
         GameItemManager(GamePlayer *user);
         ~GameItemManager();
+
+		//uint32 serialize(uint8* out, GamePlayer* player);
+		//bool unSerialize(const SerializeDataMember* in, GamePlayer* owner);
+
+
+		void save();
+		void  fillDbData(Json::Value &arrayObj);
+
         GamePlayer *getOwner();
 
         bool addItem(GameItem* item);
@@ -21,7 +29,6 @@ class GameItemManager
 
         friend class Singleton<GameItemManager>;
 
-        typedef map<uint32 , GameItem*> ItemMap;
         ItemMap m_item_manager;
         GamePlayer *owner;
 

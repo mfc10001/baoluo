@@ -46,3 +46,9 @@ uint32 GameItem::getItemNumber()
 	return m_data.num;
 }
 
+
+bool GameItem::updateEquipStrengthenLev(uint16 strlev)
+{
+	inc_strengthen(strlev);
+}
+

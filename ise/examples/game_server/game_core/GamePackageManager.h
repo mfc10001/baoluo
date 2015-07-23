@@ -17,9 +17,11 @@ class GamePlayerPackages
         ~GamePlayerPackages();
 
         bool obtainItem(GameItem* &item, AddItemAction action);
+		bool reduceItemNumByBaseID(const uint32 baseid, const uint32 num, DelItemAction action);
 
+		bool deleteItem(GameItem* &item, DelItemAction action);
 
-	private:
+	public:
 
 		LuggablePackage m_commom_pack;
 		TreasurePackage m_treasure_pack;
@@ -31,6 +33,8 @@ class GamePlayerPackages
 
         friend class GameItemManager;
 		GameItemManager m_uim;
+
+		GamePlayer *m_owner;
 };
 
 #endif

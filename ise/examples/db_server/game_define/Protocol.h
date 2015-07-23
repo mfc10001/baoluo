@@ -21,8 +21,8 @@ enum Protocol
 	PROTOCOL_SERVER_ADDR_S,
 
 	//inner msg  200-500
-	INNER_SAVE_DATA =200,
-
+	INNER_SAVE_PLAYER_BASE_DATA =200,
+	INNER_SAVE_PACKAGE_DATA		=201,
 
 	PROTOCOL_TOKEN_C=900,
 	//client msg
@@ -38,10 +38,7 @@ enum Protocol
 	PROTOCOL_ENTER_S,
 
 	PROTOCOL_CHAR_LIST_C,
-	PROTOCOL_CHAR_LIST_S,
-
-
-
+	PROTOCOL_CHAR_LIST_S
 
 
 };
@@ -50,31 +47,46 @@ enum Protocol
 enum ErrCode
 {
 	ERR_SUCCESS=0,
-	ERR_INNER=1,
-
+	ERR_INNER=1,//内部错误
 	//login
-	ERR_PWD=3,
-	ERR_UNREGISTER=4,
-	ERR_NONE_SERVER=5,
+	ERR_PWD=3,//密码错误
+	ERR_UNREGISTER=4,//未注册
+	ERR_NONE_SERVER=5,//没有找到酚蜗服务器地址
 
     //game
-	ERR_TOKEN_INVALID=20,
-	ERR_TOKEN_TIME,
+	ERR_TOKEN_INVALID=20,//无效token
+	ERR_TOKEN_TIME,//token过期
+	ERR_EXIST_ROLE,//已经存在角色
+	ERR_TOKEN_NULL,//没有找到token
+	ERR_EXIST_AL_LOGIN,//已经登陆
 
-	ERR_TOKEN_NULL,
-	ERR_EXIST_ROLE,
+	ERR_CHAR_EXIST=30,//角色
 
-	ERR_EXIST_AL_LOGIN
+
+	ERR_PARAMS=40,//参数错误
+
+	ERR_MONEY =41, 
+	ERR_RESOURCE=42,
+	
 };
 
 
 #define MAX_SEND_BUFF 4086
 #define MAX_REV_BUFF 4096
+
+#define MAX_NAME_SIZE 50
+#define MAX_SOUL_PACKAGE_SOLT  6
 const uint16 BUFFLEN  = 512;
-
-
+const uint16 RECV_TIMEOUT = 1000*5;  // ms
+//const uint16 MAX_NAMESIZE =48;
+#define MAX_NAMESIZE 48
 typedef map<uint32,uint32>  BaseMap;
 typedef set<uint32> BaseSet;
 
+
+class GameItem;
+typedef map<uint32 , GameItem*> ItemMap;
+
 #endif
+
 

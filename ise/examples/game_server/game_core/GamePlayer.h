@@ -35,16 +35,22 @@ class GamePlayer:public GameEntry
 		void  fillClientData(Json::Value &arrayObj);
 		void  fillDbData(Json::Value &arrayObj);
 
+
+		bool checkMoney(MoneyType eType, const uint64 num);
+		uint64 	getMoney(MoneyType eType) const;
+		void 	addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify = true);
+		bool 	subMoney(MoneyType eType, const uint64 num, Cmd::DelMoneyAction action, bool notify = true);
+	private:
+
+		void addMoney(MoneyType eType, const uint64 money);
+		void subMoney(MoneyType eType, const uint64 money);
+	public:
         GamePlayerPackages m_pack_manager;
 	private:
 		uint32 uid;
-
-
-
 		uint32 m_base_data[PlayerAttr_Max];
 
-
-
+		uint32 m_packet[MoneyType_End];
 
 };
 

@@ -28,7 +28,7 @@ class PackageBase
 		virtual bool addItem(GameItem *item, AddItemAction act);
 
 		virtual bool removeItem(GameItem *item, DelItemAction act, bool swap/* = false*/, uint32 &err);
-
+		
 		bool obtainItem(GameItem* &item, AddItemAction action);
 
 		GamePlayer * getOwner();
@@ -68,17 +68,36 @@ class SoulPackage:public PackageBase
 		~SoulPackage();
 };
 
+
+struct EquipBaseData
+{
+	uint32 level;
+	void levelUp(uint32 lev=1)
+	{
+		CheckConditionVoid(level+lev<=60,false);
+		level+=lev;
+	};
+
+	uint32 getLevel()
+	{
+		return level;
+	}
+};
 class EquipPackage:public PackageBase
 {
 	public:
-		EquipPackage(GameItemManager* im);
+		EquipPackage(GamePlayer *user);
 		~EquipPackage();
 
+		
+
+/*
 		inline GameItem* getClothes 	() const	{ return m_clothes		; }
 		inline GameItem* getWeapon		() const	{ return m_weapon		; }
 		inline GameItem* getGlove		() const	{ return m_glove		; }
 		inline GameItem* getShoes		() const	{ return m_shoes		; }
 
+		GameItem * getEquip(uint8 pos);
 	private:
 		union
 		{
@@ -93,6 +112,11 @@ class EquipPackage:public PackageBase
 		};
 
 		EquipSuitAttribute m_equipsuit_attrs;
+*/
+	uint32 Improve(uint8 type);
+	uint32 cost(uint32 level);
+	EquipBaseData m_equip_pos[EquipPosition_Max];
+	GamePlayer *m_owner;
 
 };
 
