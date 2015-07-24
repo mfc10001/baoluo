@@ -21,7 +21,15 @@ void GameItemManager::removeItem(GameItem* item)
 {
 
 }
-
+GameItem* GameItemManager::getItemByThisID(uint32 thisid)
+{
+	ItemMap::iterator it = m_item_manager.find(thisid);
+	if(it == m_item_manager.end())
+	{
+		return NULL;
+	}
+	return (*it).second;
+}
 
 GamePlayer *GameItemManager::getOwner()
 {

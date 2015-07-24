@@ -25,18 +25,18 @@ class GamePlayerPackages
 
 		void fill(Json::Value &data);
 
-		
+
 		uint32 onSolt(GameItem *item,uint8 pos);
 
 		uint32 onSolt(uint32 thisid,uint8 pos);
-		
+
 		uint32 unfixSolt(uint32 pos);
 
 		TreasureSolt &getTreasureSolt();
 
 
 
-		uint32 useItemByBaseId(uint32 baseid,uint32 num=1);
+		uint32 useItemByThisId(uint32 baseid,uint32 num=1);
 
 	private:
 		uint32 useItem(GameItem* item,uint32 num);
@@ -48,7 +48,7 @@ class GamePlayerPackages
 		SoulEquipPackage m_soul_equip_pack;
 		EquipPackage	m_equip_pack;
 		TreasureSolt    m_treasure_solt;
-		
+
         friend class GameItemManager;
 		GameItemManager m_uim;
 

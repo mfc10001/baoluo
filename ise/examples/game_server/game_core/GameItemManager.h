@@ -20,6 +20,7 @@ class GameItemManager
 		//bool unSerialize(const SerializeDataMember* in, GamePlayer* owner);
 		void save();
 		void  fillDbData(Json::Value &arrayObj);
+		GameItem* getItemByThisID(uint32 thisid);
 
         GamePlayer *getOwner();
 

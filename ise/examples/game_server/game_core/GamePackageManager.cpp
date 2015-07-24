@@ -128,7 +128,7 @@ void GamePlayerPackages::fill(Json::Value &data)
 {
 	m_uim.fillDbData(data);
 }
-uint32 GamePlayerPackages::useItemByBaseId(uint32 thisid,uint32 num)
+uint32 GamePlayerPackages::useItemByThisId(uint32 thisid,uint32 num)
 {
 	GameItem *item = m_uim.getItemByThisID(thisid);
 	CheckCondition(item, ERR_ITEM_NOTEXIST);
