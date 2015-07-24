@@ -180,15 +180,40 @@ bool GamePlayer::checkMoney(MoneyType eType, const uint64 num)
 	return m_packet[eType] >= num;
 }
 
+void GamePlayer::sendMoneyToMe(MoneyType eType, const int64 change)
+{
+	uint32 err=ERR_SUCCESS;
+	Json::Value rValue;
+	Json::Value rData;
+	.
+	uint32 rNo=PROTOCOL_CHAR_MONEY_S;
+
+	rData["money_type"]=eType;
+	rData["change"]=change;
+	rData["total"]=m_packet[eType];
+	
+	SEND_DATA_TO_CLIENT
+
+}
+
 void GamePlayer::addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify)
 {
 	CheckConditionVoid(isMoneyTypeValid(eType) && num <= MONEY_LIMIT && num > 0);
 	addMoney(eType, num);
+
+	if(notify)
+	{
+		sendMoneyToMe(eType, num);
+	}
 }
 bool GamePlayer::subMoney(MoneyType eType, const uint64 num, DelMoneyAction action, bool notify)
 {
 	CheckCondition(num && checkMoney(eType, num), false);
 	subMoney(eType, num);
+	if(notify)
+	{
+		sendMoneyToMe(eType, num);
+	}
 	return true;
 }
 
@@ -212,5 +237,11 @@ uint64 GamePlayer::getMoney(MoneyType eType) const
 {
 	CheckCondition(isMoneyTypeValid(eType), 0);
 	return m_packet[eType];
+}
+
+
+void GamePlayer::fill(Json::Value &data)
+{
+	data["common"]
 }
 

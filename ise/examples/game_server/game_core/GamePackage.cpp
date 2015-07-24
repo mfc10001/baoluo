@@ -24,6 +24,7 @@ bool PackageBase::checkLeftSpace()
 	return getValidCapacity() > m_size;
 }
 
+
 void PackageBase::initCapacity()
 {
 	switch(m_type)

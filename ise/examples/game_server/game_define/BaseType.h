@@ -60,5 +60,17 @@ enum ItemType
 };
 
 
+#define  SEND_DATA_TO_CLIENT  rValue["code"]=err;\
+rValue["type"]=rNo;\
+rValue["data"]=rData;\
+string str = rValue.toStyledString();\
+char buff[MAX_SEND_BUFF];\
+memset(buff,0,MAX_SEND_BUFF);\
+uint16 len=str.length()+2;\
+memcpy(buff,&len,sizeof(uint16));\
+memcpy(buff+2,str.c_str(),str.length());\
+LinuxTcpConnection*  pp =  static_cast<LinuxTcpConnection*> (&connection);\
+pp->send(buff,len);\
+
 
 #endif

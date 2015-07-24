@@ -119,10 +119,14 @@ uint32 GamePlayerPackages::onSolt(GameItem *item,uint8 pos)
 	return m_treasure_solt.onEquip(item,pos);
 }
 
-uint32 onSolt(uint32 thisid,uint8 pos)
+uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 {
 	return 1;
 }
 
+void GamePlayerPackages::fill(Json::Value &data)
+{
+	m_uim.fillDbData(data);
+}
 
 

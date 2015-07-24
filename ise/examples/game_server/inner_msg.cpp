@@ -11,7 +11,7 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 	uint32 err=1;
 	Json::Value rValue;
 	Json::Value rData;
-	uint32 rNo=PROTOCOL_INVALID;;
+	uint32 rNo=PROTOCOL_INVALID;
 
 
 
@@ -46,7 +46,7 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 				player=new GamePlayer();
 				player->init(arrayObj);
 				GamePlayerManager::instance().AddPlayer(player);
-				ConnetManager::instance().add(connection.getSocket().getHandle(),player->getUid());
+				ConnetManager::instance().add(connection.getSocket().getHandle(),player);
 				player->fillClientData(rData);
 				err=ERR_SUCCESS;
 			}

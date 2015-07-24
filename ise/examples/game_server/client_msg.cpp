@@ -5,13 +5,20 @@
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
 
+
+#define COMMON_METHON_GET_PLAYER  uint32 cid =connection.get()->getSocket().getHandle();\
+	GamePlayer* player =ConnetManager::instance().getPlayer(cid);
+
 bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json::Value &arrayObj)
 {
 	uint32 err=1;
 	Json::Value rValue;
 	Json::Value rData;
 	uint32 rNo=PROTOCOL_INVALID;;
+	
+	
 
+		
 	switch(type)
 	{
 		case PROTOCOL_TOKEN_C:
@@ -37,7 +44,39 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
                 break;
             }
 
-
+		case PROTOCOL_EQUIP_IMPROVE_C:
+			{
+				COMMON_METHON_GET_PLAYER
+				rNo=PROTOCOL_EQUIP_IMPROVE_S;
+				uint32 thisid = arrayObj["thisid"].asUInt();
+				err=player->m_improve.strengthenEquip(thisid);
+			}
+			break;
+		case PROTOCOL_EQUIP_TREASURE_C:
+			{
+				COMMON_METHON_GET_PLAYER
+				rNo=PROTOCOL_EQUIP_TREASURE_S;
+				uint32 thisid = arrayObj["thisid"].asUInt();
+				uint32 pos=arrayObj["pos"].asUInt();
+				err =player->m_pack_manager.onSolt(thisid,pos);
+			}
+			break;
+		case PROTOCOL_EQUIP_UNFIX_TREASURE_C:
+			{
+				COMMON_METHON_GET_PLAYER
+				rNo=PROTOCOL_EQUIP_UNFIX_TREASURE_S;
+				uint32 pos = arrayObj["pos"].asUInt();				
+				err =player->m_pack_manager.unfixSolt(pos);
+			}
+			break;
+		case PROTOCOL_PACK_LIST_C:
+			{
+				COMMON_METHON_GET_PLAYER
+				rNo=PROTOCOL_PACK_LIST_S;
+				player->m_pack_manager.fill(rData);
+				err=ERR_SUCCESS;
+			}
+			break;
 		default:
 			return false;
 	}

@@ -6,6 +6,8 @@
 #include "../game_define/ItemBase.h"
 #include "GameItemManager.h"
 #include "../game_define/Protocol.h"
+#include "ise/ext/utils/json/json.h"
+
 class GameItem;
 class GameEntry;
 class GamePlayer;
@@ -36,6 +38,8 @@ class PackageBase
 		inline uint32 getValidCapacity() ;
 		bool checkLeftSpace();
 
+
+		void fillData(Json::Value &data);
 		GamePlayer * getOwner();
 	private:
 

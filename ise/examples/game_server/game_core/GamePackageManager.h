@@ -5,6 +5,7 @@
 #include "../game_define/ItemBase.h"
 #include "../game_define/Protocol.h"
 #include "GamePackage.h"
+#include "ise/ext/utils/json/json.h"
 
 
 
@@ -22,7 +23,9 @@ class GamePlayerPackages
 		bool deleteItem(GameItem* &item, DelItemAction action);
 
 
+		void fill(Json::Value &data);
 
+		
 		uint32 onSolt(GameItem *item,uint8 pos);
 
 		uint32 onSolt(uint32 thisid,uint8 pos);
@@ -30,6 +33,8 @@ class GamePlayerPackages
 		uint32 unfixSolt(uint32 pos);
 
 		TreasureSolt &getTreasureSolt();
+
+		
 	public:
 
 		LuggablePackage m_commom_pack;

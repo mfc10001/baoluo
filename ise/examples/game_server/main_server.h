@@ -65,7 +65,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
+class GamePlayer;
 class ConnetManager:public Singleton<ConnetManager>
 {
 	public:
@@ -78,6 +78,7 @@ class ConnetManager:public Singleton<ConnetManager>
 
 		uint64 makeCid();
 		TcpConnection* getConn(uint32 cid);
+		GamePlayer *getPlayer(uint32 cid);
 	private:
 		friend class Singleton<ConnetManager>;
 		//¿Í»§¶Ëcid
@@ -85,7 +86,7 @@ class ConnetManager:public Singleton<ConnetManager>
 		typedef map<uint32,TcpConnection*>  ConnetCidMap;
 		ConnetCidMap m_cid_manager;
 
-        typedef map<uint32,uint32> CidMap;
+        typedef map<uint32,GamePlayer*> CidMap;
         CidMap m_cid_con;
 
 		SeqNumberAlloc *alloc;
