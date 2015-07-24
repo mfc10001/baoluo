@@ -113,11 +113,12 @@ bool PackageBase::removeItem(GameItem* item, DelItemAction act,  uint32 &err)
 	--m_size;
 	return true;
 }
-void PackageBase::moveItemIn(GameItem *item)
+bool PackageBase::moveItemIn(GameItem *item)
 {
-	CheckConditionVoid(getValidCapacity());
+	CheckCondition(getValidCapacity(),false);
 	m_item_map.insert(std::make_pair(item->id, item));
 	++m_size;
+	return true;
 }
 
 
@@ -242,8 +243,8 @@ SoulEquipPackage::~SoulEquipPackage()
 
 
 //
-TreasureSolt::TreasureSolt(EquipPackage *pack):
-m_own_pack(pack)
+TreasureSolt::TreasureSolt(GamePlayer *user):
+m_owner(user)
 {
 
 }
@@ -254,7 +255,7 @@ TreasureSolt::~TreasureSolt()
 
 bool TreasureSolt::checkPosValid(uint8 type)
 {
-	CheckCondition(type<TreasurePostion_Max,false)
+	CheckCondition(type<TreasurePostion_Max,false);
 	GameItem * item = m_treausre[type];
 	if(item)
 	{

@@ -1,13 +1,17 @@
 
 #include "GameItem.h"
 #include "GamePlayer.h"
+
 void GameItem::generateThisID()
 {
 	id = (getRandom(0, 1) ? getRandom(-1000, 0x80000000) : getRandom(1000, 0x7FFFFFFE));
 	m_data.thisid = id;
 }
 
-
+void GameItem::updateEquipStrengthenLev()
+{
+    m_data.equip_attr[EquipAttrGeneType_Strengthen]+=1;
+}
 uint8 GameItem::getBaseType()
 {
 	return m_data.base_type;

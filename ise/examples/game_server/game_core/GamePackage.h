@@ -27,7 +27,7 @@ class PackageBase
 
 		virtual bool addItem(GameItem *item, AddItemAction act);
 
-		void moveItemIn(GameItem *item);
+		bool moveItemIn(GameItem *item);
 
 		virtual bool removeItem(GameItem *item, DelItemAction act, uint32 &err);
 
@@ -143,6 +143,7 @@ class SoulEquipPackage:public PackageBase
 
 class TreasureSolt
 {
+    public:
 	TreasureSolt(GamePlayer *user);
 	~TreasureSolt();
 	bool checkPosValid(uint8 type);

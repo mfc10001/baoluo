@@ -101,15 +101,15 @@ bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelIte
 
 uint32 GamePlayerPackages::unfixSolt(uint32 pos)
 {
-	CheckCondition(pos<TreasurePostion_Max,ERR_INNER)
+	CheckCondition(pos<TreasurePostion_Max,ERR_INNER);
 	GameItem * item = m_treasure_solt.m_treausre[pos];
 	CheckCondition(item,ERR_INNER);
-	
+
 	CheckCondition (m_commom_pack.checkLeftSpace(),ERR_VALID_GRIDS);
 
 	if(m_commom_pack.moveItemIn(item))
 	{
-		m_commom_pack.m_treausre[pos]=NULL;
+		m_treasure_solt.m_treausre[pos]=NULL;
 		return ERR_SUCCESS;
 	}
 	return ERR_INNER;

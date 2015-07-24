@@ -7,7 +7,7 @@
 #include "ise/ext/utils/json/json.h"
 #include "../game_define/EntryBase.h"
 #include "GamePackageManager.h"
-#include "Game"
+#include "GameEquipImprove.h"
 
 class GamePlayer:public GameEntry
 {

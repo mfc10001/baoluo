@@ -1,11 +1,23 @@
 
 #include "GameEquipImprove.h"
+#include "GamePlayer.h"
+#include "GameItem.h"
+
+EquipImprove::EquipImprove(GamePlayer *player):
+m_owner(player)
+{
+
+}
+EquipImprove::~EquipImprove()
+{
+
+}
 uint32 EquipImprove::strengthenEquip(uint32 thisid)
 {
 
-	GameItem *item= GlobalItemManager::instance().getEquip(thisid);
+	GameItem *item= GlobalItemManager::instance().getItemByThisID(thisid);
 	CheckCondition(item,ERR_PARAMS);
-	
+
 	uint32 ret = cost(item);
 	if(ret!=ERR_SUCCESS)
 	{
