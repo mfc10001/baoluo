@@ -11,7 +11,7 @@ class EquipImprove
 
 		uint32 strengthenEquip(uint8 pos);
 
-		bool cost(GameItem* item);
+		uint32 cost(GameItem* item);
 		
 	private:
 		//@brief	属主

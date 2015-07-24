@@ -46,6 +46,8 @@ class GamePlayer:public GameEntry
 		void subMoney(MoneyType eType, const uint64 money);
 	public:
         GamePlayerPackages m_pack_manager;
+		EquipImprove       m_improve;
+		
 	private:
 		uint32 uid;
 		uint32 m_base_data[PlayerAttr_Max];

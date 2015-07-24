@@ -21,16 +21,24 @@ class GamePlayerPackages
 
 		bool deleteItem(GameItem* &item, DelItemAction action);
 
+
+
+		uint32 onSolt(GameItem *item,uint8 pos);
+
+		uint32 onSolt(uint32 thisid,uint8 pos);
+		
+		uint32 unfixSolt(uint32 pos);
+
+		TreasureSolt &getTreasureSolt();
 	public:
 
 		LuggablePackage m_commom_pack;
 		TreasurePackage m_treasure_pack;
 		SoulPackage		m_soul_pack;
-
-
 		SoulEquipPackage m_soul_equip_pack;
 		EquipPackage	m_equip_pack;
-
+		TreasureSolt    m_treasure_solt;
+		
         friend class GameItemManager;
 		GameItemManager m_uim;
 

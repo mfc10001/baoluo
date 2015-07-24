@@ -67,6 +67,8 @@ enum ErrCode
 
 	ERR_MONEY =41, 
 	ERR_RESOURCE=42,
+
+	ERR_VALID_GRIDS=43
 	
 };
 

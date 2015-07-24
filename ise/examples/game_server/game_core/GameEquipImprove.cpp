@@ -1,28 +1,43 @@
 
 #include "GameEquipImprove.h"
-uint32 EquipImprove::strengthenEquip(uint8 pos)
+uint32 EquipImprove::strengthenEquip(uint32 thisid)
 {
-	GameItem *item= m_owner->m_pack_manager.m_equip_pack.getEquip(pos);
+
+	GameItem *item= GlobalItemManager::instance().getEquip(thisid);
 	CheckCondition(item,ERR_PARAMS);
-	if(cost())
+	
+	uint32 ret = cost(item);
+	if(ret!=ERR_SUCCESS)
 	{
 		item->updateEquipStrengthenLev();
 		return ERR_SUCCESS;
 	}
-	return ERR_RESOURCE;
+	return ret;
 }
 
-bool EquipImprove::cost()
+uint32  EquipImprove::cost(GameItem* item)
 {
-	uint32 money = m_owner->getMoney(MoneyType_Money)
-	GameItem *stone = m_owner->m_pack_manager.m_commom_pack.getItemByBaseID(100001);
-	if(money>100&&stone&&stone->getItemNumber()>1)
+	uint32 coststonenum=0;
+	uint32 costmoney=100;
+
+	uint32 money = m_owner->getMoney(MoneyType_Money);
+
+	if(coststonenum != 0)
 	{
-		m_owner->subMoney(MoneyType_Money,100,DelMoneyAction_EquipImprove);
-		m_owner->m_pack_manager.reduceItemNumByBaseID(100001,1,DelItemAction_Improve);
-		
-		return true;
+		GameItem *stone = m_owner->m_pack_manager.m_commom_pack.getItemByBaseID(100001);
+		CheckCondition(stone,ERR_STONE);
+		CheckCondition(stone->getItemNumber()>coststonenum,ERR_STONE);
 	}
-	return false;
+
+	CheckCondition(money>=costmoney,ERR_MONEY);
+
+
+	m_owner->subMoney(MoneyType_Money,costmoney,DelMoneyAction_EquipImprove);
+	if(coststonenum != 0)
+	{
+		m_owner->m_pack_manager.reduceItemNumByBaseID(100001,coststonenum,DelItemAction_Improve);
+	}
+	return ERR_SUCCESS;
+
 }
 

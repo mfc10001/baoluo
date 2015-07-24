@@ -27,9 +27,14 @@ class PackageBase
 
 		virtual bool addItem(GameItem *item, AddItemAction act);
 
+		void moveItemIn(GameItem *item);
+
 		virtual bool removeItem(GameItem *item, DelItemAction act, uint32 &err);
 
 		bool obtainItem(GameItem* &item, AddItemAction action);
+
+		inline getValidCapacity() ;
+		bool checkLeftSpace();
 
 		GamePlayer * getOwner();
 	private:
@@ -59,6 +64,8 @@ class TreasurePackage:public PackageBase
 	public:
 		TreasurePackage(GameItemManager* im);
 		~TreasurePackage();
+
+
 };
 
 class SoulPackage:public PackageBase
@@ -66,11 +73,14 @@ class SoulPackage:public PackageBase
 	public:
 		SoulPackage(GameItemManager* im);
 		~SoulPackage();
+
+
 };
 
 
 struct EquipBaseData
 {
+	uint32 trid;
 	uint32 level;
 	void levelUp(uint32 lev=1)
 	{
@@ -88,9 +98,6 @@ class EquipPackage
 	public:
 		EquipPackage(GamePlayer *user);
 		~EquipPackage();
-
-
-
 /*
 		inline GameItem* getClothes 	() const	{ return m_clothes		; }
 		inline GameItem* getWeapon		() const	{ return m_weapon		; }
@@ -113,9 +120,12 @@ class EquipPackage
 
 		EquipSuitAttribute m_equipsuit_attrs;
 */
+
 	uint32 Improve(uint8 type);
-	uint32 cost(uint32 level);
+	//uint32 cost(uint32 level);
+
 	EquipBaseData m_equip_pos[EquipPosition_Max];
+
 	GamePlayer *m_owner;
 
 };
@@ -129,6 +139,24 @@ class SoulEquipPackage:public PackageBase
 		GameItem *m_equips[MAX_SOUL_PACKAGE_SOLT];
 
 };
+
+
+class TreasureSolt
+{
+	TreasureSolt(GamePlayer *user);
+	~TreasureSolt();
+	bool checkPosValid(uint8 type);
+	uint32  onEquip(GameItem *item,uint8 pos);
+	uint32  moveEquipOut(uint8 pos);
+	
+	inline GameItem* getTreasure1 		() const	{ return m_treausre[TreasurePostion_first]		; }
+	inline GameItem* getTreasure2		() const	{ return m_treausre[TreasurePostion_second]		; }
+
+	GameItem *m_treausre[TreasurePostion_Max];
+
+	GamePlayer *m_owner;
+};
+
 
 class Hero
 {
