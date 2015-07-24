@@ -34,7 +34,12 @@ class GamePlayerPackages
 
 		TreasureSolt &getTreasureSolt();
 
-		
+
+
+		uint32 useItemByBaseId(uint32 baseid,uint32 num=1);
+
+	private:
+		uint32 useItem(GameItem* item,uint32 num);
 	public:
 
 		LuggablePackage m_commom_pack;

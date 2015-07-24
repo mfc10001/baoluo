@@ -7,8 +7,6 @@ enum Protocol
 {
 	PROTOCOL_INVALID =1,
 
-
-
 	//login
 
 	PROTOCOL_REGISTER_C = 100,
