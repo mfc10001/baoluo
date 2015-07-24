@@ -3,9 +3,10 @@
 #include "../tools/CommonTools.h"
 #include "../main_server.h"
 
-GamePlayer::GamePlayer()
+GamePlayer::GamePlayer(TcpConnection &con)
 :m_pack_manager(this),
-m_improve(this)
+m_improve(this),
+connection(con)
 {
 }
 GamePlayer::~GamePlayer()
@@ -180,18 +181,18 @@ bool GamePlayer::checkMoney(MoneyType eType, const uint64 num)
 	return m_packet[eType] >= num;
 }
 
-void GamePlayer::sendMoneyToMe(MoneyType eType, const int64 change)
+void GamePlayer::sendMoneyToMe(MoneyType eType, int change)
 {
 	uint32 err=ERR_SUCCESS;
 	Json::Value rValue;
 	Json::Value rData;
-	.
+
 	uint32 rNo=PROTOCOL_CHAR_MONEY_S;
 
 	rData["money_type"]=eType;
 	rData["change"]=change;
 	rData["total"]=m_packet[eType];
-	
+
 	SEND_DATA_TO_CLIENT
 
 }
@@ -239,9 +240,4 @@ uint64 GamePlayer::getMoney(MoneyType eType) const
 	return m_packet[eType];
 }
 
-
-void GamePlayer::fill(Json::Value &data)
-{
-	data["common"]
-}
 

@@ -12,7 +12,7 @@
 class GamePlayer:public GameEntry
 {
 	public:
-		GamePlayer();
+		GamePlayer(TcpConnection &con);
 		~GamePlayer();
 		void createChar();
 
@@ -41,9 +41,9 @@ class GamePlayer:public GameEntry
 		void 	addMoney(MoneyType eType, const uint64 num, AddMoneyAction action, bool notify = true);
 		bool 	subMoney(MoneyType eType, const uint64 num, DelMoneyAction action, bool notify = true);
 
-		void sendMoneyToMe(MoneyType eType, const int64 change);
+		void sendMoneyToMe(MoneyType eType, int change);
 	private:
-		
+
 
 		void addMoney(MoneyType eType, const uint64 money);
 		void subMoney(MoneyType eType, const uint64 money);
@@ -52,8 +52,8 @@ class GamePlayer:public GameEntry
 		EquipImprove       m_improve;
 
 	private:
-		TcpConnection * connection;
-		
+		TcpConnection  &connection;
+
 		uint32 uid;
 		uint32 m_base_data[PlayerAttr_Max];
 

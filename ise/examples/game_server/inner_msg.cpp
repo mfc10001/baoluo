@@ -43,7 +43,7 @@ bool AppBusiness::innerMsgProcess(TcpConnection& connection,uint32 type,Json::Va
 					err=ERR_EXIST_AL_LOGIN;
 					break;
 				}
-				player=new GamePlayer();
+				player=new GamePlayer(connection);
 				player->init(arrayObj);
 				GamePlayerManager::instance().AddPlayer(player);
 				ConnetManager::instance().add(connection.getSocket().getHandle(),player);

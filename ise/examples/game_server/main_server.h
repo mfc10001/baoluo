@@ -72,7 +72,10 @@ class ConnetManager:public Singleton<ConnetManager>
 		//const TcpConnectionPtr& connection;
 		ConnetManager();
 		void add(const TcpConnectionPtr& con);
-        void add(uint32 uid,uint32 handler);
+        //void add(uint32 uid,uint32 handler);
+
+        void add(uint32 handler,GamePlayer *usr);
+
 
 		void del(const TcpConnectionPtr& con);
 
@@ -86,8 +89,8 @@ class ConnetManager:public Singleton<ConnetManager>
 		typedef map<uint32,TcpConnection*>  ConnetCidMap;
 		ConnetCidMap m_cid_manager;
 
-        typedef map<uint32,GamePlayer*> CidMap;
-        CidMap m_cid_con;
+        typedef map<uint32,GamePlayer*> ConPLayerMap;
+        ConPLayerMap m_con_player;
 
 		SeqNumberAlloc *alloc;
 };

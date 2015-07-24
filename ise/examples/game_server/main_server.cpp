@@ -4,6 +4,7 @@
 #include "game_core/ConfigManager.h"
 #include "tools/CommonTools.h"
 #include "game_core/GamePlayerManager.h"
+#include "game_core/GamePlayer.h"
 TcpClient *tcpClient_ = NULL;
 
 IseBusiness* createIseBusinessObject()
@@ -183,6 +184,7 @@ void AppBusiness::onTcpSendComplete(const TcpConnectionPtr& connection, const Co
 TimerId AppBusiness::addTimer(Timestamp expiration, INT64 interval, const TimerCallback& callback)
 {
 	  Timer *timer = new Timer(expiration, interval, callback);
+	  return 0;
 }
 
 
@@ -343,14 +345,15 @@ void  ConnetManager::add(const TcpConnectionPtr& con)
 	}
 	m_cid_manager[handler]=addr;
 }
-void  ConnetManager::add(uint32 con,uint32 uid)
+//void  ConnetManager::add(uint32 con,uint32 uid)
+void ConnetManager::add(uint32 handler,GamePlayer *usr)
 {
-    ConnetCidMap::iterator it=m_cid_manager.find(con);
-	if(it==m_cid_manager.end())
+    ConPLayerMap::iterator it=m_con_player.find(handler);
+	if(it==m_con_player.end())
 	{
 		return;
 	}
-    m_cid_con[con]=uid;
+    m_con_player[handler]=usr;
 }
 
 
@@ -365,12 +368,14 @@ void ConnetManager::del(const TcpConnectionPtr& con)
 	}
     m_cid_manager.erase(it);
 
-    CidMap::iterator ip=m_cid_con.find(handler);
-    if(ip==m_cid_con.end())
+    ConPLayerMap::iterator ip=m_con_player.find(handler);
+    if(ip==m_con_player.end())
     {
         return ;
     }
-    GamePlayerManager::instance().DelPlayer((*ip).second);
+
+    GamePlayerManager::instance().DelPlayer((*ip).second->getUid());
+     m_con_player.erase(ip);
 }
 
 uint64 ConnetManager::makeCid()
@@ -393,3 +398,12 @@ ConnetManager::ConnetManager()
     alloc=new SeqNumberAlloc(1000);
 }
 
+GamePlayer *ConnetManager::getPlayer(uint32 cid)
+{
+    ConPLayerMap::iterator ip=m_con_player.find(cid);
+    if(ip==m_con_player.end())
+    {
+        return NULL;
+    }
+    return (*ip).second;
+}
