@@ -7,7 +7,7 @@
 #include "ise/ext/utils/json/json.h"
 #include "../game_define/EntryBase.h"
 #include "GamePackageManager.h"
-
+#include "Game"
 
 class GamePlayer:public GameEntry
 {
@@ -47,7 +47,7 @@ class GamePlayer:public GameEntry
 	public:
         GamePlayerPackages m_pack_manager;
 		EquipImprove       m_improve;
-		
+
 	private:
 		uint32 uid;
 		uint32 m_base_data[PlayerAttr_Max];

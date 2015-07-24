@@ -14,14 +14,14 @@ PackageBase::PackageBase(GameItemManager* im, uint32 type)
 	initCapacity();
 }
 
-inline uint32 PackageBase::getValidCapacity() 
-{ 
+inline uint32 PackageBase::getValidCapacity()
+{
 	return m_valid_grids;
 }
 
 bool PackageBase::checkLeftSpace()
 {
-	return getValidCapacity() > m_size; 
+	return getValidCapacity() > m_size;
 }
 
 void PackageBase::initCapacity()
@@ -117,7 +117,7 @@ void PackageBase::moveItemIn(GameItem *item)
 {
 	CheckConditionVoid(getValidCapacity());
 	m_item_map.insert(std::make_pair(item->id, item));
-	++m_size;	
+	++m_size;
 }
 
 
@@ -170,7 +170,7 @@ EquipPackage::~EquipPackage()
 {
 
 }
-/*
+
 uint32  EquipPackage::cost(uint32 level)
 {
 	uint32 coststonenum=0;
@@ -195,7 +195,7 @@ uint32  EquipPackage::cost(uint32 level)
 	}
 	return ERR_SUCCESS;
 }
-*/
+
 uint32 EquipPackage::Improve(uint8 type)
 {
 	uint32 ret = cost(m_equip_pos[type].getLevel());
@@ -249,7 +249,7 @@ m_own_pack(pack)
 }
 TreasureSolt::~TreasureSolt()
 {
-	
+
 }
 
 bool TreasureSolt::checkPosValid(uint8 type)

@@ -33,7 +33,7 @@ class PackageBase
 
 		bool obtainItem(GameItem* &item, AddItemAction action);
 
-		inline getValidCapacity() ;
+		inline uint32 getValidCapacity() ;
 		bool checkLeftSpace();
 
 		GamePlayer * getOwner();
@@ -122,7 +122,7 @@ class EquipPackage
 */
 
 	uint32 Improve(uint8 type);
-	//uint32 cost(uint32 level);
+	uint32 cost(uint32 level);
 
 	EquipBaseData m_equip_pos[EquipPosition_Max];
 
@@ -148,7 +148,7 @@ class TreasureSolt
 	bool checkPosValid(uint8 type);
 	uint32  onEquip(GameItem *item,uint8 pos);
 	uint32  moveEquipOut(uint8 pos);
-	
+
 	inline GameItem* getTreasure1 		() const	{ return m_treausre[TreasurePostion_first]		; }
 	inline GameItem* getTreasure2		() const	{ return m_treausre[TreasurePostion_second]		; }
 
