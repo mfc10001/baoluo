@@ -69,7 +69,11 @@ enum ErrCode
 	ERR_STONE=42,
 	
 	
-	
+	ERR_POSITION=43,//位置不可用
+
+	ERR_VALID_GRIDS=44,
+
+	ERR_ITEM_NOTEXIST = 45,
 };
 
 

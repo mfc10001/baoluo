@@ -8,6 +8,7 @@ m_treasure_pack(&m_uim),
 m_soul_pack(&m_uim),
 m_equip_pack(player),
 m_soul_equip_pack(&m_uim),
+m_treasure_solt(player),
 m_owner(player)
 {
 
@@ -95,4 +96,33 @@ bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelIte
 		last_del->subNumber(num, m_owner, action);
 	}
 }
+
+
+
+uint32 GamePlayerPackages::unfixSolt(uint32 pos)
+{
+	CheckCondition(pos<TreasurePostion_Max,ERR_INNER);
+	GameItem * item = m_treasure_solt.m_treausre[pos];
+	CheckCondition(item,ERR_INNER);
+
+	CheckCondition (m_commom_pack.checkLeftSpace(),ERR_VALID_GRIDS);
+
+	if(m_commom_pack.moveItemIn(item))
+	{
+		m_treasure_solt.m_treausre[pos]=NULL;
+		return ERR_SUCCESS;
+	}
+	return ERR_INNER;
+}
+uint32 GamePlayerPackages::onSolt(GameItem *item,uint8 pos)
+{
+	return m_treasure_solt.onEquip(item,pos);
+}
+
+uint32 onSolt(uint32 thisid,uint8 pos)
+{
+	return 1;
+}
+
+
 

@@ -17,12 +17,7 @@ class GameItem:public Entry
         uint32 getItemNumber();
         bool incNumber(uint32 num, GamePlayer *player, AddItemAction act);
         bool subNumber(uint32 num, GamePlayer *player, DelItemAction act);
-
-		union {
-			const ItemDataEntry  *m_item_data;
-			const EquipDataEntry *m_equip_data;
-		};
-
+        void updateEquipStrengthenLev();
         ItemData m_data;
 };
 

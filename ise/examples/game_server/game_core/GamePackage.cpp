@@ -14,6 +14,16 @@ PackageBase::PackageBase(GameItemManager* im, uint32 type)
 	initCapacity();
 }
 
+inline uint32 PackageBase::getValidCapacity()
+{
+	return m_valid_grids;
+}
+
+bool PackageBase::checkLeftSpace()
+{
+	return getValidCapacity() > m_size;
+}
+
 void PackageBase::initCapacity()
 {
 	switch(m_type)
@@ -73,9 +83,8 @@ GamePlayer * PackageBase::getOwner()
 }
 bool PackageBase::addItem(GameItem *item, AddItemAction act)
 {
-	if (!item){
-        return false;
-    }
+	CheckCondition(item,false);
+	CheckCondition(getValidCapacity(),false);
 
 	GameItem* self_item = getItemByBaseID(item->getBaseID());
 	if(self_item)
@@ -104,6 +113,14 @@ bool PackageBase::removeItem(GameItem* item, DelItemAction act,  uint32 &err)
 	--m_size;
 	return true;
 }
+bool PackageBase::moveItemIn(GameItem *item)
+{
+	CheckCondition(getValidCapacity(),false);
+	m_item_map.insert(std::make_pair(item->id, item));
+	++m_size;
+	return true;
+}
+
 
 /////
 LuggablePackage::LuggablePackage(GameItemManager* im)
@@ -129,6 +146,7 @@ TreasurePackage::~TreasurePackage()
 }
 
 
+
 ///
 SoulPackage::SoulPackage(GameItemManager* im)
 :PackageBase(im, PackageType_Soul)
@@ -138,6 +156,10 @@ SoulPackage::SoulPackage(GameItemManager* im)
 SoulPackage::~SoulPackage()
 {
 }
+
+
+
+
 
 //
 EquipPackage::EquipPackage(GamePlayer *user):
@@ -174,6 +196,7 @@ uint32  EquipPackage::cost(uint32 level)
 	}
 	return ERR_SUCCESS;
 }
+
 uint32 EquipPackage::Improve(uint8 type)
 {
 	uint32 ret = cost(m_equip_pos[type].getLevel());
@@ -183,6 +206,9 @@ uint32 EquipPackage::Improve(uint8 type)
 	}
 	return ret;
 }
+
+
+
 
 /*
 GameItem * EquipPackage::getEquip(uint8 pos)
@@ -214,3 +240,34 @@ SoulEquipPackage::~SoulEquipPackage()
 {
 
 }
+
+
+//
+TreasureSolt::TreasureSolt(GamePlayer *user):
+m_owner(user)
+{
+
+}
+TreasureSolt::~TreasureSolt()
+{
+
+}
+
+bool TreasureSolt::checkPosValid(uint8 type)
+{
+	CheckCondition(type<TreasurePostion_Max,false);
+	GameItem * item = m_treausre[type];
+	if(item)
+	{
+		return false;
+	}
+	return true;
+}
+uint32  TreasureSolt::onEquip(GameItem *item,uint8 pos)
+{
+	CheckCondition(item,ERR_INNER);
+	CheckCondition(checkPosValid(pos),ERR_POSITION);
+	m_treausre[pos]=item;
+}
+
+

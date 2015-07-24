@@ -4,7 +4,8 @@
 #include "../main_server.h"
 
 GamePlayer::GamePlayer()
-:m_pack_manager(this)
+:m_pack_manager(this),
+m_improve(this)
 {
 }
 GamePlayer::~GamePlayer()

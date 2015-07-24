@@ -25,7 +25,7 @@ struct ItemBase
 	uint32 num;					///< 閬撳叿鏁伴噺
 	uint8  base_type;
 	uint32 create_time;
-
+	uint8  pack_type;
 	ItemBase() {
 		bzero(this, sizeof(ItemBase));
 	}
@@ -38,7 +38,7 @@ struct ItemBase
 
 struct ItemData : public ItemBase
 {
-/*
+
 	#define EQUIP_GET_ATTR_FUNC(name) \
 		uint32 get##name##Attr()\
 		{\
@@ -60,7 +60,7 @@ struct ItemData : public ItemBase
 
 
 	uint32 equip_attr[EquipAttrGeneType_Max];
-	*/
+	
 
 };
 
@@ -73,9 +73,16 @@ enum EquipPostion
 	EquipPosition_Weapon				= 1,	// 姝﹀櫒
 	EquipPosition_glove					= 2,
 	EquipPosition_shoes					= 3,
+
 	EquipPosition_Max,
 };
 
+enum TreasurePostion
+{
+	TreasurePostion_first				=0,
+	TreasurePostion_second				=1,
+	TreasurePostion_Max,
+};
 
 
 enum EquipSuitAttrType
@@ -115,6 +122,7 @@ enum PackageType
 	PackageType_Treasure,//宝物包裹
 	PackageType_Equip,//装备包裹
 	PackageType_Soul_Solt,
+	PackageType_Treasure_solt,
 	PackageType_Max,
 };
 
@@ -154,7 +162,8 @@ enum DelItemAction
 enum AddItemAction
 {
 	AddItemAction_None			= 0,
-
+	AddItemAction_MOVE			= 1,
+	
 	AddItemAction_Max,
 };
 

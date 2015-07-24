@@ -19,7 +19,9 @@ add_executable(main_server
   ./game_core/GamePackage.cpp
   ./game_core/GameItem.cpp
   ./game_core/GamePackageManager.cpp
+   ./game_core/GameEquipImprove.cpp
   ./game_core/GamePlayer.cpp
+
   )
 
 target_link_libraries(main_server ise ise_utils_json  ise_dbi_mysql)

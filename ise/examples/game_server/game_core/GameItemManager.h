@@ -18,8 +18,6 @@ class GameItemManager
 
 		//uint32 serialize(uint8* out, GamePlayer* player);
 		//bool unSerialize(const SerializeDataMember* in, GamePlayer* owner);
-
-
 		void save();
 		void  fillDbData(Json::Value &arrayObj);
 
