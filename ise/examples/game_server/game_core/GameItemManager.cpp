@@ -60,7 +60,28 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 		arrayObj.append(temp);
 	}
 }
+void  GameItemManager::fillDbData(Json::Value &arrayObj,uint8 pos)
+{
+	for(ItemMap::iterator it = m_item_manager.begin();it != m_item_manager.end();it++)
+	{
+		GameItem *entry = (*it).second;
+		 Json::Value temp;
+        if(entry->m_data.pack_type == pos)
+        {
 
+            temp["thisid"]=entry->m_data.thisid;
+            temp["baseid"]=entry->m_data.baseid;
+            temp["num"]=entry->m_data.num;
+            temp["base_type"]=entry->m_data.base_type;
+            temp["pack_type"]=entry->m_data.pack_type;
+            if(entry->m_data.pack_type == PackageType_Treasure_solt)
+            {
+                temp["Strengthen"]=entry->m_data.equip_attr[EquipAttrGeneType_Strengthen];
+            }
+        }
+        arrayObj.append(temp);
+	}
+}
 void GameItemManager::save()
 {
 /*

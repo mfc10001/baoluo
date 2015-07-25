@@ -6,11 +6,18 @@
 
 bool ConfigManager::loadAllFile()
 {
-	 loadLevelFile();
-	 loadPLayerFile();
-     loadItemFile();
-     loadEquipFile();
-     loadSoulFile();
+
+	 CheckCondition(loadLevelFile(),false);
+
+	 std::cout << std::endl << "exp.txt  load success" << std::endl;
+	 CheckCondition(loadPLayerFile(),false);
+     std::cout << std::endl << "attr.txt  load success" << std::endl;
+     CheckCondition(loadItemFile(),false);
+     std::cout << std::endl << "item.txt  load success" << std::endl;
+     CheckCondition(loadEquipFile(),false);
+     std::cout << std::endl << "equip.txt  load success" << std::endl;
+     CheckCondition(loadSoulFile(),false);
+     std::cout << std::endl << "soul.txt  load success" << std::endl;
      return true;
 }
 
@@ -27,10 +34,10 @@ bool ConfigManager::loadLevelFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
 		if(expline!=0)
 		{
             expline--;
@@ -50,6 +57,8 @@ bool ConfigManager::loadLevelFile()
 			data->exp=atoi(conVec[2].c_str());
 			configLevelManager[data->getIndex()]=data;
 		}
+		memset(buffer,0,BUFFLEN);
+        fgets(buffer,BUFFLEN,fp);
 	 }
 	 fclose(fp);
 	 return true;
@@ -68,10 +77,11 @@ bool ConfigManager::loadPLayerFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
+
 		if(expline!=0)
 		{
             expline--;
@@ -107,6 +117,8 @@ bool ConfigManager::loadPLayerFile()
 
 			configPlayerManager[data->getIndex()]=data;
 		}
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
 	 }
 	 fclose(fp);
 	 return true;
@@ -127,10 +139,11 @@ bool ConfigManager::loadItemFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
+
 		if(expline!=0)
 		{
             expline--;
@@ -138,7 +151,7 @@ bool ConfigManager::loadItemFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=9)
+		if(!conVec.empty()&&conVec.size()!=10)
 		{
 			return false;
 		}
@@ -156,6 +169,8 @@ bool ConfigManager::loadItemFile()
             data->add_max = atoi(conVec[ 8 ].c_str());
 			configItemManager[data->getIndex()]=data;
 		}
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
 	 }
 	 fclose(fp);
 
@@ -176,10 +191,11 @@ bool ConfigManager::loadEquipFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
+
 		if(expline!=0)
 		{
             expline--;
@@ -187,7 +203,7 @@ bool ConfigManager::loadEquipFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=16)
+		if(!conVec.empty()&&conVec.size()!=17)
 		{
 			return false;
 		}
@@ -213,6 +229,8 @@ bool ConfigManager::loadEquipFile()
 
 			configEquipManager[data->getIndex()]=data;
 		}
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
 	 }
 	 fclose(fp);
 
@@ -233,10 +251,11 @@ bool ConfigManager::loadSoulFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
+
 		if(expline!=0)
 		{
             expline--;
@@ -244,7 +263,7 @@ bool ConfigManager::loadSoulFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=6)
+		if(!conVec.empty()&&conVec.size()!=7)
 		{
 			return false;
 		}
@@ -259,6 +278,8 @@ bool ConfigManager::loadSoulFile()
             data->effect = atoi(conVec[ 5 ].c_str());
 			configSoulManager[data->getIndex()]=data;
 		}
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
 	 }
 	 fclose(fp);
 
@@ -267,8 +288,6 @@ bool ConfigManager::loadSoulFile()
 }
 bool ConfigManager::loadTreasureFile()
 {
-
-
 	string path=CONFIG_ROOT_PATH;
 	path.append("treasure.txt");
 
@@ -280,10 +299,11 @@ bool ConfigManager::loadTreasureFile()
 
 	char buffer[BUFFLEN];
     uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
 	 while(!feof(fp))
 	 {
-	 	memset(buffer,0,BUFFLEN);
-		fgets(buffer,BUFFLEN,fp);
+
 		if(expline!=0)
 		{
             expline--;
@@ -291,7 +311,7 @@ bool ConfigManager::loadTreasureFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=8)
+		if(!conVec.empty()&&conVec.size()!=10)
 		{
 			return false;
 		}
@@ -308,7 +328,9 @@ bool ConfigManager::loadTreasureFile()
             data->speed = atoi(conVec[ 7 ].c_str());
 			configTreasureManager[data->getIndex()]=data;
 		}
-	 }
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
+    }
 	 fclose(fp);
 
 	return true;

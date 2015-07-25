@@ -15,10 +15,10 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 	Json::Value rValue;
 	Json::Value rData;
 	uint32 rNo=PROTOCOL_INVALID;;
-	
-	
 
-		
+
+
+
 	switch(type)
 	{
 		case PROTOCOL_TOKEN_C:
@@ -65,7 +65,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 			{
 				COMMON_METHON_GET_PLAYER
 				rNo=PROTOCOL_EQUIP_UNFIX_TREASURE_S;
-				uint32 pos = arrayObj["pos"].asUInt();				
+				uint32 pos = arrayObj["pos"].asUInt();
 				err =player->m_pack_manager.unfixSolt(pos);
 			}
 			break;
@@ -73,7 +73,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 			{
 				COMMON_METHON_GET_PLAYER
 				rNo=PROTOCOL_PACK_LIST_S;
-				player->m_pack_manager.fill(rData);
+				uint32 pos = arrayObj["pos"].asUInt();
+				player->m_pack_manager.fill(rData,pos);
 				err=ERR_SUCCESS;
 			}
 			break;

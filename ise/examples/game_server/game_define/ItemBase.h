@@ -38,7 +38,10 @@ struct ItemBase
 
 struct ItemData : public ItemBase
 {
-
+    ItemData()
+    {
+        memset(this,0,sizeof(ItemData));
+    }
 	#define EQUIP_GET_ATTR_FUNC(name) \
 		uint32 get##name##Attr()\
 		{\
@@ -60,7 +63,7 @@ struct ItemData : public ItemBase
 
 
 	uint32 equip_attr[EquipAttrGeneType_Max];
-	
+
 
 };
 
@@ -163,7 +166,7 @@ enum AddItemAction
 {
 	AddItemAction_None			= 0,
 	AddItemAction_MOVE			= 1,
-	
+
 	AddItemAction_Max,
 };
 

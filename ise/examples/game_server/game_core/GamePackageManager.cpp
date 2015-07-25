@@ -128,6 +128,17 @@ void GamePlayerPackages::fill(Json::Value &data)
 {
 	m_uim.fillDbData(data);
 }
+void GamePlayerPackages::fill(Json::Value &data,uint8 pos)
+{
+    if(pos==PackageType_Equip)
+    {
+        m_equip_pack.fillData(data);
+    }
+    else
+    {
+        m_uim.fillDbData(data,pos);
+    }
+}
 uint32 GamePlayerPackages::useItemByThisId(uint32 thisid,uint32 num)
 {
 	GameItem *item = m_uim.getItemByThisID(thisid);

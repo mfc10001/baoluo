@@ -172,6 +172,15 @@ EquipPackage::~EquipPackage()
 {
 
 }
+void EquipPackage::fillData(Json::Value  &data)
+{
+    for(uint8 i = EquipPosition_Begin;i<EquipPosition_Max;i++)
+    {
+        Json::Value  temp;
+        temp["pos"]=i;
+        temp["level"]=m_equip_pos;
+    }
+}
 
 uint32  EquipPackage::cost(uint32 level)
 {

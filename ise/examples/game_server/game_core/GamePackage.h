@@ -127,6 +127,7 @@ class EquipPackage
 
 	uint32 Improve(uint8 type);
 	uint32 cost(uint32 level);
+    void fillData(Json::Value  &data);
 
 	EquipBaseData m_equip_pos[EquipPosition_Max];
 

@@ -24,7 +24,7 @@ class GamePlayerPackages
 
 
 		void fill(Json::Value &data);
-
+void fill(Json::Value &data,uint8 pos);
 
 		uint32 onSolt(GameItem *item,uint8 pos);
 
