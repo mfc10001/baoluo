@@ -62,12 +62,12 @@ uint32 GameItem::onUse(GamePlayer *player)
 			break;
 		case 2:
 			{
-				player->addExp(item->effect)
+				player->addExp(item->effect);
 			}
 			break;
 		case 3:
 			{
-				player->addBody(item->effect)
+				player->addBody(item->effect);
 			}
 			break;
 	}
