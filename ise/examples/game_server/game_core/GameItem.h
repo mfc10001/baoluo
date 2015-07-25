@@ -18,6 +18,9 @@ class GameItem:public Entry
         bool incNumber(uint32 num, GamePlayer *player, AddItemAction act);
         bool subNumber(uint32 num, GamePlayer *player, DelItemAction act);
         void updateEquipStrengthenLev();
+
+		uint32 onUse(GamePlayer *player);
+		
         ItemData m_data;
 };
 

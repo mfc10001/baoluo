@@ -10,14 +10,13 @@
 class GameItem;
 class GamePlayer;
 
+
 class GameItemManager
 {
     public:
         GameItemManager(GamePlayer *user);
         ~GameItemManager();
 
-		//uint32 serialize(uint8* out, GamePlayer* player);
-		//bool unSerialize(const SerializeDataMember* in, GamePlayer* owner);
 		void save();
 		void  fillDbData(Json::Value &arrayObj);
 		void fillDbData(Json::Value &arrayObj,uint8 pos);
@@ -52,6 +51,7 @@ class GlobalItemManager :public Singleton<GlobalItemManager>
 		~GlobalItemManager(){};
 
 	public:
+
 		bool addItem(GameItem* item);
 		GameItem* getItemByThisID(uint32 thisid);
 		void removeItem(GameItem* item);

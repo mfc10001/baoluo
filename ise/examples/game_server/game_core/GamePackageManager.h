@@ -24,7 +24,8 @@ class GamePlayerPackages
 
 
 		void fill(Json::Value &data);
-void fill(Json::Value &data,uint8 pos);
+		void fill(Json::Value &data,uint8 pos);
+		void fillDBData(Json::Value &data);
 
 		uint32 onSolt(GameItem *item,uint8 pos);
 
@@ -33,8 +34,6 @@ void fill(Json::Value &data,uint8 pos);
 		uint32 unfixSolt(uint32 pos);
 
 		TreasureSolt &getTreasureSolt();
-
-
 
 		uint32 useItemByThisId(uint32 baseid,uint32 num=1);
 

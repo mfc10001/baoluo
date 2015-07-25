@@ -86,6 +86,11 @@ enum ErrCode
 	ERR_VALID_GRIDS=44,
 
 	ERR_ITEM_NOTEXIST = 45,
+
+
+
+
+	ERR_PACK_POS_EXIST=70,//已经存在不用移动
 };
 
 

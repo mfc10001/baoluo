@@ -71,7 +71,7 @@ void GamePlayer::save()
 	Json::Value data;
 	data["type"]= INNER_SAVE_PLAYER_BASE_DATA;
 	fillDbData(data["data"]["base"]);
-	m_pack_manager.m_uim.fillDbData(data["data"]["package"]);
+	m_pack_manager.fillDbData(data["data"]["package"]);
 
 	AppBusiness::sendToDb(data);
 
@@ -96,11 +96,27 @@ void GamePlayer::save()
 }
 void GamePlayer::addExp(uint32 num)
 {
-
+	m_base_attr.exp+=num;
+	levelUp();
 }
+
+void GamePlayer::addBody(uint32 num)
+{
+	CheckConditionVoid(num <= BODY_LIMIT);
+	m_base_attr.body + =num;
+}
+
 void GamePlayer::levelUp()
 {
+	const LevelDataEntry* data = ConfigManager::instance().getLevelData(m_base_attr.level);
+	CheckConditionVoid(data);
 
+	if(m_base_attr.exp>=data.exp)
+	{
+		m_base_attr.level++;
+		m_base_attr.exp-=data.exp;
+		levelUp();
+	}
 }
 uint32 GamePlayer::getUid()
 {

@@ -151,14 +151,14 @@ bool ItemCreator::autoUnionCreateItem(uint8 type,uint32 baseid, uint32 num, Game
 {
 	CheckCondition(owner, false);
 
-	//const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
+	const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
 
-	//CheckCondition(base_data, false);
+	CheckCondition(base_data, false);
 
 	GameItem* item = ItemCreator::createItem(type,baseid, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
 	if(owner->m_pack_manager.obtainItem(item, action))
 	{
-
+		
 	}
 	else
 	{

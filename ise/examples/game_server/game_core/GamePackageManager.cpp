@@ -116,12 +116,27 @@ uint32 GamePlayerPackages::unfixSolt(uint32 pos)
 }
 uint32 GamePlayerPackages::onSolt(GameItem *item,uint8 pos)
 {
-	return m_treasure_solt.onEquip(item,pos);
+	uint32 ret = m_treasure_solt.onEquip(item,pos);
+	if(ret ==ERR_SUCCESS)
+	{
+		m_commom_pack.moveItOut(item);
+	}
 }
 
 uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 {
-	return 1;
+	GameItem *item = m_uim.getItemByThisID(thisid);
+	CheckCondition(thisid,ERR_PARAMS);
+
+	CheckCondition(item->m_data.pack_type!=pos,ERR_PACK_POS_EXIST);
+
+	return ERR_SUCCESS;
+}
+
+void GamePlayerPackages::fillDBData(Json::Value &data)
+{
+	m_equip_pack.fillData(data["equip"]);
+	m_uim.fillDbData(data["uin"]);
 }
 
 void GamePlayerPackages::fill(Json::Value &data)

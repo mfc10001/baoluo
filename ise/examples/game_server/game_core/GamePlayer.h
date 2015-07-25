@@ -21,6 +21,9 @@ class GamePlayer:public GameEntry
 		//增加经验
 		void addExp(uint32 num);
 
+		//增加体力值
+		void addBody(uint32 num);
+
 		//获取角色职业
         uint32 getRole(){return m_base_attr.role;};
 

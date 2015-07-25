@@ -48,5 +48,29 @@ uint32 GameItem::getItemNumber()
 	return m_data.num;
 }
 
+uint32 GameItem::onUse(GamePlayer *player)
+{
+	CheckCondition(player,1);
+	const ItemDataEntry* item =	ConfigManager::instance().getItemData(m_data.baseid);
+	CheckCondition(item,1);
+	switch(item->effect)
+	{
+		case 1:
+			{
+				//player->addMoney(MoneyType_Money,item->effect);
+			}
+			break;
+		case 2:
+			{
+				player->addExp(item->effect)
+			}
+			break;
+		case 3:
+			{
+				player->addBody(item->effect)
+			}
+			break;
+	}
+}
 
 
