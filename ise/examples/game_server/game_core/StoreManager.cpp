@@ -6,7 +6,7 @@
 #include "ItemBase.h"
 #include "Protocol.h"
 
-uint32 storeManager::buyGoods(uint32 &goodsId,GamePlayer *player)
+uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
 {
      StoreDataEntry *GoodsData = ConfigManager::instance().getStoreData(goodsId);
      if(itemData)
@@ -33,12 +33,12 @@ uint32 storeManager::buyGoods(uint32 &goodsId,GamePlayer *player)
 
 }
 
-storeManager::storeManager()
+StoreManager::SoreManager()
 {
     //ctor
 }
 
-storeManager::~storeManager()
+StoreManager::~StoreManager()
 {
     //dtor
 }
