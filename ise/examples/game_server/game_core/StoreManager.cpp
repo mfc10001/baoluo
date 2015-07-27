@@ -16,6 +16,7 @@ uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
         if(money>=goodsData->price)
         {
            bool isSuccess = ItemCreator::autoUnionCreateItem(goodsId,1,player,AddItemAction_Store);
+
            if(isSuccess)
            {
                return ERR_SUCCESS;
@@ -23,7 +24,7 @@ uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
            }else{
                return ERR_PACK_NULL;
            }
-
+           player->subMoney(MoneyType_Diamond,GoodsData.price,DelMoneyAction_Store);
         }else
         {
             return ERR_DIAMOND_LACK;

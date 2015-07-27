@@ -18,6 +18,10 @@ bool ConfigManager::loadAllFile()
      std::cout << std::endl << "equip.txt  load success" << std::endl;
      CheckCondition(loadSoulFile(),false);
      std::cout << std::endl << "soul.txt  load success" << std::endl;
+
+     CheckCondition(loadStoreFile(),false);
+     std::cout << std::endl << "malls.txt  load success" << std::endl;
+
      return true;
 }
 
