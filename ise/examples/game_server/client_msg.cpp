@@ -90,6 +90,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
                 uint32 goodsId = arrayObj["id"].asUInt();
                 err=StoreManager::instance().buyGoods(goodsId,player);
             }
+            break;
 		default:
 			return false;
 	}

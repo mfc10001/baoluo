@@ -15,11 +15,17 @@ GameItemManager::~GameItemManager()
 
 bool GameItemManager::addItem(GameItem* item)
 {
-    return false;
+    m_item_manager[item->getEntryID()]=item;
+    return true;
 }
 void GameItemManager::removeItem(GameItem* item)
 {
-
+    ItemMap::iterator  it = m_item_manager.find(item->getEntryID());
+    if(it == m_item_manager.end())
+    {
+      return;
+    }
+    m_item_manager.erase(it);
 }
 GameItem* GameItemManager::getItemByThisID(uint32 thisid)
 {
