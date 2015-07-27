@@ -72,6 +72,8 @@ enum DelMoneyAction
 	DelMoneyAction_None                 = 0,    ///< 未知
 
 	DelMoneyAction_EquipImprove			= 1,
+	DelMoneyAction_Store                = 2,
+
 	DelMoneyAction_Max,
 };
 

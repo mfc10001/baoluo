@@ -15,12 +15,13 @@ uint32 storeManager::buyGoods(uint32 &goodsId,GamePlayer *player)
          money = player->getMoney(MoneyType_Diamond)
         if(money>=GoodsData.price)
         {
-           bool isSuccess = ItemCreator::autoUnionCreateItem(0,goodsId,1,player,AddItemAction_Store);
+           bool isSuccess = ItemCreator::autoUnionCreateItem(goodsId,1,player,AddItemAction_Store);
+
            if(!isSuccess)
            {
                return ERR_PACK_NULL;
            }
-
+           player->subMoney(MoneyType_Diamond,GoodsData.price,DelMoneyAction_Store);
         }else
         {
             return ERR_DIAMOND_LACK;
