@@ -97,7 +97,7 @@ struct SoulDataEntry :public Entry
 	uint8 type;
 	uint8 useType;
 	uint16 effect;
-	uint32 getIndex(){return itemid;};	
+	uint32 getIndex(){return itemid;};
 };
 
 struct TreasureDataEntry :public Entry
@@ -110,7 +110,21 @@ struct TreasureDataEntry :public Entry
 	uint32 missHarm;
 	uint16 attackSpeed;
 	uint16 speed;
-	uint32 getIndex(){return itemid;};		
+	uint32 getIndex(){return itemid;};
+};
+
+struct StoreDataEntry :public Entry
+{
+	uint32 id;
+	uint32 itemId;
+	uint16 itemType;
+	uint32 itemCount;
+	uint32 price;
+	uint16 discount;
+	uint8  hot;
+	uint16 buyCount;
+	uint16 limit;
+	uint32 getIndex(){return id;};
 };
 
 class ConfigManager:public Singleton<ConfigManager>
@@ -123,19 +137,22 @@ class ConfigManager:public Singleton<ConfigManager>
 		bool loadEquipFile();
 		bool loadSoulFile();
 		bool loadTreasureFile();
-		
+		bool loadStoreFile();
+
 
 		const LevelDataEntry* getLevelData(uint32 id);
-		
+
 		const PlayerDataEntry* getPlayerData(uint32 id);
 
   		const ItemDataEntry* getItemData(uint32 id);
 
   		const EquipDataEntry* getEquipData(uint32 id);
 
-		const SoulDataEntry* getSoulData(uint32 id);		
+		const SoulDataEntry* getSoulData(uint32 id);
 
 		const TreasureDataEntry* getTreasureData(uint32 id);
+
+        const StoreDataEntry* getStoreData(uint32 id);
 
 	private:
 		typedef map<uint32,  LevelDataEntry*> configLevelType;
@@ -153,9 +170,12 @@ class ConfigManager:public Singleton<ConfigManager>
 
 		typedef map<uint32,  SoulDataEntry*> configSoulType;
         configSoulType configSoulManager;
-		
+
 		typedef map<uint32,  TreasureDataEntry*> configTreasureType;
         configTreasureType configTreasureManager;
+
+        typedef map<uint32,  StoreDataEntry*> configStoreType;
+        configStoreType configStoreManager;
 
    		friend class Singleton<ConfigManager>;
 };

@@ -151,7 +151,7 @@ bool ConfigManager::loadItemFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=10)
+		if(!conVec.empty()&&conVec.size()!=9)
 		{
 			return false;
 		}
@@ -203,7 +203,7 @@ bool ConfigManager::loadEquipFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=17)
+		if(!conVec.empty()&&conVec.size()!=16)
 		{
 			return false;
 		}
@@ -263,7 +263,7 @@ bool ConfigManager::loadSoulFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=7)
+		if(!conVec.empty()&&conVec.size()!=6)
 		{
 			return false;
 		}
@@ -311,7 +311,7 @@ bool ConfigManager::loadTreasureFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=10)
+		if(!conVec.empty()&&conVec.size()!=8)
 		{
 			return false;
 		}
@@ -327,6 +327,58 @@ bool ConfigManager::loadTreasureFile()
             data->attackSpeed = atoi(conVec[ 6 ].c_str());
             data->speed = atoi(conVec[ 7 ].c_str());
 			configTreasureManager[data->getIndex()]=data;
+		}
+        memset(buffer,0,BUFFLEN);
+		fgets(buffer,BUFFLEN,fp);
+    }
+	 fclose(fp);
+
+	return true;
+
+}
+
+bool ConfigManager::loadStoreFile()
+{
+    string path=CONFIG_ROOT_PATH;
+	path.append("malls.txt");
+
+	FILE * fp=fopen(path.c_str(),"r");
+ 	if(!fp)
+ 	{
+		return false;
+	}
+
+	char buffer[BUFFLEN];
+    uint32 expline=3;
+    memset(buffer,0,BUFFLEN);
+    fgets(buffer,BUFFLEN,fp);
+	 while(!feof(fp))
+	 {
+
+		if(expline!=0)
+		{
+            expline--;
+            continue;
+		}
+		StrContaonType conVec;
+		CommonTools::split(buffer,"\t",conVec);
+		if(!conVec.empty()&&conVec.size()!=9)
+		{
+			return false;
+		}
+		{
+
+			StoreDataEntry *data=new StoreDataEntry();
+            data->id = atoi(conVec[ 0 ].c_str());
+            data->itemId = atoi(conVec[ 1 ].c_str());
+            data->itemType = atoi(conVec[ 2 ].c_str());
+            data->itemCount = atoi(conVec[ 3 ].c_str());
+            data->price = atoi(conVec[ 4 ].c_str());
+            data->discount = atoi(conVec[ 5 ].c_str());
+            data->hot = atoi(conVec[ 6 ].c_str());
+            data->buyCount = atoi(conVec[ 7 ].c_str());
+            data->limit = atoi(conVec[ 8 ].c_str());
+			configStoreManager[data->getIndex()]=data;
 		}
         memset(buffer,0,BUFFLEN);
 		fgets(buffer,BUFFLEN,fp);
@@ -397,4 +449,12 @@ const TreasureDataEntry* ConfigManager::getTreasureData(uint32 id)
     }
     return NULL;
 }
-
+const StoreDataEntry* ConfigManager::getStoreData(uint32 id)
+{
+    configStoreType::iterator it=configStoreManager.find(id);
+    if(it!=configStoreManager.end())
+    {
+        return (*it).second;
+    }
+    return NULL;
+}

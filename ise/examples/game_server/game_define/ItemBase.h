@@ -166,6 +166,7 @@ enum AddItemAction
 {
 	AddItemAction_None			= 0,
 	AddItemAction_MOVE			= 1,
+	AddItemAction_Store         = 2,
 
 	AddItemAction_Max,
 };
