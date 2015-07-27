@@ -1,23 +1,26 @@
 #include "StoreManager.h"
 #include "ConfigManager.h"
-#include "EntryBase.h"
+#include "../game_define/EntryBase.h"
 #include "GamePlayer.h"
 #include "GameItemManager.h"
-#include "ItemBase.h"
-#include "Protocol.h"
+#include "../game_define/ItemBase.h"
+#include "../game_define/Protocol.h"
 
 uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
 {
-     StoreDataEntry *GoodsData = ConfigManager::instance().getStoreData(goodsId);
-     if(itemData)
+    const StoreDataEntry* goodsData = ConfigManager::instance().getStoreData(goodsId);
+     if(goodsData)
      {
-         int32 money;
-         money = player->getMoney(MoneyType_Diamond)
-        if(money>=GoodsData.price)
+         uint32 money;
+         money = player->getMoney(MoneyType_Diamond);
+        if(money>=goodsData->price)
         {
-           bool isSuccess = ItemCreator::autoUnionCreateItem(0,goodsId,1,player,AddItemAction_Store);
-           if(!isSuccess)
+           bool isSuccess = ItemCreator::autoUnionCreateItem(goodsId,1,player,AddItemAction_Store);
+           if(isSuccess)
            {
+               return ERR_SUCCESS;
+
+           }else{
                return ERR_PACK_NULL;
            }
 
@@ -33,7 +36,7 @@ uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
 
 }
 
-StoreManager::SoreManager()
+StoreManager::StoreManager()
 {
     //ctor
 }

@@ -4,6 +4,7 @@
 #include "game_define/Protocol.h"
 #include "tools/CommonTools.h"
 #include "game_core/ConfigManager.h"
+#include "game_core/StoreManager.h"
 
 
 #define COMMON_METHON_GET_PLAYER  uint32 cid =connection.get()->getSocket().getHandle();\
@@ -82,8 +83,8 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
             {
                 COMMON_METHON_GET_PLAYER
                 rNo=PROTOCOL_STORE_BUY_S;
-                uint32 id = arrayObj["id"].asUint();
-                err= StoreManager::instance().buyGoods(id,player);
+                uint32 goodsId = arrayObj["id"].asUInt();
+                err=StoreManager::instance().buyGoods(goodsId,player);
             }
 		default:
 			return false;

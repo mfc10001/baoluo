@@ -21,6 +21,7 @@ add_executable(main_server
   ./game_core/GamePackageManager.cpp
    ./game_core/GameEquipImprove.cpp
   ./game_core/GamePlayer.cpp
+  ./game_core/StoreManager.cpp
 
   )
 
