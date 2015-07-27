@@ -30,7 +30,7 @@ class PackageBase
 		virtual bool addItem(GameItem *item, AddItemAction act);
 
 		bool moveItemIn(GameItem *item);
-
+		bool moveItOut(GameItem *item);
 		virtual bool removeItem(GameItem *item, DelItemAction act, uint32 &err);
 
 		bool obtainItem(GameItem* &item, AddItemAction action);

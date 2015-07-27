@@ -45,6 +45,10 @@ inline bool  isMoneyTypeValid(MoneyType type)
 	return MoneyType_Money <= type && type < MoneyType_End;
 }
 static const uint64 MONEY_LIMIT	= 999999999;
+static const uint16 BODY_LIMIT	= 9999;
+
+
+
 
 enum AddMoneyAction
 {
@@ -93,6 +97,7 @@ struct PlayerBaseAttr
 
 	uint16 level;
 	uint32 exp;
+	uint16 body;
 
 };
 

@@ -92,6 +92,10 @@ enum ErrCode
 	ERR_DIAMOND_LACK = 47,
 
 	ERR_PACK_NULL = 48,
+
+
+
+	ERR_PACK_POS_EXIST=70,//已经存在不用移动
 };
 
 

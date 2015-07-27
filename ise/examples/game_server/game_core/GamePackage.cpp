@@ -91,8 +91,11 @@ bool PackageBase::addItem(GameItem *item, AddItemAction act)
 	if(self_item)
 	{
         self_item->incNumber(item->getItemNumber(),getOwner(),act);
+		return true;
 	}
 
+
+	item->m_data.pack_type=m_type;
 	if(m_im->addItem(item))
 	{
 		m_item_map.insert(std::make_pair(item->id, item));
@@ -116,9 +119,20 @@ bool PackageBase::removeItem(GameItem* item, DelItemAction act,  uint32 &err)
 }
 bool PackageBase::moveItemIn(GameItem *item)
 {
-	CheckCondition(getValidCapacity(),false);
+	CheckCondition(item&&getValidCapacity(),false);
+	item->m_data.pack_type=m_type;
 	m_item_map.insert(std::make_pair(item->id, item));
 	++m_size;
+	return true;
+}
+bool PackageBase::moveItOut(GameItem *item)
+{
+	PackItemMap::iterator it = m_item_map.find(item->getEntryID());
+	if(it == m_item_map.end())
+	{
+		return false;
+	}
+	m_item_map.erase(it);
 	return true;
 }
 
@@ -278,6 +292,7 @@ uint32  TreasureSolt::onEquip(GameItem *item,uint8 pos)
 	CheckCondition(item,ERR_INNER);
 	CheckCondition(checkPosValid(pos),ERR_POSITION);
 	m_treausre[pos]=item;
+	return ERR_SUCCESS;
 }
 
 
