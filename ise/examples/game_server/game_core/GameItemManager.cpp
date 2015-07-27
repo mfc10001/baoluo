@@ -147,16 +147,16 @@ GameItem* ItemCreator::createItem(uint8 type,uint32 baseid, uint32 num, uint32 s
 
 	return item;
 }
-bool ItemCreator::autoUnionCreateItem(uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action)
+bool ItemCreator::autoUnionCreateItem(uint8 type,uint32 baseid, uint32 num, GamePlayer *owner, AddItemAction action)
 {
 	CheckCondition(owner, false);
-	const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
-	CheckCondition(base_data, false);
+	//const ItemDataEntry* base_data = ConfigManager::instance().getItemData(baseid);
+	//CheckCondition(base_data, false);
 
-	GameItem* item = ItemCreator::createItem(base_data->type,baseid, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
+	GameItem* item = ItemCreator::createItem(type,baseid, num, owner->getEntryID(), owner->getEntryName(), getAddItemActionStr(action), action, owner);
 	if(owner->m_pack_manager.obtainItem(item, action))
 	{
-		
+
 	}
 	else
 	{
