@@ -82,6 +82,10 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
         case PROTOCOL_STORE_BUY_C:
             {
                 COMMON_METHON_GET_PLAYER
+               // uint32 cid =connection.get()->getSocket().getHandle();
+               // uint32 sizeoo=ConnetManager::instance().get
+                //GamePlayer* player =ConnetManager::instance().getPlayer(cid);
+
                 rNo=PROTOCOL_STORE_BUY_S;
                 uint32 goodsId = arrayObj["id"].asUInt();
                 err=StoreManager::instance().buyGoods(goodsId,player);

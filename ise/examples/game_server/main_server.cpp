@@ -349,7 +349,7 @@ void  ConnetManager::add(const TcpConnectionPtr& con)
 void ConnetManager::add(uint32 handler,GamePlayer *usr)
 {
     ConPLayerMap::iterator it=m_con_player.find(handler);
-	if(it==m_con_player.end())
+	if(it!=m_con_player.end())
 	{
 		return;
 	}

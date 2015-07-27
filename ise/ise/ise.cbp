@@ -42,16 +42,26 @@
 		<Unit filename="../examples/game_server/game_core/ConfigManager.cpp" />
 		<Unit filename="../examples/game_server/game_core/ConfigManager.h" />
 		<Unit filename="../examples/game_server/game_core/EntryBase.h" />
+		<Unit filename="../examples/game_server/game_core/GameEquipImprove.cpp" />
+		<Unit filename="../examples/game_server/game_core/GameEquipImprove.h" />
+		<Unit filename="../examples/game_server/game_core/GameFb.cpp" />
+		<Unit filename="../examples/game_server/game_core/GameFb.h" />
+		<Unit filename="../examples/game_server/game_core/GameFbManager.cpp" />
+		<Unit filename="../examples/game_server/game_core/GameFbManager.h" />
 		<Unit filename="../examples/game_server/game_core/GameItem.cpp" />
 		<Unit filename="../examples/game_server/game_core/GameItem.h" />
 		<Unit filename="../examples/game_server/game_core/GameItemManager.cpp" />
 		<Unit filename="../examples/game_server/game_core/GameItemManager.h" />
 		<Unit filename="../examples/game_server/game_core/GamePackage.cpp" />
 		<Unit filename="../examples/game_server/game_core/GamePackage.h" />
+		<Unit filename="../examples/game_server/game_core/GamePackageManager.cpp" />
+		<Unit filename="../examples/game_server/game_core/GamePackageManager.h" />
 		<Unit filename="../examples/game_server/game_core/GamePlayer.cpp" />
 		<Unit filename="../examples/game_server/game_core/GamePlayer.h" />
 		<Unit filename="../examples/game_server/game_core/GamePlayerManager.cpp" />
 		<Unit filename="../examples/game_server/game_core/GamePlayerManager.h" />
+		<Unit filename="../examples/game_server/game_core/StoreManager.cpp" />
+		<Unit filename="../examples/game_server/game_core/StoreManager.h" />
 		<Unit filename="../examples/game_server/game_define/BaseType.h" />
 		<Unit filename="../examples/game_server/game_define/EntryBase.h" />
 		<Unit filename="../examples/game_server/game_define/ItemBase.h" />
@@ -68,6 +78,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

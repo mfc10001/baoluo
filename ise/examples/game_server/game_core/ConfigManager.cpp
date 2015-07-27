@@ -155,7 +155,7 @@ bool ConfigManager::loadItemFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=9)
+		if(!conVec.empty()&&conVec.size()!=10)
 		{
 			return false;
 		}
@@ -207,7 +207,7 @@ bool ConfigManager::loadEquipFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=16)
+		if(!conVec.empty()&&conVec.size()!=17)
 		{
 			return false;
 		}
@@ -267,7 +267,7 @@ bool ConfigManager::loadSoulFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=6)
+		if(!conVec.empty()&&conVec.size()!=7)
 		{
 			return false;
 		}
@@ -315,7 +315,7 @@ bool ConfigManager::loadTreasureFile()
 		}
 		StrContaonType conVec;
 		CommonTools::split(buffer,"\t",conVec);
-		if(!conVec.empty()&&conVec.size()!=8)
+		if(!conVec.empty()&&conVec.size()!=10)
 		{
 			return false;
 		}

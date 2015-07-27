@@ -8,6 +8,8 @@ GamePlayer::GamePlayer(TcpConnection &con)
 m_improve(this),
 connection(con)
 {
+    memset(m_packet,0,sizeof(m_packet));
+    m_packet[MoneyType_Diamond]=9999;
 }
 GamePlayer::~GamePlayer()
 {
