@@ -2,10 +2,10 @@
 #define STOREMANAGER_H
 #include "ise/main/ise.h"
 
-class storeManager:public Singleton<storeManager>
+class StoreManager:public Singleton<StoreManager>
 {
     public:
-        uint32 buyGoods(uint32 &itemId);
+        uint32 buyGoods(uint32 &itemId,GamePlayer* player);
 
 
 

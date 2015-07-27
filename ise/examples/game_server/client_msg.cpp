@@ -78,6 +78,13 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				err=ERR_SUCCESS;
 			}
 			break;
+        case PROTOCOL_STORE_BUY_C:
+            {
+                COMMON_METHON_GET_PLAYER
+                rNo=PROTOCOL_STORE_BUY_S;
+                uint32 id = arrayObj["id"].asUint();
+                err= StoreManager::instance().buyGoods(id,player);
+            }
 		default:
 			return false;
 	}
