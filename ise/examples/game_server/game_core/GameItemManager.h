@@ -28,6 +28,8 @@ class GameItemManager
 
         friend class Singleton<GameItemManager>;
         uint32 serialize(uint8 *out);
+		void unserialize(uint8 *in);
+		
         ItemMap m_item_manager;
         GamePlayer *owner;
 

@@ -24,6 +24,7 @@ class GameItem:public Entry
         ItemData m_data;
 
 		uint32 serialize(uint8 *out);
+		void unserialize(uint8* in_data);
 };
 
 #endif

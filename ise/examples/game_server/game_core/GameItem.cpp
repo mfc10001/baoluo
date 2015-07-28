@@ -98,5 +98,9 @@ uint32 GameItem::serialize(uint8 *out)
 	memcpy(buffer,out,num);
 	return num;
 }
+void GameItem::unserialize(uint8* in_data)
+{
+	bcopy(in->data,&m_data,sizeof(m_data));
+}
 
 

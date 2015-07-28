@@ -189,6 +189,15 @@ uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 	return ERR_SUCCESS;
 }
 
+bool GamePlayerPackages::ReadJsonData(Json::Value &data)
+{
+	string it_data=data["uin"].asString();
+	string bb = base64Decode(aa.c_str(),aa.length());
+	m_uim.unserialize(bb.c_str());
+	return true;
+	
+}
+
 void GamePlayerPackages::fillDBData(Json::Value &data)
 {
 	m_equip_pack.fillData(data["equip"]);
@@ -196,8 +205,8 @@ void GamePlayerPackages::fillDBData(Json::Value &data)
 	
 	m_uim.fillDbData(data["uin"]);
 
-	string aa =data["uin"].asString();
-	string bb = base64Decode(aa.c_str(),aa.length());
+	ReadJsonData(data["uin"]);
+	
 	return;
 }
 

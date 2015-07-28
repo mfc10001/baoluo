@@ -126,6 +126,37 @@ uint32 GameItemManager::serialize(uint8 *out)
 	memcpy(buffer,out,num);
 	return num;
 }
+void GameItemManager::unserialize(uint8 *in_data)
+{
+	CheckCondition(in_data, false);
+	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
+	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
+	bzero(buffer, len);
+	uint32 offset=0;
+	uint32 num=0;
+
+    SerializeDataMember *in=(SerializeDataMember*) in_data->data;
+	while(num<in_data->num)
+	{
+		switch(in->type)
+			{
+			case 0:
+				{
+					GameItem *item = new GameItem();
+					item->unserialize(in->data);
+					owner->m_pack_manager.obtainItem(item,AddItemAction_Unseri);
+					offset=in->dataSize();
+					num+=in->allSize();
+					in = (SerializeDataMember*)(&(in->data[offset]));
+				}
+				break;
+
+			default:
+				break;
+			}
+	}
+	
+}
 
 
 //////

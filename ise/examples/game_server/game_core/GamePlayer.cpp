@@ -155,6 +155,8 @@ void GamePlayer::init(Json::Value &arrayObj)
 	m_base_data[ PlayerAttr_dodge	]	= arrayObj["dodge"].asUInt();
 	m_base_data[ PlayerAttr_crit	]	= arrayObj["crit"].asUInt();
 
+	m_pack_manager.
+
 
 }
 
