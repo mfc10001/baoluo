@@ -2,12 +2,11 @@
 #define _ISE_ERR_H_
 #include <map>
 #include <set>
+#include "BaseType.h"
 using namespace std;
 enum Protocol
 {
 	PROTOCOL_INVALID =1,
-
-
 
 	//login
 
@@ -38,8 +37,28 @@ enum Protocol
 	PROTOCOL_ENTER_S,
 
 	PROTOCOL_CHAR_LIST_C,
-	PROTOCOL_CHAR_LIST_S
+	PROTOCOL_CHAR_LIST_S,
 
+	PROTOCOL_CHAR_MONEY_S=1009,
+
+	PROTOCOL_EQUIP_IMPROVE_C=1010,
+	PROTOCOL_EQUIP_IMPROVE_S=1011,
+	PROTOCOL_EQUIP_TREASURE_C=1012,
+
+	PROTOCOL_EQUIP_TREASURE_S=1013,
+	PROTOCOL_EQUIP_UNFIX_TREASURE_C=1014,
+	PROTOCOL_EQUIP_UNFIX_TREASURE_S=1015,
+
+	PROTOCOL_PACK_LIST_C=1016,
+	PROTOCOL_PACK_LIST_S=1017,
+
+	PROTOCOL_ITEM_USE_C=1018,
+	PROTOCOL_ITEM_USE_S=1019,
+
+	PROTOCOL_ITEM_NOTITY_S=1021,
+
+	PROTOCOL_STORE_BUY_C=1100,
+	PROTOCOL_STORE_BUY_S=1101,
 
 };
 
@@ -65,11 +84,25 @@ enum ErrCode
 
 	ERR_PARAMS=40,//参数错误
 
-	ERR_MONEY =41, 
-	ERR_RESOURCE=42,
+	ERR_MONEY =41,
+	ERR_STONE=42,
 
-	ERR_VALID_GRIDS=43
-	
+
+	ERR_POSITION=43,//位置不可用
+
+	ERR_VALID_GRIDS=44,
+
+	ERR_ITEM_NOTEXIST = 45,
+
+	ERR_ITEM_NULL = 46,
+
+	ERR_DIAMOND_LACK = 47,
+
+	ERR_PACK_NULL = 48,
+
+
+
+	ERR_PACK_POS_EXIST=70,//已经存在不用移动
 };
 
 
@@ -78,7 +111,10 @@ enum ErrCode
 
 #define MAX_NAME_SIZE 50
 #define MAX_SOUL_PACKAGE_SOLT  6
-const uint16 BUFFLEN  = 512;
+const uint16 BUFFLEN  = 2048;
+
+const uint16 SQL_BUFFLEN  = 10*1024;
+
 const uint16 RECV_TIMEOUT = 1000*5;  // ms
 //const uint16 MAX_NAMESIZE =48;
 #define MAX_NAMESIZE 48
@@ -86,9 +122,26 @@ typedef map<uint32,uint32>  BaseMap;
 typedef set<uint32> BaseSet;
 
 
+#define PLAYER_SAVE_DATA_MAX_SIZE 200*1024
+
 class GameItem;
 typedef map<uint32 , GameItem*> ItemMap;
 
-#endif
 
+struct SerializeDataMember
+{
+	SerializeDataMember()
+	{
+		type = 0;
+		num = 0;
+	}
+	ALL_SIZE_FUNC(num, data);
+	DATA_SIZE_FUNC(num, data);
+	uint32 type;
+	uint32 num;
+	char data[0];
+};
+
+
+#endif
 
