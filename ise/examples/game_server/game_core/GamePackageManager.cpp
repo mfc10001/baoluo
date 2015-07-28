@@ -192,6 +192,8 @@ uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 void GamePlayerPackages::fillDBData(Json::Value &data)
 {
 	m_equip_pack.fillData(data["equip"]);
+
+	
 	m_uim.fillDbData(data["uin"]);
 }
 
@@ -221,5 +223,6 @@ uint32 GamePlayerPackages::useItem(GameItem* item,uint32 num)
 {
 	return 0;
 }
+
 
 

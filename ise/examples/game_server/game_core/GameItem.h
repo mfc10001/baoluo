@@ -11,7 +11,7 @@ class GamePlayer;
 class GameItem:public Entry
 {
     public:
-        void generateThisID();
+		void generateThisID();
         uint8 getBaseType();
         uint32 getBaseID();
         uint32 getItemNumber();
@@ -22,6 +22,8 @@ class GameItem:public Entry
 		uint32 onUse(GamePlayer *player);
 		uint8 getPackType();
         ItemData m_data;
+
+		uint32 serialize(uint8 *out);
 };
 
 #endif

@@ -118,8 +118,26 @@ typedef map<uint32,uint32>  BaseMap;
 typedef set<uint32> BaseSet;
 
 
+#define PLAYER_SAVE_DATA_MAX_SIZE 200*1024
+
 class GameItem;
 typedef map<uint32 , GameItem*> ItemMap;
+
+
+struct SerializeDataMember
+{
+	SerializeDataMember()
+	{
+		type = 0;
+		num = 0;
+	}
+	ALL_SIZE_FUNC(num, data);
+	DATA_SIZE_FUNC(num, data);
+	uint32 type;
+	uint32 num;
+	char data[0];
+};
+
 
 #endif
 

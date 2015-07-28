@@ -39,6 +39,8 @@ class GamePlayerPackages
 
 		uint32 useItemByThisId(uint32 baseid,uint32 num=1);
 
+		void serialize(uint8 *out);
+
 	private:
 		uint32 useItem(GameItem* item,uint32 num);
 	public:

@@ -74,4 +74,20 @@ LinuxTcpConnection*  pp =  static_cast<LinuxTcpConnection*> (&connection);\
 pp->send(buff,len);
 
 
+
+
+#define ALL_SIZE_FUNC(num, data)    \
+	uint32 allSize() const \
+{   \
+	return sizeof(*this) + (num) * sizeof(data[0]);     \
+}
+
+#define DATA_SIZE_FUNC(num, data)       \
+	uint32 dataSize() const    \
+{   \
+	return (num) * sizeof(data[0]); \
+}
+
+
+
 #endif

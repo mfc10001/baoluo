@@ -78,4 +78,25 @@ uint32 GameItem::onUse(GamePlayer *player)
 	}
 }
 
+uint32 GameItem::serialize(uint8 *out)
+{
+
+	CheckCondition(out && player, 0);
+	uint32 num = 0;
+	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
+	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
+	bzero(buffer, len);
+
+	SerializeDataMember* next = (SerializeDataMember*)(buffer);
+
+	bcopy(&m_data,next->data,sizeof(m_data));
+	next->type=0;
+	next->num=sizeof(m_data);
+	num+=next->allSize();
+	next=(SerializeDataMember*)(&next->data[next->num]);
+
+	memcpy(buffer,out,num);
+	return num;
+}
+
 

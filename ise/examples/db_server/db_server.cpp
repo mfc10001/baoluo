@@ -83,7 +83,7 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
     char buff[BUFFLEN];
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
-	sprintf(buff,"update bl_user set level = u%,exp = u%,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u.money=%u,diamond=%u where uid=%u",
+	sprintf(buff,"update bl_user set level = %u,exp = %u,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u.money=%u,diamond=%u where uid=%u",
 		arrayObj["base"]["level"].asUInt(),arrayObj["base"]["exp"].asUInt(),arrayObj["base"]["physicsAttack"].asUInt(),
 		arrayObj["base"]["magicAttack"].asUInt(),arrayObj["base"]["barmor"].asUInt(),arrayObj["base"]["bresistance"].asUInt(),
 		arrayObj["base"]["hp"].asUInt(),arrayObj["base"]["hit"].asUInt(),arrayObj["base"]["dodge"].asUInt(),
@@ -102,20 +102,24 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 
 	}
 
-	if(arrayObj["package"]["base_type"] == ItemType_Equip)
-	{
+	//if(arrayObj["package"]["base_type"] == ItemType_Equip)
+	/*{
 		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type,Strengthen,Hole1,Hole2,Hole3,Hole4) values (%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u)",
 			arrayObj["package"]["baseid"].asUInt(),uid,arrayObj["package"]["thisid"].asUInt(),
 			arrayObj["package"]["num"].asUInt(),arrayObj["package"]["base_type"].asUInt(),
 			arrayObj["package"]["Strengthen"].asUInt(),arrayObj["package"]["Hole1"].asUInt(),
 			arrayObj["package"]["Hole2"].asUInt(),arrayObj["package"]["Hole3"].asUInt(),
 			arrayObj["package"]["Hole4"].asUInt());
-	}
-	else
+	}*/
+	
 	{
+		sprintf(buff,"replace into  bl_item (uid,item_bin) values (%u,%u)",uid,arrayObj["package"][uid].asString());
+		
+		/*
 		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type) values (%u,%u,%u,%u,%u,%u)",
 			arrayObj["package"]["baseid"].asUInt(),uid,arrayObj["package"]["thisid"].asUInt(),
 			arrayObj["package"]["num"].asUInt(),arrayObj["package"]["base_type"].asUInt());
+		*/
 	}
 
 	query->setSql(buff);
