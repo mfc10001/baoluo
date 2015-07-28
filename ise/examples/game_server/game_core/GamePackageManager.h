@@ -21,7 +21,7 @@ class GamePlayerPackages
 		bool reduceItemNumByBaseID(const uint32 baseid, const uint32 num, DelItemAction action);
 		bool reduceItemNumByThisID(uint32 thisid, uint32 num, DelItemAction action);
 
-		void SendChangeItem(uint32 thisid,uint32 num,uint8 pack_type,bool opt);
+		void SendChangeItem(uint32 thisid,uint32 itemid,uint32 num,uint8 pack_type,bool opt);
 		bool deleteItem(GameItem* &item, DelItemAction action);
 
 

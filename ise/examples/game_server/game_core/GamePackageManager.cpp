@@ -17,7 +17,7 @@ GamePlayerPackages::~GamePlayerPackages()
 {
 
 }
-void GamePlayerPackages::SendChangeItem(uint32 thisid,uint32 num,uint8 pack_type,bool opt)
+void GamePlayerPackages::SendChangeItem(uint32 thisid,uint32 itemid,uint32 num,uint8 pack_type,bool opt)
 {
 	uint32 err=ERR_SUCCESS;
 	Json::Value rValue;
@@ -25,6 +25,7 @@ void GamePlayerPackages::SendChangeItem(uint32 thisid,uint32 num,uint8 pack_type
 	uint32 rNo=PROTOCOL_ITEM_NOTITY_S;
 
 	rData["thisid"]=thisid;
+	rData["itemid"]=itemid;
 	rData["changnum"]=num;
 	rData["pack_type"]=pack_type;
 	rData["opt"]=opt;
@@ -72,7 +73,7 @@ bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
 		{
 		return false;
 	}
-	SendChangeItem(item->getEntryID(),item->m_data.num,item->getPackType(),true);
+	SendChangeItem(item->getEntryID(),item->getBaseID(),item->m_data.num,item->getPackType(),true);
 	return true;
 }
 
@@ -102,7 +103,7 @@ bool GamePlayerPackages::reduceItemNumByThisID(uint32 thisid, uint32 num, DelIte
 	}
 
 	
-	SendChangeItem(thisid,num,item->getPackType(),false);
+	SendChangeItem(thisid,item->getBaseID(),num,item->getPackType(),false);
 	return item->subNumber(num, m_owner, action);
 }
 
