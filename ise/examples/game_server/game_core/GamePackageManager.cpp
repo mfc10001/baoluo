@@ -1,6 +1,8 @@
 
 #include "GamePackageManager.h"
 #include "GameItem.h"
+#include "ise/ext/utils/cipher/ise_cipher.h"
+
 GamePlayerPackages::GamePlayerPackages(GamePlayer *player)
 : m_uim(player),
 m_commom_pack(&m_uim),
@@ -102,7 +104,7 @@ bool GamePlayerPackages::reduceItemNumByThisID(uint32 thisid, uint32 num, DelIte
 		return deleteItem(item, action);
 	}
 
-	
+
 	SendChangeItem(thisid,item->getBaseID(),num,item->getPackType(),false);
 	return item->subNumber(num, m_owner, action);
 }
@@ -148,7 +150,7 @@ bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelIte
 	}
 	if(ret)
 	{
-			
+
 	}
 	return ret;
 }
@@ -202,8 +204,9 @@ void GamePlayerPackages::fillDBData(Json::Value &data)
 {
 	m_equip_pack.fillData(data["equip"]);
 
-	
+
 	m_uim.fillDbData(data["uin"]);
+
 
 	ReadJsonData(data["uin"]);
 	
