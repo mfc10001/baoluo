@@ -104,15 +104,7 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj,uint8 pos)
         arrayObj.append(temp);
 	}
 }
-void GameItemManager::save()
-{
-/*
-	Json::Value data;
-	data["type"]=INNER_SAVE_PACKAGE_DATA;
-	fillDbData(data["data"]);
-	AppBusiness::sendToDb(data);
-	*/
-}
+
 uint32 GameItemManager::serialize(uint8 *out)
 {
 	uint32 num = 0;

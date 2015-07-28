@@ -195,6 +195,10 @@ void GamePlayerPackages::fillDBData(Json::Value &data)
 
 	
 	m_uim.fillDbData(data["uin"]);
+
+	string aa =data["uin"].asString();
+	string bb = base64Decode(aa.c_str(),aa.length());
+	return;
 }
 
 void GamePlayerPackages::fill(Json::Value &data)

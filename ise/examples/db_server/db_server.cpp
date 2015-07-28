@@ -80,7 +80,7 @@ void AppBusiness::onTcpRecvComplete(const TcpConnectionPtr & connection,void * p
 void AppBusiness::savePlayer(Json::Value &arrayObj)
 {
 	uint32 uid=arrayObj["base"]["uid"].asUInt();
-    char buff[BUFFLEN];
+    char buff[SQL_BUFFLEN]={0};
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
 	sprintf(buff,"update bl_user set level = %u,exp = %u,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u.money=%u,diamond=%u where uid=%u",
@@ -102,6 +102,7 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 
 	}
 
+	bzero(buff,SQL_BUFFLEN);
 	//if(arrayObj["package"]["base_type"] == ItemType_Equip)
 	/*{
 		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type,Strengthen,Hole1,Hole2,Hole3,Hole4) values (%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u)",
@@ -113,6 +114,7 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 	}*/
 
 	{
+		
 		sprintf(buff,"replace into  bl_item (uid,item_bin) values (%u,%s)",uid,arrayObj["package"]["uin"].asString().c_str());
 
 		/*

@@ -112,6 +112,9 @@ enum ErrCode
 #define MAX_NAME_SIZE 50
 #define MAX_SOUL_PACKAGE_SOLT  6
 const uint16 BUFFLEN  = 2048;
+
+const uint16 SQL_BUFFLEN  = 10*1024;
+
 const uint16 RECV_TIMEOUT = 1000*5;  // ms
 //const uint16 MAX_NAMESIZE =48;
 #define MAX_NAMESIZE 48

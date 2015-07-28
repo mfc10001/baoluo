@@ -17,7 +17,6 @@ class GameItemManager
         GameItemManager(GamePlayer *user);
         ~GameItemManager();
 
-		void save();
 		void  fillDbData(Json::Value &arrayObj);
 		void fillDbData(Json::Value &arrayObj,uint8 pos);
 		GameItem* getItemByThisID(uint32 thisid);
