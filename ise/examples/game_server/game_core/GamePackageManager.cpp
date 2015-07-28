@@ -17,6 +17,31 @@ GamePlayerPackages::~GamePlayerPackages()
 {
 
 }
+void GamePlayerPackages::SendChangeItem(uint32 thisid,uint32 num,uint8 pack_type,bool opt)
+{
+	uint32 err=ERR_SUCCESS;
+	Json::Value rValue;
+	Json::Value rData;
+	uint32 rNo=PROTOCOL_ITEM_NOTITY_S;
+
+	rData["thisid"]=thisid;
+	rData["changnum"]=num;
+	rData["pack_type"]=pack_type;
+	rData["opt"]=opt;
+
+	rValue["code"]=err;
+	rValue["type"]=rNo;
+	rValue["data"]=rData;
+	string str = rValue.toStyledString();
+
+	char buff[MAX_SEND_BUFF];
+	memset(buff,0,MAX_SEND_BUFF);
+	uint16 len=str.length()+2;
+	memcpy(buff,&len,sizeof(uint16));
+	memcpy(buff+2,str.c_str(),str.length());
+	LinuxTcpConnection*  pp =  static_cast<LinuxTcpConnection*> (&m_owner->getCon());
+	pp->send(buff,len);
+}
 
 bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
 {
@@ -26,23 +51,28 @@ bool GamePlayerPackages::obtainItem(GameItem* &item, AddItemAction action)
 		{
 			case PackageType_Common:
 				{
-					return m_commom_pack.addItem(item,action);
+					 m_commom_pack.addItem(item,action);
 				}
 				break;
 			case PackageType_Soul:
 				{
-					return m_soul_pack.addItem(item,action);
+					 m_soul_pack.addItem(item,action);
 				}
 				break;
 			case PackageType_Treasure:
 				{
-					return m_treasure_pack.addItem(item,action);
+					 m_treasure_pack.addItem(item,action);
 				}
 				break;
 			default:
 				return false;
 		}
 	}
+	else
+		{
+		return false;
+	}
+	SendChangeItem(item->getEntryID(),item->m_data.num,item->getPackType(),true);
 	return true;
 }
 
@@ -56,9 +86,29 @@ bool GamePlayerPackages::deleteItem(GameItem* &item, DelItemAction action)
     }
 
 }
+bool GamePlayerPackages::reduceItemNumByThisID(uint32 thisid, uint32 num, DelItemAction action)
+{
+	GameItem *item = m_uim.getItemByThisID(thisid);
+	CheckCondition(item, false);
+
+	if(item->m_data.num < num)
+	{
+		return false;
+	}
+
+	if(item->m_data.num == num)
+	{
+		return deleteItem(item, action);
+	}
+
+	
+	SendChangeItem(thisid,num,item->getPackType(),false);
+	return item->subNumber(num, m_owner, action);
+}
 
 bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelItemAction action)
 {
+	return false;
 	vector<GameItem*>  dellist;
 	GameItem* last_del;
 	bool ret=false;
@@ -95,6 +145,11 @@ bool GamePlayerPackages::reduceItemNumByBaseID(uint32 baseid, uint32 num, DelIte
 	{
 		last_del->subNumber(num, m_owner, action);
 	}
+	if(ret)
+	{
+			
+	}
+	return ret;
 }
 
 

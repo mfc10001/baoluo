@@ -43,6 +43,7 @@ class GamePlayer:public GameEntry
 		void  fillClientData(Json::Value &arrayObj);
 		void  fillDbData(Json::Value &arrayObj);
 
+		TcpConnection& getCon(){return connection};
 		//½ðÇ®²Ù×÷
 		bool checkMoney(MoneyType eType, const uint64 num);
 		uint64 	getMoney(MoneyType eType) const;

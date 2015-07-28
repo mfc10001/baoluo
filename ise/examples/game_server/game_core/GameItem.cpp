@@ -17,6 +17,11 @@ uint8 GameItem::getBaseType()
 	return m_data.base_type;
 }
 
+uint8 GameItem::getPackType()
+{
+	return m_data.pack_type;
+}
+
 uint32 GameItem::getBaseID()
 {
 	return m_data.baseid;

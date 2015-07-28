@@ -20,7 +20,7 @@ class GameItem:public Entry
         void updateEquipStrengthenLev();
 
 		uint32 onUse(GamePlayer *player);
-		
+		uint8 getPackType();
         ItemData m_data;
 };
 
