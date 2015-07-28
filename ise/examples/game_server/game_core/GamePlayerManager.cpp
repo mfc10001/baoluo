@@ -94,7 +94,7 @@ GamePlayer *GamePlayerManager::getPlayer(uint32 uid)
 
 void GamePlayerManager::SaveAll()
 {
-	for(PlayerManagerMap::iterator it=m_player_manager_.end();it!=m_player_manager_.end();it++)
+	for(PlayerManagerMap::iterator it=m_player_manager_.begin();it!=m_player_manager_.end();it++)
 	{
 		(*it).second->save();
 	}

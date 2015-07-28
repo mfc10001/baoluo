@@ -242,15 +242,18 @@ void AppBusiness::assistorThreadExecute(AssistorThread& assistorThread, int assi
 
             }
 
-			usleep(1000);
+			sleep(1);
 		}
 
 
 	}
 	else if(assistorIndex==1)
 	{
-		GamePlayerManager::instance().SaveAll();
-		usleep(10000);
+		while(true)
+		{
+			GamePlayerManager::instance().SaveAll();
+			sleep(10);
+		}
 	}
 	/*
 	else if(assistorIndex==1)

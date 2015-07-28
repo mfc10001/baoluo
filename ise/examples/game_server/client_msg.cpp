@@ -76,6 +76,7 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 				rNo=PROTOCOL_PACK_LIST_S;
 				uint32 pos = arrayObj["pos"].asUInt();
 				player->m_pack_manager.fill(rData,pos);
+				rData["pack_type"]=pos;
 				err=ERR_SUCCESS;
 			}
 			break;
