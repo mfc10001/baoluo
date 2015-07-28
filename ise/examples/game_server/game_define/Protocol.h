@@ -2,6 +2,7 @@
 #define _ISE_ERR_H_
 #include <map>
 #include <set>
+#include "BaseType.h"
 using namespace std;
 enum Protocol
 {

@@ -7,12 +7,12 @@
 using namespace std;
 
 #define bcopy(src,dst,size)	memcpy(dst,src,size);
-
+/*
 inline void bzero(void* Dest, int Count)
 {
         memset(Dest,0,Count);
 }
-
+*/
 
 
 typedef vector<string> StrContaonType;

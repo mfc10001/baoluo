@@ -81,7 +81,7 @@ uint32 GameItem::onUse(GamePlayer *player)
 uint32 GameItem::serialize(uint8 *out)
 {
 
-	CheckCondition(out && player, 0);
+	CheckCondition(out, 0);
 	uint32 num = 0;
 	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
 	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;

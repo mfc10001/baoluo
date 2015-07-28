@@ -25,5 +25,5 @@ add_executable(main_server
 
   )
 
-target_link_libraries(main_server ise ise_utils_json  ise_dbi_mysql)
+target_link_libraries(main_server ise ise_utils_json  ise_dbi_mysql ise_utils_cipher)
 

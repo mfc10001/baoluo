@@ -19,12 +19,13 @@ uint32 StoreManager::buyGoods(uint32 &goodsId,GamePlayer *player)
 
            if(isSuccess)
            {
+               player->subMoney(MoneyType_Diamond,goodsData->price,DelMoneyAction_Store);
                return ERR_SUCCESS;
 
            }else{
                return ERR_PACK_NULL;
            }
-           player->subMoney(MoneyType_Diamond,goodsData->price,DelMoneyAction_Store);
+
         }else
         {
             return ERR_DIAMOND_LACK;

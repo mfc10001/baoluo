@@ -28,7 +28,7 @@ class GameItemManager
         void removeItem(GameItem* item);
 
         friend class Singleton<GameItemManager>;
-
+        uint32 serialize(uint8 *out);
         ItemMap m_item_manager;
         GamePlayer *owner;
 

@@ -2,7 +2,7 @@
 #include "../game_define/BaseType.h"
 #include "GameItem.h"
 
-
+#include "ise/ext/utils/cipher/ise_cipher.h"
 GameItemManager::GameItemManager(GamePlayer *user)
 :owner(user)
 {
@@ -45,13 +45,14 @@ GamePlayer *GameItemManager::getOwner()
 void  GameItemManager::fillDbData(Json::Value &arrayObj)
 {
 	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
+	memset(buffer,0,PLAYER_SAVE_DATA_MAX_SIZE);
 	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
 
-	uint32 num =serialize(buffer);
+	uint32 num =serialize((uint8*)buffer);
 
-	String json = new String(base64Encode(data),num); 
+	string json = ise::utils::base64Encode(buffer,num);
 	arrayObj	=	json;
-	
+
 	/*
 
 	for(ItemMap::iterator it = m_item_manager.begin();it != m_item_manager.end();it++)
@@ -65,8 +66,8 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 		temp["base_type"]=entry->m_data.base_type;
 
 
-		String json = new String(Base64.encodeBase64(data));  
-		
+		String json = new String(Base64.encodeBase64(data));
+
 		/*
 		if(entry->m_data.base_type == ItemType_Equip)
 		{
@@ -76,7 +77,7 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 			temp["Hole3"]=entry->m_data.Hole3;
 			temp["Hole4"]=entry->m_data.Hole4;
 		}
-		
+
 		arrayObj.append(temp);
 	}
 	*/
@@ -116,6 +117,7 @@ uint32 GameItemManager::serialize(uint8 *out)
 {
 	uint32 num = 0;
 	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
+	memset(buffer,0,PLAYER_SAVE_DATA_MAX_SIZE);
 	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
 
 	SerializeDataMember* next = (SerializeDataMember*)(buffer);
@@ -123,9 +125,9 @@ uint32 GameItemManager::serialize(uint8 *out)
 	for(ItemMap::iterator it = m_item_manager.begin();it != m_item_manager.end();it++)
 	{
 		GameItem *entry = (*it).second;
-		
+
         next->type=0;
-        next->num=entry->serialize(next->data);;
+        next->num=entry->serialize((uint8*)next->data);;
         num+=next->allSize();
         next=(SerializeDataMember*)(&next->data[next->num]);
 	}

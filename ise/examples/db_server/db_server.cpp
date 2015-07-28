@@ -111,10 +111,10 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
 			arrayObj["package"]["Hole2"].asUInt(),arrayObj["package"]["Hole3"].asUInt(),
 			arrayObj["package"]["Hole4"].asUInt());
 	}*/
-	
+
 	{
-		sprintf(buff,"replace into  bl_item (uid,item_bin) values (%u,%u)",uid,arrayObj["package"][uid].asString());
-		
+		sprintf(buff,"replace into  bl_item (uid,item_bin) values (%u,%s)",uid,arrayObj["package"]["uin"].asString().c_str());
+
 		/*
 		sprintf(buff,"replace into  bl_item (itemid,uid,thisid,baseid,num,base_type) values (%u,%u,%u,%u,%u,%u)",
 			arrayObj["package"]["baseid"].asUInt(),uid,arrayObj["package"]["thisid"].asUInt(),
