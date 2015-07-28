@@ -85,6 +85,9 @@ bool AppBusiness::msgProcess(const TcpConnectionPtr& connection,uint32 type,Json
 					MySqlField* role = static_cast<MySqlField *> (res->getFields("role"));
 					MySqlField* level = static_cast<MySqlField *> (res->getFields("level"));
 					MySqlField* exp = static_cast<MySqlField *> (res->getFields("exp"));
+					MySqlField* money = static_cast<MySqlField *> (res->getFields("money"));
+					MySqlField* diamond = static_cast<MySqlField *> (res->getFields("diamond"));
+
 					MySqlField* physicsAttack = static_cast<MySqlField *> (res->getFields("physicsAttack"));
 					MySqlField* magicAttack = static_cast<MySqlField *> (res->getFields("magicAttack"));
 					MySqlField* barmor = static_cast<MySqlField *> (res->getFields("barmor"));

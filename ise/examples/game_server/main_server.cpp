@@ -94,7 +94,7 @@ void AppBusiness::initIseOptions(IseOptions& options)
     options.setTcpServerEventLoopCount(1);
 
 
-	options.setAssistorThreadCount(1);
+	options.setAssistorThreadCount(2);
 
 }
 

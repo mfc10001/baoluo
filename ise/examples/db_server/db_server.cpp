@@ -83,11 +83,11 @@ void AppBusiness::savePlayer(Json::Value &arrayObj)
     char buff[BUFFLEN];
 	MySqlQuery *query=static_cast<MySqlQuery *> (m_db_conn->createDbQuery());
 
-	sprintf(buff,"update bl_user set level = u%,exp = u%,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u where uid=%u",
+	sprintf(buff,"update bl_user set level = u%,exp = u%,physicsAttack = %u,magicAttack = %u,barmor=%u,bresistance=%u,hp=%u,hit=%u,dodge=%u,crit=%u.money=%u,diamond=%u where uid=%u",
 		arrayObj["base"]["level"].asUInt(),arrayObj["base"]["exp"].asUInt(),arrayObj["base"]["physicsAttack"].asUInt(),
 		arrayObj["base"]["magicAttack"].asUInt(),arrayObj["base"]["barmor"].asUInt(),arrayObj["base"]["bresistance"].asUInt(),
 		arrayObj["base"]["hp"].asUInt(),arrayObj["base"]["hit"].asUInt(),arrayObj["base"]["dodge"].asUInt(),
-		arrayObj["base"]["crit"].asUInt(),uid);
+		arrayObj["base"]["crit"].asUInt(),arrayObj["base"]["money"].asUInt(),arrayObj["base"]["diamond"].asUInt(),uid);
 
 	query->setSql(buff);
 

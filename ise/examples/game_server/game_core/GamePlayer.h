@@ -29,7 +29,7 @@ class GamePlayer:public GameEntry
 
 		//设置职业
 		void setRole(uint8 type);
-		
+
 		void save();
 
 		void registerPlayerHandler(const PlayerLevelHandlerCallback& callback);
@@ -43,7 +43,7 @@ class GamePlayer:public GameEntry
 		void  fillClientData(Json::Value &arrayObj);
 		void  fillDbData(Json::Value &arrayObj);
 
-		TcpConnection& getCon(){return connection};
+		TcpConnection& getCon(){return connection;};
 		//金钱操作
 		bool checkMoney(MoneyType eType, const uint64 num);
 		uint64 	getMoney(MoneyType eType) const;

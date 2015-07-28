@@ -143,7 +143,8 @@ void GamePlayer::init(Json::Value &arrayObj)
 		createChar();
 		return;
 	}
-
+    m_packet[MoneyType_Money]=arrayObj["Money"].asUInt();
+    m_packet[MoneyType_Diamond]=arrayObj["Diamond"].asUInt();
 
 	m_base_data[ PlayerAttr_physicsAttack] = arrayObj["physicsAttack"].asUInt();
 	m_base_data[ PlayerAttr_magicAttack]	= arrayObj["magicAttack"].asUInt();
@@ -182,6 +183,8 @@ void  GamePlayer::fillDbData(Json::Value &arrayObj)
 	arrayObj["exp"]=m_base_attr.exp;
 	arrayObj["init_flag"]=m_base_attr.init_flag;
 
+	arrayObj["money"]=m_packet[MoneyType_Money];
+	arrayObj["diamond"]=m_packet[MoneyType_Diamond];
 
 	arrayObj["physicsAttack"] =m_base_data[ PlayerAttr_physicsAttack];
 	arrayObj["magicAttack"]=   m_base_data[ PlayerAttr_magicAttack];
