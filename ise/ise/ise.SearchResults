@@ -1,4 +1,4 @@
----- usleep Matches (3 in 1 files) ----
-Main_server.cpp (e:\baoluo\ise\examples\game_server):			usleep(1000);
-Main_server.cpp (e:\baoluo\ise\examples\game_server):		usleep(10000);
-Main_server.cpp (e:\baoluo\ise\examples\game_server):			usleep(1000);
+---- base64Decode Matches (3 in 3 files) ----
+GamePackageManager.cpp (e:\baoluo\ise\examples\game_server\game_core):	string bb = base64Decode(aa.c_str(),aa.length());
+Ise_cipher.cpp (ext\utils\cipher):binary base64Decode(PVOID data, int dataSize)
+Ise_cipher.h (ext\utils\cipher):binary base64Decode(PVOID data, int dataSize);

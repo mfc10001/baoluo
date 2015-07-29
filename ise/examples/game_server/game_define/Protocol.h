@@ -106,6 +106,10 @@ enum ErrCode
 };
 
 
+enum FuncNode
+{
+	FuncNode_Package=1,
+};
 #define MAX_SEND_BUFF 4086
 #define MAX_REV_BUFF 4096
 

@@ -48,9 +48,12 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 	memset(buffer,0,PLAYER_SAVE_DATA_MAX_SIZE);
 	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
 
-	uint32 num =serialize((uint8*)buffer);
+	SerializeDataMember* next = (SerializeDataMember*)(buffer);
+	
+	next->type=FuncNode_Package;
+	next->num =serialize((uint8*)next->data);
 
-	string json = ise::utils::base64Encode(buffer,num);
+	string json = ise::utils::base64Encode(buffer,next->num);
 
 
 
