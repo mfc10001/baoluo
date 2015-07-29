@@ -51,6 +51,9 @@ void  GameItemManager::fillDbData(Json::Value &arrayObj)
 	uint32 num =serialize((uint8*)buffer);
 
 	string json = ise::utils::base64Encode(buffer,num);
+
+
+
 	arrayObj	=	json;
 
 	/*
@@ -110,7 +113,7 @@ uint32 GameItemManager::serialize(uint8 *out)
 	uint32 num = 0;
 	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
 	memset(buffer,0,PLAYER_SAVE_DATA_MAX_SIZE);
-	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
+
 
 	SerializeDataMember* next = (SerializeDataMember*)(buffer);
 
@@ -118,12 +121,12 @@ uint32 GameItemManager::serialize(uint8 *out)
 	{
 		GameItem *entry = (*it).second;
 
-        next->type=0;
+        next->type=1;
         next->num=entry->serialize((uint8*)next->data);;
         num+=next->allSize();
         next=(SerializeDataMember*)(&next->data[next->num]);
 	}
-	memcpy(buffer,out,num);
+	bcopy(buffer,out,num);
 	return num;
 }
 void GameItemManager::unserialize(SerializeDataMember *in_data)
@@ -140,7 +143,7 @@ void GameItemManager::unserialize(SerializeDataMember *in_data)
 	{
 		switch(in->type)
 			{
-			case 0:
+			case 1:
 				{
 					GameItem *item = new GameItem();
 					item->unserialize((uint8*)in->data);

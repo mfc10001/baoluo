@@ -193,10 +193,9 @@ uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 
 bool GamePlayerPackages::ReadJsonData(Json::Value &data)
 {
-	string it_data=data.asString();
+	string aa=data.asString();
 
-	string bb = base64Decode(aa.c_str(),aa.length());
-
+	string bb = ise::utils::base64Decode((void*)aa.c_str(),aa.length());
 
 	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
 	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
@@ -206,7 +205,6 @@ bool GamePlayerPackages::ReadJsonData(Json::Value &data)
 	SerializeDataMember *next = (SerializeDataMember *)buffer;
 	m_uim.unserialize(next);
 	return true;
-
 }
 
 void GamePlayerPackages::fillDBData(Json::Value &data)
