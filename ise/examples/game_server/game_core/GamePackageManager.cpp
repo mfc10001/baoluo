@@ -196,7 +196,15 @@ bool GamePlayerPackages::ReadJsonData(Json::Value &data)
 	string it_data=data.asString();
 
 	string bb = base64Decode(aa.c_str(),aa.length());
-	m_uim.unserialize(bb.c_str());
+
+
+	char buffer[PLAYER_SAVE_DATA_MAX_SIZE];
+	uint32 len = PLAYER_SAVE_DATA_MAX_SIZE;
+	bzero(buffer, len);
+	bcopy(bb.c_str(), buffer, bb.length());
+
+	SerializeDataMember *next = (SerializeDataMember *)buffer;
+	m_uim.unserialize(next);
 	return true;
 
 }
