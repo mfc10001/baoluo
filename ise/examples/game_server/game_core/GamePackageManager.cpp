@@ -193,11 +193,12 @@ uint32 GamePlayerPackages::onSolt(uint32 thisid,uint8 pos)
 
 bool GamePlayerPackages::ReadJsonData(Json::Value &data)
 {
-	string it_data=data["uin"].asString();
+	string it_data=data.asString();
+
 	string bb = base64Decode(aa.c_str(),aa.length());
 	m_uim.unserialize(bb.c_str());
 	return true;
-	
+
 }
 
 void GamePlayerPackages::fillDBData(Json::Value &data)
@@ -209,7 +210,7 @@ void GamePlayerPackages::fillDBData(Json::Value &data)
 
 
 	ReadJsonData(data["uin"]);
-	
+
 	return;
 }
 

@@ -100,7 +100,7 @@ uint32 GameItem::serialize(uint8 *out)
 }
 void GameItem::unserialize(uint8* in_data)
 {
-	bcopy(in->data,&m_data,sizeof(m_data));
+	bcopy(in_data,&m_data,sizeof(m_data));
 }
 
 
